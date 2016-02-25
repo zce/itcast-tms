@@ -1,0 +1,255 @@
+{{extend('./layout')}}
+{{#block('title')}}开始教学质量评估{{/block}}
+{{#block('subtitle')}}<a href="/">返回</a>{{/block}}
+
+{{#block('container')}}
+<form action="/watch/" method="post" autocomplete="off">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group form-group-lg">
+        <label for="school_name">所属校区</label>
+        <select class="form-control" id="school_name" name="school_name" data-rule-required="true" data-msg-required="请选择分校">
+          {{#each(schools, 'info', 'name')}}
+          <option value="{{name}}">{{name}}</option>
+          {{/each}}
+        </select>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="academy_name">所属学院</label>
+        <select class="form-control" id="academy_name" name="academy_name" data-rule-required="true" data-msg-required="请选择学科">
+          {{#each(academies, 'info', 'name')}}
+          <option value="{{name}}">{{name}}</option>
+          {{/each}}
+        </select>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="subject_name">所属学科</label>
+        <select class="form-control" id="subject_name" name="subject_name" data-rule-required="true" data-msg-required="请选择学科"></select>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="class_count">班级总人数</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="class_count" name="class_count" placeholder="请输入班级总人数" data-rule-required="true" data-msg-required="请输入班级总人数" value="">
+          <span class="input-group-addon">人</span>
+        </div>
+        <p class="help-block"></p>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason1_count">留级人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason1_count" name="reason1_count" placeholder="请输入留级人数" data-rule-required="true" data-msg-required="请输入留级人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason2_count">病假人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason2_count" name="reason2_count" placeholder="请输入病假人数" data-rule-required="true" data-msg-required="请输入病假人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason3_count">事假人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason3_count" name="reason3_count" placeholder="请输入事假人数" data-rule-required="true" data-msg-required="请输入事假人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason4_count">回学校人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason4_count" name="reason4_count" placeholder="请输入回学校人数" data-rule-required="true" data-msg-required="请输入回学校人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason5_count">已经找到工作人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason5_count" name="reason5_count" placeholder="请输入已经找到工作人数" data-rule-required="true" data-msg-required="请输入已经找到工作人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason6_count">到其他班上自习人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason6_count" name="reason6_count" placeholder="请输入到其他班上自习人数" data-rule-required="true" data-msg-required="请输入到其他班上自习人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason7_count">在家复习人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason7_count" name="reason7_count" placeholder="请输入在家复习人数" data-rule-required="true" data-msg-required="请输入在家复习人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason8_count">老师讲的不好，不想听课</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason8_count" name="reason8_count" placeholder="请输入老师讲的不好，不想听课人数" data-rule-required="true" data-msg-required="请输入老师讲的不好，不想听课人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group form-group-lg">
+            <label for="reason9_count">其他未到人数</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="reason9_count" name="reason9_count" placeholder="请输入其他未到人数" data-rule-required="true" data-msg-required="请输入其他未到人数" value="0">
+              <span class="input-group-addon">人</span>
+            </div>
+            <p class="help-block"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group form-group-lg">
+        <label for="class_name">班级名称</label>
+        <input type="text" class="form-control" id="class_name" name="class_name" placeholder="请输入班级名称" data-rule-required="true" data-msg-required="请输入班级名称" value="">
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="course_name">课程阶段</label>
+        <input type="text" class="form-control" id="course_name" name="course_name" placeholder="请输入课程阶段" data-rule-required="true" data-msg-required="请输入课程阶段" value="">
+        <p class="help-block">{{!-- 如：Java基础、电商项目等 --!}}</p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="course_days">课程天数</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="course_days" name="course_days" placeholder="请输入课程天数" data-rule-required="true" data-msg-required="请输入课程天数" value="">
+          <span class="input-group-addon">天</span>
+        </div>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="head_name">班主任姓名</label>
+        <input type="text" class="form-control" id="head_name" name="head_name" placeholder="请输入讲师名称" data-rule-required="true" data-msg-required="请输入讲师名称" value="">
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="teacher_name">讲师姓名</label>
+        <input type="text" class="form-control" id="teacher_name" name="teacher_name" placeholder="请输入讲师名称" data-rule-required="true" data-msg-required="请输入讲师名称" value="">
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="teacher_email">讲师邮箱</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="teacher_email" name="teacher_email" placeholder="请输入讲师邮箱" data-rule-required="true" data-msg-required="请输入讲师邮箱" value="">
+          <span class="input-group-addon">@itcast.cn</span>
+        </div>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group form-group-lg">
+        <label for="test_date">测评日期</label>
+        <input type="text" class="form-control" id="test_date" name="datetime" readonly="readonly" tabindex="-1">
+        <p class="help-block"></p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div id="message"></div>
+  <button id="btn_start" class="btn btn-info btn-block btn-lg" type="submit">开始评估</button>
+</form>
+{{/block}}
+
+{{#block('scripts')}}
+<script src="/vender/validate/jquery.validate.min.js"></script>
+<script>
+  $(function() {
+    'use strict';
+
+    $('#test_date').val(new Date().format('yyyy-MM-dd HH:mm'));
+
+    let academies = {{{stringify(academies)}}};
+    let schools = {{{stringify(schools)}}};
+    let subjects = {{{stringify(subjects)}}};
+
+    let $academySelect = $('#academy_name');
+    let $schoolSelect = $('#school_name');
+    let $subjectSelect = $('#subject_name');
+
+    function selectHandler () {
+      let academy =  $academySelect.val();
+      let school =  $schoolSelect.val();
+      let tempArr = [];
+      for(let i = 0; i < subjects.length; i++){
+        if(subjects[i].academy === academy && subjects[i].school === school) {
+          tempArr.push(subjects[i]);
+        }
+      }
+      $subjectSelect.empty();
+      if(tempArr.length) {
+        tempArr.forEach(function(item) {
+          $subjectSelect.append(`<option value="${item.name}">${item.name}</option>`);
+        });
+      } else {
+        $subjectSelect.append(`<option value="-1">暂无对应学科</option>`);
+      }
+    }
+    $academySelect.on('change', selectHandler);
+    $schoolSelect.on('change', selectHandler).trigger('change');
+
+    $('#btn_start').on('click', function() {
+      if($subjectSelect.val() == -1) {
+        alert('请正确选择学科');
+        return false;
+      }
+    });
+
+    var $formDom = $('form');
+    $formDom.validate({
+      errorElement: 'p',
+      errorClass: 'help-block',
+      focusInvalid: false,
+
+      highlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+      },
+
+      success: function(label) {
+        label.closest('.form-group').removeClass('has-error').addClass('has-success');
+        label.remove();
+      },
+
+      errorPlacement: function(error, element) {
+        // element.parentsUntil('.form-group').append(error);
+        // console.log(error);
+        // $('#message').empty().append(error);
+      },
+
+      // submitHandler: function() {
+      //   console.log($subjectSelect.val() == -1);
+      // }
+    });
+
+  });
+</script>
+{{/block}}

@@ -1,3 +1,5 @@
 node_modules
 /cache
+/release
 core.asar
+gh-pages

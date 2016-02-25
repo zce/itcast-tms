@@ -11,21 +11,25 @@
 const gulp = require('gulp');
 const asar = require('asar');
 const electron = require('gulp-electron');
+const clean = require('gulp-clean');
 const packageJson = require('./package.json');
 
-gulp.task('default', ['asar'], () => {
-  gulp.watch('./core/**/*', ['asar']);
+gulp.task('watch', ['dist'], () => {
+  gulp.watch(['./core/**/*', './data/**/*'], ['dist']);
 });
 
-gulp.task('asar', () => {
+gulp.task('dist', () => {
   let src = './core';
   let dest = './app/core.asar';
   asar.createPackage(src, dest, () => {
     console.log('done asar.');
   });
+
+  gulp.src('./data/**/*')
+    .pipe(gulp.dest('./app/data'));
 });
 
-gulp.task('release', () => {
+gulp.task('release', ['dist'], () => {
   gulp.src('')
     .pipe(electron({
       src: './app',
@@ -52,4 +56,9 @@ gulp.task('release', () => {
       }
     }))
     .pipe(gulp.dest(""));
+});
+
+gulp.task('clean', () => {
+  gulp.src(['./.eva*', './release', './app/core.asar', './app/data'], { read: false })
+    .pipe(clean({ force: true }));
 });

@@ -1,0 +1,92 @@
+{{extend('./layout')}}
+{{#block('title')}}教学质量评估中···{{/block}}
+{{#block('subtitle')}}<a href="/">返回</a>{{/block}}
+
+{{#block('container')}}
+<form action="/stop/{{stamp}}" method="post" autocomplete="off">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>项目</th>
+            <th>数据</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>学科信息</td>
+            <td>{{school_name}} / {{academy_name}} / {{subject_name}}</td>
+        </tr>
+        <tr>
+            <td>评分班级</td>
+            <td>{{class_name}}</td>
+        </tr>
+        <tr>
+            <td>上课内容</td>
+            <td>{{course_name}}</td>
+        </tr>
+        <tr>
+            <td>上课总天数</td>
+            <td>{{course_days}}天</td>
+        </tr>
+        <tr>
+            <td>老师姓名</td>
+            <td>{{teacher_name}}</td>
+        </tr>
+        <tr>
+            <td>老师邮箱</td>
+            <td>{{teacher_email}}@itcast.cn</td>
+        </tr>
+        <tr>
+            <td>评分时间</td>
+            <td>{{datetime}}</td>
+        </tr>
+        <tr>
+            <td>班级总人数</td>
+            <td>{{class_count}}人</td>
+        </tr>
+        <tr>
+            <td>完成打分人数</td>
+            <td><span id="completed_count">0</span>人</td>
+        </tr>
+        <tr>
+            <td>测评地址</td>
+            <td><span id="copy_content" class="text-muted">{{link}}</span> <a id="btn_copy" href="#">点击复制链接</a></td>
+        </tr>
+    </tbody>
+  </table>
+  <hr>
+  <button id="btn_stop" type="submit" onclick="return confirm('您确定要结束评估吗?') && confirm('您真的确定要结束评估吗?')" class="mt30 btn btn-info btn-danger btn-block btn-lg">结束评估</button>
+</form>
+{{/block}}
+
+{{#block('scripts')}}
+<script>
+  $(function() {
+
+    'use strict';
+
+    const electron = require('electron');
+    // 获取打分完成人数
+    let $completedCount = $('#completed_count');
+    function getCompletedCount() {
+      $.get('/count/{{stamp}}', function(count) {
+        $completedCount.text(count);
+        setTimeout(getCompletedCount, 500);
+      });
+    }
+    getCompletedCount();
+
+    // 复制链接
+    $('#btn_copy').on('click', function() {
+      electron.clipboard.writeText($('#copy_content').text());
+      alert('已将打分链接复制到剪贴板，请将链接发送给学生');
+      return false;
+    });
+
+    setTimeout(function() {
+      $('#btn_copy').trigger('click');
+    }, 300);
+
+  });
+</script>
+{{/block}}

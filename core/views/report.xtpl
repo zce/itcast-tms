@@ -1,0 +1,56 @@
+{{extend('./layout')}}
+{{#block('title')}}教学评估结果报告{{/block}}
+
+{{#block('container')}}
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>项目</th>
+            <th>数据</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>所属校区</td>
+            <td>{{info.school}}</td>
+        </tr>
+        <tr>
+            <td>所属学科</td>
+            <td>{{info.subject}}</td>
+        </tr>
+        <tr>
+            <td>评分班级</td>
+            <td>{{info.class_name}}</td>
+        </tr>
+        <tr>
+            <td>上课内容</td>
+            <td>{{info.course_name}}</td>
+        </tr>
+        <tr>
+            <td>上课总天数</td>
+            <td>{{info.course_days}}天</td>
+        </tr>
+        <tr>
+            <td>老师姓名</td>
+            <td>{{info.teacher_name}}</td>
+        </tr>
+        <tr>
+            <td>评分时间</td>
+            <td>{{info.datetime}}</td>
+        </tr>
+        <tr>
+            <td>班级总人数</td>
+            <td>{{info.class_count}}人</td>
+        </tr>
+        <tr>
+            <td>未参加打分人数</td>
+            <td>{{info.class_count-info.rate_count}}人</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    {{#each(result, 'value', 'version')}}
+    <a class="btn btn-info btn-lg" href="/down/{{version}}">点击保存{{version}}报告</a>
+    {{/each}}
+</div>
+{{/block}}

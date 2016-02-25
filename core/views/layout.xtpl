@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>{{block('title')}} - 传智播客</title>
+  <style>.container{width:92%}</style>
+  <link rel="stylesheet" href="/vender/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  {{{block('styles')}}}
+</head>
+<body>
+  <section class="page container-fluid">
+    <div class="inner">
+      <div class="page-header">
+        <h1>{{block('title')}} <small>{{block('subtitle')}}</small></h1>
+      </div>
+      {{{block('container')}}}
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container-fluid">
+      <p class="text-muted">
+        <span class="pull-left">Copyright &copy; Itcast.cn. All Rights Reserved.</span>
+        <span class="pull-right">系统版本：v{{config.app_version}}</span>
+      </p>
+    </div>
+  </footer>
+  <script src="/vender/jquery/jquery.min.js"></script>
+  <script src="/vender/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/js/proto.js"></script>
+  {{{block('scripts')}}}
+</body>
+</html>

@@ -1,0 +1,124 @@
+{{extend('./layout')}}
+{{#block('title')}}教学质量评估表{{/block}}
+
+{{#block('styles')}}
+<style>
+  body {
+    background-color: #e6e6e6;
+  }
+  .page {
+    color: #444;
+    background-color: #fff;
+    margin: 20px auto 60px;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    border: 1px solid #ccc;
+    padding-bottom: 0;
+    width: 96%;
+  }
+  @media (min-width: 1280px) {
+    .page{
+      width: 80%;
+    }
+  }
+  @media (min-width: 1440px) {
+    .page{
+      width: 70%;
+    }
+  }
+  .page > .inner {
+      margin: 4% 3%;
+  }
+  .meta{
+    margin: 20px 0;
+  }
+</style>
+{{/block}}
+
+{{#block('container')}}
+<div class="header">
+  <p><strong>亲爱的同学：</strong></p>
+  <p class="paragraph">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此，你们是最有发言权的。请对下列问题作出适当地回答。</p>
+</div>
+<form action="/r/{{params.stamp}}" method="post">
+  <div class="meta row">
+    <div class="col-sm-3"><span>被评估的老师：</span><strong>{{teacher_name}}</strong></div>
+    <div class="col-sm-5"><span>所属班级：</span><strong>{{class_name}}</strong></div>
+    <div class="col-sm-4"><span>评估时间：</span><strong>{{datetime}}</strong></div>
+  </div>
+  <div class="questions">
+    <ol class="form-inline">
+      {{#each(questions[frontQ])}}
+      <li>
+        <h5>{{this.question}}</h5>
+        <div class="form-group">
+          {{#each(this.answers)}}
+          <div class="radio"><label><input type="radio" name="{{../xindex}}" value="{{xindex}}">{{this.text}}</label></div>
+          {{/each}}
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+    <div>
+      <h4>其他意见或建议：</h4>
+      <textarea class="form-control" name="note" rows="5" placeholder="相信您的建议一定可以一针见血"></textarea>
+    </div>
+  </div>
+  <p class="text-danger">注意：每人只能提交一次，请认真填写后再提交！</p>
+  <hr>
+  <div id="info"></div>
+  <button type="submit" class="btn btn-info btn-lg btn-block">确认提交</button>
+</form>
+{{/block}}
+
+{{#block('scripts')}}
+<script>
+
+  'use strict';
+  $(function() {
+    var $formDom = $('form');
+    var $infoDom = $('#info');
+
+    function parseQueryString(querystring) {
+      var data = {};
+      var temp = querystring.split('&');
+      for (var i = 0; i < temp.length; i++) {
+        var kv = temp[i].split('=');
+        data[kv[0]] = kv[1];
+      }
+      return data;
+    }
+    /**
+     * 获取对象中属性的数量
+     */
+    function count(obj) {
+      var t = typeof obj;
+      if (t == 'string') {
+        return obj.length;
+      } else if (t == 'object') {
+        var n = 0;
+        for (var i in obj) {
+          n++;
+        }
+        return n;
+      }
+      return false;
+    };
+    $formDom.on('submit', function() {
+      var qs = parseQueryString($formDom.serialize());
+      if ($('.questions li').length + 1 !== count(qs)) {
+        $infoDom.html('<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>同学</strong>，请勾选所有选项！！！</div>');
+        return false;
+      }
+      $.post($formDom.attr('action'), qs, function(data) {
+        if (data.status) {
+          $infoDom.html('<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + data.message + '</strong></div>');
+        } else {
+          $infoDom.html('<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + data.message + '</strong></div>');
+        }
+      });
+      return false;
+    });
+  });
+
+</script>
+{{/block}}

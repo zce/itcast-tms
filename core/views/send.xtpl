@@ -1,0 +1,300 @@
+{{extend('./layout')}}
+{{#block('title')}}{{message}}{{/block}}
+{{#block('subtitle')}}<a href="/">返回</a>{{/block}}
+{{#block('styles')}}
+<style>
+  #sendModal {
+    margin-top: 200px;
+  }
+
+  #email_container, #teacher_container {
+    margin-top: 5px;
+  }
+
+  .remove {
+    float: right;
+    width: 10%;
+    height: 22px;
+  }
+</style>
+{{/block}}
+{{#block('container')}}
+<form class="form-inline" id="send_form">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-success btn-md" id="btn_send">点击发送</button>
+      <ul class="list-group" id="teacher_container">
+        <li class="list-group-item disabled">请选择讲师</li>
+      </ul>
+      <p class="help-block">发送邮件成功后会自动删除该打分数据！</p>
+    </div>
+    <div class="col-md-6 form-group-md">
+      <div class="input-group">
+        <input type="text" class="form-control" id="txt_email" placeholder="请输入邮箱">
+        <span class="input-group-btn">
+          <button class="btn btn-success btn-md" id="add_email" type="button">添加邮箱</button>
+        </span>
+      </div>
+      <ul class="list-group" id="email_container">
+        <li class="list-group-item disabled">待发送邮件列表</li>
+      </ul>
+    </div>
+  </div>
+</form>
+<div class="modal" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>正在发送，请稍后...</h3>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div id="progress_bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50"
+               aria-valuemin="0"
+               aria-valuemax="100" style="width: 100%">
+            <span class="sr-only">100% Complete</span>
+          </div>
+        </div>
+        <button class="btn btn-success" id="btn_closeSendModal" style="display: none">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/block}}
+
+{{#block('scripts')}}
+<script>
+  "use strict";
+
+  let $teacherContainer = $('#teacher_container');
+  let $add_email = $('#add_email');
+  let $txt_email = $('#txt_email');
+  let $panel_body = $('.panel-body');
+  let $email_container = $('#email_container');
+  let $sendForm = $('#send_form');
+
+  // 加载讲师数据
+  loadTeachers();
+
+  function loadTeachers() {
+    $.getJSON('/teacher', function (data) {
+      if (data) {
+        $teacherContainer.find('li:gt(0)').remove();
+        $email_container.find('li:gt(0)').remove();
+        if (data.length === 0) {
+          return $teacherContainer.append('<li class="list-group-item empty">当前没有待发送的测评数据</li>');
+        }
+        for (let i = 0; i < data.length; i++) {
+          let teacher = data[i];
+          $teacherContainer.append(`
+            <li class="list-group-item" data-stamp="${teacher.stamp}">
+              <div class="row">
+                <div class="col-md-6">
+                  <span>讲师姓名 : ${teacher.name}</span>
+                </div>
+                <div class="col-md-6">
+                  <span>打分时间 : ${teacher.time}</span>
+                </div>
+              </div>
+            </li>
+          `);
+        }
+
+        let $lis = $('#teacher_container li:gt(0)');
+
+        for (let i = 0; i < $lis.length; i++) {
+          let item = $($lis[i]);
+          item.on('click', function () {
+            $('#email_container li:gt(0)').remove(); // 清空邮件列表
+            $(this).addClass('list-group-item-success').siblings().removeClass('list-group-item-success');
+            let stamp = $(this).data('stamp');
+            loadEmailsByStamp(stamp); // 根据戳加载对应的邮件列表
+          });
+        }
+        if ($lis && $lis[0]) {
+          $lis[0].click();
+        }
+      }
+    });
+  }
+
+  // 根据一个戳加载要发送的邮箱到panel-body中
+  function loadEmailsByStamp(stamp) {
+    $.get('/send/' + stamp, function (data) {
+      if (!data) {
+        return alert('获取数据失败');
+      }
+
+      $email_container.find('li:gt(0)').html('');
+
+      for (let i = 0; i < data.emails.length; i++) {
+        let item = data.emails[i];
+        $email_container.append(`
+          <li class="list-group-item text-muted">
+            <input name="email" type="hidden" value="${item.email}">
+            <div class="row">
+              <div class="col-md-6">
+              <span class="name-title">${item.name} : ${item.title}</span>
+              </div>
+              <div class="col-md-6">
+              <span>${item.email}</span>
+              </div>
+            </div>
+          </li>
+        `);
+      }
+      $email_container.append(`
+        <li class="list-group-item text-muted">
+          <input name="teacherName" id="teacherName" type="hidden" value="${data.teacherName}">
+          <input name="teacherEmail" id="teacherEmail" type="hidden" value="${data.teacherEmail}">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="name-title">${data.teacherName} : 讲师</span>
+            </div>
+            <div class="col-md-6">
+              <span>${data.teacherEmail}</span>
+            </div>
+          </div>
+        </li>
+      `);
+    });
+  }
+
+  // 添加邮箱，动态生成文本框到panel-body中
+  $add_email.on('click', function (e) {
+    e.preventDefault();
+    let email = $.trim($txt_email.val());
+
+    if (!email) {
+      return alert('邮箱地址不能为空');
+    }
+
+    if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)) {
+      return alert('邮箱格式不正确，请重新输入');
+    }
+
+    let isRepeat = false;
+    $('[name="email"]').each(function (index, item) {
+      let $item = $(item);
+      if (email === $item.val()) {
+        isRepeat = true;
+        return false;
+      }
+    });
+
+    if (isRepeat) {
+      return alert('该邮箱已存在');
+    }
+
+    $txt_email.val('');
+    $email_container.append(`
+      <li class="list-group-item">
+        <input onclick="removeParent(this)" type="text" class="btn btn-danger btn-md remove" value="X">
+        <input name="email" type="hidden" value="${email}">
+        <span class="text-muted">${email}</span>
+      </li>
+    `);
+  });
+
+  $('#btn_send').on('click', function (e) {
+    e.preventDefault();
+
+    if (!navigator.onLine) {
+      return alert('请检查您的网络连接');
+    }
+
+    if ($teacherContainer.find('.empty')[0]) {
+      return alert('当前没有待发送的测评数据');
+    }
+
+    if (!checkAllEmails()) {
+      return alert('邮箱格式非法，请检查邮箱格式');
+    }
+
+    showModal();
+
+    // 获取有list-group-item-success类的元素的自定义data-stamp属性
+    let stamp = $($('.list-group-item-success')[0]).data('stamp');
+    let teacherName = $('#teacherName').val();
+    let teacherEmail = $('#teacherEmail').val();
+    let emails = getEmails();
+    let data = {
+      stamp, teacherName, teacherEmail, emails
+    };
+
+    $.ajax({
+      url: '/send',
+      type: 'post',
+      data: data,
+      success: function (data) {
+        if (data && data.code == 1) {
+          $('#progress_bar').removeClass('progress-bar-striped');
+          $('#progress_bar').addClass('progress-bar-success');
+          $('.modal-header h3').text('发送成功');
+          $('#btn_closeSendModal').show();
+          loadTeachers(); // 发送成功，重新加载待发送数据列表
+        } else {
+          $('#progress_bar').removeClass('progress-bar-striped');
+          $('#progress_bar').addClass('progress-bar-danger');
+          $('.modal-header h3').text('发送失败');
+          $('#btn_closeSendModal').show();
+          console.log(data.msg);
+        }
+
+      },
+      error: function () {
+        $('#progress_bar').removeClass('progress-bar-striped');
+        $('#progress_bar').addClass('progress-bar-danger');
+        $('.modal-header h3').text('发送失败');
+      }
+    });
+  });
+
+  // 删除自己的父元素
+  function removeParent(ele) {
+    $(ele).parent().remove();
+  }
+
+  function checkAllEmails() {
+    let result;
+    $('[name="email"]').each(function (index, item) {
+      if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(item).val())) {
+        result = false;
+        return false; // 跳出所有循环
+      }
+      result = true;
+    });
+    return result;
+  }
+
+  $('#btn_closeSendModal').on('click', function () {
+    closeModal();
+  });
+
+  function getEmails() {
+    let result = [];
+    $('[name="email"]').each(function (index, item) {
+      let $item = $(item);
+      result.push($item.val());
+    });
+    return result;
+  }
+
+  // 显示模态框
+  function showModal() {
+    $('#sendModal').modal({
+      backdrop: 'static', // 设置为static，点击背景遮罩层就不会关闭模态框了
+      keyboard: false // 不允许按esc关闭模态框
+    });
+  }
+
+  // 关闭模态框
+  function closeModal() {
+    $('#sendModal').modal('hide');
+    $('#progress_bar').removeClass('progress-bar-success');
+    $('#progress_bar').addClass('progress-bar-striped');
+    $('.modal-header h3').text('正在发送，请稍后...');
+    $('#btn_closeSendModal').hide();
+  }
+</script>
+{{/block}}

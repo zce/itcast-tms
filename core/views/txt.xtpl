@@ -1,0 +1,42 @@
+﻿考评结果汇总
+
+所属校区：	{{info.school_name}}
+所属学院：	{{info.academy_name}}
+所属学科：	{{info.subject_name}}
+讲师姓名：	{{info.teacher_name}}
+讲师邮箱：	{{info.teacher_email}}@itcast.cn
+评分班级：  {{info.class_name}}
+评分班主任：	{{info.head_name}}
+课程内容：	{{info.course_name}}
+上课天数：	{{info.course_days}}
+评分时间：	{{info.datetime}}
+班级总人数：	{{info.class_count}}人
+未参加打分人数：	{{info.class_count-info.rate_count}}人
+
+具体原因：
+{{!-- 登录不上系统：	（）人 --!}}
+留级：		{{info.reason1_count}}人
+有病请假：	{{info.reason2_count}}人
+有事请假：	{{info.reason3_count}}人
+回学校：		{{info.reason4_count}}人
+已经找到工作：	{{info.reason5_count}}人
+到其他班上自习：	{{info.reason6_count}}人
+在家复习：	{{info.reason7_count}}人
+老师讲的不好，不想听课：	{{info.reason8_count}}人
+其他：		{{info.reason9_count}}人
+
+
+各项分数：
+
+打分总人数：	{{info.rate_count}}人
+平均分：		{{result.backTotal}}
+去掉最低分平均分：	{{result.backTotalWithoutMin}}
+
+{{#each(result.scores, 'value', 'shortname')}}{{shortname}}：	{{value}}
+{{/each}}
+
+
+学员评价：
+{{#each(notes)}}
+* {{{this}}}
+{{/each}}

@@ -1,0 +1,6 @@
+{{extend('./layout')}}
+{{#block('title')}}{{message}}{{/block}}
+
+{{#block('container')}}
+<div class="error"></div>
+{{/block}}
