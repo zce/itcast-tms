@@ -1,14 +1,31 @@
 {
   "name": "itcast-evaluation",
   "version": "2.2.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Itcast Evaluation System",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "start": "NODE_ENV=development electron ./app"
   },
-  "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
+  "keywords": [
+    "iceStone",
+    "WEDN.NET",
+    "itcast",
+    "evaluation"
+  ],
+  "author": "iceStone <ice@wedn.net> (http://wedn.net/)",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Micua/itcast-evaluation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Micua/itcast-evaluation/issues"
+  },
+  "homepage": "https://github.com/Micua/itcast-evaluation#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.8"
+    "asar": "^0.10.0",
+    "electron-prebuilt": "^0.36.8",
+    "gulp": "^3.9.1",
+    "gulp-electron": "0.0.10"
   }
 }

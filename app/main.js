@@ -14,22 +14,29 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow = null;
 
+// 处理环境变量
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+console.log(process.env.NODE_ENV);
+
 /**
  * 设备准备完成事件
  */
-app.on('ready', function () {
+app.on('ready', () => {
   // 创建一个窗口
   mainWindow = new BrowserWindow({ width: 1200, height: 720 });
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
+  const core = process.env.NODE_ENV === 'development' ? require('../core') : require('./core.asar');
+
+  core.start();
   // 打开开发人员工具
-  if (process.env.DEBUG) {
+  if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools();
   }
   
   // 关闭窗体事件
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 });
@@ -37,7 +44,7 @@ app.on('ready', function () {
 /**
  * 窗口关闭事件
  */
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform != 'darwin') {
     app.quit();
   }

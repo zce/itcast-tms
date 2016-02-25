@@ -8,5 +8,8 @@
 
 console.log('core module running');
 
-
-module.exports = {};
+module.exports = {
+  start: function () {
+    console.log('start...');
+  }
+};
