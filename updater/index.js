@@ -51,31 +51,30 @@ const update = (progress, callback) => {
       callback('don\'t need');
       return false;
     }
-    let tempDir = path.join(__dirname, '../temp/');
-    if (!fs.existsSync(tempDir)) {
-      fs.mkdirSync(tempDir);
+    let cacheDir = path.join(__dirname, '../cache/');
+    if (!fs.existsSync(cacheDir)) {
+      fs.mkdirSync(cacheDir);
     }
     const wget = require('wget');
-    let output = '../temp/core.zip';
+    let output = path.join(__dirname, '../cache/core.zip');
     let options = {};
     let download = wget.download(`${root}${version.latest}/core.zip`, output, options);
     download.on('progress', progress);
     download.on('error', callback);
     download.on('end', () => {
-      let sourceFile = path.join(__dirname, output);
-      // 解压
+      // 解压 electron中无法创建asar文件，可以重命名
       const unzip = require('unzip');
-      fs.createReadStream(sourceFile)
-        .pipe(unzip.Extract({ path: tempDir }))
+      fs.createReadStream(output)
+        .pipe(unzip.Extract({ path: cacheDir }))
         .on('close', (error) => {
           if (error) {
             callback(error);
             return false;
           }
-          fs.unlink(sourceFile);
+          fs.unlink(output);
           let destPath = path.join(__dirname, '../core.asar');
-          // 移动
-          fs.rename(path.join(__dirname, '../temp/core.asar'), destPath, function (error) {
+          // 移动 
+          fs.rename(path.join(__dirname, '../cache/core'), destPath, function (error) {
             if (error) {
               callback(error);
               return false;

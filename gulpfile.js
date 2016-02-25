@@ -19,10 +19,11 @@ gulp.task('watch', ['dist'], () => {
 });
 
 gulp.task('dist', () => {
-  let src = './core';
-  let dest = './app/core.asar';
-  asar.createPackage(src, dest, () => {
-    console.log('done asar.');
+  asar.createPackage('./core', './app/core.asar', () => {
+    console.log('done core asar.');
+  });
+  asar.createPackage('./updater', './app/updater.asar', () => {
+    console.log('done updater asar.');
   });
 
   gulp.src(['./da*/**/*','./version.json'])
@@ -55,10 +56,10 @@ gulp.task('release', ['dist'], () => {
         }
       }
     }))
-    .pipe(gulp.dest(""));
+    .pipe(gulp.dest(''));
 });
 
 gulp.task('clean', () => {
-  gulp.src(['./.eva*', './release', './app/core.asar', './app/data', './app/version.json'], { read: false })
+  gulp.src(['./.eva*','./app/.eva*', './release', './app/core.asar', './app/updater.asar', './app/temp', './app/data', './app/version.json'], { read: false })
     .pipe(clean({ force: true }));
 });

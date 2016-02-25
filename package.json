@@ -5,6 +5,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "NODE_ENV=development electron ./app",
+    "dist": "electron ./app",
     "pretest": "npm install",
     "test": "nodemon --watch core ./core"
   },
