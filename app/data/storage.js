@@ -19,12 +19,12 @@ const subjectsPath = path.join(__dirname, './subjects.json');
 
 exports.load = function() {
   return {
-    academies: JSON.parse(fs.readFileSync(academiesPath)),
-    itcast: JSON.parse(fs.readFileSync(itcastPath)),
-    options: JSON.parse(fs.readFileSync(optionsPath)),
-    questions: JSON.parse(fs.readFileSync(questionsPath)),
-    schools: JSON.parse(fs.readFileSync(schoolsPath)),
-    subjects: JSON.parse(fs.readFileSync(subjectsPath))
+    academies: JSON.parse(fs.readFileSync(academiesPath, 'utf8')),
+    itcast: JSON.parse(fs.readFileSync(itcastPath, 'utf8')),
+    options: JSON.parse(fs.readFileSync(optionsPath, 'utf8')),
+    questions: JSON.parse(fs.readFileSync(questionsPath, 'utf8')),
+    schools: JSON.parse(fs.readFileSync(schoolsPath, 'utf8')),
+    subjects: JSON.parse(fs.readFileSync(subjectsPath, 'utf8'))
   };
 };
 

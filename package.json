@@ -31,5 +31,6 @@
     "gulp-clean": "^0.3.1",
     "gulp-electron": "0.0.10",
     "nodemon": "^1.9.0"
-  }
+  },
+  "dependencies": {}
 }

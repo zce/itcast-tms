@@ -27,13 +27,20 @@ exports.system = sys_config;
 
 const get = () => {
   return callback => {
-    fs.readFile(path.join(__dirname, '../data/options.json'), function(error, content) {
-      // alert(content);
+    fs.readFile(path.join(__dirname, '../data/options.json'), 'utf8', function (error, content) {
       let options = JSON.parse(content);
       for (let key in options) {
         sys_config[key] = options[key];
       }
-      callback(null, sys_config);
+      fs.readFile(path.join(__dirname, '../data/version.json'), 'utf8', function (error, content) {
+        let data_version = JSON.parse(content);
+        sys_config['data_version'] = data_version.latest;
+        fs.readFile(path.join(__dirname, '../version.json'), 'utf8', function (error, content) {
+          let app_version = JSON.parse(content);
+          sys_config['app_version'] = app_version.latest;
+          callback(null, sys_config);
+        });
+      });
     });
   };
 }
@@ -41,7 +48,7 @@ const get = () => {
 const co = require('co');
 
 exports.inject = () => {
-  return co.wrap(function*(ctx, next) {
+  return co.wrap(function* (ctx, next) {
     let config = yield get();
     ctx.config = config;
     return next();

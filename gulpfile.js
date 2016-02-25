@@ -25,8 +25,8 @@ gulp.task('dist', () => {
     console.log('done asar.');
   });
 
-  gulp.src('./data/**/*')
-    .pipe(gulp.dest('./app/data'));
+  gulp.src(['./da*/**/*','./version.json'])
+    .pipe(gulp.dest('./app'));
 });
 
 gulp.task('release', ['dist'], () => {
@@ -59,6 +59,6 @@ gulp.task('release', ['dist'], () => {
 });
 
 gulp.task('clean', () => {
-  gulp.src(['./.eva*', './release', './app/core.asar', './app/data'], { read: false })
+  gulp.src(['./.eva*', './release', './app/core.asar', './app/data', './app/version.json'], { read: false })
     .pipe(clean({ force: true }));
 });

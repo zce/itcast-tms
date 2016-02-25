@@ -22,7 +22,7 @@
     <div class="container-fluid">
       <p class="text-muted">
         <span class="pull-left">Copyright &copy; Itcast.cn. All Rights Reserved.</span>
-        <span class="pull-right">系统版本：v{{config.app_version}}</span>
+        <span class="pull-right">System: {{config.app_version}}&nbsp;&nbsp;Data: {{config.data_version}}</span>
       </p>
     </div>
   </footer>

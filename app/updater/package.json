@@ -1,0 +1,13 @@
+{
+  "name": "itcast-evaluation-updater",
+  "version": "1.0.0",
+  "description": "Itcast Evaluation System Updater",
+  "main": "index.js",
+  "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
+  "license": "ISC",
+  "dependencies": {
+    "download": "^4.4.3",
+    "unzip": "^0.1.11",
+    "wget": "0.0.1"
+  }
+}
