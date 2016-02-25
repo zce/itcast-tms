@@ -10,9 +10,6 @@
 }
 
 body {
-  /* background: url('../img/cp.jpg') no-repeat center center; */
-  /*-webkit-background-size: cover;*/
-  /*background-size: cover;*/
   font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
 }
 
@@ -127,8 +124,3 @@ body {
 .questions > ol > li > .form-group > .radio > label > input {
   margin-right: 5px;
 }
-
-
-/*
- * 教学质量评估表样式结束
- */

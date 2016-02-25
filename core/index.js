@@ -123,7 +123,7 @@ const start = (callback) => {
 
   // 启用一个可用的随机端口
   const http = require('http');
-  const server = http.createServer(app.callback()).listen(process.env.NODE_ENV === 'development' ? config.system.debug_port : 0);
+  const server = http.createServer(app.callback()).listen(process.env.NODE_ENV === 'production' ? 0 : config.system.debug_port);
 
   server.on('listening', function () {
     process.env.port = server.address().port;

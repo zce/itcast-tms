@@ -30,7 +30,7 @@ gulp.task('dist', () => {
     .pipe(gulp.dest('./app'));
 });
 
-gulp.task('release', ['dist'], () => {
+gulp.task('release', () => {
   gulp.src('')
     .pipe(electron({
       src: './app',

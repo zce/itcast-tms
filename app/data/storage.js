@@ -27,16 +27,3 @@ exports.load = function() {
     subjects: JSON.parse(fs.readFileSync(subjectsPath, 'utf8'))
   };
 };
-
-// module.exports = {
-//   itcast, schools, academies, questions
-// };
-
-// for (let key in schools) {
-//   let item = schools[key];
-//   var academiesList = item.academies;
-//   item.academies = {};
-//   for (let i = 0; i < academiesList.length; i++) {
-
-//   }
-// }

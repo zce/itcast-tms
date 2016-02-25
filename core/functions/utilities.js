@@ -30,14 +30,6 @@ exports.getStamp = function (count) {
   return stamp;
 };
 
-var arr = [
-  {name: 'zhangsan', age: 18},
-  {name: 'zhangsan', age: 18},
-  {name: 'zhangsan', age: 18},
-  {name: 'zhangsan', age: 18},
-  {name: 'zhangsan', age: 18}
-]
-
 /*
 * 数组对象去重
 * */

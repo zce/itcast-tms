@@ -24,7 +24,7 @@ module.exports = (viewRoot) => {
       data = data || {};
       injectData(data, ctx);
       xtpl.renderFile(path.join(viewRoot, tmplname + '.xtpl'), data, function(error, content) {
-        if (error /*&& ctx.config.env != 'production'*/ ) {
+        if (error && process.env.NODE_ENV === 'development' ) {
           ctx.body = error;
           return false;
         }

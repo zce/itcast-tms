@@ -7,7 +7,7 @@
 
 'use strict';
 
-let root = 'http://itcast-evaluation.wedn.net/core/';
+const root = 'http://itcast-evaluation.wedn.net/core/';
 
 const fs = require('fs');
 const path = require('path');
@@ -20,7 +20,7 @@ const checking = (callback) => {
       callback(error);
       return false;
     }
-    let localVersion = JSON.parse(data);
+    const localVersion = JSON.parse(data);
     const http = require('http');
     http.get(`${root}version.json`, function (result) {
       let content = '';
@@ -28,7 +28,7 @@ const checking = (callback) => {
         content += data;
       });
       result.on('end', function (error) {
-        let remoteVersion = JSON.parse(content);
+        const remoteVersion = JSON.parse(content);
         if (localVersion.latest !== remoteVersion.latest) {
           callback(undefined, remoteVersion);
         } else {
@@ -51,14 +51,14 @@ const update = (progress, callback) => {
       callback('don\'t need');
       return false;
     }
-    let cacheDir = path.join(__dirname, '../cache/');
+    const cacheDir = path.join(__dirname, '../cache/');
     if (!fs.existsSync(cacheDir)) {
       fs.mkdirSync(cacheDir);
     }
     const wget = require('wget');
-    let output = path.join(__dirname, '../cache/core.zip');
-    let options = {};
-    let download = wget.download(`${root}${version.latest}/core.zip`, output, options);
+    const output = path.join(__dirname, '../cache/core.zip');
+    const options = {};
+    const download = wget.download(`${root}${version.latest}/core.zip`, output, options);
     download.on('progress', progress);
     download.on('error', callback);
     download.on('end', () => {
@@ -72,7 +72,7 @@ const update = (progress, callback) => {
             return false;
           }
           fs.unlink(output);
-          let destPath = path.join(__dirname, '../core.asar');
+          const destPath = path.join(__dirname, '../core.asar');
           // 移动 
           fs.rename(path.join(__dirname, '../cache/core'), destPath, function (error) {
             if (error) {
