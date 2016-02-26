@@ -8,36 +8,36 @@
 
 
 
-.\rcedit "itcast-evaluation.exe" --set-icon "app.ico"
+.\rcedit "Electron.exe" --set-icon "app.ico"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "ProductVersion" "2.2.0"
+.\rcedit "Electron.exe" --set-version-string "ProductVersion" "2.3.0"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "ProductName" "Itcast Evaluation"
+.\rcedit "Electron.exe" --set-version-string "ProductName" "Itcast Evaluation"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "OriginalFilename" "evaluation.exe"
+.\rcedit "Electron.exe" --set-version-string "OriginalFilename" "evaluation.exe"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "InternalName" "evaluation.exe"
+.\rcedit "Electron.exe" --set-version-string "InternalName" "evaluation.exe"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "LegalCopyright" "Copyright (C) 2016 Itcast, Inc. All rights reserved."
+.\rcedit "Electron.exe" --set-version-string "LegalCopyright" "Copyright (C) 2016 Itcast, Inc. All rights reserved."
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "FileDescription" "传智播客教学测评系统"
+.\rcedit "Electron.exe" --set-version-string "FileDescription" "传智播客教学测评系统"
 
  
-.\rcedit "itcast-evaluation.exe" --set-version-string "CompanyName" "Itcast, Inc."
+.\rcedit "Electron.exe" --set-version-string "CompanyName" "Itcast, Inc."
 
 
-.\rcedit "itcast-evaluation.exe" --set-product-version "2.2.0"
+.\rcedit "Electron.exe" --set-product-version "2.3.0"
 
 
-.\rcedit "itcast-evaluation.exe" --set-file-version "2.2.0"
+.\rcedit "Electron.exe" --set-file-version "2.3.0"
 
 
-.\rcedit "itcast-evaluation.exe" --set-version-string "Comments" "传智播客教学测评系统"
+.\rcedit "Electron.exe" --set-version-string "Comments" "传智播客教学测评系统"
 
 pause
