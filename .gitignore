@@ -2,7 +2,9 @@ node_modules
 /cache
 /release
 app/core.asar
+app/data
 app/updater.asar
+app/version.json
 gh-pages
 /.eva*
 .vscode
