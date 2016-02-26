@@ -33,12 +33,20 @@ const update = (ctx, callback) => {
     fs.readFile(localFile, 'utf8', (error, content) => {
       const local = JSON.parse(content);
       fetch(config.system.update_root + 'version.json')((error, content) => {
+        if(error){
+          callback(null, false);
+          return false;
+        }
         const remote = JSON.parse(content);
         if (local.latest !== remote.latest) {
           console.log(`数据需要更新到『${remote.latest}』`);
           let count = tasks.length;
           tasks.forEach((item) => {
             fetch(`${config.system.update_root}${remote.latest}/${item}`)((error, content) => {
+              if(error){
+                callback(null, false);
+                return false;
+              }
               fs.writeFile(path.join(__dirname, `../../data/${item}`), content, 'utf8', (error) => {
                 console.log(`『${item}』更新完成`);
                 if (!--count) {
