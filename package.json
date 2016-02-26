@@ -1,6 +1,6 @@
 {
   "name": "itcast-evaluation",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Itcast Evaluation System",
   "scripts": {
     "prestart": "npm install",
