@@ -26,7 +26,10 @@ app.on('ready', () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   const updater = process.env.NODE_ENV === 'development' ? require('../updater') : require('./updater.asar');
-  updater.update((p) => { mainWindow.setProgressBar(p); }, () => {
+  updater.update((p) => {
+    mainWindow.setProgressBar(p);
+    mainWindow.loadURL(`file://${__dirname}/index.html?p=${p}`);
+  }, () => {
     // 启动核心服务
     const core = process.env.NODE_ENV === 'development' ? require('../core') : require('./core.asar');
     core.start((url) => {

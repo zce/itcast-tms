@@ -9,7 +9,7 @@
   "PHP": {
     "emails": [
       { "name": "李东超", "title": "院长", "email": "ldc@itcast.cn" },
-      { "name": "王金涛", "title": "院长助理", "email": "wangjintao@itcast.cn" },
+      { "name": "项华伟", "title": "院长助理", "email": "xhw@itcast.cn" },
       { "name": "韩娜佳", "title": "院长文员", "email": "hannajia@itcast.cn" }
     ],
     "questions": []
