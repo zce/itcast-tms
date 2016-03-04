@@ -153,7 +153,7 @@ exports.doSend = function* (ctx, next) {
   let emails = ctx.request.body.emails;
   if (process.env.NODE_ENV === 'development') {
     for (var i = 0; i < emails.length; i++) {
-      emails[i] = 'aaaa' + emails[i];
+      emails[i] = emails[i] + 'n';
     }
   }
 
