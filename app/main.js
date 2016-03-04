@@ -22,16 +22,19 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'production';
  */
 app.on('ready', () => {
   // 创建一个窗口
-  mainWindow = new BrowserWindow({ width: 1200, height: 720, title: 'Evaluation' });
+  mainWindow = new BrowserWindow({ width: 1200, height: 720, show: false });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
+  const webContents = mainWindow.webContents;
+  mainWindow.show();
 
   const updater = process.env.NODE_ENV === 'development' ? require('../updater') : require('./updater.asar');
   updater.update((p) => {
     mainWindow.setProgressBar(p);
-    mainWindow.loadURL(`file://${__dirname}/index.html?p=${p}`);
+    webContents.send('update_progress', p);
   }, () => {
     // 启动核心服务
     const core = process.env.NODE_ENV === 'development' ? require('../core') : require('./core.asar');
+    core.setWindow(mainWindow);
     core.start((url) => {
       mainWindow.loadURL(`${url}update.html?r=/`);
     });
@@ -39,7 +42,7 @@ app.on('ready', () => {
 
   // 打开开发人员工具
   if (process.env.NODE_ENV === 'development') {
-    mainWindow.webContents.openDevTools();
+    // webContents.openDevTools();
   }
 
   // 关闭窗体事件

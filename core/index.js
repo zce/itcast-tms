@@ -122,7 +122,10 @@ const start = (callback) => {
   });
 }
 
-module.exports = { start };
+var mainWindow;
+module.exports = { start, setWindow: (window) => {
+  mainWindow = window;
+}};
 
 if (!module.parent) {
   start();

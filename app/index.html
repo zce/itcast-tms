@@ -5,91 +5,7 @@
   <meta charset="UTF-8">
   <title>程序更新中，请稍后...</title>
   <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .container {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #fff;
-      padding: 150px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #555;
-      padding-top: 50px;
-    }
-
-    .spinner {
-      margin: 100px auto;
-      width: 50px;
-      height: 40px;
-      text-align: center;
-      font-size: 10px;
-    }
-
-    .spinner > div {
-      background-color: #444;
-      height: 100%;
-      width: 6px;
-      display: inline-block;
-      -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-      animation: sk-stretchdelay 1.2s infinite ease-in-out;
-    }
-
-    .spinner .rect2 {
-      -webkit-animation-delay: -1.1s;
-      animation-delay: -1.1s;
-    }
-
-    .spinner .rect3 {
-      -webkit-animation-delay: -1.0s;
-      animation-delay: -1.0s;
-    }
-
-    .spinner .rect4 {
-      -webkit-animation-delay: -0.9s;
-      animation-delay: -0.9s;
-    }
-
-    .spinner .rect5 {
-      -webkit-animation-delay: -0.8s;
-      animation-delay: -0.8s;
-    }
-
-    @-webkit-keyframes sk-stretchdelay {
-      0%,
-      40%,
-      100% {
-        -webkit-transform: scaleY(0.4)
-      }
-      20% {
-        -webkit-transform: scaleY(1.0)
-      }
-    }
-
-    @keyframes sk-stretchdelay {
-      0%,
-      40%,
-      100% {
-        transform: scaleY(0.4);
-        -webkit-transform: scaleY(0.4);
-      }
-      20% {
-        transform: scaleY(1.0);
-        -webkit-transform: scaleY(1.0);
-      }
-    }
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: '微软雅黑' } .container { position: fixed; left: 0; top: 0; right: 0; bottom: 0; background-color: #fff; padding: 150px; } h2 { text-align: center; color: #666; padding-top: 50px; padding-bottom: 50px; font-weight: normal; } .spinner { margin: 100px auto; width: 50px; height: 40px; text-align: center; font-size: 10px; } .spinner > div { background-color: #444; height: 100%; width: 6px; display: inline-block; -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out; animation: sk-stretchdelay 1.2s infinite ease-in-out; } .spinner .rect2 { -webkit-animation-delay: -1.1s; animation-delay: -1.1s; } .spinner .rect3 { -webkit-animation-delay: -1.0s; animation-delay: -1.0s; } .spinner .rect4 { -webkit-animation-delay: -0.9s; animation-delay: -0.9s; } .spinner .rect5 { -webkit-animation-delay: -0.8s; animation-delay: -0.8s; } @-webkit-keyframes sk-stretchdelay { 0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 20% { -webkit-transform: scaleY(1.0) } } @keyframes sk-stretchdelay { 0%, 40%, 100% { transform: scaleY(0.4); -webkit-transform: scaleY(0.4); } 20% { transform: scaleY(1.0); -webkit-transform: scaleY(1.0); } } @-webkit-keyframes progress-bar-stripes { from { background-position: 40px 0; } to { background-position: 0 0; } } @-o-keyframes progress-bar-stripes { from { background-position: 40px 0; } to { background-position: 0 0; } } @keyframes progress-bar-stripes { from { background-position: 40px 0; } to { background-position: 0 0; } } .progress { height: 20px; margin-bottom: 20px; overflow: hidden; background-color: #f5f5f5; border-radius: 4px; -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); } .progress-bar { float: left; width: 0; height: 100%; font-size: 12px; line-height: 20px; color: #fff; text-align: center; background-color: #337ab7; -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15); box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15); -webkit-transition: width .6s ease; -o-transition: width .6s ease; transition: width .6s ease; } .progress-striped .progress-bar, .progress-bar-striped { background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); -webkit-background-size: 40px 40px; background-size: 40px 40px; } .progress.active .progress-bar, .progress-bar.active { -webkit-animation: progress-bar-stripes 2s linear infinite; -o-animation: progress-bar-stripes 2s linear infinite; animation: progress-bar-stripes 2s linear infinite; } .progress-bar-info { background-color: #5bc0de; } .progress-striped .progress-bar-info { background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); }
   </style>
 </head>
 
@@ -103,7 +19,24 @@
       <div class="rect5"></div>
     </div>
     <h2>程序更新中，请稍后...</h2>
+    <div id="progress" class="progress" style="display:none"></div>
   </div>
+  <script>
+    if(window.require){
+      var progressElement = document.getElementById('progress');
+      var updating = false;
+      require('electron').ipcRenderer.on('update_progress', (event, progress) => {
+        if(!updating){
+          progressElement.style.display='block';
+        }
+        updating=true;
+        var p = (parseFloat(progress)*100).toFixed(2);
+        progressElement.innerHTML = `
+        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="${p}" aria-valuemin="0"
+      aria-valuemax="100" style="width: ${p}%">${p}%</div>`;
+      });
+    }
+  </script>
 </body>
 
 </html>

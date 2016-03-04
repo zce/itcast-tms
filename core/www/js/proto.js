@@ -1,5 +1,5 @@
 Date.prototype.format = function (format) {
-  let o = {
+  var o = {
     "M+": this.getMonth() + 1, //月份
     "d+": this.getDate(), //日
     "H+": this.getHours(), //小时
@@ -10,7 +10,7 @@ Date.prototype.format = function (format) {
   };
   if (/(y+)/.test(format))
     format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-  for (let k in o)
+  for (var k in o)
     if (new RegExp("(" + k + ")").test(format))
       format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
   return format;
