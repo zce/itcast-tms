@@ -22,7 +22,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'production';
  */
 app.on('ready', () => {
   // 创建一个窗口
-  mainWindow = new BrowserWindow({ width: 1200, height: 720, show: false });
+  mainWindow = new BrowserWindow({ width: 1200, height: 720, title: 'Evaluation', show: false });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   const webContents = mainWindow.webContents;
   mainWindow.show();
