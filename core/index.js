@@ -35,9 +35,9 @@ const start = (callback) => {
    * 缓存中间件
    */
   const cache = require('./middlewares/cache');
-  const data = require('./middlewares/data');
   app.use(cache(config.system.temp_root));
-  app.use(data(config.system.data_root));
+  // const data = require('./middlewares/data');
+  // app.use(data(config.system.data_root));
 
   /**
    * IP中间件
@@ -83,7 +83,7 @@ const start = (callback) => {
   router
     .get('default', '/', defaultController.index)
     .get('start', '/start', adminController.start) // 开始测评
-    .post('watch_post', '/watch', adminController.watch)
+    .post('watch_post', '/watch/:stamp', adminController.watch)
     .get('count', '/count/:stamp', adminController.count)
     .post('stop', '/stop/:stamp', adminController.stop) // 结束测评
     .post('send', '/send', co.wrap(adminController.doSend)) // 发送邮件

@@ -17,11 +17,13 @@ const config = require('../config');
 
 // get /start/
 exports.start = (ctx, next) => {
-  ctx.render('start', storage.load());
+  let stamp = utilities.getStamp(6);
+  ctx.render('start', { info: storage.load(), stamp });
 };
 
 // post /watch/
 exports.watch = (ctx, next) => {
+  let stamp = ctx.params.stamp;
   if (ctx.localAreaIp) {
     let data = storage.load();
     let temp = ctx.request.body;
@@ -32,7 +34,7 @@ exports.watch = (ctx, next) => {
     let currentAcademy = data.academies[temp.academy_name];
     qArr = currentAcademy.questions.length == 0 ? qArr : currentAcademy.questions;
     let currentSubject;
-    data.subjects.forEach(function (item) {
+    data.subjects.forEach((item) => {
       if (item.academy === temp.academy_name && item.school === temp.school_name && item.name === temp.subject_name) {
         currentSubject = item;
         return false;
@@ -50,7 +52,6 @@ exports.watch = (ctx, next) => {
     // 取到本次测试使用的所有测试题
 
     // 将测评信息放到临时目录
-    let stamp = utilities.getStamp(6);
     temp.stamp = stamp;
     ctx.cache.setItem(`${stamp}_test_info`, temp);
     // 生成测评链接
@@ -90,23 +91,12 @@ exports.stop = (ctx, next) => {
     result: result.result,
     notes: result.notes
   };
-  ctx.data.setItem(`${stamp}_report_result`, data);
+  // ctx.data.setItem(`${stamp}_report_result`, data);
+  // 生成报告文件
   report.logToFile(data, ctx);
   ctx.redirect('/');
   ctx.status = 302;
 };
-
-
-function formatDate(time) {
-  // 201601141014_12345_2015_f99ea716_
-  // 2016-01-14 10:14
-  let year = time[0] + time[1] + time[2] + time[3];
-  let month = time[4] + time[5];
-  let date = time[6] + time[7];
-  let hour = time[8] + time[9];
-  let minutes = time[10] + time[11];
-  return `${year}-${month}-${date} ${hour}:${minutes}`;
-}
 
 /*
  * 获取所有文件，对{日期+时间}分组，去重发送到前台
@@ -123,7 +113,14 @@ exports.getTeachers = (ctx, next) => {
     teachers.push({
       name: pathArr[1], // 老师姓名
       stamp: pathArr[0] + '_' + pathArr[1],
-      time: formatDate(pathArr[0]) // 打分时间
+      time: ((time) => {
+        let year = time[0] + time[1] + time[2] + time[3];
+        let month = time[4] + time[5];
+        let date = time[6] + time[7];
+        let hour = time[8] + time[9];
+        let minutes = time[10] + time[11];
+        return `${year}-${month}-${date} ${hour}:${minutes}`;
+      })(pathArr[0]) // 打分时间
     });
   }
 
@@ -154,6 +151,11 @@ exports.doSend = function* (ctx, next) {
   let teacherEmail = ctx.request.body.teacherEmail.trim();
   let teacherName = ctx.request.body.teacherName.trim();
   let emails = ctx.request.body.emails;
+  if (process.env.NODE_ENV === 'development') {
+    for (var i = 0; i < emails.length; i++) {
+      emails[i] = 'aaaa' + emails[i];
+    }
+  }
 
   // 获取临时目录中所有有效的文件
   let filePaths = getAllTempFilePaths();
@@ -185,7 +187,7 @@ exports.doSend = function* (ctx, next) {
       content: content
     });
 
-    let tempArr = content.split('\r\n').filter(str=> str && str.length);
+    let tempArr = content.split('\r\n').filter(str=> { return str.trim() !== '' && str.length !== 0 });
     // console.log(tempArr);
     content = tempArr.join('<br>');
     content = content.replace('考评结果汇总', '<h2>考评结果汇总</h2>');
@@ -201,11 +203,13 @@ exports.doSend = function* (ctx, next) {
       emails, // 抄送
       teacherName + '老师，请查收打分结果', // 邮件标题
       body, // 邮件正文
-      attachments
-      );
+      attachments);
+    // console.log(emails);
 
     // 发送成功，删除已发送的文件
-    removeFiles(removePaths.map(p => path.join(config.system.log_root, p)));
+    // console.log(ctx.config.remove_log_after_send);
+    if (ctx.config.remove_log_after_send)
+      removeFiles(removePaths.map(p => path.join(config.system.log_root, p)));
 
     ctx.body = {
       code: '1',

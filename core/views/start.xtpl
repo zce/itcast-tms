@@ -3,13 +3,13 @@
 {{#block('subtitle')}}<a href="/" tabindex="-1">返回</a>{{/block}}
 
 {{#block('container')}}
-<form action="/watch/" method="post" autocomplete="off">
+<form action="/watch/{{{stamp}}}" method="post" autocomplete="off">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
         <label for="school_name">所属校区</label>
         <select class="form-control" id="school_name" name="school_name" data-rule-required="true" data-msg-required="请选择分校">
-          {{#each(schools, 'info', 'name')}}
+          {{#each(info.schools, 'info', 'name')}}
           <option value="{{name}}">{{name}}</option>
           {{/each}}
         </select>
@@ -18,7 +18,7 @@
       <div class="form-group">
         <label for="academy_name">所属学院</label>
         <select class="form-control" id="academy_name" name="academy_name" data-rule-required="true" data-msg-required="请选择学科">
-          {{#each(academies, 'info', 'name')}}
+          {{#each(info.academies, 'info', 'name')}}
           <option value="{{name}}">{{name}}</option>
           {{/each}}
         </select>
@@ -188,9 +188,9 @@
 
     $('#test_date').val(new Date().format('yyyy-MM-dd HH:mm'));
 
-    let academies = {{{stringify(academies)}}};
-    let schools = {{{stringify(schools)}}};
-    let subjects = {{{stringify(subjects)}}};
+    let academies = {{{stringify(info.academies)}}};
+    let schools = {{{stringify(info.schools)}}};
+    let subjects = {{{stringify(info.subjects)}}};
 
     let $academySelect = $('#academy_name');
     let $schoolSelect = $('#school_name');

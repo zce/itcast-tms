@@ -65,21 +65,23 @@
 
     'use strict';
 
-    const electron = require('electron');
     // 获取打分完成人数
     let $completedCount = $('#completed_count');
     function getCompletedCount() {
       $.get('/count/{{stamp}}', function(count) {
         $completedCount.text(count);
-        setTimeout(getCompletedCount, 500);
+        setTimeout(getCompletedCount, 800);
       });
     }
     getCompletedCount();
 
     // 复制链接
     $('#btn_copy').on('click', function() {
-      electron.clipboard.writeText($('#copy_content').text());
-      alert('已将打分链接复制到剪贴板，请将链接发送给学生');
+      if(window.require){
+        const electron = require('electron');
+        electron.clipboard.writeText($('#copy_content').text());
+        alert('已将打分链接复制到剪贴板，请将链接发送给学生');
+      }
       return false;
     });
 

@@ -66,7 +66,7 @@ function getAvgResult(temp, rates) {
   return result;
 }
 
-exports.compute = function(cache, temp) {
+exports.compute = (cache, temp) => {
   let rates = getRateDatas(temp.stamp, cache);
   let notes = getNotes(rates);
   // let versions = getVersions(temp);
@@ -80,17 +80,22 @@ exports.compute = function(cache, temp) {
 const fs = require('fs');
 const path = require('path');
 const utility = require('utility');
-exports.logToFile = function(data, ctx) {
+exports.logToFile = (data, ctx) => {
   for (let v in data.result) {
     ctx.getRender('txt', {
       info: data.info,
       result: data.result[v],
       notes: data.notes
-    }, function(error, text) {
+    }, (error, text) => {
       let timeStamp = new Date().format('yyyyMMddHHmm');
-      let sha1 = timeStamp + '_' + data.info.teacher_name + '_' + v + '_' + utility.sha1(utility.md5(text.trim()) /*+ utility.md5(JSON.stringify(qs))*/ + ctx.config.report_file_token).substring(0, 8) + '_.txt';
+      let sha1 = timeStamp + '_' + data.info.teacher_name + '_' + v + '_' + utility.sha1(utility.md5(text.trim()) + ctx.config.report_file_token).substring(0, 8) + '_.txt';
       var filePath = path.join(ctx.config.log_root, sha1);
-      fs.writeFile(filePath, text);
+      fs.writeFile(filePath, text, (error) => {
+        if (error) {
+          throw new Error('生成报告文件出错');
+        }
+        ctx.cache.clearAll();
+      });
     });
   }
 }

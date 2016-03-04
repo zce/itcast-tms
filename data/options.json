@@ -13,5 +13,6 @@
   },
   "allow_student_repeat": false,
   "allow_admin_rating": true,
+  "remove_log_after_send": true,
   "report_file_token": "wedn.net"
 }

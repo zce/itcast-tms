@@ -26,7 +26,11 @@
       <ul class="list-group" id="teacher_container">
         <li class="list-group-item disabled">请选择讲师</li>
       </ul>
-      <p class="help-block">发送邮件成功后会自动删除该打分数据！</p>
+      {{#if(config.remove_log_after_send)}}
+      <p class="help-block"> 发送邮件成功后会自动删除该打分数据！</p>
+      {{else}}
+      <p class="help-block"> 发送邮件成功后不会自动删除该打分数据！</p>
+      {{/if}}
     </div>
     <div class="col-md-6 form-group-md">
       <div class="input-group">
