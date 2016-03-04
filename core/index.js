@@ -13,6 +13,10 @@ const start = (callback) => {
   const convert = require('koa-convert');
   const app = new Koa();
 
+  // 错误提示
+  const onerror = require('koa-onerror');
+  onerror(app);
+
   /**
    * 更新系统配置文件
    */
