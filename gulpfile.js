@@ -36,7 +36,7 @@ gulp.task('release', () => {
       src: './app',
       packageJson: packageJson,
       release: './release',
-      cache: './cache',
+      cache: './.cache',
       version: 'v0.36.8',
       packaging: true,
       platforms: ['win32-ia32', 'win32-x64', 'darwin-x64'],
@@ -62,4 +62,20 @@ gulp.task('release', () => {
 gulp.task('clean', () => {
   gulp.src(['./.eva*','./app/.eva*', './release', './app/core.asar', './app/updater.asar', './app/temp', './app/data', './app/version.json'], { read: false })
     .pipe(clean({ force: true }));
+});
+
+
+gulp.task('version', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const version = require('./version.json');
+  const latest = version.latest.slice(1);
+
+  const target = ['./package.json', './core/package.json', './app/package.json', './updater/package.json'];
+  target.forEach((item) => {
+    const now = require(item);
+    now.version = latest;
+    fs.writeFileSync(path.join(__dirname, item), JSON.stringify(now), 'utf8');
+  });
+
 });

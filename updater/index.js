@@ -7,7 +7,7 @@
 
 'use strict';
 
-const root = 'http://itcast-evaluation.wedn.net/core/';
+const root = 'http://git.oschina.net/micua/files/raw/master/itcast-evaluation/core/';
 
 const fs = require('fs');
 const path = require('path');
@@ -30,9 +30,9 @@ const checking = (callback) => {
       result.on('end', function (error) {
         const remoteVersion = JSON.parse(content);
         if (localVersion.latest !== remoteVersion.latest) {
-          callback(undefined, remoteVersion);
+          callback(null, remoteVersion);
         } else {
-          callback(undefined, false);
+          callback(null, false);
         }
       });
     }).on('error', function (error) {
@@ -51,12 +51,12 @@ const update = (progress, callback) => {
       callback('don\'t need');
       return false;
     }
-    const cacheDir = path.join(__dirname, '../cache/');
+    const cacheDir = path.join(__dirname, '../.cache/');
     if (!fs.existsSync(cacheDir)) {
       fs.mkdirSync(cacheDir);
     }
     const wget = require('wget');
-    const output = path.join(__dirname, '../cache/core.zip');
+    const output = path.join(__dirname, '../.cache/core.zip');
     const options = {};
     const download = wget.download(`${root}${version.latest}/core.zip`, output, options);
     download.on('progress', progress);
@@ -73,8 +73,8 @@ const update = (progress, callback) => {
           }
           fs.unlink(output);
           const destPath = path.join(__dirname, '../core.asar');
-          // 移动 
-          fs.rename(path.join(__dirname, '../cache/core'), destPath, function (error) {
+          // 移动
+          fs.rename(path.join(__dirname, '../.cache/core'), destPath, function (error) {
             if (error) {
               callback(error);
               return false;
@@ -89,7 +89,6 @@ const update = (progress, callback) => {
             });
           });
         });
-
     });
   });
 };

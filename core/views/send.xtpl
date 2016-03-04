@@ -246,6 +246,7 @@
         $('#progress_bar').removeClass('progress-bar-striped');
         $('#progress_bar').addClass('progress-bar-danger');
         $('.modal-header h3').text('发送失败');
+        $('#btn_closeSendModal').show();
       }
     });
   });

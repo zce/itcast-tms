@@ -32,7 +32,7 @@ exports.watch = (ctx, next) => {
     let currentAcademy = data.academies[temp.academy_name];
     qArr = currentAcademy.questions.length == 0 ? qArr : currentAcademy.questions;
     let currentSubject;
-    data.subjects.forEach(function(item) {
+    data.subjects.forEach(function (item) {
       if (item.academy === temp.academy_name && item.school === temp.school_name && item.name === temp.subject_name) {
         currentSubject = item;
         return false;
@@ -149,7 +149,7 @@ exports.send = (ctx, next) => {
  * body参数：teacherName
  * body参数：email[]
  * */
-exports.doSend = function*(ctx, next) {
+exports.doSend = function* (ctx, next) {
   let stamp = ctx.request.body.stamp.trim();
   let teacherEmail = ctx.request.body.teacherEmail.trim();
   let teacherName = ctx.request.body.teacherName.trim();
@@ -176,7 +176,7 @@ exports.doSend = function*(ctx, next) {
   // 生成邮件正文和附件
   for (let i = 0; i < sendPaths.length; i++) {
     let item = sendPaths[i];
-    body += '<h1 style="text-align:center">评分规则：' + item.split('_')[2] + '</h1><hr />';
+    body += '<h1 style="text-align:center">评分规则：' + item.split('_')[2] + '版</h1><hr />';
     let fullPath = path.join(config.system.log_root, item);
     let content = fs.readFileSync(fullPath, 'utf8');
 
@@ -185,11 +185,13 @@ exports.doSend = function*(ctx, next) {
       content: content
     });
 
-    content = content.split('\r\n').join('<br>');
+    let tempArr = content.split('\r\n').filter(str=> str && str.length);
+    // console.log(tempArr);
+    content = tempArr.join('<br>');
     content = content.replace('考评结果汇总', '<h2>考评结果汇总</h2>');
-    content = content.replace('具体原因：', '<h3>具体原因：</h3>');
-    content = content.replace('各项分数：', '<h3>各项分数：</h3>');
-    content = content.replace('学员评价：', '<h3>学员评价：</h3>');
+    content = content.replace('具体原因：', '<h3 style="margin-top:10px;margin-bottom:-6px">具体原因：</h3>');
+    content = content.replace('各项分数：', '<h3 style="margin-top:10px;margin-bottom:-6px">各项分数：</h3>');
+    content = content.replace('学员评价：', '<h3 style="margin-top:10px;margin-bottom:-6px">学员评价：</h3>');
     body += content + '<br><br><br>';
   }
 
@@ -200,7 +202,7 @@ exports.doSend = function*(ctx, next) {
       teacherName + '老师，请查收打分结果', // 邮件标题
       body, // 邮件正文
       attachments
-    );
+      );
 
     // 发送成功，删除已发送的文件
     removeFiles(removePaths.map(p => path.join(config.system.log_root, p)));
@@ -260,7 +262,7 @@ function getEmailsByStamp(stamp) {
   let academyEmails = dts.academies[academyName].emails;
   // let subjectEmails = dts.academies[academyName].subjects[subjectName].emails;
   let subjectEmails;
-  dts.subjects.forEach(function(item) {
+  dts.subjects.forEach(function (item) {
     if (item.academy === academyName && item.school === schoolName && item.name === subjectName) {
       subjectEmails = item.emails;
       return false;

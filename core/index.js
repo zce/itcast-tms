@@ -10,7 +10,7 @@ const start = (callback) => {
 
   const Koa = require('koa');
   const co = require('co');
-  const convert = require('koa-convert')
+  const convert = require('koa-convert');
   const app = new Koa();
 
   /**
@@ -20,29 +20,10 @@ const start = (callback) => {
   app.use(update);
 
   /**
-   * 日志记录
-   */
-  // app.use((ctx, next) => {
-  //   if (process.env.PRODUCTION) {
-  //     return next();
-  //   } else {
-  //     let start = new Date();
-  //     return next().then(() => {
-  //       let ms = new Date() - start;
-  //       console.log(`${ctx.method} ${ctx.url} - ${ms}`);
-  //     });
-  //   }
-  // });
-
-  /**
    * 配置注入中间件，方便调用配置信息
    */
   const config = require('./config');
   app.use(config.inject());
-
-  // app.use((ctx, next) => {
-  //   console.log(ctx.config);
-  // });
 
   /**
    * 静态文件
@@ -123,17 +104,26 @@ const start = (callback) => {
 
   // 启用一个可用的随机端口
   const http = require('http');
-  const server = http.createServer(app.callback()).listen(process.env.NODE_ENV === 'production' ? 0 : config.system.debug_port);
+  const server = http.createServer(app.callback());
+  server.listen(process.env.NODE_ENV === 'production' ? 0 : config.system.debug_port);
 
-  server.on('listening', function () {
+  server.on('listening', (error) => {
+    if (error) {
+      throw error;
+    }
     process.env.port = server.address().port;
     console.log(`服务已开启，请访问：http://127.0.0.1:${process.env.port}/`);
     callback && callback(`http://127.0.0.1:${process.env.port}/`);
+  });
+
+
+  app.on('error', function (err, ctx) {
+    console.error(err);
   });
 }
 
 module.exports = { start };
 
-if (!process.env.ELECTRON_ENV) {
+if (!module.parent) {
   start();
 }

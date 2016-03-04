@@ -6,7 +6,7 @@ const fs = require('fs');
 var sys_config = {
   debug_port: 2080,
   // 服务端更新
-  update_root: 'http://itcast-evaluation.wedn.net/data/',
+  update_root: 'http://git.oschina.net/micua/files/raw/master/itcast-evaluation/data/',
   // 模板所在的目录
   view_root: path.join(__dirname, 'views'),
   // 静态文件所在的目录
