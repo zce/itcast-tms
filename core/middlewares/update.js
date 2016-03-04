@@ -18,7 +18,7 @@ const tasks = ['academies.json', 'itcast.json', 'options.json', 'questions.json'
 
 
 const update = (ctx, callback) => {
-  fetch(config.system.update_root + 'version.json')((error, content) => {
+  fetch(`${config.system.update_root}version.json?${Math.random()}`)((error, content) => {
     if (error) {
       ctx.online = false;
       callback(null, false);
@@ -39,7 +39,7 @@ const update = (ctx, callback) => {
         console.log(`数据需要更新到『${remote.latest}』`);
         let count = tasks.length;
         tasks.forEach((item) => {
-          fetch(`${config.system.update_root}${remote.latest}/${item}`)((error, content) => {
+          fetch(`${config.system.update_root}${remote.latest}/${item}?v=${Math.random()}`)((error, content) => {
             if (error) {
               callback(null, false);
               return false;

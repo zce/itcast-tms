@@ -7,6 +7,7 @@
 
 'use strict';
 
+// const root = 'http://git.oschina.net/micua/files/raw/master/itcast-evaluation/core/';
 const root = 'http://files.wedn.net/itcast-evaluation/core/';
 
 const fs = require('fs');
@@ -22,13 +23,14 @@ const checking = (callback) => {
     }
     const localVersion = JSON.parse(data);
     const http = require('http');
-    http.get(`${root}version.json`, function (result) {
+    http.get(`${root}version.json?v=${Math.random()}`, function (result) {
       let content = '';
       result.on('data', function (data) {
         content += data;
       });
       result.on('end', function (error) {
         const remoteVersion = JSON.parse(content);
+        console.log(content);
         if (localVersion.latest !== remoteVersion.latest) {
           callback(null, remoteVersion);
         } else {
@@ -58,7 +60,7 @@ const update = (progress, callback) => {
     const wget = require('wget');
     const output = path.join(__dirname, '../.cache/core.zip');
     const options = {};
-    const download = wget.download(`${root}${version.latest}/core.zip`, output, options);
+    const download = wget.download(`${root}${version.latest}/core.zip?v=${Math.random()}`, output, options);
     download.on('progress', progress);
     download.on('error', callback);
     download.on('end', () => {
