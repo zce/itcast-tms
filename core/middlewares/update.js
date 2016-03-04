@@ -9,7 +9,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const wget = require('wget');
 const co = require('co');
 const thunkify = require('thunkify');
 const fetch = require('../functions/fetch');
