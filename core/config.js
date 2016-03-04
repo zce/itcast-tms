@@ -6,13 +6,11 @@ const fs = require('fs');
 var sys_config = {
   debug_port: 2080,
   // 服务端更新
-  update_root: 'http://git.oschina.net/micua/files/raw/master/itcast-evaluation/data/',
+  update_root: 'http://files.wedn.net/itcast-evaluation/data/',
   // 模板所在的目录
   view_root: path.join(__dirname, 'views'),
   // 静态文件所在的目录
   static_root: path.join(__dirname, 'www'),
-  //// 缓存文件所在的目录
-  // data_root: path.join(__dirname, '..', '.eva-data'),
   // log结果文件存储的目录
   log_root: path.join(__dirname, '..', '.eva-logs'),
   // 存放临时文件目录

@@ -7,7 +7,7 @@
 
 'use strict';
 
-const root = 'http://git.oschina.net/micua/files/raw/master/itcast-evaluation/core/';
+const root = 'http://files.wedn.net/itcast-evaluation/core/';
 
 const fs = require('fs');
 const path = require('path');

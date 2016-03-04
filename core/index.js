@@ -36,8 +36,6 @@ const start = (callback) => {
    */
   const cache = require('./middlewares/cache');
   app.use(cache(config.system.temp_root));
-  // const data = require('./middlewares/data');
-  // app.use(data(config.system.data_root));
 
   /**
    * IP中间件
