@@ -1,5 +1,6 @@
 {
   "emails": [
+    { "name": "教学评分系统", "title": "系统", "email": "pingfen@itcast.cn" },
     { "name": "冯威", "title": "副总裁", "email": "fw@itcast.cn" },
     { "name": "李印东", "title": "主任", "email": "lyd@itcast.cn" }
   ],

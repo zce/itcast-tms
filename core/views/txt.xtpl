@@ -15,7 +15,7 @@
 
 具体原因：
 
-登录不上系统：	         {{info.class_count-info.rate_count-info.reason1_count-info.reason2_count-info.reason3_count-info.reason4_count-info.reason5_count-info.reason6_count-info.reason7_count-info.reason8_count-info.reason9_count}}人
+未登录系统：	         {{info.class_count-info.rate_count-info.reason1_count-info.reason2_count-info.reason3_count-info.reason4_count-info.reason5_count-info.reason6_count-info.reason7_count-info.reason8_count-info.reason9_count}}人
 留级：		              {{info.reason1_count}}人
 有病请假：	            {{info.reason2_count}}人
 有事请假：	            {{info.reason3_count}}人
