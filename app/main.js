@@ -55,7 +55,9 @@ app.on('ready', () => {
  * 窗口关闭事件
  */
 app.on('window-all-closed', () => {
-  if (process.platform != 'darwin') {
-    app.quit();
-  }
+  // if (process.platform != 'darwin') {
+  //   app.quit();
+  // }
+  app.quit();
 });
+
