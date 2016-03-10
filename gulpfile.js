@@ -36,8 +36,8 @@ gulp.task('release', () => {
       src: './app',
       packageJson: packageJson,
       release: './release',
-      cache: './.cache',
-      version: 'v0.36.9',
+      cache: './cache',
+      version: 'v0.36.10',
       packaging: true,
       platforms: ['win32-ia32', 'win32-x64', 'darwin-x64'],
       platformResources: {
