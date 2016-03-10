@@ -23,7 +23,7 @@ const checking = (callback) => {
     }
     const localVersion = JSON.parse(data);
     const http = require('http');
-    http.get(`${root}version.json?v=${Math.random()}`, function (result) {
+    http.get(`${root}version.json?v=${new Date().getTime()}`, function (result) {
       let content = '';
       result.on('data', function (data) {
         content += data;
@@ -60,7 +60,7 @@ const update = (progress, callback) => {
     const wget = require('wget');
     const output = path.join(__dirname, '../.cache/core.zip');
     const options = {};
-    const download = wget.download(`${root}${version.latest}/core.zip?v=${Math.random()}`, output, options);
+    const download = wget.download(`${root}${version.latest}/core.zip?v=${new Date().getTime()}`, output, options);
     download.on('progress', progress);
     download.on('error', callback);
     download.on('end', () => {
