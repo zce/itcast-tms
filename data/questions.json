@@ -57,7 +57,7 @@
   },
   {
     "shortname": "课程深度",
-    "question": "老师对得点难点的讲解是否有深度。",
+    "question": "老师对难点的讲解是否有深度。",
     "answers": [
       { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
       { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -168,7 +168,7 @@
   },
   {
     "shortname": "课程深度",
-    "question": "老师对得点难点的讲解是否有深度。",
+    "question": "老师对难点的讲解是否有深度。",
     "answers": [
       { "text": "A.非常满意", "score": { "front": 10,"back": 10 } },
       { "text": "B.比较满意", "score": { "front": 7,"back": 7 } },

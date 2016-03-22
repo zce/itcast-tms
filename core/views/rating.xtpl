@@ -31,6 +31,9 @@
   .meta{
     margin: 20px 0;
   }
+  input,textarea{
+    -webkit-user-select:initial;-moz-user-select:initial;cursor:default
+  }
 </style>
 {{/block}}
 

@@ -30,7 +30,6 @@ const checking = (callback) => {
       });
       result.on('end', function (error) {
         const remoteVersion = JSON.parse(content);
-        console.log(content);
         if (localVersion.latest !== remoteVersion.latest) {
           callback(null, remoteVersion);
         } else {

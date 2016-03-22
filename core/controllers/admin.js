@@ -21,12 +21,14 @@ exports.start = (ctx, next) => {
   ctx.render('start', { info: storage.load(), stamp });
 };
 
-// post /watch/
+// post /watch/:stamp
 exports.watch = (ctx, next) => {
   let stamp = ctx.params.stamp;
   if (ctx.localAreaIp) {
     let data = storage.load();
     let temp = ctx.request.body;
+    // 处理邮箱输入
+    temp.teacher_email = temp.teacher_email.indexOf('@') !== -1 ? temp.teacher_email.split('@')[0] : temp.teacher_email;
     // 取本次测试题
     let qArr = data.itcast.questions; // 默认
     let currentSchool = data.schools[temp.school_name];
@@ -114,13 +116,13 @@ exports.getTeachers = (ctx, next) => {
       name: pathArr[1], // 老师姓名
       stamp: pathArr[0] + '_' + pathArr[1],
       time: ((time) => {
-        let year = time[0] + time[1] + time[2] + time[3];
-        let month = time[4] + time[5];
-        let date = time[6] + time[7];
-        let hour = time[8] + time[9];
-        let minutes = time[10] + time[11];
-        return `${year}-${month}-${date} ${hour}:${minutes}`;
-      })(pathArr[0]) // 打分时间
+          let year = time[0] + time[1] + time[2] + time[3];
+          let month = time[4] + time[5];
+          let date = time[6] + time[7];
+          let hour = time[8] + time[9];
+          let minutes = time[10] + time[11];
+          return `${year}-${month}-${date} ${hour}:${minutes}`;
+        })(pathArr[0]) // 打分时间
     });
   }
 
@@ -146,7 +148,7 @@ exports.send = (ctx, next) => {
  * body参数：teacherName
  * body参数：email[]
  * */
-exports.doSend = function* (ctx, next) {
+exports.doSend = function*(ctx, next) {
   let stamp = ctx.request.body.stamp.trim();
   let teacherEmail = ctx.request.body.teacherEmail.trim();
   let teacherName = ctx.request.body.teacherName.trim();
@@ -158,7 +160,7 @@ exports.doSend = function* (ctx, next) {
   }
 
   // 获取临时目录中所有有效的文件
-  let filePaths = getAllTempFilePaths();
+  let filePaths = getAllTempFilePaths().sort();
 
   let sendPaths = [];
 
@@ -187,7 +189,8 @@ exports.doSend = function* (ctx, next) {
       content: content
     });
 
-    let tempArr = content.split('\r\n').filter(str=> { return str.trim() !== '' && str.length !== 0 });
+    let tempArr = content.split('\r\n').filter(str => {
+      return str.trim() !== '' && str.length !== 0 });
     // console.log(tempArr);
     content = tempArr.join('<br>');
     content = content.replace('考评结果汇总', '<h2>考评结果汇总</h2>');
@@ -266,7 +269,7 @@ function getEmailsByStamp(stamp) {
   let academyEmails = dts.academies[academyName].emails;
   // let subjectEmails = dts.academies[academyName].subjects[subjectName].emails;
   let subjectEmails;
-  dts.subjects.forEach(function (item) {
+  dts.subjects.forEach(function(item) {
     if (item.academy === academyName && item.school === schoolName && item.name === subjectName) {
       subjectEmails = item.emails;
       return false;

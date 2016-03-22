@@ -17,6 +17,7 @@
   "UI设计": {
     "emails": [
       { "name": "张鹏", "title": "院长", "email":  "zp@itcast.cn" },
+      { "name": "魏源源", "title": "院长助理", "email":  "weiyuanyuan@itcast.cn" },
       { "name": "马瑞霞", "title": "院长文员", "email": "maruixia@itcast.cn" }
     ],
     "questions": []
@@ -47,7 +48,7 @@
     "emails": [
       { "name": "马伦", "title": "院长", "email":  "malun@itcast.cn" },
       { "name": "牛亮亮", "title": "院长助理", "email": "nll@itcast.cn" },
-      { "name": "刘龙宾", "title": "前端数据统计员", "email": "liulongbin@itcast.cn" }
+      { "name": "张慧敏", "title": "院长文员", "email": "zhanghuimin@itcast.cn" }
     ],
     "questions": []
   }
