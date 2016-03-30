@@ -51,5 +51,14 @@
       { "name": "张慧敏", "title": "院长文员", "email": "zhanghuimin@itcast.cn" }
     ],
     "questions": []
+  },
+  "双元课堂": {
+    "emails": [
+      { "name": "孙健", "title": "总监", "email": "sunjian@itcast.cn" },
+      { "name": "李鹏鹏", "title": "总监助理", "email": "lipengpeng@itcast.cn" },
+      { "name": "韩站超", "title": "总监助理", "email": "hanzhanchao@itcast.cn" },
+      { "name": "刘迪", "title": "总监文员", "email": "liudi1@itcast.cn" }
+    ],
+    "questions": [ "2016-双元" ]
   }
 }
