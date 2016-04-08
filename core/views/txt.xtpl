@@ -36,5 +36,5 @@
 {{/each}}
 学员评价：
 
-{{#each(notes)}}* {{{this}}}
+{{#each(notes)}}* {{this}}
 {{/each}}
