@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('itcast-tms.directives.resizer', [])
+  angular.module('itcast-tms.directives')
     .directive('resizer', ['$document', function($document) {
       return {
         restrict: 'C',

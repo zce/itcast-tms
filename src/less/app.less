@@ -514,6 +514,9 @@ fieldset {
   }
   .dialog-text {
     display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
     font-size: 1.5rem;
   }
   .dialog-buttons {
@@ -532,7 +535,7 @@ fieldset {
     -webkit-box-pack: center;
     color: #333;
     display: -webkit-box;
-    height: 3rem;
+    // height: 3rem;
     margin: 0 .5rem;
     opacity: 0.8;
     padding: 0 1.4rem;
@@ -540,5 +543,20 @@ fieldset {
   .dialog-button:hover {
     border: .1rem solid rgba(0, 0, 0, 0.32);
     color: #000;
+  }
+  h4{
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  h5 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    strong{
+      font-weight: 400;
+    }
+  }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 }

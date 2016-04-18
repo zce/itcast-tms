@@ -3,7 +3,17 @@
 // 处理环境变量
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, hideInternalModules } = require('electron');
+
+// 禁用旧版的API
+hideInternalModules();
+
+global.CONFIG = {
+  app_name: 'hello',
+  app_root: app.getAppPath()
+};
+
+// crashReporter
 // // Module to control application life.
 // const app = electron.app;
 // // Module to create native browser window.

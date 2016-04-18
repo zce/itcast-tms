@@ -28,16 +28,16 @@
         <h3>操作</h3>
         <ul>
           <li><a href="#/home">仪表盘</a></li>
-          <li><a href="#/starter">开始新的测评</a></li>
+          <li><a href="#/editor">开始新的测评</a></li>
           <!-- <li>开始新的测评</li> -->
         </ul>
         <hr>
         <h3>测评记录</h3>
         <div class="warpper">
           <ul class="tabs-list" ng-controller="RecordController">
-            <li ng-repeat="record in records" draggable="true" auto-active>
-              <span class="filename" title="{{record}}">{{record}}</span>
-              <span class="close"></span>
+            <li ng-repeat="(key, value) in records" draggable="true" auto-active>
+              <span class="filename" title="{{value}}">{{key}}</span>
+              <span class="close" ng-click="remove(key)"></span>
             </li>
           </ul>
         </div>
@@ -45,7 +45,7 @@
         <h3>帮助</h3>
         <ul>
           <li ng-click="settingsOpened=true">设置</li>
-          <li ng-click="settingsOpened=true">关于</li>
+          <li ng-click="aboutOpened=true">关于</li>
         </ul>
       </div>
       <div class="settings">
@@ -83,12 +83,16 @@
     <!-- /.main-view -->
   </div>
   <!-- /.window -->
-  <dialog></dialog>
+  <dialog open="aboutOpened">
+    <h4>About</h4>
+    <h5>System: <strong>v4.0</strong> Data: <strong>v20160418</strong></h5>
+    <p>Copyright &copy; Itcast, Inc. All Rights Reserved.</p>
+  </dialog>
   <!-- templates -->
   <script id="dashboard_tmpl" type="text/ng-template">
     <h1 class="page-header">Dashboard</h1>
   </script>
-  <script id="starter_tmpl" type="text/ng-template">
+  <script id="editor_tmpl" type="text/ng-template">
     <h1 class="page-header">开始新的测评</h1>
     <div class="wrapper">
       <div class="inner">
@@ -166,14 +170,20 @@
   <script src="../node_modules/lodash/lodash.js"></script>
   <!-- endbuild -->
   <!-- build:js js/script.js -->
+  <script src="js/common/extras.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/directives/index.js"></script>
   <script src="js/directives/auto-active.js"></script>
   <script src="js/directives/dialog.js"></script>
   <script src="js/directives/resizer.js"></script>
+  <script src="js/services/index.js"></script>
+  <script src="js/services/storage.js"></script>
+  <script src="js/controllers/index.js"></script>
   <script src="js/controllers/main.js"></script>
   <script src="js/controllers/record.js"></script>
-  <script src="js/areas/dashboard/module.js"></script>
-  <script src="js/areas/starter/module.js"></script>
+  <script src="js/areas/index.js"></script>
+  <script src="js/areas/dashboard.js"></script>
+  <script src="js/areas/editor.js"></script>
   <!-- endbuild -->
 </body>
 
