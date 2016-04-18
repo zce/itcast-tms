@@ -28,7 +28,7 @@
         <h3>操作</h3>
         <ul>
           <li><a href="#/home">仪表盘</a></li>
-          <li><a href="#/editor">开始新的测评</a></li>
+          <li><a href="#/starter">开始新的测评</a></li>
           <!-- <li>开始新的测评</li> -->
         </ul>
         <hr>
@@ -92,7 +92,7 @@
   <script id="dashboard_tmpl" type="text/ng-template">
     <h1 class="page-header">Dashboard</h1>
   </script>
-  <script id="editor_tmpl" type="text/ng-template">
+  <script id="starter_tmpl" type="text/ng-template">
     <h1 class="page-header">开始新的测评</h1>
     <div class="wrapper">
       <div class="inner">
@@ -100,67 +100,70 @@
           <div class="six columns">
             <div class="form-group">
               <label for="school_name">所属校区</label>
-              <select id="school_name" ng-model="school_name">
-                <option value="{{key}}" ng-repeat="(key, value) in schools">{{key}}</option>
+              <select id="school_name" ng-model="model.school_name">
+                <option value="{{key}}" ng-repeat="(key, value) in data.schools">{{key}}</option>
               </select>
             </div>
             <div class="form-group">
               <label for="academy_name">所属学院</label>
-              <select id="academy_name" ng-model="academy_name">
-                <option value="{{key}}" ng-repeat="(key, value) in academies">{{key}}</option>
+              <select id="academy_name" ng-model="model.academy_name">
+                <option value="{{key}}" ng-repeat="(key, value) in data.academies">{{key}}</option>
               </select>
             </div>
             <div class="form-group">
               <label for="subject_name">所属学科</label>
-              <select id="subject_name" ng-model="subject_name">
-                <option value="{{item.name}}" ng-repeat="item in subjects">{{item.name}}</option>
+              <select id="subject_name" ng-model="model.subject_name">
+                <option value="{{item.name}}" ng-repeat="item in data.subjects">{{item.name}}</option>
               </select>
             </div>
             <div class="form-group">
               <label for="class_count">班级总人数</label>
-              <input type="number" id="class_count" ng-model="class_count" placeholder="请输入班级总人数">
+              <input type="number" id="class_count" ng-model="model.class_count" placeholder="请输入班级总人数">
             </div>
             <div class="row">
-              <div class="four columns" ng-repeat="(key, value) in reasons" ng-class="{first: !($index % 3)}">
+              <div class="four columns" ng-repeat="(key, value) in model.reasons" ng-class="{first: !($index % 3)}">
                 <label for="reason{{$index}}_count">{{key}}人数</label>
-                <input type="number" id="reason{{$index}}_count" ng-model="reasons[key]" placeholder="请输入{{key}}人数" tabindex="-1">
+                <input type="number" id="reason{{$index}}_count" ng-model="model.reasons[key]" placeholder="请输入{{key}}人数" tabindex="-1">
               </div>
             </div>
           </div>
           <div class="six columns">
             <div class="form-group">
               <label for="class_name">班级名称</label>
-              <input type="text" id="class_name" ng-model="class_name" placeholder="请输入班级名称">
+              <input type="text" id="class_name" ng-model="model.class_name" placeholder="请输入班级名称">
             </div>
             <div class="form-group">
               <label for="course_name">课程阶段</label>
-              <input type="text" id="course_name" ng-model="course_name" placeholder="请输入课程阶段">
+              <input type="text" id="course_name" ng-model="model.course_name" placeholder="请输入课程阶段">
             </div>
             <div class="form-group">
               <label for="course_days">课程天数</label>
-              <input type="number" id="course_days" ng-model="course_days" placeholder="请输入课程天数">
+              <input type="number" id="course_days" ng-model="model.course_days" placeholder="请输入课程天数">
             </div>
             <div class="form-group">
               <label for="head_name">班主任姓名</label>
-              <input type="text" id="head_name" ng-model="head_name" placeholder="请输入班主任姓名">
+              <input type="text" id="head_name" ng-model="model.head_name" placeholder="请输入班主任姓名">
             </div>
             <div class="form-group">
               <label for="teacher_name">讲师姓名</label>
-              <input type="text" id="teacher_name" ng-model="teacher_name" placeholder="请输入讲师名称">
+              <input type="text" id="teacher_name" ng-model="model.teacher_name" placeholder="请输入讲师名称">
             </div>
             <div class="form-group">
               <label for="teacher_email">讲师邮箱</label>
-              <input type="text" id="teacher_email" ng-model="teacher_email" placeholder="请输入讲师邮箱">
+              <input type="text" id="teacher_email" ng-model="model.teacher_email" placeholder="请输入讲师邮箱">
             </div>
             <div class="form-group">
               <label for="datetime">测评日期</label>
-              <input type="text" id="datetime" ng-model="datetime" readonly="readonly" tabindex="-1">
+              <input type="text" id="datetime" ng-model="model.datetime" readonly="readonly" tabindex="-1">
             </div>
           </div>
         </div>
-        <button class="button-primary" ng-click="start()">开始新的测评</button>
+        <button class="button-primary" ng-click="action.start()">开始新的测评</button>
       </div>
     </div>
+  </script>
+  <script id="watcher_tmpl" type="text/ng-template">
+    <h1 class="page-header">测评信息</h1>
   </script>
   <!-- /templates -->
   <!-- build:js js/vender.js -->
@@ -183,7 +186,8 @@
   <script src="js/controllers/record.js"></script>
   <script src="js/areas/index.js"></script>
   <script src="js/areas/dashboard.js"></script>
-  <script src="js/areas/editor.js"></script>
+  <script src="js/areas/starter.js"></script>
+  <script src="js/areas/watcher.js"></script>
   <!-- endbuild -->
 </body>
 
