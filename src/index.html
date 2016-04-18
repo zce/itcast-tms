@@ -16,15 +16,9 @@
   <link rel="stylesheet" href="css/theme-dark.css">
   <link rel="stylesheet" href="css/theme-light.css">
   <!-- endbuild -->
-  <!-- build:js js/vender.js -->
-  <script src="../node_modules/angular/angular.js"></script>
-  <script src="../node_modules/angular-animate/angular-animate.js"></script>
-  <script src="../node_modules/angular-route/angular-route.js"></script>
-  <script src="../node_modules/lodash/lodash.js"></script>
-  <!-- endbuild -->
 </head>
 
-<body ng-controller="MainController" theme="{{theme}}" ng-cloak>
+<body ng-controller="MainController" theme="{{theme}}" class="fade-ng-cloak" ng-cloak>
   <div class="window">
     <div class="sidebar" ng-class="{'open-settings': settingsOpened}" ng-style="{width: sidebarOpened ? '222px' : '0'}">
       <div class="resizer"></div>
@@ -165,6 +159,12 @@
     </div>
   </script>
   <!-- /templates -->
+  <!-- build:js js/vender.js -->
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
+  <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script src="../node_modules/lodash/lodash.js"></script>
+  <!-- endbuild -->
   <!-- build:js js/script.js -->
   <script src="js/app.js"></script>
   <script src="js/directives/auto-active.js"></script>

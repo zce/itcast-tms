@@ -1,3 +1,44 @@
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+.fade-ng-cloak {
+  opacity: 1;
+  // -ms-filter: none;
+  // -webkit-filter: none;
+  // filter: none;
+  -webkit-transition: opacity 2s;
+  transition: opacity 2s;
+}
+
+.fade-ng-cloak[ng-cloak] {
+  display: block !important;
+  opacity: 0;
+  // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  // filter: alpha(opacity=0);
+}
+
+.fade-ng-cloak.ng-cloak,
+.fade-ng-cloak.ng-binding {
+  opacity: 0;
+  transition: opacity 800ms ease-in-out;
+}
+
+.fade-ng-cloak.ng-binding {
+  opacity: 1;
+}
+
+html {
+  background-image: url(../img/hourglass.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 html,
 body {
   height: 100%;
@@ -9,8 +50,15 @@ body {
   font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
   font-size: 1.2rem;
   overflow: hidden;
+  background-color: #fff;
+  // opacity: 1;
+  // transition: opacity 2s ease;
 }
 
+// .ng-cloak {
+//   display: block !important;
+//   opacity: 0;
+// }
 a {
   text-decoration: none;
   -webkit-user-drag: none;
