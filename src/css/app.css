@@ -1,0 +1,461 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+}
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+img {
+  -webkit-user-drag: none;
+}
+label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+input,
+textarea,
+select,
+fieldset {
+  width: 100%;
+  margin-bottom: 1.3rem;
+}
+.page-header {
+  border-bottom: .1rem solid #e0e0e0;
+  padding: 0 0 .5rem .5rem;
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+}
+.button-primary {
+  display: block;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 400;
+  height: 4rem;
+}
+.first {
+  margin-left: 0;
+}
+.icon-button {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: .1rem solid transparent;
+  border-radius: .4rem;
+  cursor: pointer;
+  height: 3.6rem;
+  margin: 0 1rem;
+  opacity: 0.65;
+  width: 3.6rem;
+  padding: 0;
+}
+.icon-button:hover,
+.icon-button:active,
+.icon-button.selected {
+  border: 0.1rem solid rgba(0, 0, 0, 0.16);
+  color: #333;
+  opacity: 0.8;
+}
+.icon-button:focus {
+  outline: 0;
+}
+.icon-button.toggle {
+  background-image: url('../img/menu.svg');
+}
+.icon-button.minimize {
+  background-image: url('../img/minimize.svg');
+}
+.icon-button.maximize {
+  background-image: url('../img/maximize.svg');
+}
+.icon-button.close {
+  background-image: url('../img/close.svg');
+}
+.hide-controls .minimize,
+.hide-controls .maximize,
+.hide-controls .close {
+  visibility: hidden;
+}
+.window {
+  -webkit-box-align: stretch;
+  -webkit-box-orient: horizontal;
+  display: -webkit-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-user-select: none;
+}
+.sidebar {
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: start;
+  -webkit-box-shadow: inset -0.6rem 0 0.7rem rgba(0, 0, 0, 0.5);
+  color: #EBEBEB;
+  cursor: default;
+  display: -webkit-box;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: width 0.2s ease-in-out;
+  width: 0;
+}
+.sidebar.open {
+  width: 222px;
+}
+.sidebar .resizer {
+  cursor: e-resize;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: .3rem;
+  z-index: 2;
+}
+.sidebar h1 {
+  background-repeat: no-repeat;
+  -webkit-app-region: drag;
+  cursor: default;
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: .4rem;
+  margin-top: 1.2rem;
+  padding: 0 2rem;
+  min-width: 20rem;
+  -webkit-user-select: none;
+}
+.sidebar h3 {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #888;
+}
+.sidebar hr {
+  height: .1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.16);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.sidebar ul {
+  padding: 0;
+  font-size: 120%;
+  list-style-type: none;
+  margin: 1rem 0;
+}
+.sidebar ul li {
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 1rem 0 1rem 2rem;
+  -webkit-user-select: none;
+  white-space: nowrap;
+}
+.sidebar ul li a {
+  color: #EBEBEB;
+  display: block;
+}
+.sidebar .warpper {
+  display: -webkit-box;
+  height: auto;
+  -webkit-box-flex: 1.0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.sidebar .tabs {
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: justify;
+  display: -webkit-box;
+  min-height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.sidebar .tabs .tabs-list {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+.sidebar .tabs .tabs-list li {
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  display: -webkit-flex;
+  cursor: pointer;
+}
+.sidebar .tabs .tabs-list li.active {
+  border-left: 1rem solid #D1D1D1 !important;
+  padding-left: 1rem;
+}
+.sidebar .tabs .tabs-list li.unsaved .filename:after {
+  content: " *";
+}
+.sidebar .tabs .tabs-list li .filename {
+  display: inline;
+  -webkit-flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar .tabs .tabs-list li:hover .close {
+  background-image: url('../img/close-tab.svg');
+  opacity: 0.3;
+}
+.sidebar .tabs .tabs-list li .close {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  margin: .2rem 1rem 0 0;
+  height: 2rem;
+  width: 2rem;
+}
+.sidebar .tabs .tabs-list li .close:hover {
+  opacity: 1;
+}
+.sidebar .settings {
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: justify;
+  -webkit-box-shadow: inset -0.6rem 0 0.7rem rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  min-height: 100%;
+  overflow: hidden;
+  -webkit-transition: width 0s linear 0.2s, left 0.2s ease-in-out;
+  width: 0;
+  z-index: 1;
+}
+.sidebar .settings .settings-list {
+  width: 100%;
+}
+.sidebar .settings .settings-list input,
+.sidebar .settings .settings-list select {
+  height: auto;
+}
+.sidebar .settings .settings-list li {
+  background-color: inherit;
+  -webkit-box-flex: 1.0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: end;
+  display: -webkit-flex;
+  padding-right: 2rem;
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.sidebar .settings .settings-list li:hover {
+  background-color: inherit;
+}
+.sidebar .settings .settings-list label {
+  -webkit-flex: 1 1 auto;
+  cursor: pointer;
+  display: inline;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+.sidebar .settings .settings-list input[type="text"] {
+  -webkit-app-region: no-drag;
+  background-color: rgba(0, 0, 0, 0);
+  border: .1rem solid #888;
+  border-radius: .1rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0;
+  padding: 0 .8rem;
+  -webkit-user-select: auto;
+  text-align: center;
+  background: #555;
+  -webkit-appearance: none;
+  cursor: text;
+}
+.sidebar .settings .settings-list input[type="text"]:focus {
+  border: .1rem solid #EBEBEB;
+  outline: none;
+}
+.sidebar .settings .settings-list input[type="checkbox"] {
+  -webkit-appearance: none;
+  background-color: #555;
+  border: .1rem solid #888;
+  border-radius: .1rem;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  height: 1.8rem;
+  margin: -0.3rem 0;
+  position: relative;
+  top: .4rem;
+  width: 1.8rem;
+}
+.sidebar .settings .settings-list input[type="checkbox"]:focus {
+  border-color: #EBEBEB;
+  outline: none;
+}
+.sidebar .settings .settings-list input[type="checkbox"]:checked::after {
+  content: url('../img/check_no_box_white.png');
+  display: block;
+  position: relative;
+  top: -0.2rem;
+  left: -0.4rem;
+}
+.sidebar .settings .settings-list select:focus {
+  border: .1rem solid #EBEBEB;
+  outline: none;
+}
+.sidebar .settings .settings-list select {
+  -webkit-app-region: no-drag;
+  background-color: rgba(0, 0, 0, 0);
+  border: .1rem solid #888;
+  border-radius: .1rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0;
+  padding: 0 .8rem;
+  -webkit-user-select: auto;
+  width: 9.6rem;
+  background: url('../img/menu.svg') no-repeat 7.5rem center #555;
+  background-size: 1.8rem 1.8rem;
+  background-position-x: 7rem;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.sidebar .settings .settings-list optgroup {
+  color: #000000;
+}
+.sidebar.open-settings .settings {
+  position: absolute;
+  left: 0;
+  -webkit-transition: left 0.2s ease-in-out;
+  width: 100%;
+}
+.sidebar ::-webkit-scrollbar {
+  width: 0;
+  -webkit-appearance: none;
+}
+.sidebar ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.sidebar ::-webkit-scrollbar-thumb {
+  border-radius: .2rem;
+  background-color: #888;
+}
+.main-view {
+  -webkit-box-align: stretch;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.main-view .titlebar {
+  -webkit-app-region: drag;
+  border-bottom: .1rem solid #e0e0e0;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  display: -webkit-box;
+  height: 4.8rem;
+  line-height: normal;
+  padding-left: 1rem;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+}
+.main-view .titlebar.dark {
+  background-color: #333;
+}
+.main-view .titlebar.dark .title {
+  color: #f5f5f5;
+}
+.main-view .titlebar.dark .icon-button {
+  -webkit-filter: invert(100%);
+}
+.main-view .titlebar .title {
+  display: block;
+  -webkit-box-flex: 1;
+  color: #777;
+  font-size: 1.5rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  -webkit-transition: all 200ms ease-in-out;
+  white-space: nowrap;
+}
+.main-view .titlebar .title.unsaved:after {
+  content: " *";
+}
+.editor {
+  -webkit-box-flex: 1.0;
+  position: relative;
+  padding: 2rem;
+}
+.editor > .wrapper {
+  display: table;
+  height: calc(100vh - 15rem);
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+.editor > .wrapper > .inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dialog {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+.dialog.open {
+  display: -webkit-box;
+}
+.dialog .dialog-window {
+  background-color: #f5f5f5;
+  border: 0.1rem solid rgba(0, 0, 0, 0.15);
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  box-shadow: rgba(0, 0, 0, 0.13) 0 0.4rem 3rem;
+  display: -webkit-box;
+  max-width: 50%;
+  opacity: 1.0;
+  padding: 2.4rem;
+}
+.dialog .dialog-text {
+  display: -webkit-box;
+  font-size: 1.5rem;
+}
+.dialog .dialog-buttons {
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  display: -webkit-box;
+  margin-top: 2rem;
+}
+.dialog .dialog-button {
+  background-color: inherit;
+  border: 0.1rem solid rgba(0, 0, 0, 0.16);
+  border-radius: .3rem;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  color: #333;
+  display: -webkit-box;
+  height: 3rem;
+  margin: 0 .5rem;
+  opacity: 0.8;
+  padding: 0 1.4rem;
+}
+.dialog .dialog-button:hover {
+  border: 0.1rem solid rgba(0, 0, 0, 0.32);
+  color: #000;
+}

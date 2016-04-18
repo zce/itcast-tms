@@ -1,0 +1,814 @@
+[
+  {
+    "name": "JavaEE",
+    "academy": "Java",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
+      { "name": "张吕", "title": "教学总监助理", "email": "zhanglv@itcast.cn" },
+      { "name": "苗润土", "title": "教学总监助理", "email": "miaoruntu@itcast.cn" },
+      { "name": "赵恬静", "title": "教学总监文员", "email": "zhaotianjing@itcast.cn" },
+      { "name": "李科霈", "title": "Java基础组组长", "email": "lkp@itcast.cn" },
+      { "name": "姜涛", "title": "Javaweb组组长", "email": "jt@itcast.cn" },
+      { "name": "王友军", "title": "JavaEE项目1组组长", "email": "wangyoujun@itcast.cn" },
+      { "name": "赵庆轩", "title": "JavaEE项目2组组长", "email": "zqx@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "Java",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
+      { "name": "张吕", "title": "教学总监助理", "email": "zhanglv@itcast.cn" },
+      { "name": "苗润土", "title": "教学总监助理", "email": "miaoruntu@itcast.cn" },
+      { "name": "赵恬静", "title": "教学总监文员", "email": "zhaotianjing@itcast.cn" },
+      { "name": "李科霈", "title": "Java基础组组长", "email": "lkp@itcast.cn" },
+      { "name": "姜涛", "title": "Javaweb组组长", "email": "jt@itcast.cn" },
+      { "name": "王友军", "title": "JavaEE项目1组组长", "email": "wangyoujun@itcast.cn" },
+      { "name": "赵庆轩", "title": "JavaEE项目2组组长", "email": "zqx@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "Java",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
+      { "name": "张吕", "title": "教学总监助理", "email": "zhanglv@itcast.cn" },
+      { "name": "苗润土", "title": "教学总监助理", "email": "miaoruntu@itcast.cn" },
+      { "name": "赵恬静", "title": "教学总监文员", "email": "zhaotianjing@itcast.cn" },
+      { "name": "李科霈", "title": "Java基础组组长", "email": "lkp@itcast.cn" },
+      { "name": "姜涛", "title": "Javaweb组组长", "email": "jt@itcast.cn" },
+      { "name": "王友军", "title": "JavaEE项目1组组长", "email": "wangyoujun@itcast.cn" },
+      { "name": "赵庆轩", "title": "JavaEE项目2组组长", "email": "zqx@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "李印东", "title": "教学总监", "email": "lyd@itcast.cn" },
+      { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
+      { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
+      { "name": "金兴", "title": "Android基础组组长", "email": "jinxing@itcast.cn" },
+      { "name": "邱本超", "title": "Android项目组组长", "email": "qiubenchao@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "李印东", "title": "教学总监", "email": "lyd@itcast.cn" },
+      { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
+      { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
+      { "name": "金兴", "title": "Android基础组组长", "email": "jinxing@itcast.cn" },
+      { "name": "邱本超", "title": "Android项目组组长", "email": "qiubenchao@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "李印东", "title": "教学总监", "email": "lyd@itcast.cn" },
+      { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
+      { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
+      { "name": "金兴", "title": "Android基础组组长", "email": "jinxing@itcast.cn" },
+      { "name": "邱本超", "title": "Android项目组组长", "email": "qiubenchao@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "C/C++",
+    "academy": "C/C++",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "C/C++",
+    "academy": "C/C++",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "C/C++",
+    "academy": "C/C++",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "孙书华", "title": "教学总监助理", "email": "ssh@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "孙书华", "title": "教学总监助理", "email": "ssh@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "孙书华", "title": "教学总监助理", "email": "ssh@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "李凤辉", "title": "教学总监", "email": "lfh@itcast.cn" },
+      { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
+      { "name": "陈亚坤", "title": "UI设计组长", "email": "chenyakun@itcast.cn" },
+      { "name": "恩意", "title": "UI设计组长", "email": "enyi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "李凤辉", "title": "教学总监", "email": "lfh@itcast.cn" },
+      { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
+      { "name": "陈亚坤", "title": "UI设计组长", "email": "chenyakun@itcast.cn" },
+      { "name": "恩意", "title": "UI设计组长", "email": "enyi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "李凤辉", "title": "教学总监", "email": "lfh@itcast.cn" },
+      { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
+      { "name": "陈亚坤", "title": "UI设计组长", "email": "chenyakun@itcast.cn" },
+      { "name": "恩意", "title": "UI设计组长", "email": "enyi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
+      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
+      { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
+      { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
+      { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
+      { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
+      { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
+      { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
+      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
+      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
+      { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
+      { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
+      { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
+      { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
+      { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
+      { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
+      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
+      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
+      { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
+      { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
+      { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
+      { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
+      { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
+      { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
+      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
+      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
+      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
+      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
+      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
+      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
+      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
+      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
+      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
+      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "电子商务",
+    "academy": "电子商务",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [],
+    "questions": []
+  },
+  {
+    "name": "电子商务",
+    "academy": "电子商务",
+    "school": "北京-软件园校区",
+    "emails": [],
+    "questions": []
+  },
+  {
+    "name": "电子商务",
+    "academy": "电子商务",
+    "school": "北京-修正校区",
+    "emails": [],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "Java",
+    "school": "上海",
+    "emails": [
+      { "name": "刘洋", "title": "教学总监", "email": "ly@itcast.cn" },
+      { "name": "张志君", "title": "JavaEE组长", "email": "zhangzhijun@itcast.cn" },
+      { "name": "屈博", "title": "JavaEE组长", "email": "qubo@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "上海",
+    "emails": [
+      { "name": "马伟奇", "title": "教学总监", "email": "maweiqi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "上海",
+    "emails": [
+      { "name": "孙静", "title": "教学总监", "email": "sunjing@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "上海",
+    "emails": [
+      { "name": "贺叶铭", "title": "教学总监", "email": "hym@itcast.cn" },
+      { "name": "郭雯清", "title": "教学总监助理", "email": "guowenqing@itcast.cn" },
+      { "name": "任路江", "title": "UI设计组长", "email": "renlujiang@itcast.cn" },
+      { "name": "王宾", "title": "UI设计组长", "email": "wangbin@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "上海",
+    "emails": [
+      { "name": "赵晓虎", "title": "教学总监", "email": "zxh@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "上海",
+    "emails": [],
+    "questions": []
+  },
+  {
+    "name": "JavaEE/Android",
+    "academy": "Java",
+    "school": "广州",
+    "emails": [
+      { "name": "汤阳光", "title": "教学总监", "email": "tyg@itcast.cn" },
+      { "name": "郑楚峰", "title": "教学总监助理", "email": "zhengchufeng@itcast.cn" },
+      { "name": "钟太潋", "title": "Java组长", "email": "ztl@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "广州",
+    "emails": [
+      { "name": "马浩洋", "title": "教学总监", "email": "mhy@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "广州",
+    "emails": [
+      { "name": "李晨", "title": "教学总监", "email": "lichen@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "广州",
+    "emails": [
+      { "name": "刘天源", "title": "教学总监", "email": "liutianyuan@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "广州",
+    "emails": [
+      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "深圳",
+    "emails": [
+      { "name": "张泽华", "title": "教学总监", "email": "zzh@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "深圳",
+    "emails": [
+      { "name": "王绚文", "title": "教学总监", "email": "wxw@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "武汉",
+    "emails": [
+      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "武汉",
+    "emails": [
+      { "name": "谭周洲", "title": "教学总监", "email": "tanzhouzhou@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "iOS",
+    "school": "武汉",
+    "emails": [
+      { "name": "张扬波", "title": "教学总监", "email": "zyb@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "郑州",
+    "emails": [
+      { "name": "陈文", "title": "教学总监", "email": "chenwen@itcast.cn" },
+      { "name": "刘亚超", "title": "Android组长", "email": "lyc@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "西安",
+    "emails": [
+      { "name": "刘意", "title": "教学总监", "email": "liuyi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "广州",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "王建宇", "title": "组长", "email": "wangjianyu@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "王建宇", "title": "组长", "email": "wangjianyu@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "JavaEE",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "王建宇", "title": "组长", "email": "wangjianyu@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "PHP",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "双元课堂",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [
+      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "双元课堂",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "双元课堂",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "上海",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "上海",
+    "emails": [
+      { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "深圳",
+    "emails": [
+      { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "深圳",
+    "emails": [
+       { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "武汉",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "武汉",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "郑州",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "郑州",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "西安",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "西安",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "哈尔滨",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "哈尔滨",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "济南",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "济南",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "长沙",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "长沙",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "iOS",
+    "academy": "双元课堂",
+    "school": "长沙",
+    "emails": [
+      { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
+    { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
+    ],
+    "questions": []
+  }
+]
