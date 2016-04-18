@@ -19,13 +19,13 @@
     "teaching"
   ],
   "devDependencies": {
-    "angular": "^1.5.3",
-    "angular-animate": "^1.5.3",
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
     "angular-route": "^1.5.3",
     "browser-sync": "^2.12.3",
     "cross-env": "^1.0.7",
     "del": "^2.2.0",
-    "electron-packager": "^6.0.2",
+    "electron-packager": "^7.0.0",
     "electron-prebuilt": "^0.37.6",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.1",

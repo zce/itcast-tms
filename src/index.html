@@ -35,9 +35,9 @@
         <h3>测评记录</h3>
         <div class="warpper">
           <ul class="tabs-list" ng-controller="RecordController">
-            <li ng-repeat="(key, value) in records" draggable="true" auto-active>
+            <li ng-repeat="(key, value) in records" draggable="true" ng-class="{active: current_filename === key}" ng-click="open(key)" auto-active>
               <span class="filename" title="{{value}}">{{key}}</span>
-              <span class="close" ng-click="remove(key)"></span>
+              <span class="close" ng-click="remove(key, $event)"></span>
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@
     <div class="main-view">
       <header class="titlebar">
         <button class="icon-button toggle" title="切换菜单显示" ng-click="toggleSidebar()"></button>
-        <span class="title">{{title}}</span>
+        <span class="title">{{current_filename}}</span>
         <button class="icon-button minimize" title="最小化" ng-click="window('minimize')"></button>
         <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
         <button class="icon-button close" title="关闭" ng-click="window('close')"></button>

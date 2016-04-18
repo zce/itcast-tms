@@ -43,6 +43,10 @@
         //   // window.$location = $location;
         //   // aboutWindow.loadURL('about.html');
         // }
+        //
+
+        // ===== current file =====
+        // $scope
 
       }
     ]);

@@ -26,7 +26,7 @@ gulp.task('less', () => {
 gulp.task('useref', ['less'], () => {
   return gulp.src('src/*.html')
     .pipe(plugins.useref())
-    .pipe(plugins.if('*.js', plugins.uglify()))
+    // .pipe(plugins.if('*.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano({
       compatibility: '*'
     })))

@@ -14,19 +14,22 @@
     }])
     .controller('EditorController', [
       '$scope',
+      '$rootScope',
       '$routeParams',
       'options',
       'Storage',
-      function($scope, $routeParams, options, Storage) {
+      function($scope, $rootScope, $routeParams, options, Storage) {
         // 取当前编辑的文件
         let stamp = $routeParams.stamp;
         if (!stamp) {
           // 新增
-
-          Storage.set(path.join(options.log_root, String.getStamp() + options.log_ext), {});
+          var filename = String.getStamp() + options.log_ext;
+          $rootScope.current_filename = filename;
+          Storage.set(path.join(options.log_root, filename), {});
           return;
         }
         // 编辑现有文件
+        $rootScope.current_filename = stamp + options.log_ext;
 
 
         // $scope.school_name = '';

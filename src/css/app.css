@@ -437,10 +437,12 @@ fieldset {
 }
 .editor.ng-enter,
 .editor.ng-leave {
-  transition: opacity .5s;
+  transition: opacity .4s;
 }
 .editor.ng-enter {
   opacity: 0;
+  position: absolute;
+  width: 100%;
 }
 .editor.ng-enter.ng-enter-active {
   opacity: 1;
@@ -450,9 +452,9 @@ fieldset {
 }
 .editor.ng-leave.ng-leave-active {
   opacity: 0;
-  position: absolute;
 }
 .dialog {
+  background-color: rgba(50, 50, 50, 0.6);
   display: none;
   position: absolute;
   top: 0;
@@ -469,6 +471,7 @@ fieldset {
 .dialog .dialog-window {
   background-color: #f5f5f5;
   border: 0.1rem solid rgba(0, 0, 0, 0.15);
+  border-radius: .5rem;
   -webkit-box-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-pack: center;
