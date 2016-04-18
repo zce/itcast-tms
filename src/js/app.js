@@ -8,7 +8,7 @@ const APP_ROOT = window.require && require('electron').remote.app.getAppPath();
   // 例子：
   // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
   // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
-  Date.prototype.format = function(format) { //author: meizz
+  Date.prototype.format = function(format) {
     let o = {
       "M+": this.getMonth() + 1, //月份
       "d+": this.getDate(), //日
@@ -29,6 +29,8 @@ const APP_ROOT = window.require && require('electron').remote.app.getAppPath();
 
 (function(angular) {
   'use strict';
+  const path = window.require && require('path');
+  const remote = window.require && require('electron').remote;
 
   angular
     .module('itcast-tms', [
@@ -42,6 +44,10 @@ const APP_ROOT = window.require && require('electron').remote.app.getAppPath();
       'itcast-tms.areas.dashboard',
       'itcast-tms.areas.starter'
     ])
+    .constant('config', {
+      temp_root: path.join(__dirname, '../../temp/'),
+      log_root: path.join(__dirname, '../../log/'),
+    })
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.otherwise({ redirectTo: '/home' })
     }]);

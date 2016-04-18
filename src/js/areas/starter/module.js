@@ -1,18 +1,19 @@
 (function(angular) {
   'use strict';
 
-  const remote = window.require && require('electron').remote;
-  const fs = window.require && require('fs');
   const path = window.require && require('path');
+  const remote = window.require && require('electron').remote;
 
   angular
     .module('itcast-tms.areas.starter', [])
+
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/starter', {
         controller: 'StarterController',
         templateUrl: 'starter_tmpl'
       })
     }])
+
     .controller('StarterController', ['$scope', function($scope) {
 
       $scope.school_name = '';
@@ -42,7 +43,7 @@
         console.log($scope);
       };
 
-      // =====
+      // ===== 读取配置文件 =====
       const schools = require(path.join(APP_ROOT, '/data/schools.json'));
       $scope.schools = schools;
       $scope.school_name = Object.keys(schools)[0];
@@ -50,16 +51,11 @@
       $scope.academies = academies;
       $scope.academy_name = Object.keys(academies)[0];
       const subjects = require(path.join(APP_ROOT, '/data/subjects.json'));
-      // $scope.subjects = subjects;
 
       const showSubjects = () => {
         $scope.subjects = _.filter(subjects, (item) => item.academy === $scope.academy_name && item.school === $scope.school_name);
-        if ($scope.subjects.length) {
+        if ($scope.subjects.length)
           $scope.subject_name = $scope.subjects[0].name;
-        } else {
-          $scope.subject_name = '暂无对应学科';
-          // console.log($scope.subject_name);
-        }
       };
       $scope.$watch('school_name', showSubjects);
       $scope.$watch('academy_name', showSubjects);
