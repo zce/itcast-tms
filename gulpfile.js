@@ -18,7 +18,7 @@ gulp.task('less', () => {
   return gulp.src('src/less/*.less')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
-    .pipe(plugins.sourcemaps.write())
+    .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/css'))
     .pipe(reload({
       stream: true
@@ -61,7 +61,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['dist']));
+gulp.task('clean', del.bind(null, ['dist', 'release', 'src/css']));
 
 gulp.task('serve', () => {
   browserSync({
