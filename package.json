@@ -9,7 +9,8 @@
     "prestart": "gulp",
     "start": "cross-env NODE_ENV=production electron ./",
     "prepackage": "gulp",
-    "package": "electron-packager ./ ItcastTMS --platform=darwin,win32 --asar --arch=x64 --icon=src/app --out=release --ignore=\"(node_modules|src|test)\" --app-copyright=\"WEDN.NET\" --version-string.CompanyName=\"WEDN.NET\" --version-string.ProductName=\"ItcastTMS\" --overwrite"
+    "package": "electron-packager ./ ItcastTMS --platform=darwin,win32 --asar --arch=x64 --icon=src/app --out=release --ignore=\"(node_modules|src|test)\" --app-copyright=\"WEDN.NET\" --version-string.CompanyName=\"WEDN.NET\" --version-string.ProductName=\"ItcastTMS\" --overwrite",
+    "pack": "node packager"
   },
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
@@ -26,7 +27,7 @@
     "browser-sync": "^2.12.3",
     "cross-env": "^1.0.7",
     "del": "^2.2.0",
-    "electron-packager": "^6.0.0",
+    "electron-packager": "^7.0.0",
     "electron-prebuilt": "^0.37.6",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
@@ -38,7 +39,8 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.0.8",
-    "lodash": "^4.11.1"
+    "lodash": "^4.11.1",
+    "minimist": "^1.2.0"
   },
   "dependencies": {}
 }

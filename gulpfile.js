@@ -106,3 +106,7 @@ gulp.task('build', ['main', 'extras'], () => {
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
+
+gulp.task('pack', [], () => {
+  require('./packager')
+});
