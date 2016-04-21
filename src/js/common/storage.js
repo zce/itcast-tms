@@ -7,7 +7,7 @@ function resolve(uri) {
 
 function set(uri, value) {
   value = JSON.stringify(value);
-  const length = new Buffer(value).length;
+  const length = Buffer.byteLength(value); // new Buffer(value).length;
   const buffer = new Buffer(length + 4);
   buffer.writeUInt32BE(length, 0);
   buffer.write(value, 4);

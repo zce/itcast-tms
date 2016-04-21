@@ -16,9 +16,29 @@
       'options',
       'Storage',
       function($scope, options, Storage) {
-        // Storage.set(path.join(options.temp_root, 'demo.bin'), { id: 1, name: 'zhangsan' });
+        // console.log(111);
+        //
+        // model
+        $scope.model = {};
+        $scope.action = {};
 
-        // console.log(Storage.get(path.join(options.temp_root, 'demo.bin')));
+        $scope.model.emails = [
+          { name: '李印东', title: '主任', email: 'lyd@itcast.cn' }
+        ];
+
+        $scope.model.add_emails = [];
+
+        $scope.model.email_input = '';
+
+        $scope.action.add_email = function() {
+          $scope.model.email_input.includes('@') || ($scope.model.email_input += '@itcast.cn');
+          $scope.model.add_emails.push({ email: $scope.model.email_input });
+        };
+
+        $scope.action.del_email = function() {
+          $scope.model.add_emails.splice($scope.model.add_emails.indexOf(this), 1);
+        };
+
       }
     ]);
 

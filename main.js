@@ -1,7 +1,7 @@
 'use strict';
 
 // 处理环境变量
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 const { app, BrowserWindow, hideInternalModules } = require('electron');
 
@@ -9,8 +9,10 @@ const { app, BrowserWindow, hideInternalModules } = require('electron');
 hideInternalModules();
 
 global.CONFIG = {
-  app_name: 'hello',
-  app_root: app.getAppPath()
+  app_name: app.getName(),
+  app_version: app.getVersion(),
+  app_root: app.getAppPath(),
+  data_version: '20160418'
 };
 
 // crashReporter
@@ -25,7 +27,7 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 1024, height: 720, frame: false });
+  mainWindow = new BrowserWindow({ width: 1024, minWidth: 1024, height: 720, minHeight: 720, frame: false });
 
   // and load the index.html of the app.
   if (process.env.NODE_ENV === 'production') {

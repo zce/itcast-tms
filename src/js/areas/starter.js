@@ -64,11 +64,21 @@
         // ===== 创建一个打分文件 =====
         $scope.action.start = () => {
 
+          // 校验表单数据
+          for (let key in $scope.model) {
+            let item = $scope.model[key];
+            if (!item) {
+              alert('\n请完整填写所有信息！');
+              return false;
+            }
+          }
+
+          // 持久化
           const stamp = String.getStamp();
           const filename = stamp + options.log_ext;
           $rootScope.current_filename = filename;
           Storage.set(path.join(options.log_root, filename), $scope.model);
-          $location.url('/watcher/' + stamp);
+          // $location.url('/watcher/' + stamp);
 
         };
 

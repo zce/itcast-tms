@@ -1,6 +1,6 @@
 {
   "name": "itcast-tms",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Itcast teaching management by iceStone",
   "main": "main.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "test": "cross-env NODE_ENV=development electron ./",
     "prestart": "gulp",
     "start": "cross-env NODE_ENV=production electron ./",
-    "package": "electron-packager dist ItcastTMS --platform=darwin,win32 --arch=x64,ia32 --app-copyright='WEDN.NET'"
+    "prepackage": "gulp",
+    "package": "electron-packager ./ ItcastTMS --platform=darwin,win32 --arch=x64 --out=release --ignore=\"node_modules\" --app-copyright='WEDN.NET'"
   },
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
@@ -34,6 +35,7 @@
     "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.2.2",
     "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.0.8",
     "lodash": "^4.11.1"

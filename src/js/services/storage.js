@@ -8,31 +8,31 @@
     return uri;
   }
 
-  function set(uri, value) {
-    value = JSON.stringify(value);
-    const length = new Buffer(value).length;
-    const buffer = new Buffer(length + 4);
-    buffer.writeUInt32BE(length, 0);
-    buffer.write(value, 4);
-    uri = resolve(uri);
-    fs.writeFileSync(uri, buffer, 'hex');
+  function Storage(options) {
+    this.options = options;
   }
 
-  function get(uri) {
+  Storage.prototype.get = function get(uri) {
     uri = resolve(uri);
     const buffer = fs.readFileSync(uri);
     const length = buffer.readUInt32BE(0);
     const content = buffer.toString('utf8', 4, length + 4);
     return JSON.parse(content);
+  };
+
+  Storage.prototype.set = function set(uri, value) {
+    value = JSON.stringify(value);
+    const length = Buffer.byteLength(value); // new Buffer(value).length;
+    const buffer = new Buffer(length + 4);
+    buffer.writeUInt32BE(length, 0);
+    buffer.write(value, 4);
+    uri = resolve(uri);
+    fs.writeFileSync(uri, buffer, 'hex');
+  };
+
+  Storage.prototype.log = function(stamp, value) {
+    this.set(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
   }
-
-
-  function Storage() {
-
-  }
-
-  Storage.prototype.get = get;
-  Storage.prototype.set = set;
 
   angular.module('itcast-tms.services')
     .service('Storage', [Storage]);

@@ -16,7 +16,9 @@ const reload = browserSync.reload;
 
 gulp.task('less', () => {
   return gulp.src('src/less/*.less')
+    .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
+    .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest('src/css'))
     .pipe(reload({
       stream: true
@@ -76,7 +78,7 @@ gulp.task('serve', () => {
 
   gulp.watch([
     'src/*.html',
-    'src/**/*.css',
+    // 'src/**/*.css',
     'src/**/*.js'
   ]).on('change', reload);
 
