@@ -38,8 +38,24 @@ main {
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
-  padding: 1.5rem;
+  padding: 2rem;
   overflow: hidden;
+  .btn {
+    margin-top: .5rem;
+  }
+  > .row {
+    flex: 1;
+    > .col-md-8,
+    > .col-md-4 {
+      display: flex;
+      flex-direction: column;
+      > .scroll {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+    }
+  }
   // ng animate
   &.ng-enter,
   &.ng-leave {

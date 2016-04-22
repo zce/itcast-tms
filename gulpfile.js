@@ -53,6 +53,8 @@ gulp.task('main', ['useref'], () => {
 gulp.task('extras', () => {
   return gulp.src([
     'src/*',
+    '!src/less',
+    '!src/app.*',
     'src/*.*',
     '!src/*.html',
     'src/im*/*.*'
@@ -107,6 +109,6 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-gulp.task('pack', [], () => {
-  require('./packager')
-});
+// gulp.task('pack', [], () => {
+//   require('./packager')
+// });

@@ -1,0 +1,107 @@
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 3.8rem;
+  width: 100%;
+  padding: .6rem 1.0rem;
+  /* The .6rem vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: .1rem solid #D1D1D1;
+  border-radius: .4rem;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+
+/* Removes awkward default styles on some inputs for iOS */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 6.5rem;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: .1rem solid #33C3F0;
+  outline: 0;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: 90%;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
+
+// ===============
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  margin: .5rem .5rem 0;
+  input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-top: .5rem;
+  }
+  button {
+    width: 6rem;
+    // height: 3.2re
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -0.1rem;
+  }
+}
+
+form {
+  display: flex;
+  flex: 1;
+  margin-bottom: 0;
+}

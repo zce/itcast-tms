@@ -10,6 +10,7 @@
     "start": "cross-env NODE_ENV=production electron ./",
     "prepackage": "gulp",
     "package": "electron-packager ./ ItcastTMS --platform=darwin,win32 --asar --arch=x64 --icon=src/app --out=release --ignore=\"(node_modules|src|test)\" --app-copyright=\"WEDN.NET\" --version-string.CompanyName=\"WEDN.NET\" --version-string.ProductName=\"ItcastTMS\" --overwrite",
+    "prepack": "gulp",
     "pack": "node packager"
   },
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",

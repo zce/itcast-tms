@@ -1,3 +1,4 @@
+@gap-size: 2rem;
 .container-fluid,
 .container {
   margin-right: auto;
@@ -5,8 +6,8 @@
 }
 
 .container-fluid {
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: @gap-size/2;
+  padding-left: @gap-size/2;
 }
 
 .row {
@@ -27,8 +28,8 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
+  margin-right: -@gap-size/2;
+  margin-left: -@gap-size/2;
 }
 
 .row.reverse {
@@ -78,8 +79,8 @@
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: @gap-size/2;
+  padding-left: @gap-size/2;
 }
 
 .col-xs {
@@ -332,8 +333,8 @@
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: @gap-size/2;
+    padding-left: @gap-size/2;
   }
   .col-sm {
     -webkit-box-flex: 1;
@@ -552,8 +553,8 @@
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: @gap-size/2;
+    padding-left: @gap-size/2;
   }
   .col-md {
     -webkit-box-flex: 1;
@@ -772,8 +773,8 @@
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: @gap-size/2;
+    padding-left: @gap-size/2;
   }
   .col-lg {
     -webkit-box-flex: 1;

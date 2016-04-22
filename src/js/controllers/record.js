@@ -44,7 +44,7 @@
         $scope.open = (key) => {
           // $rootScope.current_filename = key;
           console.log(path.basename(key, options.log_ext));
-          $location.url('/editor/' + path.basename(key, options.log_ext));
+          $location.url('/watcher/' + path.basename(key, options.log_ext));
         };
 
       }

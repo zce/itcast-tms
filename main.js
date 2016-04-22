@@ -32,7 +32,8 @@ function createWindow() {
     minWidth: 1024,
     height: 720,
     minHeight: 720,
-    frame: false
+    frame: false,
+    show: false
   });
 
   // and load the index.html of the app.
@@ -41,6 +42,8 @@ function createWindow() {
   } else {
     mainWindow.loadURL('http://localhost:2016/index.html');
   }
+
+  mainWindow.show();
 
   // Open the DevTools.
   // if (process.env.NODE_ENV !== 'production')
@@ -52,6 +55,11 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  // Emitted when the page title updated
+  mainWindow.on('page-title-updated', () => {
+
   });
 }
 
