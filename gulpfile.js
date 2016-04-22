@@ -15,7 +15,7 @@ const plugins = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('less', () => {
-  return gulp.src('src/less/*.less')
+  return gulp.src(['src/less/*.less', '!src/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
@@ -63,7 +63,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['dist', 'release', 'src/css']));
 
-gulp.task('serve', () => {
+gulp.task('serve', ['less'], () => {
   browserSync({
     open: false,
     notify: false,

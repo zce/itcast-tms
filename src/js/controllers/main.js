@@ -22,6 +22,10 @@
 
         // ===== sidebar =====
         $scope.sidebarOpened = true;
+        // setTimeout(function() {
+        //   $scope.sidebarOpened = true;
+        //   $scope.$apply();
+        // }, 400);
         $scope.toggleSidebar = () => {
           $scope.sidebarOpened = !$scope.sidebarOpened;
         };

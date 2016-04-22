@@ -1,0 +1,44 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.titlebar {
+  display: flex;
+  border-bottom: .1rem solid #c0c0c0;
+  align-items: center;
+  height: 4.2rem;
+  min-height: 4.2rem;
+  line-height: normal;
+  padding-left: 1rem;
+  position: relative;
+  text-align: center;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  .title {
+    display: block;
+    flex: 1;
+    color: #777;
+    font-size: 1.5rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out;
+    white-space: nowrap;
+    &.unsaved:after {
+      content: " *";
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  padding: 2rem;
+  overflow: hidden;
+}

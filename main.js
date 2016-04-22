@@ -27,7 +27,13 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 1024, minWidth: 1024, height: 720, minHeight: 720, frame: false });
+  mainWindow = new BrowserWindow({
+    width: 1024,
+    minWidth: 1024,
+    height: 720,
+    minHeight: 720,
+    frame: false
+  });
 
   // and load the index.html of the app.
   if (process.env.NODE_ENV === 'production') {
