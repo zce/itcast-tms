@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Teaching Management « Itcast</title>
-  <style>
+  <!-- <style>
     html {
       background-image: url(img/hourglass.svg);
       background-repeat: no-repeat;
       background-position: center center;
     }
-  </style>
+  </style> -->
   <!-- build:css css/vender.css -->
   <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
   <!-- endbuild -->
@@ -82,14 +82,14 @@
       <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
       <button class="icon-button close" title="关闭" ng-click="window('close')"></button>
     </header>
-    <main ng-view></main>
+    <main class="editor" ng-view></main>
   </section>
   <about open="aboutOpened"></about>
   <!-- build:js js/vender.js -->
-  <script src="../node_modules/angular/angular.min.js"></script>
-  <script src="../node_modules/angular-animate/angular-animate.min.js"></script>
-  <script src="../node_modules/angular-route/angular-route.min.js"></script>
-  <script src="../node_modules/lodash/lodash.min.js"></script>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
+  <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script src="../node_modules/lodash/lodash.js"></script>
   <!-- endbuild -->
   <!-- build:js js/script.js -->
   <script src="js/common/extras.js"></script>

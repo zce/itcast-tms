@@ -1,7 +1,8 @@
 (function(angular) {
   'use strict';
 
-  angular.module('itcast-tms.controllers', [,
+  angular.module('itcast-tms.controllers', [
+    // 'ngAnimate',
     'itcast-tms.services'
   ]);
 

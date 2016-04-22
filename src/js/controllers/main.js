@@ -10,7 +10,10 @@
       '$rootScope',
       '$location',
       '$timeout',
-      function($scope, $rootScope, $location, $timeout) {
+      // '$animate',
+      function($scope, $rootScope, $location, $timeout/*, $animate*/) {
+        // console.log($animate.enabled(true));
+
         window.root = $rootScope;
         window.scope = $scope;
 
