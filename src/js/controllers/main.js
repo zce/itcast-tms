@@ -7,8 +7,8 @@
   angular.module('itcast-tms.controllers')
     .controller('MainController', [
       '$scope',
-      '$window',
-      function($scope, $window) {
+      '$location',
+      function($scope, $location) {
 
         // ===== title =====
         $scope.title = 'Hello world';
@@ -51,6 +51,11 @@
 
         // ===== current file =====
         // $scope
+
+        // ===== redirect to =====
+        $scope.go = (url) => {
+          $location.url(url);
+        };
 
       }
     ]);

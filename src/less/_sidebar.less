@@ -6,7 +6,7 @@
   overflow: hidden;
   position: relative;
   width: 0;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.5s ease;
   h1 {
     background-repeat: no-repeat;
     cursor: default;
@@ -39,11 +39,11 @@
     flex-direction: column;
     min-height: 100%;
     overflow: hidden;
+    width: 100%;
     &.menu {}
     &.setting {
       position: absolute;
       left: 0;
-      width: 100%;
       transition: opacity .2s ease;
       opacity: 0;
       z-index: -1;
@@ -57,7 +57,7 @@
         cursor: pointer;
         box-sizing: border-box;
         margin: 0;
-        padding: 1rem 0 1rem 2rem;
+        padding: 1rem 1rem 1rem 2rem;
         white-space: nowrap;
         -webkit-user-select: none;
       }
@@ -74,7 +74,6 @@
       }
       li {
         display: flex;
-        cursor: pointer;
         align-items: center;
         justify-content: space-between;
         &.active {
@@ -90,9 +89,6 @@
           }
         }
         .name {
-          // display: inline;
-          // flex: 1;
-          // min-width: 0;
           overflow: hidden;
           text-overflow: ellipsis;
         }
@@ -103,7 +99,6 @@
           background-image: url('../img/close-tab.svg');
           background-position: center center;
           background-repeat: no-repeat;
-          margin-right: 1rem;
           height: 2rem;
           width: 2rem;
           opacity: 0;
@@ -111,6 +106,9 @@
             opacity: 1;
           }
         }
+        // &:last-child {
+        //   margin-right: 1rem;
+        // }
       }
     }
   }

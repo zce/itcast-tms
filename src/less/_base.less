@@ -11,10 +11,6 @@ body {
   width: 100%;
 }
 
-// Make all elements from the DOM inherit from the parent box-sizing
-// Since `*` has a specificity of 0, it does not override the `html` value
-// making all elements inheriting from the root box-sizing value
-// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 // NOTE
 // html is set to 62.5% so that all the REM measurements throughout Skeleton
 // are based on 10px sizing. So basically 1.5rem = 15px :)
@@ -34,29 +30,37 @@ body {
   line-height: 1.6;
 }
 
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 // ng fade
-// [ng\:cloak],
-// [ng-cloak],
-// [data-ng-cloak],
-// [x-ng-cloak],
-// .x-ng-cloak,
+[ng-cloak],
 .ng-cloak {
   display: none !important;
 }
 
 .fade {
   opacity: 1;
-  transition: opacity 1.5s;
+  transition: opacity .2s;
 }
+
 .fade.ng-cloak,
+.fade[ng-cloak],
 .fade.ng-binding {
   display: block !important;
   opacity: 0;
 }
-
-// .fade.ng-binding {
-//   opacity: 1;
-// }
 
 // Basic styles for links
 a {

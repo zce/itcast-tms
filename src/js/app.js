@@ -27,7 +27,7 @@ fs.existsSync(CONFIG.log_root) || fs.mkdir(CONFIG.log_root);
     ])
     .constant('options', CONFIG)
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.otherwise({ redirectTo: /* '/home' */ '/watcher/1234' })
+      $routeProvider.otherwise({ redirectTo:  '/home'  /*'/watcher/1234'*/ })
     }]);
 
 }(angular));
