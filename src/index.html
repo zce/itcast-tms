@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="{{theme}}" ng-app="itcast-tms">
+<html lang="zh-CN" class="{{theme}}" ng-app="itcast-tms" ng-controller="MainController">
 
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
   <!-- endbuild -->
 </head>
 
-<body id="window" class="fade ng-cloak" ng-controller="MainController">
+<body id="window" class="fade ng-cloak">
   <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? '22rem' : '0' }">
     <i class="resizer"></i>
     <div class="panel menu">
@@ -29,7 +29,7 @@
       <h3>测评记录</h3>
       <div class="scroll">
         <ul ng-controller="RecordController">
-          <li title="{{value}}" draggable="true" ng-repeat="(key, value) in records" ng-class="{active: current_filename === key}" ng-click="open(key)" auto-active>
+          <li title="{{value}}" draggable="true" ng-repeat="(key, value) in records" ng-class="{ active: current_filename === key }" ng-click="open(key)" auto-active>
             <span class="name">{{key}}</span>
             <span class="close" ng-click="remove(key, $event)"></span>
           </li>
@@ -50,9 +50,9 @@
           <li>
             <label>主题</label>
             <select class="pull-right" ng-model="theme">
+              <option value="dark">暗色</option>
               <option value="default">默认</option>
               <option value="light">亮色</option>
-              <option value="dark">暗色</option>
             </select>
           </li>
           <li>
@@ -78,10 +78,10 @@
     <main ng-view></main>
   </div>
   <!-- build:js js/vender.js -->
-  <script src="../node_modules/angular/angular.js"></script>
-  <script src="../node_modules/angular-animate/angular-animate.js"></script>
-  <script src="../node_modules/angular-route/angular-route.js"></script>
-  <script src="../node_modules/lodash/lodash.js"></script>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="../node_modules/angular-route/angular-route.min.js"></script>
+  <script src="../node_modules/lodash/lodash.min.js"></script>
   <!-- endbuild -->
   <!-- build:js js/script.js -->
   <script src="js/common/extras.js"></script>

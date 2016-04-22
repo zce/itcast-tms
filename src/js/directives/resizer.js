@@ -2,14 +2,16 @@
   'use strict';
 
   angular.module('itcast-tms.directives')
-    .directive('resizer', ['$document', function($document) {
+    .directive('resizer', ['$window', '$document', function($window, $document) {
       return {
         restrict: 'C',
         link: function(scope, element, attributes, controller) {
           let beginX = 0;
           let beginWidth = 0;
           const sidebar = element.parent();
-
+          window.$sidebar = sidebar;
+          window.$doc = $document;
+          window.$win = $window;
           const mousemove = (e) => {
             let change = e.clientX - beginX;
             let sidebarWidth = beginWidth + change;
@@ -26,7 +28,8 @@
 
           element.on('mousedown', (e) => {
             beginX = e.clientX;
-            beginWidth = parseInt(sidebar.css('width')) || 222;
+            const width = $window.getComputedStyle(sidebar[0]);
+            beginWidth = parseInt(width) || 222;
             sidebar.css('-webkit-transition', 'none');
             $document.on('mousemove', mousemove);
             $document.on('mouseup', mouseup);

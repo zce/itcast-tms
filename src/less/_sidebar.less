@@ -1,14 +1,12 @@
 .sidebar {
-  box-shadow: inset -.6rem 0 .7rem rgba(0, 0, 0, 0.5);
-  color: #ebebeb;
   cursor: default;
   display: flex;
   overflow: hidden;
   position: relative;
   width: 0;
-  transition: width 0.5s ease;
+  transition: width 0.3s ease;
   h1 {
-    background-repeat: no-repeat;
+    // background-repeat: no-repeat;
     cursor: default;
     font-size: 2.5rem;
     font-weight: normal;
@@ -24,13 +22,11 @@
     padding: 0 0 0 1rem;
     font-size: 1rem;
     font-weight: normal;
-    color: #888;
   }
   hr {
     height: .1rem;
     width: 100%;
     border: 0;
-    background-color: rgba(0, 0, 0, .2);
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -60,6 +56,10 @@
         padding: 1rem 1rem 1rem 2rem;
         white-space: nowrap;
         -webkit-user-select: none;
+        &:hover {
+          border-left: 1rem solid;
+          padding-left: 1rem;
+        }
       }
     }
     .scroll {
@@ -80,13 +80,8 @@
           border-left: 1rem solid #d1d1d1 !important;
           padding-left: 1rem;
         }
-        &.unsaved {
-          .name {
-            color: #ff5050;
-            &:after {
-              content: " *";
-            }
-          }
+        &.unsaved .name:after {
+          content: " *";
         }
         .name {
           overflow: hidden;

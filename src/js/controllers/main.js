@@ -7,8 +7,15 @@
   angular.module('itcast-tms.controllers')
     .controller('MainController', [
       '$scope',
+      '$rootScope',
       '$location',
-      function($scope, $location) {
+      '$timeout',
+      function($scope, $rootScope, $location, $timeout) {
+        window.root = $rootScope;
+        window.scope = $scope;
+
+        // ===== theme =====
+        $scope.theme = 'default';
 
         // ===== title =====
         $scope.title = 'Hello world';
@@ -21,11 +28,10 @@
         };
 
         // ===== sidebar =====
-        $scope.sidebarOpened = true;
-        // setTimeout(function() {
-        //   $scope.sidebarOpened = true;
-        //   $scope.$apply();
-        // }, 400);
+        $scope.sidebarOpened = false;
+        $timeout(function() {
+          $scope.sidebarOpened = true;
+        }, 100);
         $scope.toggleSidebar = () => {
           $scope.sidebarOpened = !$scope.sidebarOpened;
         };
@@ -33,9 +39,6 @@
 
         // ===== settings =====
         $scope.settingsOpened = false;
-
-        // ===== theme =====
-        $scope.theme = 'default';
 
         // ===== about =====
         $scope.aboutOpened = false;
