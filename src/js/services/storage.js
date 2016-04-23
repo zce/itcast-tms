@@ -4,6 +4,9 @@
   const fs = window.require && require('fs');
   const path = window.require && require('path');
 
+  angular.module('itcast-tms.services')
+    .service('Storage', [Storage]);
+
   function resolve(uri) {
     return uri;
   }
@@ -34,7 +37,5 @@
     this.set(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
   }
 
-  angular.module('itcast-tms.services')
-    .service('Storage', [Storage]);
 
 }(angular));

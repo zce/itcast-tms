@@ -15,11 +15,13 @@
       '$scope',
       'options',
       'Storage',
-      function($scope, options, Storage) {
-        // Storage.set(path.join(options.temp_root, 'demo.bin'), { id: 1, name: 'zhangsan' });
-
-        // console.log(Storage.get(path.join(options.temp_root, 'demo.bin')));
-      }
+      DashboardController
     ]);
+
+  function DashboardController($scope, options, Storage) {
+    // Storage.set(path.join(options.temp_root, 'demo.bin'), { id: 1, name: 'zhangsan' });
+
+    // console.log(Storage.get(path.join(options.temp_root, 'demo.bin')));
+  }
 
 }(angular));

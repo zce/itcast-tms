@@ -4,15 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <title>Teaching Management « Itcast</title>
-  <!-- <style>
-    html {
-      background-image: url(img/hourglass.svg);
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-  </style> -->
   <!-- build:css css/vender.css -->
   <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
   <!-- endbuild -->
@@ -21,7 +14,7 @@
   <!-- endbuild -->
 </head>
 
-<body id="window" class="fade ng-cloak">
+<body id="window" class="fade ng-cloak" animations="true">
   <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? '22rem' : '0' }">
     <i class="resizer"></i>
     <div class="panel menu">
@@ -82,13 +75,13 @@
       <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
       <button class="icon-button close" title="关闭" ng-click="window('close')"></button>
     </header>
-    <main class="editor" ng-view></main>
+    <main class="editor" ng-view ng-animate="false"></main>
   </section>
   <about open="aboutOpened"></about>
-  <!-- build:js js/vender.js -->
+  <!-- build:js js/vendor.js -->
   <script src="../node_modules/angular/angular.js"></script>
-  <script src="../node_modules/angular-animate/angular-animate.js"></script>
   <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
   <script src="../node_modules/lodash/lodash.js"></script>
   <!-- endbuild -->
   <!-- build:js js/script.js -->

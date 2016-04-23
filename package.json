@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "gulp serve",
     "test": "cross-env NODE_ENV=development electron ./",
+    "dev": "concurrently --kill-others --raw \"npm run serve\" \"npm run test\"",
     "prestart": "gulp",
     "start": "cross-env NODE_ENV=production electron ./",
     "prepackage": "gulp",
@@ -26,6 +27,7 @@
     "angular-animate": "^1.5.5",
     "angular-route": "^1.5.5",
     "browser-sync": "^2.12.3",
+    "concurrently": "^2.0.0",
     "cross-env": "^1.0.7",
     "del": "^2.2.0",
     "electron-packager": "^7.0.0",
@@ -41,8 +43,20 @@
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.0.8",
     "lodash": "^4.11.1",
+    "log4js": "^0.6.35",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Micua/itcast-tms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Micua/itcast-tms/issues"
+  },
+  "homepage": "https://github.com/Micua/itcast-tms#readme"
 }

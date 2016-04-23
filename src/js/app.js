@@ -1,33 +1,32 @@
 // 渲染线程
-const path = require('path');
-const fs = require('fs');
-const remote = require('electron').remote;
+const path = window.require && require('path');
+const fs = window.require && require('fs');
+const remote = window.require && require('electron').remote;
 
-const CONFIG = remote.getGlobal('CONFIG') || {};
+const options = remote && remote.getGlobal('OPTIONS') || {};
+const logger = remote && remote.getGlobal('LOGGER');
 
-Object.assign(CONFIG, {
-  temp_root: path.join(CONFIG.app_root, '/temp/'),
-  log_root: path.join(CONFIG.app_root, '/log/'),
-  log_ext: '.tms'
-});
+Object.assign(options, {});
 
-fs.existsSync(CONFIG.temp_root) || fs.mkdir(CONFIG.temp_root);
-fs.existsSync(CONFIG.log_root) || fs.mkdir(CONFIG.log_root);
 
 (function(angular) {
   'use strict';
 
   angular
     .module('itcast-tms', [
-      'ngAnimate',
       'ngRoute',
+      'ngAnimate',
       'itcast-tms.areas',
       'itcast-tms.controllers',
       'itcast-tms.directives'
     ])
-    .constant('options', CONFIG)
+    .constant('options', options)
+    .constant('logger', logger)
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.otherwise({ redirectTo:  '/home'  /*'/watcher/1234'*/ })
+      $routeProvider.otherwise({ redirectTo: '/home' /*'/watcher/1234'*/ })
+    }])
+    .run(['$animate', function($animate) {
+      $animate.enabled(true);
     }]);
 
 }(angular));
