@@ -1,0 +1,12 @@
+{
+  "name": "itcast-tms-core",
+  "version": "4.0.0",
+  "description": "Itcast teaching management by iceStone",
+  "main": "index.js",
+  "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
+  "license": "ISC",
+  "dependencies": {
+    "log4js": "^0.6.35"
+  },
+  "devDependencies": {}
+}

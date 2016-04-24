@@ -12,10 +12,11 @@ const del = require("del");
 const bs = require("browser-sync").create();
 const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
-
 const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
+
+gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/css']));
 
 gulp.task('less', () => {
   return gulp.src(['src/less/*.less', '!src/less/_*.less'])
@@ -36,7 +37,7 @@ gulp.task('useref', ['less'], () => {
     .pipe(gulp.dest(distDir));
 });
 
-gulp.task('main', ['useref'], () => {
+gulp.task('html', ['useref'], () => {
   return gulp.src(distDir + '/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
@@ -49,7 +50,6 @@ gulp.task('main', ['useref'], () => {
     }))
     .pipe(gulp.dest(distDir));
 });
-
 
 gulp.task('extras', () => {
   return gulp.src([
@@ -64,9 +64,18 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest(distDir));
 });
 
-gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/css']));
+gulp.task('build', ['html', 'extras'], () => {
+  return gulp.src(distDir + '/**/*').pipe(plugins.size({
+    title: 'build',
+    gzip: true
+  }));
+});
 
-gulp.task('serve', ['less'], () => {
+gulp.task('default', ['clean'], () => {
+  gulp.start('build');
+});
+
+gulp.task('test', ['less'], () => {
   bs.init({
     open: false,
     // notify: false,
@@ -90,18 +99,3 @@ gulp.task('serve', ['less'], () => {
 
   gulp.watch('src/less/**/*.less', ['less']);
 });
-
-gulp.task('build', ['main', 'extras'], () => {
-  return gulp.src(distDir + '/**/*').pipe(plugins.size({
-    title: 'build',
-    gzip: true
-  }));
-});
-
-gulp.task('default', ['clean'], () => {
-  gulp.start('build');
-});
-
-// gulp.task('pack', [], () => {
-//   require('./packager')
-// });
