@@ -1,8 +1,6 @@
 # Itcast Teaching Management System
 
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][david_img]][david_site]
+[![Build Status](https://secure.travis-ci.org/Micua/itcast-tms.svg?branch=master)](http://travis-ci.org/Micua/itcast-tms)
 
 This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
 
