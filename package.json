@@ -1,8 +1,9 @@
 {
   "name": "itcast-tms",
   "version": "4.0.0",
+  "productName": "Itcast TMS",
   "description": "Itcast teaching management by iceStone",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "serve": "gulp serve",
     "test": "cross-env NODE_ENV=development electron ./",
@@ -15,10 +16,8 @@
     "build-mas": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=mas --arch=x64 --icon=src/app.icns --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
     "build-linux": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=linux --arch=x64 --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
     "build-windows": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=win32 --arch=ia32 --icon=src/app.ico --version=$npm_package_electronVersion --version-string.ProductName=$npm_package_productName --version-string.ProductVersion=$npm_package_electronVersion --overwrite",
-    "prepackage": "gulp",
-    "package": "node packager",
-    "demo1": "install-app-deps",
-    "demo2": "build"
+    "prepack": "gulp",
+    "pack": "node packager"
   },
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
@@ -51,9 +50,6 @@
     "lodash": "^4.11.1",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1"
-  },
-  "dependencies": {
-    "log4js": "^0.6.35"
   },
   "directories": {
     "test": "test"

@@ -12,7 +12,8 @@ const browserSync = require("browser-sync");
 const del = require("del");
 
 const plugins = gulpLoadPlugins();
-const reload = browserSync.reload;
+
+const distDir = 'core';
 
 gulp.task('less', () => {
   return gulp.src(['src/less/*.less', '!src/less/_*.less'])
@@ -20,11 +21,7 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/css'))
-    .pipe(browserSync.stream({match: "**/*.css"}));
-  // .pipe(reload(['main.css']));
-  // .pipe(reload({
-  //   stream: true
-  // }));
+    .pipe(browserSync.stream({ match: "**/*.css" }));
 });
 
 gulp.task('useref', ['less'], () => {
@@ -34,11 +31,11 @@ gulp.task('useref', ['less'], () => {
     .pipe(plugins.if('*.css', plugins.cssnano({
       compatibility: '*'
     })))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(distDir));
 });
 
 gulp.task('main', ['useref'], () => {
-  return gulp.src('dist/*.html')
+  return gulp.src(distDir + '/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -48,24 +45,24 @@ gulp.task('main', ['useref'], () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(distDir));
 });
 
 
 gulp.task('extras', () => {
   return gulp.src([
     'src/*',
-    '!src/less',
-    '!src/app.*',
     'src/*.*',
-    '!src/*.html',
-    'src/im*/*.*'
+    'src/im*/*.*',
+    'src/node_module*/**/*.*',
+    '!src/less',
+    '!src/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest(distDir));
 });
 
-gulp.task('clean', del.bind(null, ['dist', 'release', 'src/css']));
+gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/css']));
 
 gulp.task('serve', ['less'], () => {
   browserSync({
@@ -84,7 +81,7 @@ gulp.task('serve', ['less'], () => {
     'src/*.html',
     // 'src/**/*.css',
     'src/**/*.js'
-  ]).on('change', reload);
+  ]).on('change', browserSync.reload);
 
   gulp.watch('src/less/**/*.less', ['less']);
 });
@@ -95,13 +92,13 @@ gulp.task('serve:dist', () => {
     notify: false,
     port: 2016,
     server: {
-      baseDir: ['dist']
+      baseDir: [distDir]
     }
   });
 });
 
 gulp.task('build', ['main', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe(plugins.size({
+  return gulp.src(distDir + '/**/*').pipe(plugins.size({
     title: 'build',
     gzip: true
   }));

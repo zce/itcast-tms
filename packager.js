@@ -1,121 +1,114 @@
-/* eslint strict: 0, no-shadow: 0, no-unused-vars: 0, no-console: 0 */
+/**
+ * Automatic pack
+ * please use `npm run pack`
+ */
+
 'use strict';
 
-// const fs = require('fs');
-// const path = require('path');
 const os = require('os');
-// const webpack = require('webpack');
-// const cfg = require('./webpack.config.production.js');
 const packager = require('electron-packager');
-const del = require('del');
 const exec = require('child_process').exec;
 const argv = require('minimist')(process.argv.slice(2));
-const pkg = require('./package.json');
-const devDeps = Object.keys(pkg.devDependencies);
 
-const appName = argv.name || argv.n || pkg.productName;
-const shouldUseAsar = argv.asar || argv.a || false;
-const shouldBuildAll = argv.all || false;
+const packageJson = require('./package.json');
 
-const DEFAULT_OPTIONS = {
-  // cache: 'cache',
-  dir: './',
-  name: appName,
-  asar: shouldUseAsar,
-  ignore: [
-    '/log($|/)',
-    '/node_modules($|/)',
-    '/src($|/)',
-    '/temp($|/)',
-    '/test($|/)',
-    '/.DS_Store($|/)',
-    '/.gitignore($|/)',
-    '/gulpfile.js($|/)',
-    '/packager.js($|/)',
-    '/README.md($|/)'
-  ]//.concat(devDeps.map(name => `/node_modules/${name}($|/)`))
-};
-// fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) || fs.mkdirSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir));
-// console.log(fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) );
+// const app_name = argv.name || argv.n || packageJson.productName;
+const app_icon = argv.icon || argv.i || 'assets/app';
 
-const icon = argv.icon || argv.i || 'src/app';
+const electron_version = argv.version || argv.v;
 
-if (icon) {
-  DEFAULT_OPTIONS.icon = icon;
-}
+const use_asar = argv.asar || argv.a || false;
+const build_all_platform = argv.all || false;
 
-const version = argv.version || argv.v;
+const out_dir = 'dist';
 
-if (version) {
-  DEFAULT_OPTIONS.version = version;
-  startPack();
-} else {
-  // use the same version as the currently-installed electron-prebuilt
-  // exec('npm list electron-prebuilt', (err, stdout) => {
-  //   DEFAULT_OPTIONS.version = err ? '0.37.6' : stdout.split('electron-prebuilt@')[1].replace(/\s/g, '').trim();
-  //   // console.log(DEFAULT_OPTIONS.version);
-  //   startPack();
-  // });
-  try {
-    var prebuiltPackage = require('./node_modules/electron-prebuilt/package.json');
-    DEFAULT_OPTIONS.version = prebuiltPackage.version;
-  } catch (e) {
-    DEFAULT_OPTIONS.version = '0.37.6';
+const OPTIONS = {
+  'dir': '.',
+  'name': packageJson.productName,
+  'build-version': packageJson.version,
+  'icon': app_icon,
+  'ignore': [
+    /.git/,
+    /dist/,
+    /log/,
+    /[^core/]node_modules/,
+    /src/,
+    /temp/,
+    /test/,
+    /.DS_Store/,
+    /.gitignore/,
+    /gulpfile.js/,
+    /packager.js/,
+    /README.md/
+  ],
+  'overwrite': true,
+  // prune: true,
+  'version': '0.37.6',
+  'app-version': packageJson.version,
+  'asar': use_asar,
+  'asar-unpack': '',
+  'asar-unpack-dir': '',
+  'download': {},
+  'app-bundle-id': 'net.wedn.tms',
+  'helper-bundle-id': 'net.wedn.tms.helper',
+  'app-category-type': 'public.app-category.developer-tools',
+  'app-copyright': 'Copyright (c) 2016 WEDN.NET.',
+  'version-string': {
+    CompanyName: 'WEDN.NET',
+    FileDescription: '教学管理系统',
+    OriginalFilename: 'TMS.exe',
+    ProductName: packageJson.productName,
+    InternalName: 'TMS.exe'
   }
-  startPack();
-}
+};
+//.concat(Object.keys(corePackageJson.devDependencies).map(name => `/core/node_modules/${name}($|/)`))
 
+try {
+  OPTIONS.version = electron_version || require('./node_modules/electron-prebuilt/package.json').version;
+} catch (e) {}
 
-function startPack() {
-  console.log('start pack...');
-  del('release/**/*')
-    .then(paths => {
-      if (shouldBuildAll) {
-        // build for all platforms
-        const archs = ['ia32', 'x64'];
-        const platforms = ['linux', 'win32', 'darwin'];
-        platforms.forEach(platform => {
-          archs.forEach(arch => {
-            pack(platform, arch, log(platform, arch));
-          });
-        });
-      } else {
-        // build for current platform only
-        pack(os.platform(), os.arch(), log(os.platform(), os.arch()));
-      }
-    })
-    .catch(err => {
-      console.error(err);
+(function startPack() {
+
+  if (build_all_platform) {
+    // build for all platforms
+    const archs = ['ia32', 'x64'];
+    const platforms = ['linux', 'win32', 'darwin'];
+    platforms.forEach(platform => {
+      archs.forEach(arch => {
+        pack(platform, arch, log(platform, arch));
+      });
     });
-}
+  } else {
+    // build for current platform only
+    pack(os.platform(), os.arch(), log(os.platform(), os.arch()));
+  }
 
-function pack(platform, arch, cb) {
-  // there is no darwin ia32 electron
+}());
+
+function pack(platform, arch, callback) {
+
+  // darwin 只有64位
   if (platform === 'darwin' && arch === 'ia32') return;
 
-  const iconObj = {
-    icon: DEFAULT_OPTIONS.icon + (() => {
-      let extension = '.png';
-      if (platform === 'darwin') {
-        extension = '.icns';
-      } else if (platform === 'win32') {
-        extension = '.ico';
-      }
-      return extension;
-    })()
-  };
+  // 不同平台不同图标扩展名
+  OPTIONS.icon += platform === 'darwin' ? '.icns' : platform === 'win32' ? '.ico' : '.png';
 
-  const opts = Object.assign({}, DEFAULT_OPTIONS, iconObj, {
-    platform: platform,
+  packager(Object.assign({}, OPTIONS, {
+    'app-version': packageJson.version || OPTIONS.version,
     arch: arch,
-    // prune: true,
-    'app-version': pkg.version || DEFAULT_OPTIONS.version,
-    out: `release` ///${platform}-${arch}
-  });
+    out: `${out_dir}/v${packageJson.version}`, // /${platform}-${arch}
+    platform: platform,
+  }), callback);
 
-  packager(opts, cb);
 }
 
+
+/**
+ * 输出到控制台
+ * @param  {string} platform 系统平台
+ * @param  {string} arch     位数
+ * @return {function}        log func
+ */
 function log(platform, arch) {
   return (err, filepath) => {
     if (err) return console.error(err);

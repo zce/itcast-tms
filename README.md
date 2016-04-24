@@ -1,52 +1,34 @@
-#
+# Itcast Teaching Management System
 
-https://github.com/GitbookIO/nuts
-https://github.com/ArekSredzki/electron-release-server
+## How to use
 
+```bash
+$ git clone https://github.com/Micua/itcast-tms.git -b v4.x
+$ cd itcast-tms
+$ npm install
+```
 
-setting
+### Run it
 
-<!-- <li>
-              <label for="setting-fontsize" i18n-content="fontsizeSetting"></label>
-              <input type="text" id="setting-fontsize" size="1" maxlength="2" pattern="\d\d?" value="14" i18n-values="title:fontsizeTooltip">
-            </li>
-            <li>
-              <label for="setting-spacestab" i18n-content="spacestabSetting"></label>
-              <input type="checkbox" id="setting-spacestab">
-            </li>
-            <li>
-              <label for="setting-tabsize" i18n-content="tabsizeSetting"></label>
-              <input type="text" id="setting-tabsize" size="1" maxlength="2" pattern="\d\d?" value="8">
-            </li>
-            <li>
-              <label for="setting-wraplines" i18n-content="wraplinesSetting"></label>
-              <input type="checkbox" id="setting-wraplines">
-            </li>
-            <li>
-              <label for="setting-linenumbers" i18n-content="linenumbersSetting"></label>
-              <input type="checkbox" id="setting-linenumbers">
-            </li>
-            <li>
-              <label for="setting-smartindent" i18n-content="smartindentSetting"></label>
-              <input type="checkbox" id="setting-smartindent">
-            </li>
-            <li>
-              <label for="setting-margin">Right margin</label>
-              <input type="checkbox" id="setting-margin">
-            </li>
-            <li>
-              <label for="setting-margincol">Margin column</label>
-              <input type="text" id="setting-margincol" size="1" maxlength="3" pattern="\d+" value="80">
-            </li> -->
+```bash
+$ npm start
+```
 
+### Develop it
 
-search
+```bash
+$ npm run serve
+$ npm run test
+```
 
+or
 
-        <!-- <button class="icon-button" id="search-button" title="搜索"></button>
-        <div class="search-container">
-          <input type="search" id="search-input">
-          <span id="search-counting"></span>
-          <button class="search-navigation-button" id="search-previous-button" i18n-values="title:searchPreviousButton"></button>
-          <button class="search-navigation-button" id="search-next-button" i18n-values="title:searchNextButton"></button>
-        </div> -->
+```bash
+$ npm run dev
+```
+
+### Links
+
+- http://www.juxt.com/pov/thoughts/building-native-desktop-apps-with-web-tech
+- https://github.com/GitbookIO/nuts
+- https://github.com/ArekSredzki/electron-release-server
