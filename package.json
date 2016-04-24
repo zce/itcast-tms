@@ -47,11 +47,12 @@
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.0.8",
     "lodash": "^4.11.1",
-    "log4js": "^0.6.35",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "log4js": "^0.6.35"
+  },
   "directories": {
     "test": "test"
   },

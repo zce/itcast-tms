@@ -1,6 +1,7 @@
 dist
 log
 node_modules
+release
 src/css
 temp
 npm-debug.log
