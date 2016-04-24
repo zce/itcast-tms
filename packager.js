@@ -24,7 +24,7 @@ const DEFAULT_OPTIONS = {
   asar: shouldUseAsar,
   ignore: [
     '/log($|/)',
-    // '/node_modules($|/)',
+    '/node_modules($|/)',
     '/src($|/)',
     '/temp($|/)',
     '/test($|/)',
@@ -33,7 +33,7 @@ const DEFAULT_OPTIONS = {
     '/gulpfile.js($|/)',
     '/packager.js($|/)',
     '/README.md($|/)'
-  ].concat(devDeps.map(name => `/node_modules/${name}($|/)`))
+  ]//.concat(devDeps.map(name => `/node_modules/${name}($|/)`))
 };
 // fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) || fs.mkdirSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir));
 // console.log(fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) );

@@ -16,7 +16,9 @@
     "build-linux": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=linux --arch=x64 --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
     "build-windows": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=win32 --arch=ia32 --icon=src/app.ico --version=$npm_package_electronVersion --version-string.ProductName=$npm_package_productName --version-string.ProductVersion=$npm_package_electronVersion --overwrite",
     "prepackage": "gulp",
-    "package": "node packager"
+    "package": "node packager",
+    "demo1": "install-app-deps",
+    "demo2": "build"
   },
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
@@ -63,5 +65,10 @@
   "bugs": {
     "url": "https://github.com/Micua/itcast-tms/issues"
   },
-  "homepage": "https://github.com/Micua/itcast-tms#readme"
+  "homepage": "https://github.com/Micua/itcast-tms#readme",
+  "build": {
+    "app-bundle-id": "net.wedn.tms",
+    "app-category-type": "net.wedn.tms",
+    "iconUrl": "src/app.ico"
+  }
 }
