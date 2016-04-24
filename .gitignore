@@ -3,3 +3,4 @@ log
 node_modules
 src/css
 temp
+npm-debug.log

@@ -20,9 +20,11 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/css'))
-    .pipe(reload({
-      stream: true
-    }));
+    .pipe(browserSync.stream({match: "**/*.css"}));
+  // .pipe(reload(['main.css']));
+  // .pipe(reload({
+  //   stream: true
+  // }));
 });
 
 gulp.task('useref', ['less'], () => {
@@ -68,7 +70,7 @@ gulp.task('clean', del.bind(null, ['dist', 'release', 'src/css']));
 gulp.task('serve', ['less'], () => {
   browserSync({
     open: false,
-    notify: false,
+    // notify: false,
     port: 2016,
     server: {
       baseDir: ['src'],
