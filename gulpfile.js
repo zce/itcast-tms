@@ -78,7 +78,7 @@ gulp.task('default', ['clean'], () => {
 gulp.task('test', ['less'], () => {
   bs.init({
     open: false,
-    // notify: false,
+    notify: true,
     port: 2016,
     server: {
       baseDir: ['src'],
@@ -93,7 +93,6 @@ gulp.task('test', ['less'], () => {
 
   gulp.watch([
     'src/*.html',
-    // 'src/**/*.css',
     'src/**/*.js'
   ]).on('change', bs.reload);
 
