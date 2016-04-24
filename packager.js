@@ -16,25 +16,24 @@ const devDeps = Object.keys(pkg.devDependencies);
 const appName = argv.name || argv.n || pkg.productName;
 const shouldUseAsar = argv.asar || argv.a || false;
 const shouldBuildAll = argv.all || false;
-
+console.log(argv);
 const DEFAULT_OPTIONS = {
   // cache: 'cache',
   dir: './',
   name: appName,
   asar: shouldUseAsar,
   ignore: [
-      '/log($|/)',
-      '/node_modules($|/)',
-      '/src($|/)',
-      '/temp($|/)',
-      '/test($|/)',
-      '/.DS_Store($|/)',
-      '/.gitignore($|/)',
-      '/gulpfile.js($|/)',
-      '/packager.js($|/)',
-      '/README.md($|/)'
-    ]
-    // ].concat(devDeps.map(name => `/node_modules/${name}($|/)`))
+    '/log($|/)',
+    // '/node_modules($|/)',
+    '/src($|/)',
+    '/temp($|/)',
+    '/test($|/)',
+    '/.DS_Store($|/)',
+    '/.gitignore($|/)',
+    '/gulpfile.js($|/)',
+    '/packager.js($|/)',
+    '/README.md($|/)'
+  ].concat(devDeps.map(name => `/node_modules/${name}($|/)`))
 };
 // fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) || fs.mkdirSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir));
 // console.log(fs.existsSync(path.resolve(__dirname, DEFAULT_OPTIONS.dir)) );
