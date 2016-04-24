@@ -88,9 +88,15 @@ label {
   cursor: default;
   display: flex;
   overflow: hidden;
+  -webkit-user-select: none;
   .reverse {
     flex-direction: row-reverse;
   }
+}
+
+::selection {
+  color: #0088dd;
+  background: #dcdcdc;
 }
 
 // shadow dom
