@@ -5,9 +5,7 @@
   "description": "Itcast teaching management by iceStone",
   "main": "index.js",
   "scripts": {
-    "serve": "gulp serve",
-    "test": "cross-env NODE_ENV=development electron ./",
-    "dev": "concurrently --kill-others --raw \"npm run serve\" \"npm run test\"",
+    "test": "cross-env NODE_ENV=development gulp serve",
     "prestart": "gulp",
     "start": "cross-env NODE_ENV=production electron ./",
     "prebuild": "echo '「build script」has been deprecated. Please use 「package script」 instead.' && gulp",

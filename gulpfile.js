@@ -8,8 +8,10 @@
 
 const gulp = require("gulp");
 const gulpLoadPlugins = require("gulp-load-plugins");
-const browserSync = require("browser-sync");
 const del = require("del");
+const bs = require("browser-sync").create();
+const electron = require('electron-prebuilt')
+const spawn = require('child_process').spawn;
 
 const plugins = gulpLoadPlugins();
 
@@ -21,7 +23,7 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/css'))
-    .pipe(browserSync.stream({ match: "**/*.css" }));
+    .pipe(bs.stream({ match: "**/*.css" }));
 });
 
 gulp.task('useref', ['less'], () => {
@@ -65,7 +67,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/css']));
 
 gulp.task('serve', ['less'], () => {
-  browserSync({
+  bs.init({
     open: false,
     // notify: false,
     port: 2016,
@@ -75,26 +77,18 @@ gulp.task('serve', ['less'], () => {
         '/node_modules': 'node_modules'
       }
     }
+  }, () => {
+    process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+    spawn(electron, ['.']);
   });
 
   gulp.watch([
     'src/*.html',
     // 'src/**/*.css',
     'src/**/*.js'
-  ]).on('change', browserSync.reload);
+  ]).on('change', bs.reload);
 
   gulp.watch('src/less/**/*.less', ['less']);
-});
-
-gulp.task('serve:dist', () => {
-  browserSync({
-    open: false,
-    notify: false,
-    port: 2016,
-    server: {
-      baseDir: [distDir]
-    }
-  });
 });
 
 gulp.task('build', ['main', 'extras'], () => {
