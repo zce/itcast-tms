@@ -27,20 +27,24 @@ const OPTIONS = {
   'name': packageJson.productName,
   'build-version': packageJson.version,
   'icon': app_icon,
-  'ignore': [
-    /.git/,
-    /dist/,
-    /log/,
-    /[^core/]node_modules/,
-    /src/,
-    /temp/,
-    /test/,
-    /.DS_Store/,
-    /.gitignore/,
-    /gulpfile.js/,
-    /packager.js/,
-    /README.md/
-  ],
+  'ignore': file => {
+    console.log(file);
+    return true;
+  },
+  // [
+  //   /.git/,
+  //   /dist/,
+  //   /log/,
+  //   /[^core/]node_modules/,
+  //   /src/,
+  //   /temp/,
+  //   /test/,
+  //   /.DS_Store/,
+  //   /.gitignore/,
+  //   /gulpfile.js/,
+  //   /packager.js/,
+  //   /README.md/
+  // ],
   'overwrite': true,
   // prune: true,
   'version': '0.37.6',
