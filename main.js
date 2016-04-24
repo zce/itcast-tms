@@ -3,10 +3,10 @@
 // 处理环境变量
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
-const path = require('path');
 const fs = require('fs');
-const { app, BrowserWindow, hideInternalModules } = require('electron');
+const path = require('path');
 const log4js = require('log4js');
+const { app, BrowserWindow, hideInternalModules } = require('electron');
 
 // 禁用旧版的API
 hideInternalModules();

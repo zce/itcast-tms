@@ -112,7 +112,7 @@ function pack(platform, arch, cb) {
     'app-version': pkg.version || DEFAULT_OPTIONS.version,
     out: `release` ///${platform}-${arch}
   });
-  // console.log(opts);
+
   packager(opts, cb);
 }
 
