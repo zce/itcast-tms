@@ -80,7 +80,7 @@ gulp.task('serve', ['less'], () => {
   serve();
 });
 
-gulp.task('test', () => {
+gulp.task('test', ['less'], () => {
   serve(() => {
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
     spawn(electron, ['.']);
