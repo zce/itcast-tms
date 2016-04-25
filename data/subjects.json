@@ -277,14 +277,18 @@
     "name": "电子商务",
     "academy": "电子商务",
     "school": "北京-软件园校区",
-    "emails": [],
+    "emails": [
+      { "name": "陈东琦", "title": "教学总监助理", "email": "chendongqi@itcast.cn" }
+    ],
     "questions": []
   },
   {
     "name": "电子商务",
     "academy": "电子商务",
     "school": "北京-修正校区",
-    "emails": [],
+    "emails": [
+      { "name": "陈东琦", "title": "教学总监助理", "email": "chendongqi@itcast.cn" }
+    ],
     "questions": []
   },
   {
@@ -356,6 +360,14 @@
     "questions": []
   },
   {
+    "name": "C/C++",
+    "academy": "C/C++",
+    "school": "广州",
+    "emails": [
+    ],
+    "questions": []
+  },
+  {
     "name": "PHP",
     "academy": "PHP",
     "school": "广州",
@@ -389,6 +401,13 @@
     "emails": [
       { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" }
     ],
+    "questions": []
+  },
+  {
+    "name": "电子商务",
+    "academy": "电子商务",
+    "school": "广州",
+    "emails": [],
     "questions": []
   },
   {
@@ -437,6 +456,15 @@
     "questions": []
   },
   {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "武汉",
+    "emails": [
+      { "name": "王金涛", "title": "组长", "email": "wangjintao@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
     "name": "Android",
     "academy": "Java",
     "school": "郑州",
@@ -477,6 +505,15 @@
     "name": "Java基础",
     "academy": "双元课堂",
     "school": "北京-修正校区",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "广州",
     "emails": [
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
     ],
@@ -662,7 +699,7 @@
     "school": "上海",
     "emails": [
       { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
-    { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
+      { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
     ],
     "questions": []
   },
@@ -799,6 +836,24 @@
     "emails": [
       { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
     { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "重庆",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "重庆",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
     ],
     "questions": []
   }

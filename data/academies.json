@@ -61,6 +61,7 @@
   },
   "双元课堂": {
     "emails": [
+      { "name": "冯威", "title": "副总裁", "email": "fw@itcast.cn" },
       { "name": "孙健", "title": "总监", "email": "sunjian@itcast.cn" },
       { "name": "李鹏鹏", "title": "总监助理", "email": "lipengpeng@itcast.cn" },
       { "name": "韩站超", "title": "总监助理", "email": "hanzhanchao@itcast.cn" },
