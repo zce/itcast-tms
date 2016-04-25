@@ -75,7 +75,7 @@
       <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
       <button class="icon-button close" title="关闭" ng-click="window('close')"></button>
     </header>
-    <main class="editor" ng-view ng-animate="false"></main>
+    <main class="editor" ng-view></main>
   </section>
   <about open="aboutOpened"></about>
   <!-- build:js js/vendor.js -->
@@ -86,7 +86,6 @@
   <!-- endbuild -->
   <!-- build:js js/script.js -->
   <script src="js/common/extras.js"></script>
-  <script src="js/app.js"></script>
   <script src="js/directives/index.js"></script>
   <script src="js/directives/auto-active.js"></script>
   <script src="js/directives/about.js"></script>
@@ -100,6 +99,7 @@
   <script src="js/areas/dashboard.js"></script>
   <script src="js/areas/starter.js"></script>
   <script src="js/areas/watcher.js"></script>
+  <script src="js/app.js"></script>
   <!-- endbuild -->
   <!-- templates -->
   <script id="dashboard_tmpl" type="text/ng-template">
@@ -107,7 +107,7 @@
   </script>
   <script id="starter_tmpl" type="text/ng-template">
     <h1 class="page-header">开始新的测评</h1>
-    <div class="row">
+    <div class="row scroll">
       <div class="col-md-6">
         <div class="form-group">
           <label for="school_name">所属校区</label>

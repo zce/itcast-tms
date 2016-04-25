@@ -14,7 +14,7 @@ global.OPTIONS = {
   app_version: app.getVersion(),
   app_root: app.getAppPath(),
 
-  data_root: path.resolve(__dirname, './data'),
+  data_root: path.resolve(__dirname, '../data'),
   data_version: '20160418',
 
   temp_root: path.resolve(__dirname, '../temp'),
