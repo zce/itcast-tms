@@ -3,12 +3,53 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
   <title>Teaching Management « Itcast</title>
-  <!-- <style>html{height:100%;background-image:url(img/hourglass.svg);background-repeat:no-repeat;background-position:center center}</style> -->
-  <script>window.location='./index.html'</script>
+  <!-- build:css css/vender.css -->
+  <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+  <link rel="stylesheet" href="../node_modules/nprogress/nprogress.css">
+  <!-- endbuild -->
+  <!-- build:css css/style.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
 </head>
 
 <body>
+  <script src="../node_modules/nprogress/nprogress.js"></script>
+  <script>
+    // var request = new XMLHttpRequest();
+
+    // request.addEventListener('progress', function updateProgress(e) {
+    //   if (e.lengthComputable) {
+    //     var percentComplete = e.loaded / e.total;
+    //     NProgress.set(percentComplete);
+    //     // console.log(percentComplete);
+    //   } else {}
+    // }, false);
+
+    // request.addEventListener('load', function transferComplete(e) {
+    //   NProgress.done();
+    //   document.body.outerHTML = request.response;
+    //   history.pushState(document.title, document.title, 'index.html');
+    //   // console.log('complete');
+    // }, false);
+
+    // // request.addEventListener('error', function transferFailed(e) {
+    // //   NProgress.done();
+    // //   console.log('error');
+    // // }, false);
+
+    // // request.addEventListener('abort', function transferCanceled(e) {
+    // //   NProgress.done();
+    // //   console.log('abort');
+    // // }, false);
+
+    // request.open('get', './index.html', true);
+    // request.send();
+    NProgress.start();
+    window.location = './index.html';
+    // console.log('start');
+  </script>
 </body>
 
 </html>

@@ -18,10 +18,11 @@
       '$location',
       'options',
       'Storage',
+      'Dialog',
       StarterController
     ]);
 
-  function StarterController($scope, $rootScope, $location, options, Storage) {
+  function StarterController($scope, $rootScope, $location, options, Storage, Dialog) {
 
     $scope.model = {};
     $scope.action = {};
@@ -30,7 +31,7 @@
     $scope.model.school_name = '';
     $scope.model.academy_name = '';
     $scope.model.subject_name = '';
-    $scope.model.class_count = 0;
+    $scope.model.class_count = 100;
     $scope.model.reasons = {
       '留级': 0,
       '病假': 0,
@@ -42,12 +43,12 @@
       '不想听课': 0,
       '其他': 0,
     };
-    $scope.model.class_name = '';
-    $scope.model.course_name = '';
-    $scope.model.course_days = 0;
-    $scope.model.head_name = '';
-    $scope.model.teacher_name = '';
-    $scope.model.teacher_email = '';
+    $scope.model.class_name = '1020前端与移动开发就业班';
+    $scope.model.course_name = 'AngularJS';
+    $scope.model.course_days = 10;
+    $scope.model.head_name = '汪磊';
+    $scope.model.teacher_name = '汪磊';
+    $scope.model.teacher_email = 'ice';
     $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm');
 
     // ===== 读取配置文件 =====
@@ -57,7 +58,7 @@
     $scope.data.academies && ($scope.model.academy_name = Object.keys($scope.data.academies)[0]);
     const subjects = window.require && require(path.join(options.data_root, 'subjects.json'));
     const showSubjects = () => {
-      $scope.data.subjects = _.filter(subjects, (item) => item.academy === $scope.model.academy_name && item.school === $scope.model.school_name);
+      $scope.data.subjects = subjects.filter((item) => item.academy === $scope.model.academy_name && item.school === $scope.model.school_name);
       if ($scope.data.subjects.length)
         $scope.model.subject_name = $scope.data.subjects[0].name;
     };
@@ -71,17 +72,16 @@
       for (let key in $scope.model) {
         let item = $scope.model[key];
         if (!item) {
-          alert('\n请完整填写所有信息！');
+          alert('请完整填写所有信息！');
           return false;
         }
       }
 
       // 持久化
       const stamp = String.getStamp();
-      const filename = stamp + options.log_ext;
-      $rootScope.current_filename = filename;
-      Storage.set(path.join(options.log_root, filename), $scope.model);
-      // $location.url('/watcher/' + stamp);
+      // $rootScope.current_filename = stamp + options.log_ext;
+      Storage.log(stamp, $scope.model);
+      $location.url('/watcher/' + stamp);
 
     };
 

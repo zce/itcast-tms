@@ -5,7 +5,7 @@
   const path = window.require && require('path');
 
   angular.module('itcast-tms.services')
-    .service('Storage', [Storage]);
+    .service('Storage', ['options', Storage]);
 
   function resolve(uri) {
     return uri;
@@ -35,7 +35,11 @@
 
   Storage.prototype.log = function(stamp, value) {
     this.set(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
-  }
+  };
+
+  Storage.prototype.read = function(stamp) {
+    return this.get(path.resolve(this.options.log_root, stamp + this.options.log_ext));
+  };
 
 
 }(angular));

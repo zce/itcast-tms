@@ -12,43 +12,43 @@
         <tbody>
           <tr>
             <td>学科信息</td>
-            <td><span>{{'北京-金燕龙和中腾校区'}}</span> / <span>{{'Java学院'}}</span> / <span>{{'JavaEE'}}</span></td>
+            <td><span>{{ data.school_name }}</span> / <span>{{ data.academy_name }}</span> / <span>{{ data.subject_name }}</span></td>
           </tr>
           <tr>
             <td>评分时间</td>
-            <td>2016-04-21 11:53</td>
+            <td>{{ data.datetime }}</td>
           </tr>
           <tr>
             <td>评分班主任</td>
-            <td>汪磊</td>
+            <td>{{ data.head_name }}</td>
           </tr>
           <tr>
             <td>评分班级</td>
-            <td>1020前端与移动开发就业班</td>
+            <td>{{ data.class_name }}</td>
           </tr>
           <tr>
             <td>课程阶段</td>
-            <td>面向对象</td>
+            <td>{{ data.course_name }}</td>
           </tr>
           <tr>
             <td>课程天数</td>
-            <td>10天</td>
+            <td>{{ data.course_days }}天</td>
           </tr>
           <tr>
             <td>讲师姓名</td>
-            <td>汪磊</td>
+            <td>{{ data.teacher_name }}</td>
           </tr>
           <tr>
             <td>讲师邮箱</td>
-            <td>wanglei3@itcast.cn</td>
+            <td>{{ data.teacher_email }}</td>
           </tr>
           <tr>
             <td>班级总人数</td>
-            <td>120人 - 10人（请假）</td>
+            <td>{{ data.class_count }}人 - {{ data.leave_count }}人（请假）</td>
           </tr>
           <tr>
             <td>已完成测评人数</td>
-            <td>10人</td>
+            <td>{{ data.rated_count }}人</td>
           </tr>
           <tr>
             <td>测评链接</td>
@@ -72,13 +72,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in model.emails">
-            <td>{{item.name}}</td>
-            <td>{{item.email}}</td>
+          <tr ng-repeat="item in data.emails">
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
           </tr>
           <tr ng-repeat="item in model.add_emails">
             <td>刚添加</td>
-            <td>{{item.email}}<span class="pull-right" ng-click="action.del_email()" style="font-size: 1.5rem;color: #f30;">&times;&nbsp;&nbsp;</span></td>
+            <td>{{ item.email }}<span class="pull-right" ng-click="action.del_email()" style="font-size: 1.5rem;color: #f30;">&times;&nbsp;&nbsp;</span></td>
           </tr>
         </tbody>
       </table>
@@ -86,7 +86,7 @@
     <div>
       <form ng-submit="action.add_email()">
         <div class="input-group">
-          <input class="field" type="text" ng-model="model.email_input" placeholder="额外添加的邮件">
+          <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加收件人">
           <button class="addon" type="submit">添加</button>
         </div>
       </form>

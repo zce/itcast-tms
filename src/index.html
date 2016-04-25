@@ -13,7 +13,7 @@
   <!-- endbuild -->
 </head>
 
-<body id="window" class="fade ng-cloak" animations="true">
+<body id="window" class="fade ng-cloak">
   <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? '22rem' : '0' }">
     <i class="resizer"></i>
     <div class="panel menu">
@@ -81,7 +81,7 @@
   <script src="../node_modules/angular/angular.js"></script>
   <script src="../node_modules/angular-route/angular-route.js"></script>
   <script src="../node_modules/angular-animate/angular-animate.js"></script>
-  <script src="../node_modules/lodash/lodash.js"></script>
+  <!-- <script src="../node_modules/lodash/lodash.js"></script> -->
   <!-- endbuild -->
   <!-- build:js js/script.js -->
   <script src="js/common/extras.js"></script>
@@ -91,6 +91,7 @@
   <script src="js/directives/resizer.js"></script>
   <script src="js/services/index.js"></script>
   <script src="js/services/storage.js"></script>
+  <script src="js/services/dialog.js"></script>
   <script src="js/controllers/index.js"></script>
   <script src="js/controllers/main.js"></script>
   <script src="js/controllers/record.js"></script>
@@ -104,6 +105,25 @@
   <script id="dashboard_tmpl" type="text/ng-template">
     <h1 class="page-header">传智播客教学测评系统</h1>
   </script>
+  <script id="dialog_tmpl" type="text/ng-template">
+         <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Yes or No?</h4>
+              </div>
+              <div class="modal-body">
+                <p>It's your call...</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+     </script>
   <!-- /templates -->
 </body>
 

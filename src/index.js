@@ -30,8 +30,8 @@ fs.existsSync(OPTIONS.log_root) || fs.mkdir(OPTIONS.log_root);
 log4js.configure({
   appenders: [
     { type: 'console' },
-    { type: 'file', filename: path.join(OPTIONS.log_root, 'frontend.log'), category: 'frontend' },
-    { type: 'file', filename: path.join(OPTIONS.log_root, 'backend.log'), category: 'backend' }
+    { type: 'file', filename: path.join(OPTIONS.app_root, 'frontend.log'), category: 'frontend' },
+    { type: 'file', filename: path.join(OPTIONS.app_root, 'backend.log'), category: 'backend' }
   ]
 });
 

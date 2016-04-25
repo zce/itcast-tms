@@ -1,0 +1,39 @@
+/*
+ * @Author: iceStone
+ * @Date:   2016-01-07 21:31:54
+ * @Last Modified by:   iceStone
+ * @Last Modified time: 2016-01-08 00:08:51
+ */
+(function(angular) {
+  'use strict';
+
+  const fs = window.require && require('fs');
+  const path = window.require && require('path');
+
+  const files = {};
+
+  angular.module('itcast-tms.services')
+    .service('Data', ['options', Data]);
+
+
+  function Data(options) {
+    this.options = options;
+    Object.assign(files, {
+      academies: path.join(this.options.data_root, 'academies.json'),
+      itcast: path.join(this.options.data_root, 'itcast.json'),
+      options: path.join(this.options.data_root, 'options.json'),
+      questions: path.join(this.options.data_root, 'questions.json'),
+      schools: path.join(this.options.data_root, 'schools.json'),
+      subjects: path.join(this.options.data_root, 'subjects.json')
+    });
+
+    Object.keys(files).forEach(file => {
+      this[file] = () => {
+        console.log(file);
+      };
+    })
+  }
+
+
+
+}(angular));
