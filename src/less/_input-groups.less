@@ -1,0 +1,43 @@
+.input-group,
+.input-group-lg,
+.input-group-sm {
+  display: flex;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  .field {
+    flex: 1;
+    &:not(:first-child) {
+      border-left: 0;
+    }
+    &:not(:last-child) {
+      border-right: 0;
+    }
+  }
+  .addon {
+    background-color: rgba(147, 128, 108, 0.1);
+    color: #666666;
+  }
+  .field,
+  .addon {
+    border: .1rem solid rgba(147, 128, 108, 0.25);
+    padding: 0.5rem 0.75rem;
+    margin-top: 1rem;
+    font: inherit;
+    font-weight: normal;
+    min-width: 0;
+    &:first-child {
+      border-radius: .2rem 0 0 .2rem;
+    }
+    &:last-child {
+      border-radius: 0 .2rem .2rem 0;
+    }
+  }
+}
+
+.input-group-lg {
+  font-size: 2rem;
+}
+
+.input-group-sm {
+  font-size: 1rem;
+}

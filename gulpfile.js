@@ -57,6 +57,7 @@ gulp.task('extras', () => {
     'src/*.*',
     'src/im*/*.*',
     'src/node_module*/**/*.*',
+    'src/vie*/**/*.*',
     '!src/less',
     '!src/*.html'
   ], {
@@ -75,7 +76,18 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-gulp.task('test', ['less'], () => {
+gulp.task('serve', ['less'], () => {
+  serve();
+});
+
+gulp.task('test', () => {
+  serve(() => {
+    process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+    spawn(electron, ['.']);
+  });
+});
+
+function serve(callback) {
   bs.init({
     open: false,
     notify: true,
@@ -86,15 +98,12 @@ gulp.task('test', ['less'], () => {
         '/node_modules': 'node_modules'
       }
     }
-  }, () => {
-    process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-    spawn(electron, ['.']);
-  });
+  }, callback);
 
   gulp.watch([
-    'src/*.html',
+    'src/**/*.html',
     'src/**/*.js'
   ]).on('change', bs.reload);
 
   gulp.watch('src/less/**/*.less', ['less']);
-});
+}

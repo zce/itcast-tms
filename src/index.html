@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <title>Teaching Management « Itcast</title>
   <!-- build:css css/vender.css -->
-  <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
   <!-- endbuild -->
   <!-- build:css css/style.css -->
+  <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <!-- endbuild -->
 </head>
@@ -104,169 +103,6 @@
   <!-- templates -->
   <script id="dashboard_tmpl" type="text/ng-template">
     <h1 class="page-header">传智播客教学测评系统</h1>
-  </script>
-  <script id="starter_tmpl" type="text/ng-template">
-    <h1 class="page-header">开始新的测评</h1>
-    <div class="row scroll">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="school_name">所属校区</label>
-          <select id="school_name" ng-model="model.school_name">
-            <option value="{{key}}" ng-repeat="(key, value) in data.schools">{{key}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="academy_name">所属学院</label>
-          <select id="academy_name" ng-model="model.academy_name">
-            <option value="{{key}}" ng-repeat="(key, value) in data.academies">{{key}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="subject_name">所属学科</label>
-          <select id="subject_name" ng-model="model.subject_name">
-            <option value="{{item.name}}" ng-repeat="item in data.subjects">{{item.name}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="class_count">班级总人数</label>
-          <input type="number" id="class_count" ng-model="model.class_count" placeholder="请输入班级总人数">
-        </div>
-        <div class="row">
-          <div class="col-sm-4 form-group" ng-repeat="(key, value) in model.reasons">
-            <label for="reason{{$index}}_count">{{key}}人数</label>
-            <input type="number" id="reason{{$index}}_count" ng-model="model.reasons[key]" placeholder="请输入{{key}}人数" tabindex="-1">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="head_name">班主任姓名</label>
-          <input type="text" id="head_name" ng-model="model.head_name" placeholder="请输入班主任姓名">
-        </div>
-        <div class="form-group">
-          <label for="class_name">班级名称</label>
-          <input type="text" id="class_name" ng-model="model.class_name" placeholder="请输入班级名称">
-        </div>
-        <div class="form-group">
-          <label for="course_name">课程阶段</label>
-          <input type="text" id="course_name" ng-model="model.course_name" placeholder="请输入课程阶段">
-        </div>
-        <div class="form-group">
-          <label for="course_days">课程天数</label>
-          <input type="number" id="course_days" ng-model="model.course_days" placeholder="请输入课程天数">
-        </div>
-        <div class="form-group">
-          <label for="teacher_name">讲师姓名</label>
-          <input type="text" id="teacher_name" ng-model="model.teacher_name" placeholder="请输入讲师名称">
-        </div>
-        <div class="form-group">
-          <label for="teacher_email">讲师邮箱</label>
-          <input type="text" id="teacher_email" ng-model="model.teacher_email" placeholder="请输入讲师邮箱">
-        </div>
-        <div class="form-group">
-          <label for="datetime">测评日期</label>
-          <input type="text" id="datetime" ng-model="model.datetime" readonly="readonly" tabindex="-1">
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary btn-large btn-block disabled" ng-click="action.start()">开始新的测评</button>
-  </script>
-  <script id="watcher_tmpl" type="text/ng-template">
-    <h1 class="page-header">测评信息</h1>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>项目</th>
-                <th>数据</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>学科信息</td>
-                <td><span>{{'北京-金燕龙和中腾校区'}}</span> / <span>{{'Java学院'}}</span> / <span>{{'JavaEE'}}</span></td>
-              </tr>
-              <tr>
-                <td>评分时间</td>
-                <td>2016-04-21 11:53</td>
-              </tr>
-              <tr>
-                <td>评分班主任</td>
-                <td>汪磊</td>
-              </tr>
-              <tr>
-                <td>评分班级</td>
-                <td>1020前端与移动开发就业班</td>
-              </tr>
-              <tr>
-                <td>课程阶段</td>
-                <td>面向对象</td>
-              </tr>
-              <tr>
-                <td>课程天数</td>
-                <td>10天</td>
-              </tr>
-              <tr>
-                <td>讲师姓名</td>
-                <td>汪磊</td>
-              </tr>
-              <tr>
-                <td>讲师邮箱</td>
-                <td>wanglei3@itcast.cn</td>
-              </tr>
-              <tr>
-                <td>班级总人数</td>
-                <td>120人 - 10人（请假）</td>
-              </tr>
-              <tr>
-                <td>已完成测评人数</td>
-                <td>10人</td>
-              </tr>
-              <tr>
-                <td>测评链接</td>
-                <td><a href="http://172.16.39.33:8088/5slkd2">http://172.16.39.33:8088/5slkd2</a> <a href="#">点击复制</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <button class="btn btn-primary btn-block" disabled>开始测评</button>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>姓名</th>
-                <th>邮箱</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="item in model.emails">
-                <td>{{item.name}}</td>
-                <td>{{item.email}}</td>
-              </tr>
-              <tr ng-repeat="item in model.add_emails">
-                <td>刚添加</td>
-                <td>{{item.email}}<span class="u-pull-right" ng-click="action.del_email()" style="font-size: 1.5rem;color: #f30;">&times;&nbsp;&nbsp;</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <div class="input-group">
-            <form ng-submit="action.add_email()">
-              <input type="text" ng-model="model.email_input" placeholder="额外添加的邮件">
-              <button class="btn btn-secondary" type="submit">添加</button>
-            </form>
-          </div>
-          <button class="btn btn-success btn-block" disabled>发送邮件</button>
-        </div>
-      </div>
-    </div>
   </script>
   <!-- /templates -->
 </body>

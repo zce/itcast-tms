@@ -8,7 +8,7 @@
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/watcher/:stamp', {
         controller: 'WatcherController',
-        templateUrl: 'watcher_tmpl'
+        templateUrl: 'view/watcher.html'
       })
     }])
     .controller('WatcherController', [

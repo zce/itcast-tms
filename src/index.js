@@ -80,11 +80,16 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 
   // and load the index.html of the app.
-  if (process.env.NODE_ENV === 'production') {
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
-  } else {
-    mainWindow.loadURL('http://localhost:2016/index.html');
-  }
+  const url = process.env.NODE_ENV === 'production' ? `file://${__dirname}/splash.html` : 'http://localhost:2016/splash.html';
+
+  // mainWindow.loadURL(url);
+  // setTimeout(function() {
+  //   mainWindow.loadURL(url);
+  // }, 400);
+
+  // mainWindow.loadURL(`data:text/html, <h1><a href="${url}">GO</a>`);
+
+  mainWindow.loadURL(url);
 
   mainWindow.show();
 

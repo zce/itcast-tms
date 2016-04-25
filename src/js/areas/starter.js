@@ -9,7 +9,7 @@
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/starter', {
         controller: 'StarterController',
-        templateUrl: 'starter_tmpl'
+        templateUrl: 'view/starter.html'
       })
     }])
     .controller('StarterController', [

@@ -1,0 +1,96 @@
+<h1 class="page-header">测评信息</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>数据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>学科信息</td>
+            <td><span>{{'北京-金燕龙和中腾校区'}}</span> / <span>{{'Java学院'}}</span> / <span>{{'JavaEE'}}</span></td>
+          </tr>
+          <tr>
+            <td>评分时间</td>
+            <td>2016-04-21 11:53</td>
+          </tr>
+          <tr>
+            <td>评分班主任</td>
+            <td>汪磊</td>
+          </tr>
+          <tr>
+            <td>评分班级</td>
+            <td>1020前端与移动开发就业班</td>
+          </tr>
+          <tr>
+            <td>课程阶段</td>
+            <td>面向对象</td>
+          </tr>
+          <tr>
+            <td>课程天数</td>
+            <td>10天</td>
+          </tr>
+          <tr>
+            <td>讲师姓名</td>
+            <td>汪磊</td>
+          </tr>
+          <tr>
+            <td>讲师邮箱</td>
+            <td>wanglei3@itcast.cn</td>
+          </tr>
+          <tr>
+            <td>班级总人数</td>
+            <td>120人 - 10人（请假）</td>
+          </tr>
+          <tr>
+            <td>已完成测评人数</td>
+            <td>10人</td>
+          </tr>
+          <tr>
+            <td>测评链接</td>
+            <td><a href="http://172.16.39.33:8088/5slkd2">http://172.16.39.33:8088/5slkd2</a> <a href="#">点击复制</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <button class="btn btn-primary btn-block" disabled>开始测评</button>
+      <!-- <button class="btn btn-block btn-lg" disabled>开始测评</button> -->
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>邮箱</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in model.emails">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+          </tr>
+          <tr ng-repeat="item in model.add_emails">
+            <td>刚添加</td>
+            <td>{{item.email}}<span class="pull-right" ng-click="action.del_email()" style="font-size: 1.5rem;color: #f30;">&times;&nbsp;&nbsp;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <form ng-submit="action.add_email()">
+        <div class="input-group">
+          <input class="field" type="text" ng-model="model.email_input" placeholder="额外添加的邮件">
+          <button class="addon" type="submit">添加</button>
+        </div>
+      </form>
+      <button class="btn btn-primary btn-block" disabled>发送邮件</button>
+    </div>
+  </div>
+</div>

@@ -37,7 +37,7 @@
     $scope.sidebarOpened = false;
     $timeout(function() {
       $scope.sidebarOpened = true;
-    }, 0);
+    }, 500);
     $scope.toggleSidebar = () => {
       $scope.sidebarOpened = !$scope.sidebarOpened;
     };
