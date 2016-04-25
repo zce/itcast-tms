@@ -3,19 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
   <title>Teaching Management « Itcast</title>
-  <!-- build:css css/vender.css -->
-  <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
+  <!-- build:css css/nprogress.css -->
   <link rel="stylesheet" href="../node_modules/nprogress/nprogress.css">
-  <!-- endbuild -->
-  <!-- build:css css/style.css -->
-  <link rel="stylesheet" href="css/main.css">
   <!-- endbuild -->
 </head>
 
 <body>
+  <!-- build:js js/nprogress.js -->
   <script src="../node_modules/nprogress/nprogress.js"></script>
+  <!-- endbuild -->
   <script>
     // var request = new XMLHttpRequest();
 
@@ -29,9 +26,9 @@
 
     // request.addEventListener('load', function transferComplete(e) {
     //   NProgress.done();
-    //   document.body.outerHTML = request.response;
+    //   console.log(e);
+    //   // document.body.outerHTML = request.response;
     //   history.pushState(document.title, document.title, 'index.html');
-    //   // console.log('complete');
     // }, false);
 
     // // request.addEventListener('error', function transferFailed(e) {
@@ -46,7 +43,7 @@
 
     // request.open('get', './index.html', true);
     // request.send();
-    NProgress.start();
+    // NProgress.start();
     window.location = './index.html';
     // console.log('start');
   </script>
