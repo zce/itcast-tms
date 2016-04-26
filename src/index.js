@@ -17,8 +17,8 @@ global.OPTIONS = {
   data_root: path.resolve(__dirname, '../data'),
   data_version: '20160418',
 
-  temp_root: path.resolve(__dirname, '../temp'),
-  log_root: path.resolve(__dirname, '../log'),
+  temp_root: path.resolve(__dirname, '../../temp'),
+  log_root: path.resolve(__dirname, '../../log'),
   log_ext: '.tms'
 };
 

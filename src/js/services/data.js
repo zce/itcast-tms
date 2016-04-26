@@ -27,9 +27,9 @@
       subjects: path.join(this.options.data_root, 'subjects.json')
     });
 
-    Object.keys(files).forEach(file => {
-      this[file] = () => {
-        console.log(file);
+    Object.keys(files).forEach(key => {
+      this[key] = () => {
+        return require(files[key]);
       };
     })
   }

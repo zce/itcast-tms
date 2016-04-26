@@ -35,11 +35,11 @@ const OPTIONS = {
     /^\/src/,
     /^\/temp/,
     /^\/test/,
-    /.DS_Store/,
-    /.gitignore/,
+    /^\/.+?\.log/,
+    /^\/.+?\.md/,
+    /^\/\..+/,
     /gulpfile.js/,
-    /packager.js/,
-    /README.md/
+    /packager.js/
   ],
   'overwrite': true,
   // prune: true,

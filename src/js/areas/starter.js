@@ -18,11 +18,11 @@
       '$location',
       'options',
       'Storage',
-      'Dialog',
+      'Data',
       StarterController
     ]);
 
-  function StarterController($scope, $rootScope, $location, options, Storage, Dialog) {
+  function StarterController($scope, $rootScope, $location, options, Storage, Data) {
 
     $scope.model = {};
     $scope.action = {};
@@ -52,11 +52,11 @@
     $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm');
 
     // ===== 读取配置文件 =====
-    $scope.data.schools = window.require && require(path.join(options.data_root, 'schools.json'));
+    $scope.data.schools = Data.schools();
     $scope.data.schools && ($scope.model.school_name = Object.keys($scope.data.schools)[0]);
-    $scope.data.academies = window.require && require(path.join(options.data_root, 'academies.json'));
+    $scope.data.academies = Data.academies();
     $scope.data.academies && ($scope.model.academy_name = Object.keys($scope.data.academies)[0]);
-    const subjects = window.require && require(path.join(options.data_root, 'subjects.json'));
+    const subjects = Data.subjects();
     const showSubjects = () => {
       $scope.data.subjects = subjects.filter((item) => item.academy === $scope.model.academy_name && item.school === $scope.model.school_name);
       if ($scope.data.subjects.length)
