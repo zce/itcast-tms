@@ -6,10 +6,10 @@
  */
 'use strict';
 
-const gulp = require("gulp");
-const gulpLoadPlugins = require("gulp-load-plugins");
-const del = require("del");
-const bs = require("browser-sync").create();
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
+const del = require('del');
+const bs = require('browser-sync').create();
 const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
 const plugins = gulpLoadPlugins();
@@ -24,7 +24,7 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/css'))
-    .pipe(bs.stream({ match: "**/*.css" }));
+    .pipe(bs.stream({ match: '**/*.css' }));
 });
 
 gulp.task('useref', ['less'], () => {
