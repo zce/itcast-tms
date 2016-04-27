@@ -13,7 +13,7 @@
   <!-- endbuild -->
 </head>
 
-<body id="window" class="fade ng-cloak">
+<body id="window" class="ng-cloak">
   <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? sidebarWidth : 0 }">
     <i class="resizer"></i>
     <div class="panel menu">
@@ -74,7 +74,7 @@
       <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
       <button class="icon-button close" title="关闭" ng-click="window('close')"></button>
     </header>
-    <main class="editor" ng-view></main>
+    <main class="editor fade" ng-view></main>
   </section>
   <about open="aboutOpened"></about>
   <!-- build:js js/vendor.js -->

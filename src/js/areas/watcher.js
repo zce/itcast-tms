@@ -2,6 +2,7 @@
   'use strict';
 
   const path = window.require && require('path');
+  const electron = window.require && require('electron');
 
   angular
     .module('itcast-tms.areas')
@@ -60,20 +61,27 @@
       $scope.model.add_emails.splice($scope.model.add_emails.indexOf(this), 1);
     };
 
+    $scope.action.copy = () => {
+      electron.clipboard.writeText($scope.data.rate_link);
+      alert('已经将打分链接复制到剪切板\n请将链接发送给学生');
+    };
+
     $scope.action.start = () => {
       // 当前状态为未打分
       if ($scope.data.status === 'initial') {
         // 启动一个服务
         $scope.data.rate_link = Server.run($scope.data) + stamp;
-        $scope.data.status ='rating';
-        Storage.log()
+        $scope.data.status = 'rating';
+        Storage.log(stamp, $scope.data);
       }
     };
     $scope.action.stop = () => {
       // 当前状态为未打分
       if ($scope.data.status === 'rating') {
         Server.stop();
-        $scope.data.status ='rated';
+        $scope.data.status = 'rated';
+        $scope.data.rate_link = '';
+        Storage.log(stamp, $scope.data);
       }
     };
 

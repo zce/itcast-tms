@@ -44,7 +44,7 @@
     }
 
     function stop() {
-      server.close(() => {
+      server && server.close(() => {
         server = null;
         data = null;
       });

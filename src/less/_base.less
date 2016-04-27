@@ -49,18 +49,6 @@ html {
   display: none !important;
 }
 
-.fade {
-  opacity: 1;
-  transition: opacity .3s ease .8s;
-}
-
-.fade.ng-cloak,
-.fade[ng-cloak],
-.fade.ng-binding {
-  display: block !important;
-  opacity: 0;
-}
-
 // Basic styles for links
 a {
   color: #1eaedb;
@@ -92,6 +80,18 @@ label {
   .reverse {
     flex-direction: row-reverse;
   }
+}
+
+#window {
+  opacity: 1;
+  transition: opacity .3s ease .8s;
+}
+
+#window.ng-cloak,
+#window[ng-cloak],
+#window.ng-binding {
+  display: block !important;
+  opacity: 0;
 }
 
 // shadow dom
