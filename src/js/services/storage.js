@@ -33,6 +33,7 @@
     fs.writeFileSync(uri, buffer, 'hex');
   };
 
+  // status initial → rating → rated -> send
   Storage.prototype.log = function(stamp, value) {
     this.set(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
   };

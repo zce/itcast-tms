@@ -77,6 +77,11 @@
         }
       }
 
+      // 额外状态
+      $scope.model.rated_count = 0;
+      $scope.model.status = 'initial';
+
+
       // 持久化
       const stamp = String.getStamp();
       // $rootScope.current_filename = stamp + options.log_ext;

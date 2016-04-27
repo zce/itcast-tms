@@ -50,16 +50,16 @@
             <td>已完成测评人数</td>
             <td>{{ data.rated_count }}人</td>
           </tr>
-          <tr>
+          <tr ng-if="data.rate_link">
             <td>测评链接</td>
-            <td><a href="http://172.16.39.33:8088/5slkd2">http://172.16.39.33:8088/5slkd2</a> <a href="#">点击复制</a></td>
+            <td><a href="{{ data.rate_link }}">{{ data.rate_link }}</a> <a href="#">点击复制</a></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div>
-      <button class="btn btn-primary btn-block" disabled>开始测评</button>
-      <!-- <button class="btn btn-block btn-lg" disabled>开始测评</button> -->
+      <button class="btn btn-primary btn-block" ng-if="data.status === 'initial'">开始测评</button>
+      <button class="btn btn-danger btn-block" ng-if="data.status === 'rating'">结束测评</button>
     </div>
   </div>
   <div class="col-md-4">

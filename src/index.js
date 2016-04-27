@@ -5,6 +5,8 @@ const path = require('path');
 const log4js = require('log4js');
 const { app, BrowserWindow, hideInternalModules } = require('electron');
 
+const utils = require('./js/common/utils');
+
 // 禁用旧版的API
 hideInternalModules();
 
@@ -19,7 +21,9 @@ global.OPTIONS = {
 
   temp_root: path.resolve(__dirname, '../../temp'),
   log_root: path.resolve(__dirname, '../../log'),
-  log_ext: '.tms'
+  log_ext: '.tms',
+  server_port: 8080,
+  server_ip: utils.getLocalAreaIp()
 };
 
 // ===== 目录不存在 则创建 =====

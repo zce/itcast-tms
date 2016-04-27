@@ -14,7 +14,7 @@
 </head>
 
 <body id="window" class="fade ng-cloak">
-  <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? '22rem' : '0' }">
+  <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? sidebarWidth : 0 }">
     <i class="resizer"></i>
     <div class="panel menu">
       <h1>Itcast TMS</h1>
@@ -90,9 +90,11 @@
   <script src="js/directives/about.js"></script>
   <script src="js/directives/resizer.js"></script>
   <script src="js/services/index.js"></script>
-  <script src="js/services/storage.js"></script>
   <script src="js/services/data.js"></script>
   <script src="js/services/dialog.js"></script>
+  <script src="js/services/server.js"></script>
+  <script src="js/services/setting.js"></script>
+  <script src="js/services/storage.js"></script>
   <script src="js/controllers/index.js"></script>
   <script src="js/controllers/main.js"></script>
   <script src="js/controllers/record.js"></script>

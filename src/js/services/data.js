@@ -1,9 +1,3 @@
-/*
- * @Author: iceStone
- * @Date:   2016-01-07 21:31:54
- * @Last Modified by:   iceStone
- * @Last Modified time: 2016-01-08 00:08:51
- */
 (function(angular) {
   'use strict';
 
@@ -14,7 +8,6 @@
 
   angular.module('itcast-tms.services')
     .service('Data', ['options', Data]);
-
 
   function Data(options) {
     this.options = options;
@@ -31,7 +24,7 @@
       this[key] = () => {
         return require(files[key]);
       };
-    })
+    });
   }
 
 

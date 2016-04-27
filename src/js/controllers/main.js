@@ -10,15 +10,14 @@
       '$rootScope',
       '$location',
       '$timeout',
-      // '$animate',
+      'Setting',
       MainController
     ]);
 
-  function MainController($scope, $rootScope, $location, $timeout /*, $animate*/ ) {
-    // console.log($animate.enabled(true));
+  function MainController($scope, $rootScope, $location, $timeout, Setting) {
 
-    window.root = $rootScope;
-    window.scope = $scope;
+    // window.root = $rootScope;
+    // window.scope = $scope;
 
     // ===== theme =====
     $scope.theme = 'default';
@@ -36,11 +35,13 @@
     // ===== sidebar =====
     $scope.sidebarOpened = false;
     $timeout(function() {
-      $scope.sidebarOpened = true;
+      $scope.sidebarOpened = Setting.get('sidebar_opened');
     }, 500);
     $scope.toggleSidebar = () => {
       $scope.sidebarOpened = !$scope.sidebarOpened;
+      Setting.set('sidebar_opened', $scope.sidebarOpened);
     };
+    $scope.sidebarWidth = Setting.get('sidebar_width') || '222px';
 
 
     // ===== settings =====

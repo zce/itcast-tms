@@ -61,3 +61,4 @@ ISC © [iceStone](https://github.com/Micua)
 ## TODOS
 
 - Student submit rate info is empty
+- Email keyworks reject
