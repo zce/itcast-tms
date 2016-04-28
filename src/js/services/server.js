@@ -18,10 +18,11 @@
 
   function Server(options, storage) {
     this.stamps = [];
+    this.options = options;
     this.storage = storage;
     this.server = http.createServer(this.requestListener.bind(this));
     this.url = `http://${options.server_ip}:${options.server_port}/`;
-    this.server.listen(options.server_port, options.server_ip, err => err || console.log(`server run @ ${this.url}`));
+    this.server.listen(options.server_port, options.server_ip, err => err || options.logger.info(`server run @ ${this.url}`));
   }
 
   Server.prototype.requestListener = function(req, res) {
@@ -55,13 +56,13 @@
 
   Server.prototype.start = function(stamp) {
     this.stamps.push(stamp);
-    console.log(`${stamp} is start`);
+    this.options.logger.info(`${stamp} is start`);
     return this.url + stamp;
   };
 
   Server.prototype.stop = function(stamp) {
     this.stamps.splice(this.stamps.indexOf(stamp), 1);
-    console.log(`${stamp} is stop`);
+    this.options.logger.info(`${stamp} is stop`);
   };
 
 

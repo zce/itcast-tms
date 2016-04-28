@@ -64,6 +64,7 @@
         return
       $scope.model.email_input.includes('@') || ($scope.model.email_input += '@itcast.cn');
       $scope.model.add_emails.push({ email: $scope.model.email_input });
+      $scope.model.email_input = '';
     };
 
     $scope.action.del_email = () => {

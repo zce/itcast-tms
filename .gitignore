@@ -1,8 +1,7 @@
 core
 dist
-log
 node_modules
-release
 src/css
-temp
-/*.log
+*.log
+
+*.log

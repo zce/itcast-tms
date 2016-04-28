@@ -13,7 +13,8 @@ Object.assign(options, {
     rated: '测评完成 - 待发邮件',
     sending: '邮件发送中',
     send: '邮件发送完成'
-  }
+  },
+  logger: logger
 });
 
 
@@ -29,7 +30,7 @@ Object.assign(options, {
       'itcast-tms.directives'
     ])
     .constant('options', options)
-    .constant('logger', logger)
+    // .constant('logger', logger)
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.otherwise({ redirectTo: '/home' /*'/watcher/1234'*/ })
     }])
