@@ -40,9 +40,6 @@
   box-sizing: border-box;
   padding: 2rem;
   overflow: hidden;
-  // .btn {
-  //   margin-top: .5rem;
-  // }
   .scroll {
     flex: 1;
     overflow-x: hidden;
@@ -56,6 +53,13 @@
       flex-direction: column;
     }
   }
+  > .action {
+    margin-top: 1rem;
+  }
+  .btn {
+    // margin-top: .5rem;
+    height: 4.5rem;
+  }
 }
 
 .fade {
@@ -63,19 +67,22 @@
   &.ng-enter,
   &.ng-leave {
     // transition: opacity .3s linear;
-    transition: opacity 10s ease;
+    transition: opacity .3s ease;
   }
   &.ng-enter {
     opacity: 0;
-    width: 100%;
+    visibility: hidden;
+    // width: 100%;
+    position: absolute;
+    // transition: opacity .3s ease 0s;
   }
   &.ng-enter.ng-enter-active {
+    // flex: 0;
     opacity: 1;
   }
   &.ng-leave {
-  display: flex;
-    position: absolute;
     opacity: 1;
+    // transition: opacity .3s ease 0s;
   }
   &.ng-leave.ng-leave-active {
     opacity: 0;

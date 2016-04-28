@@ -6,7 +6,15 @@ const remote = window.require && require('electron').remote;
 const options = remote && remote.getGlobal('OPTIONS') || {};
 const logger = remote && remote.getGlobal('LOGGER');
 
-Object.assign(options, {});
+Object.assign(options, {
+  statusKey: {
+    initial: '尚未开始测评',
+    rating: '测评中',
+    rated: '测评完成 - 待发邮件',
+    sending: '邮件发送中',
+    send: '邮件发送完成'
+  }
+});
 
 
 (function(angular) {

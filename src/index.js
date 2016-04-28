@@ -5,7 +5,7 @@ const path = require('path');
 const log4js = require('log4js');
 const { app, BrowserWindow, hideInternalModules } = require('electron');
 
-const utils = require('./js/common/utils');
+const utils = require('./utils');
 
 // 禁用旧版的API
 hideInternalModules();

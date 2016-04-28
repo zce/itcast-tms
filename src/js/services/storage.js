@@ -15,15 +15,20 @@
     this.options = options;
   }
 
-  Storage.prototype.get = function get(uri) {
+  Storage.prototype.read = function read(uri) {
     uri = resolve(uri);
-    const buffer = fs.readFileSync(uri);
-    const length = buffer.readUInt32BE(0);
-    const content = buffer.toString('utf8', 4, length + 4);
-    return JSON.parse(content);
+    try {
+      const buffer = fs.readFileSync(uri);
+      const length = buffer.readUInt32BE(0);
+      const content = buffer.toString('utf8', 4, length + 4);
+      return JSON.parse(content);
+    } catch (e) {
+      console.log('read file ' + e);
+      return null;
+    }
   };
 
-  Storage.prototype.set = function set(uri, value) {
+  Storage.prototype.write = function write(uri, value) {
     value = JSON.stringify(value);
     const length = Buffer.byteLength(value); // new Buffer(value).length;
     const buffer = new Buffer(length + 4);
@@ -34,12 +39,12 @@
   };
 
   // status initial → rating → rated -> send
-  Storage.prototype.log = function(stamp, value) {
-    this.set(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
+  Storage.prototype.set = function(stamp, value) {
+    this.write(path.resolve(this.options.log_root, stamp + this.options.log_ext), value);
   };
 
-  Storage.prototype.read = function(stamp) {
-    return this.get(path.resolve(this.options.log_root, stamp + this.options.log_ext));
+  Storage.prototype.get = function(stamp) {
+    return this.read(path.resolve(this.options.log_root, stamp + this.options.log_ext));
   };
 
 

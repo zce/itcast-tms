@@ -13,6 +13,7 @@
   font-weight: 300;
   line-height: normal;
   text-decoration: none;
+  text-align: center;
   white-space: nowrap;
   &:active,
   &:focus,
@@ -21,6 +22,30 @@
     background: darken(@default-color, 50%);
     border-color: darken(@default-color, 60%);
     text-decoration: none;
+  }
+  &.ng-enter,
+  &.ng-leave {
+    // transition: opacity .3s linear;
+    transition: opacity .2s ease;
+  }
+  &.ng-enter {
+    opacity: 0;
+    visibility: hidden;
+    // display: none;
+    // width: 100%;
+    position: absolute;
+    // transition: opacity .3s ease 0s;
+  }
+  &.ng-enter.ng-enter-active {
+    // flex: 0;
+    opacity: 1;
+  }
+  &.ng-leave {
+    opacity: 1;
+    // transition: opacity .3s ease 0s;
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
   }
 }
 
@@ -45,6 +70,18 @@
   &:hover {
     background-color: darken(@danger-color, 10%);
     border-color: darken(@danger-color, 15%);
+  }
+}
+
+.btn-success {
+  background-color: @success-color;
+  border-color: darken(@success-color, 5%);
+  color: #fff;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken(@success-color, 10%);
+    border-color: darken(@success-color, 15%);
   }
 }
 

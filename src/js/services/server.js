@@ -10,16 +10,37 @@
   const fs = window.require && require('fs');
   const path = window.require && require('path');
   const http = window.require && require('http');
+  const url = window.require && require('url');
+  const child_process = window.require && require('child_process');
 
   angular.module('itcast-tms.services')
-    .factory('Server', ['options', server]);
+    .service('Server', ['options', 'Storage', Server]);
 
-  function server(options) {
-    let server = null;
-    let data = null;
+  function Server(options, storage) {
+    this.stamps = [];
+    this.storage = storage;
+    this.server = http.createServer(this.requestListener.bind(this));
+    this.url = `http://${options.server_ip}:${options.server_port}/`;
+    this.server.listen(options.server_port, options.server_ip, err => err || console.log(`server run @ ${this.url}`));
+  }
 
-    function requestListener(req, res) {
-      res.end(`<!DOCTYPE html>
+  Server.prototype.requestListener = function(req, res) {
+    const urlObj = url.parse(req.url, true);
+    const paths = urlObj.pathname.split('/').filter(i => i);
+    const stamp = paths[0];
+    if (paths.length !== 1 || !this.stamps.includes(stamp)) {
+      res.writeHead(404, 'Not Found');
+      res.end(`<h1>${req.url} is Not Found! </h1>`);
+      return false;
+    }
+    const data = this.storage.get(stamp);
+    if (!data) {
+      res.writeHead(404, 'Not Found');
+      res.end(`<h1>${req.url} is Not Found! </h1>`);
+      return false;
+    }
+    res.end(`
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,28 +49,60 @@
 <body>
   <h2><span>${ data.school_name }</span> / <span>${ data.academy_name }</span> / <span>${ data.subject_name }</span></h2>
 </body>
-</html>`);
-    }
+</html>
+`);
+  };
 
-    function run(params) {
-      data = params;
-      server = http.createServer(requestListener);
-      const url = `http://${options.server_ip}:${options.server_port}/`;
-      server.listen(
-        options.server_port,
-        options.server_ip,
-        err => err || console.log(`server run @ ${url}`)
-      );
-      return url;
-    }
+  Server.prototype.start = function(stamp) {
+    this.stamps.push(stamp);
+    console.log(`${stamp} is start`);
+    return this.url + stamp;
+  };
 
-    function stop() {
-      server && server.close(() => {
-        server = null;
-        data = null;
-      });
-    }
-    return { run, stop };
-  }
+  Server.prototype.stop = function(stamp) {
+    this.stamps.splice(this.stamps.indexOf(stamp), 1);
+    console.log(`${stamp} is stop`);
+  };
+
+
+  //   function server(options) {
+  //     let server = null;
+  //     let data = null;
+
+  //     function requestListener(req, res) {
+  //       res.end(`<!DOCTYPE html>
+  // <html lang="en">
+  // <head>
+  //   <meta charset="UTF-8">
+  //   <title></title>
+  // </head>
+  // <body>
+  //   <h2><span>${ data.school_name }</span> / <span>${ data.academy_name }</span> / <span>${ data.subject_name }</span></h2>
+  // </body>
+  // </html>`);
+  //     }
+
+  //     function run(params) {
+  //       data = params;
+  //       server = http.createServer(requestListener);
+  //       const url = `http://${options.server_ip}:${options.server_port}/`;
+  //       server.listen(
+  //         options.server_port,
+  //         options.server_ip,
+  //         err => err || console.log(`server run @ ${url}`)
+  //       );
+  //       return url;
+  //     }
+
+  //     function stop() {
+  //       console.log(server);
+  //       server && server.close(() => {
+  //         server = null;
+  //         data = null;
+  //         console.log('server stop...');
+  //       });
+  //     }
+  //     return { run, stop };
+  //   }
 
 }(angular));

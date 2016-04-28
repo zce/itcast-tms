@@ -28,8 +28,8 @@
       <h3>测评记录</h3>
       <div class="scroll">
         <ul ng-controller="RecordController">
-          <li title="{{value}}" draggable="true" ng-repeat="(key, value) in records" ng-class="{ active: current_filename === key }" ng-click="open(key)" auto-active>
-            <span class="name">{{key}}</span>
+          <li title="{{ value }}" draggable="true" ng-repeat="(key, value) in records" ng-class="{ active: current_filename === key }" ng-click="open(key)" auto-active>
+            <span class="name">{{ key }}</span>
             <span class="close" ng-click="remove(key, $event)"></span>
           </li>
         </ul>
@@ -92,6 +92,7 @@
   <script src="js/services/index.js"></script>
   <script src="js/services/data.js"></script>
   <script src="js/services/dialog.js"></script>
+  <script src="js/services/mail.js"></script>
   <script src="js/services/server.js"></script>
   <script src="js/services/setting.js"></script>
   <script src="js/services/storage.js"></script>
@@ -106,27 +107,8 @@
   <!-- endbuild -->
   <!-- templates -->
   <script id="dashboard_tmpl" type="text/ng-template">
-    <h1 class="page-header">传智播客教学测评系统</h1>
+    <div class="page-header"><h1>传智播客教学测评系统</h1></div>
   </script>
-  <script id="dialog_tmpl" type="text/ng-template">
-         <div class="modal fade">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Yes or No?</h4>
-              </div>
-              <div class="modal-body">
-                <p>It's your call...</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-     </script>
   <!-- /templates -->
 </body>
 

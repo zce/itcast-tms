@@ -1,12 +1,12 @@
-<h1 class="page-header">测评信息</h1>
+<div class="page-header"><h1>测评信息</h1></div>
 <div class="row">
   <div class="col-md-8">
     <div class="scroll">
       <table>
         <thead>
           <tr>
-            <th>项目</th>
-            <th>数据</th>
+            <th width="30%">项目</th>
+            <th width="70%">数据</th>
           </tr>
         </thead>
         <tbody>
@@ -52,19 +52,18 @@
           </tr>
           <tr ng-if="data.status">
             <td>测评状态</td>
-            <td>{{ data.status }}</td>
+            <td style="color:#f40">{{ data.status }}</td>
           </tr>
           <tr ng-if="data.rate_link">
             <td>测评链接</td>
-            <td><a href="{{ data.rate_link }}">{{ data.rate_link }}</a> <a ng-click="action.copy()">点击复制</a></td>
+            <td>
+              <a ng-click="openExternal(data.rate_link)">{{ data.rate_link }}</a>
+              <span>&nbsp;&nbsp;</span>
+              <a ng-click="action.copy()">点击复制</a>
+            </td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div>
-      <button class="btn btn-primary btn-block fade" ng-if="data.status === 'initial'" ng-click="action.start()">开始测评</button>
-      <button class="btn btn-danger btn-block fade" ng-if="data.status === 'rating'" ng-click="action.stop()">结束测评</button>
-      <button class="btn btn-info btn-block fade" ng-if="data.status === 'rated'" disabled>测评已经结束</button>
     </div>
   </div>
   <div class="col-md-4">
@@ -72,30 +71,35 @@
       <table>
         <thead>
           <tr>
-            <th>姓名</th>
-            <th>邮箱</th>
+            <th width="35%">姓名</th>
+            <th width="65%">邮箱</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="item in data.emails">
-            <td>{{ item.name }}</td>
+            <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
             <td>{{ item.email }}</td>
           </tr>
           <tr ng-repeat="item in model.add_emails">
-            <td>刚添加</td>
-            <td>{{ item.email }}<span class="pull-right" ng-click="action.del_email()" style="font-size: 1.5rem;color: #f30;">&times;&nbsp;&nbsp;</span></td>
+            <td>刚刚添加</td>
+            <td>{{ item.email }}
+              <span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email()">&times;&nbsp;&nbsp;</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div>
-      <form ng-submit="action.add_email()">
-        <div class="input-group">
-          <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加收件人">
-          <button class="addon" type="submit">添加</button>
-        </div>
-      </form>
-      <button class="btn btn-primary btn-block" disabled>发送邮件</button>
-    </div>
+    <form ng-submit="action.add_email()" ng-if="data.status === options.statusKey.rated">
+      <div class="input-group">
+        <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加收件人">
+        <button class="addon" type="submit">添加</button>
+      </div>
+    </form>
   </div>
+</div>
+<div class="action">
+  <button class="btn btn-primary btn-block btn-lg" ng-if="data.status === options.statusKey.initial" ng-click="action.start()">开始测评</button>
+  <button class="btn btn-danger btn-block btn-lg" ng-if="data.status === options.statusKey.rating" ng-click="action.stop()">结束测评</button>
+  <button class="btn btn-success btn-block btn-lg" ng-if="data.status === options.statusKey.rated" ng-click="action.send()">发送邮件</button>
+  <div class="btn btn-block btn-lg" ng-if="data.status === options.statusKey.sending">邮件发送中</div>
+  <div class="btn btn-block btn-lg" ng-if="data.status === options.statusKey.send">邮件发送完成</div>
 </div>

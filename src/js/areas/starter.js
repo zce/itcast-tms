@@ -79,13 +79,17 @@
 
       // 额外状态
       $scope.model.rated_count = 0;
-      $scope.model.status = 'initial';
-
-
+      $scope.model.status = options.statusKey.initial;
+      const itcastEmails = Data.itcast().emails;
+      const schoolEmails = Data.schools()[$scope.model.school_name].emails;
+      const academyEmails = Data.academies()[$scope.model.academy_name].emails;
+      const subjectEmails = Data.subjects().find(s => s.academy === $scope.model.academy_name && s.school === $scope.model.school_name && s.name === $scope.model.subject_name).emails;
+      $scope.model.emails = itcastEmails.concat(schoolEmails, academyEmails, subjectEmails)
+      console.log(subjectEmails);
       // 持久化
       const stamp = String.getStamp();
       // $rootScope.current_filename = stamp + options.log_ext;
-      Storage.log(stamp, $scope.model);
+      Storage.set(stamp, $scope.model);
       $location.url('/watcher/' + stamp);
 
     };

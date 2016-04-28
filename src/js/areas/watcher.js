@@ -14,14 +14,16 @@
     }])
     .controller('WatcherController', [
       '$scope',
+      '$location',
       '$routeParams',
       'options',
       'Storage',
       'Server',
+      'Mail',
       WatcherController
     ]);
 
-  function WatcherController($scope, $routeParams, options, Storage, Server) {
+  function WatcherController($scope, $location, $routeParams, options, Storage, Server, Mail) {
 
     const stamp = $routeParams.stamp;
 
@@ -29,7 +31,20 @@
     $scope.model = {};
     $scope.action = {};
 
-    $scope.data = Object.assign({}, Storage.read(stamp));
+    // 获取文件内容
+    $scope.data = Storage.get(stamp);
+    if (!$scope.data) {
+      // TODO: 没有文件情况
+      alert('没有对应的测评信息！');
+      $location.url('/starter');
+      return false;
+    }
+
+    // 当前状态为未打分
+    if ($scope.data.status === options.statusKey.rating) {
+      // 启动一个服务
+      $scope.data.rate_link = Server.start(stamp);
+    }
 
     $scope.data.leave_count = ((reasons) => {
       let result = 0;
@@ -39,13 +54,7 @@
       return result;
     })($scope.data.reasons);
 
-    $scope.data.emails = [
-      { name: '李印东', title: '主任', email: 'lyd@itcast.cn' },
-      { name: '李印东', title: '主任', email: 'lyd@itcast.cn' },
-      { name: '李印东', title: '主任', email: 'lyd@itcast.cn' },
-      { name: '李印东', title: '主任', email: 'lyd@itcast.cn' }
-    ];
-
+    // ===== 添加新邮箱 =====
     $scope.model.add_emails = [];
 
     $scope.model.email_input = '';
@@ -60,6 +69,7 @@
     $scope.action.del_email = () => {
       $scope.model.add_emails.splice($scope.model.add_emails.indexOf(this), 1);
     };
+    // ===== ======= =====
 
     $scope.action.copy = () => {
       electron.clipboard.writeText($scope.data.rate_link);
@@ -68,20 +78,32 @@
 
     $scope.action.start = () => {
       // 当前状态为未打分
-      if ($scope.data.status === 'initial') {
+      if ($scope.data.status === options.statusKey.initial) {
         // 启动一个服务
-        $scope.data.rate_link = Server.run($scope.data) + stamp;
-        $scope.data.status = 'rating';
-        Storage.log(stamp, $scope.data);
+        $scope.data.rate_link = Server.start(stamp);
+        $scope.data.status = options.statusKey.rating;
+        Storage.set(stamp, $scope.data);
       }
     };
+
     $scope.action.stop = () => {
-      // 当前状态为未打分
-      if ($scope.data.status === 'rating') {
-        Server.stop();
-        $scope.data.status = 'rated';
+      // if (!(confirm('确定结束吗？')))
+      //   return false;
+      if ($scope.data.status === options.statusKey.rating) {
+        Server.stop(stamp);
+        $scope.data.status = options.statusKey.rated;
         $scope.data.rate_link = '';
-        Storage.log(stamp, $scope.data);
+        Storage.set(stamp, $scope.data);
+      }
+    };
+
+    $scope.action.send = () => {
+      // if (!(confirm('确定发送邮件吗？')))
+      //   return false;
+      if ($scope.data.status === options.statusKey.rated) {
+        Mail.send($scope.data);
+        $scope.data.status = options.statusKey.sending;
+        Storage.set(stamp, $scope.data);
       }
     };
 

@@ -1,7 +1,8 @@
 (function(angular) {
   'use strict';
 
-  // const remote = window.require && require('electron').remote;
+  const electron = window.require && require('electron');
+  // const remote = electron && electron.remote;
   // const BrowserWindow = remote && remote.BrowserWindow;
 
   angular.module('itcast-tms.controllers')
@@ -10,14 +11,16 @@
       '$rootScope',
       '$location',
       '$timeout',
+      'options',
       'Setting',
       MainController
     ]);
 
-  function MainController($scope, $rootScope, $location, $timeout, Setting) {
+  function MainController($scope, $rootScope, $location, $timeout, options, Setting) {
 
     // window.root = $rootScope;
     // window.scope = $scope;
+    $scope.options = options;
 
     // ===== theme =====
     $scope.theme = 'default';
@@ -65,6 +68,10 @@
     // ===== redirect to =====
     $scope.go = (url) => {
       $location.url(url);
+    };
+
+    $scope.openExternal = (link) => {
+      electron.shell.openExternal(link);
     };
 
   }
