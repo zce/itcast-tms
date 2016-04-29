@@ -44,7 +44,9 @@
   $.options = $.electron.remote.getGlobal('OPTIONS') || {};
 
   $.storage = require('../common/storage');
+  $.data = require('../common/data');
 
+  $.logger = $.options.logger.renderer;
 
   // console.log($);
 

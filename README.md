@@ -64,3 +64,28 @@ ISC © [iceStone](https://github.com/Micua)
 
 - Student submit rate info is empty
 - Email keyworks reject
+
+
+## Model
+
+```js
+[
+	'school_name',
+  'academy_name',
+  'subject_name',
+  'class_count',
+  'reasons',
+  'class_name',
+  'course_name',
+  'course_days',
+  'head_name',
+  'teacher_name',
+  'teacher_email',
+  'datetime',
+  'rated_count',
+  'status',
+  'questions',
+  'emails',
+  'leave_count'
+]
+```

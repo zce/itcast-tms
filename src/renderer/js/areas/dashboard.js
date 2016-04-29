@@ -11,11 +11,10 @@
     }])
     .controller('DashboardController', [
       '$scope',
-      'Storage',
       DashboardController
     ]);
 
-  function DashboardController($scope, Storage) {
+  function DashboardController($scope) {
 
   }
 

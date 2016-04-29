@@ -13,12 +13,10 @@
       '$scope',
       '$location',
       '$routeParams',
-      'Storage',
-      'Mail',
       WatcherController
     ]);
 
-  function WatcherController($scope, $location, $routeParams, Storage, Mail) {
+  function WatcherController($scope, $location, $routeParams) {
 
     const stamp = $routeParams.stamp;
 
@@ -27,7 +25,7 @@
     $scope.action = {};
 
     // 获取文件内容
-    $scope.data = Storage.get(stamp);
+    $scope.data = $.storage.get(stamp);
     if (!$scope.data) {
       // TODO: 没有文件情况
       alert('没有对应的测评信息！');
@@ -38,7 +36,7 @@
     // 当前状态为未打分
     if ($scope.data.status === $.options.status_keys.rating) {
       // 启动一个服务
-      $scope.data.rate_link = Server.start(stamp);
+      $scope.data.rate_link = $.options.server_link + stamp;
     }
 
     $scope.data.leave_count = ((reasons) => {
@@ -76,30 +74,29 @@
       // 当前状态为未打分
       if ($scope.data.status === $.options.status_keys.initial) {
         // 启动一个服务
-        $scope.data.rate_link = Server.start(stamp);
+        $scope.data.rate_link = $.options.server_link + stamp;
         $scope.data.status = $.options.status_keys.rating;
-        Storage.set(stamp, $scope.data);
+        $.storage.set(stamp, $scope.data);
       }
     };
 
     $scope.action.stop = () => {
-      // if (!(confirm('确定结束吗？')))
-      //   return false;
+      if (!(confirm('确定结束吗？')))
+        return false;
       if ($scope.data.status === $.options.status_keys.rating) {
-        Server.stop(stamp);
         $scope.data.status = $.options.status_keys.rated;
         $scope.data.rate_link = '';
-        Storage.set(stamp, $scope.data);
+        $.storage.set(stamp, $scope.data);
       }
     };
 
     $scope.action.send = () => {
-      // if (!(confirm('确定发送邮件吗？')))
-      //   return false;
+      if (!(confirm('确定发送邮件吗？')))
+        return false;
       if ($scope.data.status === $.options.status_keys.rated) {
-        Mail.send($scope.data);
+        $.mail.send($scope.data);
         $scope.data.status = $.options.status_keys.sending;
-        Storage.set(stamp, $scope.data);
+        $.storage.set(stamp, $scope.data);
       }
     };
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="{{theme}}" ng-app="itcast-tms" ng-controller="MainController">
+<html lang="zh-CN" class="{{root.theme}}" ng-app="itcast-tms" ng-controller="MainController as root">
 
 <head>
   <meta charset="UTF-8">
@@ -15,31 +15,31 @@
 
 <body class="ng-cloak">
   <div id="window">
-    <aside class="sidebar" ng-class="{ 'open-setting': settingsOpened }" ng-style="{ width: sidebarOpened ? sidebarWidth : 0 }">
+    <aside class="sidebar" ng-class="{ 'open-setting': root.settingsOpened }" ng-style="{ width: root.sidebarOpened ? root.sidebarWidth : 0 }">
       <i class="resizer"></i>
       <div class="panel menu">
         <h1>Itcast TMS</h1>
         <hr>
         <h3>操作</h3>
         <ul>
-          <li ng-click="go('/home')">仪表盘</li>
-          <li ng-click="go('/starter')">开始新的测评</li>
+          <li ng-click="root.go('/home')">仪表盘</li>
+          <li ng-click="root.go('/starter')">开始新的测评</li>
         </ul>
         <hr>
         <h3>测评记录</h3>
         <div class="scroll">
-          <ul ng-controller="RecordController">
-            <li title="{{ value }}" draggable="true" ng-repeat="(key, value) in records" ng-class="{ active: current_filename === key }" ng-click="open(key)" auto-active>
+          <ul ng-controller="RecordController as record">
+            <li title="{{ value }}" draggable="true" ng-repeat="(key, value) in record.records" ng-class="{ active: current_filename === key }" ng-click="record.open(key)" auto-active>
               <span class="name">{{ key }}</span>
-              <span class="close" ng-click="remove(key, $event)"></span>
+              <span class="close" ng-click="record.remove(key, $event)"></span>
             </li>
           </ul>
         </div>
         <hr>
         <h3>帮助</h3>
         <ul>
-          <li ng-click="settingsOpened=true">设置</li>
-          <li ng-click="aboutOpened=true">关于</li>
+          <li ng-click="root.settingsOpened=true">设置</li>
+          <li ng-click="root.aboutOpened=true">关于</li>
         </ul>
       </div>
       <div class="panel setting">
@@ -49,36 +49,36 @@
           <ul>
             <li>
               <label>主题</label>
-              <select class="pull-right" ng-model="theme">
+              <select class="pull-right" ng-model="root.theme" ng-change="root.changeTheme()">
                 <option value="default">默认</option>
                 <option value="dark">暗色</option>
                 <option value="light">亮色</option>
               </select>
             </li>
-            <li>
+            <!-- <li>
               <label>主题</label>
               <input type="text" ng-model="theme">
-            </li>
+            </li> -->
           </ul>
         </div>
         <hr>
         <ul>
-          <li ng-click="settingsOpened=false">返回</li>
+          <li ng-click="root.settingsOpened=false">返回</li>
         </ul>
       </div>
     </aside>
     <section class="main">
       <header class="titlebar">
-        <button class="icon-button toggle" title="切换菜单显示" ng-click="toggleSidebar()"></button>
-        <span class="title">{{'hello world'}}</span>
-        <button class="icon-button minimize" title="最小化" ng-click="window('minimize')"></button>
-        <button class="icon-button maximize" title="最大化" ng-click="window('maximize')"></button>
-        <button class="icon-button close" title="关闭" ng-click="window('close')"></button>
+        <button class="icon-button toggle" title="切换菜单显示" ng-click="root.toggleSidebar()"></button>
+        <span class="title">{{root.title}}</span>
+        <button class="icon-button minimize" title="最小化" ng-click="root.window('minimize')"></button>
+        <button class="icon-button maximize" title="最大化" ng-click="root.window('maximize')"></button>
+        <button class="icon-button close" title="关闭" ng-click="root.window('close')"></button>
       </header>
       <main class="editor fade" ng-view></main>
     </section>
   </div>
-  <about open="aboutOpened"></about>
+  <about open="root.aboutOpened"></about>
   <!-- build:js js/vendor.js -->
   <script src="../../node_modules/angular/angular.js"></script>
   <script src="../../node_modules/angular-route/angular-route.js"></script>
@@ -93,12 +93,8 @@
   <script src="js/directives/about.js"></script>
   <script src="js/directives/resizer.js"></script>
   <script src="js/services/index.js"></script>
-  <script src="js/services/data.js"></script>
   <script src="js/services/dialog.js"></script>
-  <script src="js/services/mail.js"></script>
-  <script src="js/services/server.js"></script>
   <script src="js/services/setting.js"></script>
-  <script src="js/services/storage.js"></script>
   <script src="js/controllers/index.js"></script>
   <script src="js/controllers/main.js"></script>
   <script src="js/controllers/record.js"></script>

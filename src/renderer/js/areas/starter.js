@@ -1,6 +1,12 @@
 (function(angular, $) {
   'use strict';
 
+  const itcast = $.data.itcast();
+  const schools = $.data.schools();
+  const academies = $.data.academies();
+  const subjects = $.data.subjects();
+  const questions = $.data.questions();
+
   angular
     .module('itcast-tms.areas')
     .config(['$routeProvider', function($routeProvider) {
@@ -13,12 +19,10 @@
       '$scope',
       '$rootScope',
       '$location',
-      'Storage',
-      'Data',
       StarterController
     ]);
 
-  function StarterController($scope, $rootScope, $location, Storage, Data) {
+  function StarterController($scope, $rootScope, $location) {
 
     $scope.model = {};
     $scope.action = {};
@@ -48,11 +52,10 @@
     $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm');
 
     // ===== 读取配置文件 =====
-    $scope.data.schools = Data.schools();
+    $scope.data.schools = schools;
     $scope.data.schools && ($scope.model.school_name = Object.keys($scope.data.schools)[0]);
-    $scope.data.academies = Data.academies();
+    $scope.data.academies = academies;
     $scope.data.academies && ($scope.model.academy_name = Object.keys($scope.data.academies)[0]);
-    const subjects = Data.subjects();
     const showSubjects = () => {
       $scope.data.subjects = subjects.filter((item) => item.academy === $scope.model.academy_name && item.school === $scope.model.school_name);
       if ($scope.data.subjects.length)
@@ -72,20 +75,35 @@
           return false;
         }
       }
+      // 当前选择的学院信息
+      const school = schools[$scope.model.school_name];
+      const academy = academies[$scope.model.academy_name];
+      const subject = subjects.find(s => s.academy === $scope.model.academy_name && s.school === $scope.model.school_name && s.name === $scope.model.subject_name);
 
-      // 额外状态
+      // 已评价人数
       $scope.model.rated_count = 0;
+      // 额外状态
       $scope.model.status = $.options.status_keys.initial;
-      const itcastEmails = Data.itcast().emails;
-      const schoolEmails = Data.schools()[$scope.model.school_name].emails;
-      const academyEmails = Data.academies()[$scope.model.academy_name].emails;
-      const subjectEmails = Data.subjects().find(s => s.academy === $scope.model.academy_name && s.school === $scope.model.school_name && s.name === $scope.model.subject_name).emails;
-      $scope.model.emails = itcastEmails.concat(schoolEmails, academyEmails, subjectEmails)
+
+      // 本次测评问题
+      let qkeys = subject.questions && subject.questions.length ? subject.questions : academy.questions && academy.questions.length ? academy.questions : school.questions && school.questions.length ? school.questions : itcast.questions;
+      if (!(qkeys && qkeys.length))
+        $.logger.error(new Error(`【${$scope.model.school_name} / ${$scope.model.academy_name} / ${$scope.model.subject_name}】 没有题目信息`))
+      $scope.model.questions = {}; //questions.filter(q => qkeys.includes(q));
+      qkeys.forEach(k => {
+        $scope.model.questions[k] = questions[k];
+      })
+
+      // 本次测评的收件人列表
+      const emails1 = school.emails;
+      const emails2 = academies.emails;
+      const emails3 = subject.emails;
+      $scope.model.emails = $.data.itcast().emails.concat(emails1, emails2, emails3)
 
       // 持久化
       const stamp = String.getStamp();
       // $rootScope.current_filename = stamp + $.options.storage_ext;
-      Storage.set(stamp, $scope.model);
+      $.storage.set(stamp, $scope.model);
       $location.url('/watcher/' + stamp);
 
     };

@@ -72,5 +72,6 @@
     "app-bundle-id": "net.wedn.tms",
     "app-category-type": "net.wedn.tms",
     "iconUrl": "src/app.ico"
-  }
+  },
+  "dependencies": {}
 }

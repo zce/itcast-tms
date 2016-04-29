@@ -10,8 +10,8 @@
     this.storage = $window.localStorage;
   }
 
-  Setting.prototype.get = function(key) {
-    return JSON.parse(this.storage.getItem(key));
+  Setting.prototype.get = function(key, def) {
+    return JSON.parse(this.storage.getItem(key)) || def;
   };
 
   Setting.prototype.set = function(key, value) {
