@@ -43,7 +43,7 @@ function getAvgResult(temp, rates) {
       let frontTotal = 0;
       for (let r = 0; r < rates.length; r++) {
         let rate = rates[r];
-        frontTotal += rate.marks[v][t].front;
+        rate.marks[v][t] && (frontTotal += rate.marks[v][t].front);
       }
       result[v].scores[test.shortname] = parseFloat((frontTotal / rates.length).toFixed(2));
     }
@@ -53,7 +53,7 @@ function getAvgResult(temp, rates) {
       let rate = rates[r];
       rate.backTotal = 0;
       for (let t = 0; t < question.length; t++) {
-        rate.backTotal += rate.marks[v][t].back;
+       rate.marks[v][t] && (rate.backTotal += rate.marks[v][t].back);
       }
       allBackTotal += rate.backTotal;
       if (minimumBackTotal > rate.backTotal) {

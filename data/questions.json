@@ -100,7 +100,7 @@
       ]
     },
     {
-      "shortname": "总体评价",
+      "shortname": "总���评价",
       "question": "你对该授课老师的总体评价是？",
       "answers": [
         { "text": "A.非常满意", "score": { "front": 10, "back": 15 } },
