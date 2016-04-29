@@ -3,9 +3,9 @@
   'use strict';
 
   angular.module('itcast-tms.services')
-    .factory('Dialog', ['$animate', '$document', '$compile', '$controller', '$http', '$rootScope', '$q', '$templateRequest', '$timeout', dialog]);
+    .service('Dialog', [Dialog]);
 
-  function dialog($animate, $document, $compile, $controller, $http, $rootScope, $q, $templateRequest, $timeout) {
+  function Dialog() {
 
   }
 

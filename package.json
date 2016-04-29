@@ -8,7 +8,7 @@
     "postinstall": "cd src && npm install && cd ../updater &&  npm install && cd ..",
     "lint": "eslint src updater *.js",
     "dist": "gulp",
-    "serve": "cross-env NODE_ENV=development gulp serve",
+    "watch": "cross-env NODE_ENV=development gulp watch",
     "electron": "cross-env NODE_ENV=development electron ./",
     "test": "cross-env NODE_ENV=development gulp test",
     "prestart": "npm run dist",
@@ -26,15 +26,15 @@
   "license": "ISC",
   "keywords": [
     "iceStone",
-    "itcast",
+    "Itcast",
     "TMS",
-    "teaching"
+    "Teaching",
+    "Electron"
   ],
   "devDependencies": {
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
     "angular-route": "^1.5.5",
-    "browser-sync": "^2.12.5",
     "concurrently": "^2.0.0",
     "cross-env": "^1.0.7",
     "del": "^2.2.0",
@@ -46,6 +46,7 @@
     "gulp-htmlmin": "^1.3.0",
     "gulp-if": "^2.0.0",
     "gulp-less": "^3.0.5",
+    "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.2.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
@@ -54,8 +55,7 @@
     "lodash": "^4.11.1",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1",
-    "nprogress": "^0.2.0",
-    "underscore": "^1.8.3"
+    "nprogress": "^0.2.0"
   },
   "directories": {
     "test": "test"

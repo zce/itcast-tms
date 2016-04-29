@@ -1,7 +1,5 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
-
-  const path = window.require && require('path');
 
   angular
     .module('itcast-tms.areas')
@@ -13,15 +11,12 @@
     }])
     .controller('DashboardController', [
       '$scope',
-      'options',
       'Storage',
       DashboardController
     ]);
 
-  function DashboardController($scope, options, Storage) {
-    // Storage.set(path.join(options.temp_root, 'demo.bin'), { id: 1, name: 'zhangsan' });
+  function DashboardController($scope, Storage) {
 
-    // console.log(Storage.get(path.join(options.temp_root, 'demo.bin')));
   }
 
-}(angular));
+}(angular, $));

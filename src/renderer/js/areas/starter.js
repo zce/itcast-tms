@@ -1,8 +1,5 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
-
-  const path = window.require && require('path');
-  const remote = window.require && require('electron').remote;
 
   angular
     .module('itcast-tms.areas')
@@ -16,13 +13,12 @@
       '$scope',
       '$rootScope',
       '$location',
-      'options',
       'Storage',
       'Data',
       StarterController
     ]);
 
-  function StarterController($scope, $rootScope, $location, options, Storage, Data) {
+  function StarterController($scope, $rootScope, $location, Storage, Data) {
 
     $scope.model = {};
     $scope.action = {};
@@ -79,7 +75,7 @@
 
       // 额外状态
       $scope.model.rated_count = 0;
-      $scope.model.status = options.statusKey.initial;
+      $scope.model.status = $.options.status_keys.initial;
       const itcastEmails = Data.itcast().emails;
       const schoolEmails = Data.schools()[$scope.model.school_name].emails;
       const academyEmails = Data.academies()[$scope.model.academy_name].emails;
@@ -88,7 +84,7 @@
 
       // 持久化
       const stamp = String.getStamp();
-      // $rootScope.current_filename = stamp + options.log_ext;
+      // $rootScope.current_filename = stamp + $.options.storage_ext;
       Storage.set(stamp, $scope.model);
       $location.url('/watcher/' + stamp);
 
@@ -96,16 +92,4 @@
 
   }
 
-}(angular));
-
-// 取当前编辑的文件
-// let stamp = $routeParams.stamp;
-// if (!stamp) {
-//   // 新增
-//   var filename = String.getStamp() + options.log_ext;
-//   $rootScope.current_filename = filename;
-//   Storage.set(path.join(options.log_root, filename), {});
-//   return;
-// }
-// // 编辑现有文件
-// $rootScope.current_filename = stamp + options.log_ext;
+}(angular, $));

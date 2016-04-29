@@ -1,25 +1,21 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
-
-  const fs = window.require && require('fs');
-  const path = window.require && require('path');
 
   const files = {};
 
   angular.module('itcast-tms.services')
-    .service('Mail', ['options', '$timeout', 'Storage', Mail]);
+    .service('Mail', ['$timeout', 'Storage', Mail]);
 
-  function Mail(options, $timeout, Storage) {
-    this.options = options;
+  function Mail($timeout, Storage) {
     this.$timeout = $timeout;
   }
 
   Mail.prototype.send = function(data) {
     this.$timeout(() => {
-      data.status = options.statusKey.initial;
-      // data.status = options.statusKey.send;
+      data.status = $.options.status_keys.initial;
+      // data.status = $.options.status_keys.send;
       // Storage.set(data.stamp)
     }, 1000);
   };
 
-}(angular));
+}(angular, $));

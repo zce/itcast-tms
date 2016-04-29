@@ -57,6 +57,7 @@ ISC © [iceStone](https://github.com/Micua)
 - http://www.juxt.com/pov/thoughts/building-native-desktop-apps-with-web-tech
 - https://github.com/GitbookIO/nuts
 - https://github.com/ArekSredzki/electron-release-server
+- https://github.com/maxogden/extract-zip
 
 
 ## TODOS

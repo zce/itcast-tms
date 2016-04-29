@@ -9,7 +9,7 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const del = require('del');
-const bs = require('browser-sync').create();
+// const bs = require('browser-sync').create();
 const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
 const plugins = gulpLoadPlugins();
@@ -24,7 +24,8 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/renderer/css'))
-    .pipe(bs.stream({ match: '**/*.css' }));
+    .pipe(plugins.livereload());
+  // .pipe(bs.stream({ match: '**/*.css' }));
 });
 
 gulp.task('useref', ['less'], () => {
@@ -53,15 +54,6 @@ gulp.task('html', ['useref'], () => {
 
 gulp.task('extras', () => {
   return gulp.src([
-    // 'src/*',
-    // 'src/*.*',
-    // 'src/*/*.js',
-    // 'src/rendere*/im*/*.*',
-    // 'src/node_module*/**/*.*',
-    // 'src/rendere*/vie*/**/*.*',
-    // '!src/renderer/less',
-    // '!src/renderer/*.html'
-
     'src/**/*.*',
     '!src/renderer/js/**/*.*',
     '!src/renderer/less/**/*.*',
@@ -82,34 +74,24 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-gulp.task('serve', ['less'], () => {
-  serve();
-});
-
-gulp.task('test', ['less'], () => {
-  serve(() => {
-    process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-    spawn(electron, ['.']);
-  });
-});
-
-function serve(callback) {
-  bs.init({
-    open: false,
-    notify: true,
-    port: 2016,
-    server: {
-      baseDir: ['src'],
-      routes: {
-        // '/node_modules': 'node_modules'
-      }
-    }
-  }, callback);
+gulp.task('watch', ['less'], () => {
+  plugins.livereload.listen( /* { basePath: 'src' } */ );
 
   gulp.watch([
-    'src/**/*.html',
-    'src/**/*.js'
-  ]).on('change', bs.reload);
+    'src/renderer/**/*.html',
+    'src/renderer/**/*.js'
+  ]).on('change', e => {
+    plugins.livereload.changed(e.path);
+  });
 
-  gulp.watch('src/less/**/*.less', ['less']);
+  gulp.watch('src/renderer/less/**/*.less', ['less']);
+});
+
+gulp.task('test', ['watch'], () => {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+  spawn(electron, ['.']);
+});
+
+function watch(callback) {
+
 }

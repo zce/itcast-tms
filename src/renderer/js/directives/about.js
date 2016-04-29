@@ -1,10 +1,10 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
 
   angular.module('itcast-tms.directives')
-    .directive('about', ['options', about]);;
+    .directive('about', [about]);;
 
-  function about(options) {
+  function about() {
     return {
       // name: '',
       // priority: 1,
@@ -35,10 +35,10 @@
       link: function(scope, element, attributes, controller) {
         // scope.open = attributes.open;
         // console.log(attributes);
-        scope.app_name = options.app_name;
-        scope.app_version = options.app_version;
-        scope.data_version = options.data_version;
+        scope.app_name = $.options.app_name;
+        scope.app_version = $.options.app_version;
+        scope.data_version = $.options.data_version;
       }
     };
   }
-}(angular));
+}(angular, $));

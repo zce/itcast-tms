@@ -34,3 +34,19 @@
     return stamp;
   };
 }());
+
+(function($) {
+
+  $.electron = require('electron');
+  $.fs = require('fs');
+  $.path = require('path');
+
+  $.options = $.electron.remote.getGlobal('OPTIONS') || {};
+
+  $.storage = require('../common/storage');
+
+
+  // console.log($);
+
+  window.$ = $;
+}(window.$ || {}));

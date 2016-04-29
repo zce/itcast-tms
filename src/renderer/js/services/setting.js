@@ -1,8 +1,5 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
-
-  const fs = window.require && require('fs');
-  const path = window.require && require('path');
 
   const files = {};
 
@@ -21,4 +18,4 @@
     this.storage.setItem(key, JSON.stringify(value));
   };
 
-}(angular));
+}(angular, $));

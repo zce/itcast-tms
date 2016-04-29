@@ -88,7 +88,7 @@
         </tbody>
       </table>
     </div>
-    <form ng-submit="action.add_email()" ng-if="data.status === options.statusKey.rated">
+    <form ng-submit="action.add_email()" ng-if="data.status === options.status_keys.rated">
       <div class="input-group">
         <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加收件人">
         <button class="addon" type="submit">添加</button>
@@ -97,9 +97,9 @@
   </div>
 </div>
 <div class="action">
-  <button class="btn btn-primary btn-block btn-lg" ng-if="data.status === options.statusKey.initial" ng-click="action.start()">开始测评</button>
-  <button class="btn btn-danger btn-block btn-lg" ng-if="data.status === options.statusKey.rating" ng-click="action.stop()">结束测评</button>
-  <button class="btn btn-success btn-block btn-lg" ng-if="data.status === options.statusKey.rated" ng-click="action.send()">发送邮件</button>
-  <div class="btn btn-block btn-lg" ng-if="data.status === options.statusKey.sending">邮件发送中</div>
-  <div class="btn btn-block btn-lg" ng-if="data.status === options.statusKey.send">邮件发送完成</div>
+  <button class="btn btn-primary btn-block btn-lg" ng-if="data.status === options.status_keys.initial" ng-click="action.start()">开始测评</button>
+  <button class="btn btn-danger btn-block btn-lg" ng-if="data.status === options.status_keys.rating" ng-click="action.stop()">结束测评</button>
+  <button class="btn btn-success btn-block btn-lg" ng-if="data.status === options.status_keys.rated" ng-click="action.send()">发送邮件</button>
+  <div class="btn btn-block btn-lg" ng-if="data.status === options.status_keys.sending">邮件发送中</div>
+  <div class="btn btn-block btn-lg" ng-if="data.status === options.status_keys.send">邮件发送完成</div>
 </div>

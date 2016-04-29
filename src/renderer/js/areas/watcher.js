@@ -1,8 +1,5 @@
-(function(angular) {
+(function(angular, $) {
   'use strict';
-
-  const path = window.require && require('path');
-  const electron = window.require && require('electron');
 
   angular
     .module('itcast-tms.areas')
@@ -16,14 +13,12 @@
       '$scope',
       '$location',
       '$routeParams',
-      'options',
       'Storage',
-      'Server',
       'Mail',
       WatcherController
     ]);
 
-  function WatcherController($scope, $location, $routeParams, options, Storage, Server, Mail) {
+  function WatcherController($scope, $location, $routeParams, Storage, Mail) {
 
     const stamp = $routeParams.stamp;
 
@@ -41,7 +36,7 @@
     }
 
     // 当前状态为未打分
-    if ($scope.data.status === options.statusKey.rating) {
+    if ($scope.data.status === $.options.status_keys.rating) {
       // 启动一个服务
       $scope.data.rate_link = Server.start(stamp);
     }
@@ -73,16 +68,16 @@
     // ===== ======= =====
 
     $scope.action.copy = () => {
-      electron.clipboard.writeText($scope.data.rate_link);
+      $.electron.clipboard.writeText($scope.data.rate_link);
       alert('已经将打分链接复制到剪切板\n请将链接发送给学生');
     };
 
     $scope.action.start = () => {
       // 当前状态为未打分
-      if ($scope.data.status === options.statusKey.initial) {
+      if ($scope.data.status === $.options.status_keys.initial) {
         // 启动一个服务
         $scope.data.rate_link = Server.start(stamp);
-        $scope.data.status = options.statusKey.rating;
+        $scope.data.status = $.options.status_keys.rating;
         Storage.set(stamp, $scope.data);
       }
     };
@@ -90,9 +85,9 @@
     $scope.action.stop = () => {
       // if (!(confirm('确定结束吗？')))
       //   return false;
-      if ($scope.data.status === options.statusKey.rating) {
+      if ($scope.data.status === $.options.status_keys.rating) {
         Server.stop(stamp);
-        $scope.data.status = options.statusKey.rated;
+        $scope.data.status = $.options.status_keys.rated;
         $scope.data.rate_link = '';
         Storage.set(stamp, $scope.data);
       }
@@ -101,12 +96,12 @@
     $scope.action.send = () => {
       // if (!(confirm('确定发送邮件吗？')))
       //   return false;
-      if ($scope.data.status === options.statusKey.rated) {
+      if ($scope.data.status === $.options.status_keys.rated) {
         Mail.send($scope.data);
-        $scope.data.status = options.statusKey.sending;
+        $scope.data.status = $.options.status_keys.sending;
         Storage.set(stamp, $scope.data);
       }
     };
 
   }
-}(angular));
+}(angular, $));
