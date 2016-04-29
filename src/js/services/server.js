@@ -14,10 +14,11 @@
   const child_process = window.require && require('child_process');
 
   angular.module('itcast-tms.services')
-    .service('Server', ['options', 'Storage', Server]);
+    .service('Server', ['$templateRequest', 'options', 'Storage', Server]);
 
-  function Server(options, storage) {
+  function Server($templateRequest, options, storage) {
     this.stamps = [];
+    this.$templateRequest = $templateRequest;
     this.options = options;
     this.storage = storage;
     this.server = http.createServer(this.requestListener.bind(this));
@@ -40,18 +41,10 @@
       res.end(`<h1>${req.url} is Not Found! </h1>`);
       return false;
     }
-    res.end(`
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <h2><span>${ data.school_name }</span> / <span>${ data.academy_name }</span> / <span>${ data.subject_name }</span></h2>
-</body>
-</html>
-`);
+    this.$templateRequest('view/rating.html').then(tmpl => {
+      var compiled = _.template(tmpl);
+      res.end(compiled(data));
+    });
   };
 
   Server.prototype.start = function(stamp) {

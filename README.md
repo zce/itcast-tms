@@ -51,6 +51,7 @@ ISC © [iceStone](https://github.com/Micua)
 
 ## Thanks
 
+- https://github.com/szwacz/electron-boilerplate
 - https://github.com/kristoferjoseph/flexboxgrid
 - https://philipwalton.github.io/solved-by-flexbox/
 - http://www.juxt.com/pov/thoughts/building-native-desktop-apps-with-web-tech

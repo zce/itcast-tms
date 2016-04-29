@@ -5,6 +5,7 @@
   "description": "Itcast teaching management by iceStone",
   "main": "index.js",
   "scripts": {
+    "postinstall": "cd src && npm install && cd ../updater &&  npm install && cd ..",
     "lint": "eslint src updater *.js",
     "dist": "gulp",
     "serve": "cross-env NODE_ENV=development gulp serve",
@@ -53,7 +54,8 @@
     "lodash": "^4.11.1",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "underscore": "^1.8.3"
   },
   "directories": {
     "test": "test"
