@@ -1,5 +1,5 @@
 core
 dist
 node_modules
-src/css
+src/renderer/css
 *.log

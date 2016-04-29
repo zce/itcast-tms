@@ -16,29 +16,29 @@ const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
 
-gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/css']));
+gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/renderer/css']));
 
 gulp.task('less', () => {
-  return gulp.src(['src/less/*.less', '!src/less/_*.less'])
+  return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('.'))
-    .pipe(gulp.dest('src/css'))
+    .pipe(gulp.dest('src/renderer/css'))
     .pipe(bs.stream({ match: '**/*.css' }));
 });
 
 gulp.task('useref', ['less'], () => {
-  return gulp.src('src/*.html')
+  return gulp.src('src/renderer/*.html')
     .pipe(plugins.useref())
     // .pipe(plugins.if('*.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano({
       compatibility: '*'
     })))
-    .pipe(gulp.dest(distDir));
+    .pipe(gulp.dest(distDir + '/renderer'));
 });
 
 gulp.task('html', ['useref'], () => {
-  return gulp.src(distDir + '/*.html')
+  return gulp.src(distDir + '/renderer/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -48,18 +48,24 @@ gulp.task('html', ['useref'], () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
     }))
-    .pipe(gulp.dest(distDir));
+    .pipe(gulp.dest(distDir + '/renderer'));
 });
 
 gulp.task('extras', () => {
   return gulp.src([
-    'src/*',
-    'src/*.*',
-    'src/im*/*.*',
-    'src/node_module*/**/*.*',
-    'src/vie*/**/*.*',
-    '!src/less',
-    '!src/*.html'
+    // 'src/*',
+    // 'src/*.*',
+    // 'src/*/*.js',
+    // 'src/rendere*/im*/*.*',
+    // 'src/node_module*/**/*.*',
+    // 'src/rendere*/vie*/**/*.*',
+    // '!src/renderer/less',
+    // '!src/renderer/*.html'
+
+    'src/**/*.*',
+    '!src/renderer/js/**/*.*',
+    '!src/renderer/less/**/*.*',
+    '!src/renderer/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest(distDir));
@@ -95,7 +101,7 @@ function serve(callback) {
     server: {
       baseDir: ['src'],
       routes: {
-        '/node_modules': 'node_modules'
+        // '/node_modules': 'node_modules'
       }
     }
   }, callback);
