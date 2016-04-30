@@ -41,7 +41,7 @@ a:focus {
 .page {
   color: #444;
   background-color: #fff;
-  padding: 5%;
+  padding: 3%;
   margin-left: auto;
   margin-right: auto;
   /*margin-top: 20px;
@@ -239,7 +239,7 @@ hr {
   .page {
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 40px 30px;
+    padding: 30px;
     max-width: 750px;
   }
 }
@@ -251,7 +251,7 @@ hr {
   .page {
     margin-top: 40px;
     margin-bottom: 60px;
-    padding: 50px 40px;
+    padding: 40px;
     max-width: 970px;
   }
   .col-md-3,
@@ -280,8 +280,8 @@ hr {
 @media (min-width: 1200px) {
   .page {
     margin-top: 50px;
-    margin-bottom: 70px;
-    padding: 60px 50px;
+    margin-bottom: 60px;
+    padding: 50px;
     max-width: 1170px;
   }
 }
