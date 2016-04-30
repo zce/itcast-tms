@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 const options = {
-  front_title:'教学质量评估表 « 传智播客•黑马程序员',
   // 数据文件所在目录
   data_root: path.resolve(__dirname, '../data'),
   // 数据文件版本
@@ -13,6 +12,7 @@ const options = {
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
   storage_ext: '.tms',
+  stamp_length: 8,
   // 测评状态
   status_keys: {
     initial: '尚未开始测评',
@@ -32,7 +32,7 @@ const options = {
     }
   },
   allow_student_repeat: false,
-  allow_admin_rating: false,
+  allow_admin_rating: true,
   remove_log_after_send: true,
   report_file_token: 'wedn.net'
 };

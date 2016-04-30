@@ -5,7 +5,7 @@
       { "name": "朱晓煜", "title": "院长文员", "email": "zhuxiaoyu@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "PHP": {
     "emails": [
@@ -14,7 +14,7 @@
       { "name": "韩娜佳", "title": "院长文员", "email": "hannajia@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "UI设计": {
     "emails": [
@@ -23,7 +23,7 @@
       { "name": "马瑞霞", "title": "院长文员", "email": "maruixia@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "C/C++": {
     "emails": [
@@ -31,7 +31,7 @@
       { "name": "张波", "title": "院长助理", "email":  "zhangbo@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "iOS": {
     "emails": [
@@ -40,7 +40,7 @@
       { "name": "胡美玲", "title": "院长文员", "email": "humeiling@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "电子商务": {
     "emails": [
@@ -48,7 +48,7 @@
       { "name": "李艳艳", "title": "院长助理", "email": "liyanyan@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "前端与移动开发": {
     "emails": [
@@ -57,7 +57,7 @@
       { "name": "张慧敏", "title": "院长文员", "email": "zhanghuimin@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   "双元课堂": {
     "emails": [
@@ -68,6 +68,6 @@
       { "name": "刘迪", "title": "总监文员", "email": "liudi1@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
-    "questions": [ "2016-双元" ]
+    "rules": [ "2016-双元" ]
   }
 }

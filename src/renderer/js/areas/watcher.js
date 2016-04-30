@@ -26,12 +26,18 @@
 
     // 获取文件内容
     $scope.data = $.storage.get(stamp);
+
     if (!$scope.data) {
       // TODO: 没有文件情况
       alert('没有对应的测评信息！');
       $location.url('/starter');
       return false;
     }
+
+    $.storage.watch(stamp, (data) => {
+      $scope.data.rated_count = data.rated_count;
+      $scope.$apply();
+    });
 
     // 当前状态为未打分
     if ($scope.data.status === $.options.status_keys.rating) {
@@ -84,8 +90,9 @@
       if (!(confirm('确定结束吗？')))
         return false;
       if ($scope.data.status === $.options.status_keys.rating) {
+        console.log($scope.data);
         $scope.data.status = $.options.status_keys.rated;
-        $scope.data.rate_link = '';
+        delete $scope.data['rate_link'];
         $.storage.set(stamp, $scope.data);
       }
     };

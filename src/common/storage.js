@@ -28,11 +28,20 @@ function read(uri) {
 };
 
 function set(stamp, value) {
-  this.write(path.resolve(options.storage_root, stamp + options.storage_ext), value);
+  write(path.resolve(options.storage_root, stamp + options.storage_ext), value);
 };
 
 function get(stamp) {
-  return this.read(path.resolve(options.storage_root, stamp + options.storage_ext));
+  return read(path.resolve(options.storage_root, stamp + options.storage_ext));
 };
 
-module.exports = { write, read, set, get };
+function watch(stamp, callback) {
+  fs.watchFile(path.resolve(options.storage_root, stamp + options.storage_ext), { interval: 1000 }, (curr, prev) => {
+    if (curr.mtime !== prev.mtime) {
+      const data = get(stamp);
+      data && callback(data);
+    }
+  });
+}
+
+module.exports = {set, get, watch };

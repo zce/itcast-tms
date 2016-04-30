@@ -5,7 +5,7 @@
   const schools = $.data.schools();
   const academies = $.data.academies();
   const subjects = $.data.subjects();
-  const questions = $.data.questions();
+  const rules = $.data.rules();
 
   angular
     .module('itcast-tms.areas')
@@ -82,16 +82,17 @@
 
       // 已评价人数
       $scope.model.rated_count = 0;
+      $scope.model.rated_info = {};
       // 额外状态
       $scope.model.status = $.options.status_keys.initial;
 
       // 本次测评问题
-      let qkeys = subject.questions && subject.questions.length ? subject.questions : academy.questions && academy.questions.length ? academy.questions : school.questions && school.questions.length ? school.questions : itcast.questions;
-      if (!(qkeys && qkeys.length))
+      let rule_keys = subject.rules && subject.rules.length ? subject.rules : academy.rules && academy.rules.length ? academy.rules : school.rules && school.rules.length ? school.rules : itcast.rules;
+      if (!(rule_keys && rule_keys.length))
         $.logger.error(new Error(`【${$scope.model.school_name} / ${$scope.model.academy_name} / ${$scope.model.subject_name}】 没有题目信息`))
-      $scope.model.questions = {}; //questions.filter(q => qkeys.includes(q));
-      qkeys.forEach(k => {
-        $scope.model.questions[k] = questions[k];
+      $scope.model.rules = {}; //rules.filter(q => rule_keys.includes(q));
+      rule_keys.forEach(k => {
+        $scope.model.rules[k] = rules[k];
       })
 
       // 本次测评的收件人列表

@@ -3,5 +3,5 @@
     { "name": "教学评分系统", "title": "系统", "email": "pingfen@itcast.cn" },
     { "name": "李印东", "title": "主任", "email": "lyd@itcast.cn" }
   ],
-  "questions": ["2015", "2016"]
+  "rules": ["2015", "2016"]
 }
