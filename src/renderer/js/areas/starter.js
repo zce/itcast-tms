@@ -24,6 +24,8 @@
 
   function StarterController($scope, $rootScope, $location) {
 
+    delete $rootScope.current_stamp;
+
     $scope.model = {};
     $scope.action = {};
     $scope.data = {};
@@ -75,6 +77,8 @@
           return false;
         }
       }
+      // 处理邮箱后缀
+      $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn');
       // 当前选择的学院信息
       const school = schools[$scope.model.school_name];
       const academy = academies[$scope.model.academy_name];
@@ -90,20 +94,18 @@
       let rule_keys = subject.rules && subject.rules.length ? subject.rules : academy.rules && academy.rules.length ? academy.rules : school.rules && school.rules.length ? school.rules : itcast.rules;
       if (!(rule_keys && rule_keys.length))
         $.logger.error(new Error(`【${$scope.model.school_name} / ${$scope.model.academy_name} / ${$scope.model.subject_name}】 没有题目信息`))
-      $scope.model.rules = {}; //rules.filter(q => rule_keys.includes(q));
+      $scope.model.rules = {};
       rule_keys.forEach(k => {
         $scope.model.rules[k] = rules[k];
       })
 
       // 本次测评的收件人列表
-      const emails1 = school.emails;
-      const emails2 = academies.emails;
-      const emails3 = subject.emails;
-      $scope.model.emails = $.data.itcast().emails.concat(emails1, emails2, emails3)
+      $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
+      $scope.model.added_emails = [];
 
       // 持久化
       const stamp = String.getStamp();
-      // $rootScope.current_filename = stamp + $.options.storage_ext;
+      $rootScope.current_stamp = stamp;
       $.storage.set(stamp, $scope.model);
       $location.url('/watcher/' + stamp);
 

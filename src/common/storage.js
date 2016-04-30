@@ -44,4 +44,4 @@ function watch(stamp, callback) {
   });
 }
 
-module.exports = {set, get, watch };
+module.exports = { set: set, get: get, watch: watch };

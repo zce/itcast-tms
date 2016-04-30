@@ -20,7 +20,7 @@
     };
 
     // ===== title =====
-    this.title = 'Hello world';
+    this.title = $.options.app_name;
 
     // ===== window button =====
     this.window = (action) => {

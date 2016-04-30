@@ -4,19 +4,19 @@
     <div class="form-group">
       <label for="school_name">所属校区</label>
       <select id="school_name" ng-model="model.school_name">
-        <option value="{{key}}" ng-repeat="(key, value) in data.schools">{{key}}</option>
+        <option value="{{key}}" ng-repeat="(key, value) in data.schools track by $index">{{key}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="academy_name">所属学院</label>
       <select id="academy_name" ng-model="model.academy_name">
-        <option value="{{key}}" ng-repeat="(key, value) in data.academies">{{key}}</option>
+        <option value="{{key}}" ng-repeat="(key, value) in data.academies track by $index">{{key}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="subject_name">所属学科</label>
       <select id="subject_name" ng-model="model.subject_name">
-        <option value="{{item.name}}" ng-repeat="item in data.subjects">{{item.name}}</option>
+        <option value="{{item.name}}" ng-repeat="item in data.subjects track by $index">{{item.name}}</option>
       </select>
     </div>
     <div class="form-group">
@@ -24,7 +24,7 @@
       <input type="number" id="class_count" ng-model="model.class_count" placeholder="请输入班级总人数">
     </div>
     <div class="row">
-      <div class="col-sm-4 form-group" ng-repeat="(key, value) in model.reasons">
+      <div class="col-sm-4 form-group" ng-repeat="(key, value) in model.reasons track by $index">
         <label for="reason{{$index}}_count">{{key}}人数</label>
         <input type="number" id="reason{{$index}}_count" ng-model="model.reasons[key]" placeholder="请输入{{key}}人数" tabindex="-1">
       </div>

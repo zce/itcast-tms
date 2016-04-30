@@ -23,7 +23,8 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   // 注入请求客户端IP
-  req.clientIp = req.headers['x-forwarded-for'] ||
+  req.clientIp = new Date().getTime() ||
+    req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
     req.socket.remoteAddress || '::1';
   // req.connection.socket.remoteAddress || '::1';
@@ -59,7 +60,7 @@ app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 
   if (req.isLocal && !options.allow_admin_rating) {
-    res.render('rated', { message: '您是管理员，不允许参加测评！' });
+    res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' });
     return false;
   }
 
@@ -72,13 +73,13 @@ app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
   }
 
   if (data.status !== options.status_keys.rating) {
-    res.render('rated', { message: '测评已经结束，不可以继续评价了！' });
+    res.render('rated', { error: true, message: '测评已经结束，不可以继续评价了！' });
     return false;
   }
 
   // console.log(req.clientIp);
   if (data.rated_info[req.clientIp] && !options.allow_student_repeat) {
-    res.render('rated', { message: '你已经评价过了，不可以重复评价！' });
+    res.render('rated', { error: true, message: '你已经评价过了，不可以重复评价！' });
     return false;
   }
 
@@ -86,16 +87,18 @@ app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
   const info = convert(stamp, req.body);
   // console.log(info);
   if (!info) {
-    res.render('rated', { stamp: stamp, message: '同学，请完整勾选表单选项！' });
+    res.render('rated', { error: true, stamp: stamp, message: '同学，请完整勾选表单选项！' });
     return false;
   }
 
   data.rated_info[req.clientIp] = info;
   data.rated_count++;
 
+  // console.log(data);
+
   storage.set(stamp, data);
 
-  res.render('rated', { message: '谢谢你的帮助，我们会及时将情况反馈给相关人员！' });
+  res.render('rated', { error: false, message: '谢谢你的帮助，我们会及时将情况反馈给相关人员！' });
 
 });
 

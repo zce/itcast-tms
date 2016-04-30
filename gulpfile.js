@@ -64,10 +64,12 @@ gulp.task('extras', () => {
 });
 
 gulp.task('build', ['html', 'extras'], () => {
-  return gulp.src(distDir + '/**/*').pipe(plugins.size({
-    title: 'build',
-    gzip: true
-  }));
+  return gulp.src(distDir + '/**/*.*')
+    .pipe(plugins.size({
+      title: 'build',
+      gzip: true
+    }))
+    .pipe(gulp.dest(distDir));
 });
 
 gulp.task('default', ['clean'], () => {

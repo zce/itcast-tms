@@ -23,21 +23,6 @@ body {
   /*height: 100%;*/
 }
 
-a {
-  display: inline-block;
-  cursor: pointer;
-  color: #1eaedb;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-a:hover,
-a:active,
-a:focus {
-  color: #0fa0ce;
-  text-decoration: underline;
-}
-
 .page {
   color: #444;
   background-color: #fff;
@@ -83,16 +68,6 @@ p.paragraph {
   /*color: #555;*/
   text-indent: 2em;
   font-size: 16px;
-  margin-bottom: 0;
-}
-
-.text-center {
-  margin-top: 50px;
-  text-align: center;
-}
-
-p.message {
-  font-size: 26px;
   margin-bottom: 0;
 }
 
@@ -198,6 +173,33 @@ hr {
   background-color: #fafafa;
   height: 1px;
   border: 0;
+}
+
+.text-center {
+  margin-top: 50px;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  cursor: pointer;
+  color: #1eaedb;
+  font-size: 22px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #0fa0ce;
+  text-decoration: underline;
+}
+
+p.message {
+  font-size: 28px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .row {

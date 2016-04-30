@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd src && npm install && cd ../updater &&  npm install && cd ..",
+    "main-css": "cleancss -o src/main/rating/style.min.css src/main/rating/style.css",
     "lint": "eslint src updater *.js",
+    "clean": "gulp clean",
+    "predist": "npm run main-css",
     "dist": "gulp",
     "watch": "cross-env NODE_ENV=development gulp watch",
     "electron": "cross-env NODE_ENV=development electron ./",

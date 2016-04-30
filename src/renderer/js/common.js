@@ -6,12 +6,13 @@
 
   $.options = $.electron.remote.getGlobal('OPTIONS') || {};
 
-  $.storage = require('../common/storage');
   $.data = require('../common/data');
+  $.mail = require('../common/mail');
+  $.report = require('../common/report');
+  $.storage = require('../common/storage');
 
   $.logger = $.options.logger.renderer;
 
-  // console.log($);
 
   window.$ = $;
 }(window.$ || {}));

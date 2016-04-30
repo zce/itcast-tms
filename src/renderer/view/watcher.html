@@ -44,11 +44,11 @@
           </tr>
           <tr>
             <td>班级总人数</td>
-            <td>{{ data.class_count }}人 - {{ data.leave_count }}人（请假）</td>
+            <td>{{ data.class_count }}人（应到） - {{ data.leave_count }}人（请假） = {{ data.class_count - data.leave_count }}人（实到）</td>
           </tr>
           <tr>
             <td>已完成测评人数</td>
-            <td>{{ data.rated_count }}人</td>
+            <td>{{ data.rated_count }}人（还少{{ data.class_count - data.leave_count - data.rated_count }}人）</td>
           </tr>
           <tr ng-if="data.status">
             <td>测评状态</td>
@@ -76,21 +76,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in data.emails">
+          <tr ng-repeat="item in data.emails track by $index">
             <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
             <td>{{ item.email }}</td>
           </tr>
-          <tr ng-repeat="item in model.add_emails">
-            <td>刚刚添加</td>
-            <td>{{ item.email }}
-              <span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email()">&times;&nbsp;&nbsp;</span></td>
+          <tr style="color: #f70;" ng-repeat="item in data.added_emails track by $index">
+            <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
+            <td>{{ item.email }}<span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email()">&times;&nbsp;&nbsp;</span></td>
           </tr>
         </tbody>
       </table>
     </div>
     <form ng-submit="action.add_email()" ng-if="data.status === root.options.status_keys.rated">
       <div class="input-group">
-        <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加收件人">
+        <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加的收件人">
         <button class="addon" type="submit">添加</button>
       </div>
     </form>

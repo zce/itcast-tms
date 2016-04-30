@@ -34,13 +34,12 @@ const options = {
   allow_student_repeat: false,
   allow_admin_rating: true,
   remove_log_after_send: true,
-  report_file_token: 'wedn.net'
+  report_file_token: 'wedn.net',
+  token: 'itcast'
 };
-
 
 // ===== 目录不存在 则创建 =====
 fs.existsSync(options.storage_root) || fs.mkdir(options.storage_root);
 // fs.existsSync(options.temp_root) || fs.mkdir(options.temp_root);
-
 
 module.exports = options;

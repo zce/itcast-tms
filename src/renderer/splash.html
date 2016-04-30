@@ -4,48 +4,91 @@
 <head>
   <meta charset="UTF-8">
   <title>Teaching Management « Itcast</title>
-  <!-- build:css css/nprogress.css -->
-  <link rel="stylesheet" href="../../node_modules/nprogress/nprogress.css">
-  <!-- endbuild -->
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-group {
+      display: flex;
+      font-size: 13px;
+    }
+
+    .field,
+    .addon {
+      border: 1px solid #c0c0c0;
+      padding: 5px 10px;
+      font: inherit;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 2;
+      min-width: 0;
+    }
+
+    .field:first-child,
+    .addon:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+
+    .field:last-child,
+    .addon:last-child {
+      border-radius: 0 2px 2px 0;
+    }
+
+    .field {
+      flex: 1;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .addon {
+      background-color: #fff;
+      color: #666;
+      padding: 5px 12px;
+    }
+
+    button.addon {
+      background-color: #fff;
+    }
+
+    button.addon:hover {
+      background-color: #f0f0f0;
+    }
+
+    input:focus,
+    button:focus {
+      outline: 0;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- build:js js/nprogress.js -->
-  <script src="../../node_modules/nprogress/nprogress.js"></script>
-  <!-- endbuild -->
+  <div class="input-group">
+    <label for="token" class="addon">口令</label>
+    <input type="password" id="token" class="field" placeholder="请输入密码" value="itcast">
+    <button id="btn" class="addon">开始使用</button>
+  </div>
+  <script src="js/common.js"></script>
   <script>
-    // var request = new XMLHttpRequest();
-
-    // request.addEventListener('progress', function updateProgress(e) {
-    //   if (e.lengthComputable) {
-    //     var percentComplete = e.loaded / e.total;
-    //     NProgress.set(percentComplete);
-    //     // console.log(percentComplete);
-    //   } else {}
-    // }, false);
-
-    // request.addEventListener('load', function transferComplete(e) {
-    //   NProgress.done();
-    //   console.log(e);
-    //   // document.body.outerHTML = request.response;
-    //   history.pushState(document.title, document.title, 'index.html');
-    // }, false);
-
-    // // request.addEventListener('error', function transferFailed(e) {
-    // //   NProgress.done();
-    // //   console.log('error');
-    // // }, false);
-
-    // // request.addEventListener('abort', function transferCanceled(e) {
-    // //   NProgress.done();
-    // //   console.log('abort');
-    // // }, false);
-
-    // request.open('get', './index.html', true);
-    // request.send();
-    // NProgress.start();
-    window.location = './index.html';
-    // console.log('start');
+    (function(window, document) {
+      'use strict';
+      const btn = document.getElementById('btn');
+      const token = document.getElementById('token');
+      btn.addEventListener('click', function(e) {
+        if (token.value !== $.options.token) {
+          alert('用户名或密码不正确\n请联系『汪磊 - 13241087977』获取');
+          $.electro.pxote.app.quit();
+          return false;
+        }
+        window.location = './index.html';
+      });
+    })(window, document);
   </script>
 </body>
 
