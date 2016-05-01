@@ -4,13 +4,13 @@
     <div class="form-group">
       <label for="school_name">所属校区</label>
       <select id="school_name" ng-model="model.school_name">
-        <option value="{{key}}" ng-repeat="(key, value) in data.schools track by $index">{{key}}</option>
+        <option value="{{key}}" ng-repeat="(key, value) in :: data.schools track by $index">{{key}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="academy_name">所属学院</label>
       <select id="academy_name" ng-model="model.academy_name">
-        <option value="{{key}}" ng-repeat="(key, value) in data.academies track by $index">{{key}}</option>
+        <option value="{{key}}" ng-repeat="(key, value) in :: data.academies track by $index">{{key}}</option>
       </select>
     </div>
     <div class="form-group">

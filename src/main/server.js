@@ -148,6 +148,7 @@ const server = options.server = app.listen(options.server_port, options.server_i
     return false;
   }
   const link = `http://${server.address().address}:${server.address().port}/`;
-  options.logger.main.info(`server run @ ${link}`);
+  // options.logger.main.info(`server run @ ${link}`);
+  console.log(`server run @ ${link}`);
   options.server_link = link;
 });

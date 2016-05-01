@@ -19,13 +19,14 @@
 
   function WatcherController($scope, $rootScope, $location, $routeParams) {
 
+    // 获取当前打开记录的stamp
     const stamp = $routeParams.stamp;
 
     // model
     $scope.model = {};
     $scope.action = {};
 
-    // 获取文件内容
+    // 获取记录文件内容
     $scope.data = $.storage.get(stamp);
 
     if (!$scope.data) {
@@ -37,21 +38,22 @@
 
     // 状态
     $rootScope.current_stamp = stamp;
+    // $rootScope.$watch('current_stamp', now => now == stamp || $location.url('/starter'));
 
-    // 测评人数
-    $.storage.watch(stamp, (data) => {
+    // 监视测评人数
+    $.storage.watch(stamp, data => {
       // $scope.data.rated_count = data.rated_count;
       $scope.data = data;
       $scope.$apply();
     });
 
     // 当前状态为未打分
-    if ($scope.data.status === $.options.status_keys.rating) {
-      // 启动一个服务
-      $scope.data.rate_link = $.options.server_link + stamp;
-    }
+    // if ($scope.data.status === $.options.status_keys.rating) {
+    //   // 启动一个服务
+    //   $scope.model.rate_link = $.options.server_link + stamp;
+    // }
 
-    $scope.data.leave_count = ((reasons) => {
+    $scope.data.leave_count = (reasons => {
       let result = 0;
       for (let key in reasons) {
         result += reasons[key];
@@ -59,18 +61,18 @@
       return result;
     })($scope.data.reasons);
 
-    // ===== 添加新邮箱 =====
+    // 添加新邮箱
     $scope.model.email_input = '';
-
     $scope.action.add_email = () => {
       if (!$scope.model.email_input)
         return
       $scope.model.email_input.includes('@') || ($scope.model.email_input += '@itcast.cn');
       $scope.data.added_emails.push({ name: '手动添加', title: '系统', email: $scope.model.email_input });
-      save();
       $scope.model.email_input = '';
+      save();
     };
 
+    // 删除邮箱
     $scope.action.del_email = () => {
       $scope.data.added_emails.splice($scope.data.added_emails.indexOf(this), 1);
       save();
@@ -78,8 +80,8 @@
     // ===== ======= =====
 
     // 复制链接
-    $scope.action.copy = () => {
-      $.electron.clipboard.writeText($scope.data.rate_link);
+    $scope.action.copy = txt => {
+      $.electron.clipboard.writeText(txt);
       alert('已经将打分链接复制到剪切板\n请将链接发送给学生');
     };
 
@@ -87,7 +89,7 @@
       // 当前状态为未打分
       if ($scope.data.status === $.options.status_keys.initial) {
         // 启动一个服务
-        $scope.data.rate_link = $.options.server_link + stamp;
+        // $scope.model.rate_link = $.options.server_link + stamp;
         $scope.data.status = $.options.status_keys.rating;
         save();
       }
@@ -102,7 +104,7 @@
         return false;
       if ($scope.data.status === $.options.status_keys.rating) {
         $scope.data.status = $.options.status_keys.rated;
-        delete $scope.data.rate_link;
+        // delete $scope.model.rate_link;
         save();
 
         // 计算报告
