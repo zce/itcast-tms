@@ -72,13 +72,19 @@
         }
       }
 
-      // 处理邮箱后缀
-      $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn');
-
       // 当前选择的校区、学院、学科信息
       const school = schools[$scope.model.school_name];
       const academy = academies[$scope.model.academy_name];
       const subject = subjects.find(s => s.academy === $scope.model.academy_name && s.school === $scope.model.school_name && s.name === $scope.model.subject_name);
+
+      // 请假人数
+      $scope.model.leave_count = (reasons => {
+        let result = 0;
+        for (let key in reasons) {
+          result += reasons[key];
+        }
+        return result;
+      })($scope.model.reasons);
 
       // 已经测评人数
       $scope.model.rated_count = 0;
@@ -95,9 +101,13 @@
       $scope.model.rules = {};
       rule_keys.forEach(k => $scope.model.rules[k] = rules[k])
 
+      // 处理邮箱后缀
+      $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn');
+
       // 本次测评的收件人列表
-      $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
-        // 手动添加的收件人
+      $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails);
+
+      // 手动添加的收件人
       $scope.model.added_emails = [];
 
       // 获取一个戳

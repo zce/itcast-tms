@@ -8,7 +8,7 @@
 
   $.data = require('../common/data');
   $.mail = require('../common/mail');
-  $.report = require('../common/report');
+  // $.report = require('../common/report');
   $.storage = require('../common/storage');
 
   $.logger = $.options.logger.renderer;

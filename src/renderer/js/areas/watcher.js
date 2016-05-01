@@ -29,14 +29,14 @@
     // 获取记录文件内容
     $scope.data = $.storage.get(stamp);
 
+    // TODO: 没有文件情况
     if (!$scope.data) {
-      // TODO: 没有文件情况
       alert('没有对应的测评信息！');
       $location.url('/starter');
       return false;
     }
 
-    // 状态
+    // 全局记录当前打开记录stamp
     $rootScope.current_stamp = stamp;
     // $rootScope.$watch('current_stamp', now => now == stamp || $location.url('/starter'));
 
@@ -47,25 +47,10 @@
       $scope.$apply();
     });
 
-    // 当前状态为未打分
-    // if ($scope.data.status === $.options.status_keys.rating) {
-    //   // 启动一个服务
-    //   $scope.model.rate_link = $.options.server_link + stamp;
-    // }
-
-    $scope.data.leave_count = (reasons => {
-      let result = 0;
-      for (let key in reasons) {
-        result += reasons[key];
-      }
-      return result;
-    })($scope.data.reasons);
-
     // 添加新邮箱
     $scope.model.email_input = '';
     $scope.action.add_email = () => {
-      if (!$scope.model.email_input)
-        return
+      if (!$scope.model.email_input) return false;
       $scope.model.email_input.includes('@') || ($scope.model.email_input += '@itcast.cn');
       $scope.data.added_emails.push({ name: '手动添加', title: '系统', email: $scope.model.email_input });
       $scope.model.email_input = '';
@@ -85,43 +70,53 @@
       alert('已经将打分链接复制到剪切板\n请将链接发送给学生');
     };
 
+    // 开始评测按钮
     $scope.action.start = () => {
-      // 当前状态为未打分
+      // 当前状态为初始状态
       if ($scope.data.status === $.options.status_keys.initial) {
-        // 启动一个服务
-        // $scope.model.rate_link = $.options.server_link + stamp;
+        // 开始测评
         $scope.data.status = $.options.status_keys.rating;
         save();
       }
     };
 
+    // 结束评测按钮
     $scope.action.stop = () => {
+      $scope.data.rated_count = Object.keys($scope.data.rated_info).length;
       if (!$scope.data.rated_count) {
         alert('尚未有人提交测评表单！');
         return false;
       }
-      if (!(confirm('确定结束吗？')))
-        return false;
+      if (!(confirm('确定结束吗？') && confirm('真的确定结束吗？'))) return false;
+      // 当前状态为正在测评
       if ($scope.data.status === $.options.status_keys.rating) {
+        // 测评完成状态
         $scope.data.status = $.options.status_keys.rated;
-        // delete $scope.model.rate_link;
         save();
-
         // 计算报告
-        Object.assign($scope.data, $.report(stamp));
-        save();
+        // $.report($scope.data);
+        // Object.assign($scope.data, $.report($scope.data));
+        // save();
       }
     };
 
+    // 发送邮件按钮
     $scope.action.send = () => {
-      console.log($scope.data);
-
+      // console.log($scope.data);
       if (!(confirm('确定发送邮件吗？')))
         return false;
       if ($scope.data.status === $.options.status_keys.rated) {
-        $.mail.send($scope.data);
         $scope.data.status = $.options.status_keys.sending;
         save();
+        $.mail($scope.data)
+          .then(message => {
+            $scope.data.status = $.options.status_keys.send;
+            save();
+            alert(message);
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }
     };
 

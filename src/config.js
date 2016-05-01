@@ -7,7 +7,7 @@ const options = {
   // 数据文件版本
   data_version: require('../data/package.json').version,
   // 临时目录
-  // temp_root: path.resolve(__dirname, '../../temp'),
+  template_root: path.resolve(__dirname, 'template'),
   // 日志文件目录
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
@@ -21,15 +21,9 @@ const options = {
     sending: '邮件发送中',
     send: '邮件发送完成'
   },
-  mail_server: {
-    host: 'smtp.263.net',
-    port: 25,
-    secure: false,
-    name: '教学测评系统·传智播客',
-    auth: {
-      user: 'pingfen@itcast.cn',
-      pass: '123456A'
-    }
+  mail: {
+    transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net',
+    from: '教学测评系统·传智播客 <pingfen@itcast.cn>'
   },
   allow_student_repeat: false,
   allow_admin_rating: true,

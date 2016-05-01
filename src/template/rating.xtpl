@@ -37,7 +37,7 @@
 			</ol>
 			<hr>
 			<h5 class="title">其他意见或建议：</h5>
-			<textarea class="form-control" name="note" cols="160" rows="8" placeholder="相信您的建议一定可以一针见血"></textarea>
+			<textarea class="form-control" name="note" cols="160" rows="8" placeholder="相信您的建议一定可以一针见血（支持Markdown~）"></textarea>
 			<p class="text-danger">注意：每人只能提交一次，请认真填写后再提交！</p>
 			<button type="submit">确认提交</button>
 		</form>

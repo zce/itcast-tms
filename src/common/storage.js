@@ -36,10 +36,11 @@ function get(stamp) {
 };
 
 function watch(stamp, callback) {
-  fs.watchFile(path.resolve(options.storage_root, stamp + options.storage_ext), { interval: 1000 }, (curr, prev) => {
+  fs.watchFile(path.resolve(options.storage_root, stamp + options.storage_ext), { interval: 300 }, (curr, prev) => {
     if (curr.mtime !== prev.mtime) {
       const data = get(stamp);
       data && callback(data);
+      console.log(`『${stamp}』 changed`);
     }
   });
 }

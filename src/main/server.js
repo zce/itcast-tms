@@ -3,17 +3,16 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-// const _ = require('underscore');
 
 const options = require('./config');
 const storage = require('../common/storage');
 
 const app = express();
-const root = path.resolve(__dirname, 'rating');
-app.set('view engine', 'xtpl');
-app.set('views', root);
 
-app.use(express.static(root));
+app.set('view engine', 'xtpl');
+app.set('views', options.template_root);
+
+app.use(express.static(options.template_root));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
@@ -31,13 +30,7 @@ app.use((req, res, next) => {
   // 注入是否本地请求
   req.isLocal = '127.0.0.1' === req.clientIp || options.server_ip === req.clientIp
   next();
-})
-
-// app.get('/favicon.ico', (req, res) => {
-//   // res.sendFile(path.resolve(__dirname, '../../assets/app.ico'));
-//   res.sendStatus(404);
-// });
-
+});
 
 app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 

@@ -12,7 +12,7 @@
 
     "lint": "eslint src updater *.js",
 
-    "main-css": "cleancss -o src/main/rating/style.min.css src/main/rating/style.css",
+    "main-css": "cleancss -o src/template/style.min.css src/template/style.css",
 
     "predist": "npm run main-css",
     "dist": "gulp",
