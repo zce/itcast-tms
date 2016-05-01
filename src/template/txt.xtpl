@@ -1,4 +1,4 @@
-考评结果汇总
+考评结果汇总（{{ version }}）
 
 所属校区：	{{ data.school_name }}
 所属学院：	{{ data.academy_name }}
@@ -10,24 +10,28 @@
 课程内容：	{{ data.course_name }}
 上课天数：	{{ data.course_days }}
 评分时间：	{{ data.datetime }}
-班级总人数：	{{ data.class_count }}人
-未打分人数：	{{ data.class_count-data.rated_count }}人
-
+班级总人数：	{{ data.class_count + '人' ~}}
+{{#if(data.class_count - data.rated_count > 0)}}
+未打分人数：	{{ data.class_count - data.rated_count }}人
+{{else}}
+多出打分人数：	{{ -(data.class_count - data.rated_count) }}人
+{{/if}}
 具体原因：
-
+{{#if(data.class_count - data.rated_count - data.leave_count > 0)}}
+未登录系统：	{{ data.class_count - data.rated_count - data.leave_count }}人
+{{/if}}
 {{#each(data.reasons, 'count', 'reason')}}
-{{~ reason }}：		{{ count }}人
+{{~ reason }}：	{{ count }}人
 {{/each}}
-
 各项分数：
 
-打分总人数：	{{ result.rated_count }}人
-平均分：	{{ result.backTotal }}
-去掉最低分平均分：	{{ result.backTotalWithoutMin }}
-
-{{#each(result.scores, 'value', 'shortname')}}
+打分总人数：	{{ data.rated_count }}人
+平均分：	{{ data.result[version].backTotal }}
+去掉最低分平均分：	{{ data.result[version].backTotalWithoutMin }}
+{{#each(data.result[version].scores, 'value', 'shortname')}}
 {{ shortname }}：	{{ value ~}}
 {{/each}}
+
 学员评价：
 {{#each(data.notes)}}
 * {{ this ~}}

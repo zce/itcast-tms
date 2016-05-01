@@ -48,7 +48,7 @@
           </tr>
           <tr>
             <td>已完成测评人数</td>
-            <td style="color:#f40">{{ data.rated_count }}人（{{  data.class_count - data.leave_count - data.rated_count > 0 ? '还少' + (data.class_count - data.leave_count - data.rated_count) : '超出' + -(data.class_count - data.leave_count - data.rated_count) }}人）</td>
+            <td style="color:#f40">{{ data.rated_count }}人（{{ data.class_count - data.leave_count - data.rated_count > 0 ? '还少' + (data.class_count - data.leave_count - data.rated_count) : '超出' + -(data.class_count - data.leave_count - data.rated_count) }}人）</td>
           </tr>
           <tr ng-if="data.status">
             <td>测评状态</td>
@@ -82,7 +82,7 @@
           </tr>
           <tr style="color: #f70;" ng-repeat="item in data.added_emails track by $index">
             <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
-            <td>{{ item.email }}<span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email()">&times;&nbsp;&nbsp;</span></td>
+            <td>{{ item.email }}<span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email(item)">&times;&nbsp;&nbsp;</span></td>
           </tr>
         </tbody>
       </table>
@@ -99,6 +99,6 @@
   <button class="btn btn-primary btn-block btn-lg" ng-if="data.status === root.options.status_keys.initial" ng-click="action.start()">开始测评</button>
   <button class="btn btn-danger btn-block btn-lg" ng-if="data.status === root.options.status_keys.rating" ng-click="action.stop()">结束测评</button>
   <button class="btn btn-success btn-block btn-lg" ng-if="data.status === root.options.status_keys.rated" ng-click="action.send()">发送邮件</button>
-  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.sending">邮件发送中</div>
-  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.send">邮件发送完成</div>
+  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.sending">邮件发送中......</div>
+  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.send">邮件发送完成（可以删除左侧的记录文件，也可将文件拷出来备份）</div>
 </div>

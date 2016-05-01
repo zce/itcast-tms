@@ -45,7 +45,7 @@
     $scope.model.course_days = 10;
     $scope.model.head_name = '汪磊';
     $scope.model.teacher_name = '汪磊';
-    $scope.model.teacher_email = 'ice';
+    $scope.model.teacher_email = 'wanglei3@itcast.cn';
     $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm');
 
     // ===== 读取配置文件 =====

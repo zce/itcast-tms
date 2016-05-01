@@ -1,40 +1,51 @@
-﻿考评结果汇总
+<h1 style="text-align: center">评分规则：【{{ version }}】</h1>
 
-所属校区：	  {{info.school_name}}
-所属学院：	  {{info.academy_name}}
-所属学科：	  {{info.subject_name}}
-讲师姓名：	  {{info.teacher_name}}
-讲师邮箱：	  {{info.teacher_email}}@itcast.cn
-评分班级：   {{info.class_name}}
-评分班主任： {{info.head_name}}
-课程内容：	  {{info.course_name}}
-上课天数：	  {{info.course_days}}
-评分时间：   {{info.datetime}}
-班级总人数： {{info.class_count}}人
-未打分人数： {{info.class_count-info.rate_count}}人
+<hr>
 
-具体原因：
+<h2>考评结果汇总</h2>
 
-未登录系统：	         {{info.class_count-info.rate_count-info.reason1_count-info.reason2_count-info.reason3_count-info.reason4_count-info.reason5_count-info.reason6_count-info.reason7_count-info.reason8_count-info.reason9_count}}人
-留级：		              {{info.reason1_count}}人
-有病请假：	            {{info.reason2_count}}人
-有事请假：	            {{info.reason3_count}}人
-回学校：		           {{info.reason4_count}}人
-已经找到工作：	         {{info.reason5_count}}人
-到其他班上自习：	      {{info.reason6_count}}人
-在家复习：	            {{info.reason7_count}}人
-老师讲的不好，不想听课：	{{info.reason8_count}}人
-其他：		              {{info.reason9_count}}人
+<p style="margin:0;line-height:1.5">所属校区： <strong>{{ data.school_name }}</strong></p>
+<p style="margin:0;line-height:1.5">所属学院： <strong>{{ data.academy_name }}</strong></p>
+<p style="margin:0;line-height:1.5">所属学科： <strong>{{ data.subject_name }}</strong></p>
+<p style="margin:0;line-height:1.5">讲师姓名： <strong>{{ data.teacher_name }}</strong></p>
+<p style="margin:0;line-height:1.5">讲师邮箱： <strong>{{ data.teacher_email }}</strong></p>
+<p style="margin:0;line-height:1.5">评分班级： <strong>{{ data.class_name }}</strong></p>
+<p style="margin:0;line-height:1.5">评分班主任: <strong>{{ data.head_name }}</strong></p>
+<p style="margin:0;line-height:1.5">课程内容： <strong>{{ data.course_name }}</strong></p>
+<p style="margin:0;line-height:1.5">上课天数： <strong>{{ data.course_days }}</strong></p>
+<p style="margin:0;line-height:1.5">评分时间： <strong>{{ data.datetime }}</strong></p>
+<p style="margin:0;line-height:1.5">班级总人数： <strong>{{ data.class_count }}人</strong></p>
 
-各项分数：
+{{#if(data.class_count - data.rated_count > 0)}}
+<p style="margin:0;line-height:1.5">未打分人数： <strong>{{ data.class_count - data.rated_count }}人</strong></p>
+{{else}}
+<p style="margin:0;line-height:1.5">多出打分人数： <strong>{{ -(data.class_count - data.rated_count) }}人</strong></p>
+{{/if}}
 
-打分总人数：	{{info.rate_count}}人
-平均分：		  {{result.backTotal}}
-去掉最低分平均分：	{{result.backTotalWithoutMin}}
+<h3>具体原因：</h3>
 
-{{#each(result.scores, 'value', 'shortname')}}{{shortname}}：	{{value}}
+{{#if(data.class_count - data.rated_count - data.leave_count > 0)}}
+<p style="margin:0;line-height:1.5">未登录系统： <strong>{{ data.class_count - data.rated_count - data.leave_count }}人</strong></p>
+{{/if}}
+
+{{#each(data.reasons, 'count', 'reason')}}
+<p style="margin:0;line-height:1.5">{{ reason }}： <strong>{{ count }}人</strong></p>
 {{/each}}
-学员评价：
 
-{{#each(notes)}}* {{this}}
+<h3>各项分数：</h3>
+
+<p style="margin:0;line-height:1.5">打分总人数： <strong>{{ data.rated_count }}人</strong></p>
+<p style="margin:0;line-height:1.5">平均分： <strong>{{ data.result[version].backTotal }}</strong></p>
+<p style="margin:0;line-height:1.5">去掉最低分平均分： <strong>{{ data.result[version].backTotalWithoutMin }}</strong></p>
+
+{{#each(data.result[version].scores, 'value', 'shortname')}}
+<p style="margin:0;line-height:1.5">{{ shortname }}： <strong>{{ value }}</strong></p>
 {{/each}}
+
+<h3>学员评价：</h3>
+
+<ul style="padding-left:20px">
+  {{#each(data.notes)}}
+  <li>{{ this }}</li>
+  {{/each}}
+</ul>

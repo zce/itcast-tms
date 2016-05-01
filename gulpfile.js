@@ -16,7 +16,7 @@ const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
 
-gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/renderer/css', 'main.log', 'renderer.log', 'src/template/style.min.css']));
+gulp.task('clean', del.bind(null, [distDir, 'dist', 'src/renderer/css', 'main.log', 'renderer.log']));
 
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])

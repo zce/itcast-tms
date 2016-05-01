@@ -22,10 +22,15 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   // 注入请求客户端IP
-  req.clientIp = new Date().getTime() ||
-    req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress || '::1';
+  if (process.env.NODE_ENV === 'production') {
+    req.clientIp = req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress;
+  } else {
+    // 测试允许多次提交
+    req.clientIp = new Date().getTime();
+  }
   // req.connection.socket.remoteAddress || '::1';
   // 注入是否本地请求
   req.isLocal = '127.0.0.1' === req.clientIp || options.server_ip === req.clientIp

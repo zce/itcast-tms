@@ -2,22 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const options = require('../config');
 
-function resolve(uri) {
-  return uri;
-}
-
 function write(uri, value) {
   value = JSON.stringify(value);
   const length = Buffer.byteLength(value); // new Buffer(value).length;
   const buffer = new Buffer(length + 4);
   buffer.writeUInt32BE(length, 0);
   buffer.write(value, 4);
-  fs.writeFileSync(resolve(uri), buffer, 'hex');
+  fs.writeFileSync(uri, buffer, 'hex');
 };
 
 function read(uri) {
   try {
-    const buffer = fs.readFileSync(resolve(uri));
+    const buffer = fs.readFileSync(uri);
     const length = buffer.readUInt32BE(0);
     const content = buffer.toString('utf8', 4, length + 4);
     return JSON.parse(content);
@@ -28,16 +24,17 @@ function read(uri) {
 };
 
 function set(stamp, value) {
-  write(path.resolve(options.storage_root, stamp + options.storage_ext), value);
+  write(path.join(options.storage_root, stamp + options.storage_ext), value);
 };
 
 function get(stamp) {
-  return read(path.resolve(options.storage_root, stamp + options.storage_ext));
+  return read(path.join(options.storage_root, stamp + options.storage_ext));
 };
 
 function watch(stamp, callback) {
-  fs.watchFile(path.resolve(options.storage_root, stamp + options.storage_ext), { interval: 300 }, (curr, prev) => {
-    if (curr.mtime !== prev.mtime) {
+  fs.watchFile(path.join(options.storage_root, stamp + options.storage_ext), { interval: 500 }, (curr, prev) => {
+    // console.log(curr);
+    if (curr && curr.size && curr.mtime !== prev.mtime) {
       const data = get(stamp);
       data && callback(data);
       console.log(`『${stamp}』 changed`);

@@ -58,8 +58,9 @@
     };
 
     // 删除邮箱
-    $scope.action.del_email = () => {
+    $scope.action.del_email = (item) => {
       $scope.data.added_emails.splice($scope.data.added_emails.indexOf(this), 1);
+      // $scope.data.added_emails.remove(item);
       save();
     };
     // ===== ======= =====
@@ -102,20 +103,23 @@
 
     // 发送邮件按钮
     $scope.action.send = () => {
-      // console.log($scope.data);
+      console.log($scope.data);
       if (!(confirm('确定发送邮件吗？')))
         return false;
       if ($scope.data.status === $.options.status_keys.rated) {
         $scope.data.status = $.options.status_keys.sending;
         save();
+        // 发送邮件
         $.mail($scope.data)
           .then(message => {
+            $.logger.debug(message);
             $scope.data.status = $.options.status_keys.send;
             save();
-            alert(message);
+            alert('邮件发送成功\n' + JSON.stringify(message));
           })
           .catch(error => {
-            console.log(error);
+            $.logger.error(error);
+            alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn');
           });
       }
     };
