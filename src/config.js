@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const utils = require('./main/utils');
 
 const options = {
   // 数据文件所在目录
@@ -12,7 +13,14 @@ const options = {
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
   storage_ext: '.tms',
+  //
   stamp_length: 8,
+  // 服务器信息
+  main_url: `file://${path.resolve(__dirname, 'renderer')}/${ process.env.NODE_ENV === 'production' ? 'splash' : 'index' }.html`,
+  // 服务IP
+  server_ip: utils.getLocalAreaIp(),
+  // 服务Port
+  server_port: 8080,
   // 测评状态
   status_keys: {
     initial: '尚未开始测评',

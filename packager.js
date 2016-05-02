@@ -5,9 +5,13 @@
 
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const os = require('os');
-const packager = require('electron-packager');
 const exec = require('child_process').exec;
+
+const archiver = require('archiver');
+const packager = require('electron-packager');
 const argv = require('minimist')(process.argv.slice(2));
 
 const packageJson = require('./package.json');
@@ -24,14 +28,15 @@ const out_dir = 'dist';
 
 const OPTIONS = {
   'dir': '.',
-  'name': packageJson.name,
+  'name': packageJson.productName,
   'build-version': packageJson.version,
   'icon': app_icon,
   'ignore': [
-    /.git/,
     /^\/dist/,
     /^\/log/,
     /^\/node_modules/,
+    /^\/dist/,
+    /^\/serve/,
     /^\/src/,
     /^\/temp/,
     /^\/test/,
@@ -43,7 +48,7 @@ const OPTIONS = {
   ],
   'overwrite': true,
   // prune: true,
-  'version': '0.37.6',
+  'version': '0.37.8',
   'app-version': packageJson.version,
   'asar': use_asar,
   'asar-unpack': '',
@@ -96,7 +101,8 @@ function pack(platform, arch, callback) {
   packager(Object.assign({}, OPTIONS, {
     'app-version': packageJson.version || OPTIONS.version,
     arch: arch,
-    out: `${out_dir}/v${packageJson.version}`, // /${platform}-${arch}
+    // out: `${out_dir}/v${packageJson.version}`, // /${platform}-${arch}
+    out: `${out_dir}/${platform}`, // /${platform}-${arch}
     platform: platform,
   }), callback);
 
@@ -110,8 +116,46 @@ function pack(platform, arch, callback) {
  * @return {function}        log func
  */
 function log(platform, arch) {
-  return (err, filepath) => {
+  return (err, files) => {
     if (err) return console.error(err);
     console.log(`${platform}-${arch} finished!`);
+    // files.forEach(file => {
+    //   const command = `zip -yrq8 ${file.replace(/\s/g, '\\ ')}/../${packageJson.name}-${packageJson.version}-${platform}-${arch}.zip ${file.replace(/\s/g, '\\ ')}/.`;
+    //   exec(command, (error, stdout, stderr) => {
+    //     console.log(`stdout: ${stdout}`);
+    //     console.log(`stderr: ${stderr}`);
+    //     if (error !== null) {
+    //       console.log(`exec error: ${error}`);
+    //     }
+    //   });
+    //   // zipFolder(
+    //   //     file,
+    //   //     file + '.zip'
+    //   //     // file + `/../${packageJson.name}-${packageJson.version}-${platform}-${arch}.zip`
+    //   //   )
+    //   //   .then(output => {
+    //   //     console.log(`${platform}-${arch} finished!`);
+    //   //   })
+    //   //   .catch(err => {
+    //   //     console.log(err);
+    //   //   });
+    // });
   };
 }
+
+
+function zipFolder(folderPath, outputPath) {
+  return new Promise((resolve, reject) => {
+    var archive = archiver.create('zip', {});
+    var output = fs.createWriteStream(outputPath);
+    output.on('end', function() {
+      resolve(outputPath);
+    });
+    archive.on('error', function(err) {
+      reject(err);
+    });
+    archive.pipe(output);
+    archive.directory(folderPath, false);
+    archive.finalize();
+  });
+};

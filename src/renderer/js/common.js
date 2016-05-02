@@ -58,6 +58,6 @@
     for (let i = 0; i < count; i++) { //循环操作
       stamp += chars[Math.floor(Math.random() * chars.length)]; //根据索引取得随机数加到code上
     }
-    return stamp;
+    return stamp.toUpperCase();
   };
 }($));

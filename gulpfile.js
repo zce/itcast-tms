@@ -29,12 +29,14 @@ gulp.task('less', () => {
 });
 
 gulp.task('useref', ['less'], () => {
+  const iff = (file) => {
+    console.log(file.path);
+    return false;
+  };
   return gulp.src('src/renderer/*.html')
     .pipe(plugins.useref())
-    // .pipe(plugins.if('*.js', plugins.uglify()))
-    .pipe(plugins.if('*.css', plugins.cssnano({
-      compatibility: '*'
-    })))
+    .pipe(plugins.if('**/vendor.js', plugins.uglify()))
+    .pipe(plugins.if('*.css', plugins.cssnano()))
     .pipe(gulp.dest(distDir + '/renderer'));
 });
 
@@ -48,6 +50,8 @@ gulp.task('html', ['useref'], () => {
       removeEmptyAttributes: true,
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
+      minifyCSS: true,
+      minifyJS: true,
     }))
     .pipe(gulp.dest(distDir + '/renderer'));
 });

@@ -17,7 +17,7 @@ function createWindow() {
 
   // Open the DevTools.
   if (process.env.NODE_ENV !== 'production')
-    mainWindow.webContents.openDevTools();
+    mainWindow.openDevTools({ detach: true });
 
   // and load the index.html of the app.
   mainWindow.loadURL(OPTIONS.main_url);

@@ -1,21 +1,19 @@
 {
   "name": "itcast-tms-serve",
   "version": "1.0.0",
-  "description": "Itcast teaching management auto update server",
+  "description": "Itcast teaching management server",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "Itcast",
     "Electron",
-    "AutoUpdater",
     "iceStone"
   ],
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4",
-    "nuts-serve": "^3.1.0"
+    "express": "^4.13.4"
   }
 }

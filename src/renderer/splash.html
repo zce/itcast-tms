@@ -71,19 +71,26 @@
 <body>
   <div class="input-group">
     <label for="token" class="addon">口令</label>
-    <input type="password" id="token" class="field" placeholder="请输入密码" value="itcast">
+    <input type="password" id="token" class="field" placeholder="请输入密码">
     <button id="btn" class="addon">开始使用</button>
   </div>
   <script src="js/common.js"></script>
   <script>
     (function(window, document) {
       'use strict';
+      const electron = require('electron');
+      const options = electron.remote.getGlobal('OPTIONS');
       const btn = document.getElementById('btn');
       const token = document.getElementById('token');
       btn.addEventListener('click', function(e) {
-        if (token.value !== $.options.token) {
-          alert('用户名或密码不正确\n请联系『汪磊 - 13241087977』获取');
-          $.electro.pxote.app.quit();
+        if(!token.value){
+          alert('请输入操作口令！');
+          return false;
+        }
+
+        if (token.value !== options.token) {
+          alert('操作口令不正确！\n请联系『汪磊(13241087977)』获取');
+          electron.remote.app.quit();
           return false;
         }
         window.location = './index.html';
