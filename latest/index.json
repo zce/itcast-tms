@@ -1,0 +1,5 @@
+{
+  "core": "http://tms.uieee.com/latest/core.json",
+  "data": "http://tms.uieee.com/latest/data.json",
+  "updater": "http://tms.uieee.com/latest/updater.json"
+}
