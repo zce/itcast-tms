@@ -24,7 +24,7 @@ const out_dir = 'dist';
 
 const OPTIONS = {
   'dir': '.',
-  'name': packageJson.productName,
+  'name': packageJson.name,
   'build-version': packageJson.version,
   'icon': app_icon,
   'ignore': [
