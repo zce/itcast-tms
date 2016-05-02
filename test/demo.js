@@ -31,6 +31,6 @@ const updater = require('../updater/updater.js');
 // updater();
 
 updater
-  .updateUpdater('http://git.oschina.net/micua/files/raw/master/itcast-evaluation/core/v2.6.4/core.zip')
+  .updateUpdater('http://127.0.0.1:8080/updater.zip')
   .then(file => console.log(file))
   .catch(error => console.log(error));

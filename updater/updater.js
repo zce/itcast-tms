@@ -54,8 +54,8 @@ module.exports = () => new Promise((resolve, reject) => {
 const updateUpdater = module.exports.updateUpdater = (url) => new Promise((resolve, reject) => {
   download({ extract: true })
     .get(url)
-    .dest('../cache')
-    .rename('../updater')
+    .dest('../')
+    // .rename('./updater')
     .run((error, files) => {
       if (error) reject(error);
       else resolve(files[0]);
