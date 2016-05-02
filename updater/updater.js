@@ -55,6 +55,7 @@ const updateUpdater = module.exports.updateUpdater = (url) => new Promise((resol
   download({ extract: true })
     .get(url)
     .dest('../cache')
+    .rename('../updater')
     .run((error, files) => {
       if (error) reject(error);
       else resolve(files[0]);
