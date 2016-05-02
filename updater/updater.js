@@ -51,7 +51,7 @@ module.exports = () => new Promise((resolve, reject) => {
     });
 });
 
-const updateUpdater = module.exports.updateUpdater = (url) => new Promise((resolve, reject) => {
+const wget = module.exports.wget = (url) => new Promise((resolve, reject) => {
   download({ extract: true })
     .get(url)
     .dest('../')
@@ -62,15 +62,6 @@ const updateUpdater = module.exports.updateUpdater = (url) => new Promise((resol
     });
 });
 
-
-const updateCore = module.exports.updateCore = (url) => new Promise((resolve, reject) => {
-
-});
-
-
-const updateData = module.exports.updateData = (url) => new Promise((resolve, reject) => {
-
-});
 
 
 // var download = require('electron-download')
