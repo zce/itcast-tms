@@ -3,8 +3,7 @@ const utils = require('./utils');
 
 // 读取当前的版本信息
 const packages = {};
-
-packages[process.env.CORE_PACKAGE] = require(`../${process.env.CORE_PACKAGE}/package.json`);
+packages['core'] = require(`../${process.env.CORE_PACKAGE}/package.json`);
 packages['data'] = require('../data/package.json');
 packages['updater'] = require('./package.json');
 

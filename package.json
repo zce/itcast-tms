@@ -57,6 +57,7 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.1.0",
+    "gulp-zip": "^3.2.0",
     "minimist": "^1.2.0",
     "normalize.css": "^4.1.1"
   },

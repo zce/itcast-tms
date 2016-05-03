@@ -16,15 +16,9 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
     }).on('end', () => {
       // console.log('No more data in response.')
       resolve(contents.join(''));
-    }).on('error', e => {
-      reject(e);
-      console.log(`Got error: ${e.message}`);
-    });
+    }).on('error', reject);
     res.resume();
-  }).on('error', e => {
-    reject(e);
-    console.log(`Got error: ${e.message}`);
-  });
+  }).on('error', reject);
 });
 
 const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, reject) => {
@@ -43,7 +37,11 @@ const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, r
     })
     // .rename(filename)
     .run((error, files) => {
-      if (error) reject(error);
-      else resolve(files[0]);
+      if (error) {
+        console.log(`Got file error: ${error.message}`);
+        reject(error);
+      } else {
+        resolve(files[0]);
+      }
     });
 });

@@ -16,7 +16,7 @@ const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
 
-gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'main.log', 'renderer.log']));
+gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'zip', 'main.log', 'renderer.log']));
 
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
@@ -80,6 +80,23 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
+
+gulp.task('zip', () => {
+  const corePkg = require('./core/package.json');
+  gulp.src('core/**/*')
+    .pipe(plugins.zip(`core-${corePkg.version}.zip`))
+    .pipe(gulp.dest('zip'));
+  const dataPkg = require('./data/package.json');
+  gulp.src('data/**/*')
+    .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
+    .pipe(gulp.dest('zip'));
+  const updaterPkg = require('./updater/package.json');
+  gulp.src('updater/**/*')
+    .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
+    .pipe(gulp.dest('zip'));
+});
+
+
 gulp.task('watch', ['less'], () => {
   plugins.livereload.listen( /* { basePath: 'src' } */ );
 
@@ -97,7 +114,3 @@ gulp.task('test', ['watch'], () => {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
   spawn(electron, ['.']);
 });
-
-function watch(callback) {
-
-}

@@ -59,7 +59,7 @@
       border-bottom-left-radius: .25rem;
       border-top-right-radius: .25rem;
       border-bottom-right-radius: .25rem;*/
-      border-radius: .25rem;
+      border-radius: 3px;
     }
     /*.progress[value="100"]::-webkit-progress-value {
       border-top-right-radius: .25rem;
@@ -102,11 +102,11 @@
     } = require('electron');
     const progressElement = document.getElementById('progress');
     const messageElement = document.getElementById('message');
-    let updating = false;
+    // let updating = false;
     ipcRenderer.on('update_progress', (event, progress) => {
-      updating ? (updating = true) : (progressElement.style.display = 'block');
+      // updating ? (updating = true) : (progressElement.style.display = 'block');
       progressElement.value = progress;
-      value >= 1 && (updating = false);
+      // progressElement.value >= 1 && (updating = false);
     });
     ipcRenderer.on('update_message', (event, message) => {
       messageElement.innerHTML = message;
