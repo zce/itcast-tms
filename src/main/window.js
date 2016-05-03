@@ -16,8 +16,7 @@ function createWindow() {
   });
 
   // Open the DevTools.
-  if (process.env.NODE_ENV !== 'production')
-    mainWindow.openDevTools({ detach: true });
+  process.env.NODE_ENV !== 'production' && mainWindow.openDevTools({ detach: true });
 
   // and load the index.html of the app.
   mainWindow.loadURL(OPTIONS.main_url);
@@ -38,7 +37,8 @@ function createWindow() {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-app.on('ready', createWindow);
+// app.on('ready', createWindow);
+createWindow();
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

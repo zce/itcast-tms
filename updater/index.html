@@ -1,15 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>系统更新中...</title>
   <style>
-    html, body { height: 100%; width: 100% }
-    body { background-image: url(hourglass.svg) }
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      background: #fff url(hourglass.svg) no-repeat center 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 60%;
+      margin-top: 200px;
+      text-align: center;
+    }
+
+    .progress {
+      display: block;
+      width: 100%;
+      height: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .progress[value] {
+      -webkit-appearance: none;
+      color: #0074d9;
+      border: 0;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .progress[value]::-webkit-progress-bar {
+      background-color: #eee;
+      border-radius: .25rem;
+    }
+
+    .progress[value]::-webkit-progress-value::before {
+      content: attr(value);
+    }
+
+    .progress[value]::-webkit-progress-value {
+      background-color: #0074d9;
+      /*border-top-left-radius: .25rem;
+      border-bottom-left-radius: .25rem;
+      border-top-right-radius: .25rem;
+      border-bottom-right-radius: .25rem;*/
+      border-radius: .25rem;
+    }
+    /*.progress[value="100"]::-webkit-progress-value {
+      border-top-right-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+    }*/
+
+    .progress-striped[value]::-webkit-progress-value {
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+      -webkit-background-size: 1rem 1rem;
+      background-size: 1rem 1rem;
+    }
+
+    .progress-striped[value]::-moz-progress-bar {
+      background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+      background-size: 1rem 1rem;
+    }
+
+    .progress-tms[value]::-webkit-progress-value {
+      background-color: rgb(0, 114, 130);
+    }
+
+    .progress-tms[value]::-moz-progress-bar {
+      background-color: rgb(0, 114, 130);
+    }
+    /*.progress-tms {
+      display: none;
+    }*/
   </style>
-
 </head>
-<body>
 
+<body>
+  <div class="container">
+    <p id="message">内核更新中！</p>
+    <progress id="progress" class="progress progress-tms" value="0"></progress>
+  </div>
+  <script>
+    const {
+      ipcRenderer
+    } = require('electron');
+    const progressElement = document.getElementById('progress');
+    const messageElement = document.getElementById('message');
+    let updating = false;
+    ipcRenderer.on('update_progress', (event, progress) => {
+      updating ? (updating = true) : (progressElement.style.display = 'block');
+      progressElement.value = progress;
+      value >= 1 && (updating = false);
+    });
+    ipcRenderer.on('update_message', (event, message) => {
+      messageElement.innerHTML = message;
+    });
+  </script>
 </body>
+
 </html>
