@@ -9,6 +9,8 @@ const updaterPkg = require('./package.json');
 const feed_url = 'http://tms.uieee.com/latest/index.json';
 
 module.exports = () => new Promise((resolve, reject) => {
+  return resolve('ok');
+
   fetch(`${feed_url}?version=${new Date().format('yyyyMMdd')}`)
     .then(feed => {
       try {
@@ -27,7 +29,7 @@ module.exports = () => new Promise((resolve, reject) => {
         updaterFeed = JSON.parse(updaterFeed);
         if (updaterFeed.name !== updaterPkg.version) {
           // 需要更新 updater
-          return updateUpdater(updaterFeed.url);
+          return wget(updaterFeed.url);
         }
       } catch (e) {
         return Promise.reject(e);
