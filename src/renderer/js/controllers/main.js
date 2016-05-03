@@ -11,6 +11,7 @@
 
   function MainController($location, $timeout, Setting) {
 
+    window.root = this;
     this.options = $.options;
 
     // ===== theme =====

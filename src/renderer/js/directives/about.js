@@ -10,12 +10,12 @@
       // priority: 1,
       // terminal: true,
       scope: {
-        open: '='
+        opened: '='
       }, // {} = isolate, true = child, false/undefined = no change
       // controller: function($scope, $element, $attrs, $transclude) {},
       // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
       restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
-      template: `<div class="dialog" ng-class="{open:open}">
+      template: `<div class="dialog" ng-class="{open:opened}">
     <div class="dialog-window">
       <div class="dialog-text">
         <h4>{{app_name}}</h4>
@@ -25,11 +25,11 @@
         <p>Copyright &copy; Itcast, Inc. All Rights Reserved.</p>
       </div>
       <div class="dialog-buttons">
-        <button class="dialog-button" ng-click="open=false">OK</button>
+        <button class="dialog-button" ng-click="opened=false">OK</button>
       </div>
     </div>
   </div>`,
-  // <button class="dialog-button">Cancel</button>
+      // <button class="dialog-button">Cancel</button>
       // templateUrl: '',
       replace: true,
       // transclude: true,
