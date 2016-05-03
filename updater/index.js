@@ -1,4 +1,6 @@
-process.env.CORE_PACKAGE = process.env.NODE_ENV === 'production' ? 'core.asar' : 'src';
+process.env.CORE_ROOT = process.env.NODE_ENV === 'production' ? 'core.asar' : 'src';
+process.env.DATA_ROOT = process.env.NODE_ENV === 'production' ? 'data.asar' : 'data';
+process.env.UPDATER_ROOT = process.env.NODE_ENV === 'production' ? 'updater.asar' : 'updater';
 
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
@@ -34,13 +36,13 @@ app.on('ready', () => {
           app.quit();
         }, 3000);
       } else {
-        require(`../${process.env.CORE_PACKAGE}`);
+        require(`../${process.env.CORE_ROOT}`);
         mainWindow && mainWindow.close();
       }
     })
     .catch(error => {
       console.log(error);
-      require(`../${process.env.CORE_PACKAGE}`);
+      require(`../${process.env.CORE_ROOT}`);
       mainWindow && mainWindow.close();
     });
 
@@ -60,7 +62,6 @@ function beginUpdate(needs, keys) {
       webContents.send('update_progress', p);
       switch (key) {
         case 'core':
-        case 'src':
           webContents.send('update_message', '正在更新系统内核！');
           break;
         case 'data':
