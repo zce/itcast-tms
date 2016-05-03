@@ -27,6 +27,9 @@ app.on('ready', () => {
     })
     .then(files => {
       console.log(`更新成功，更新了${files.toString()}`, updater_updated);
+      for (let key in require.cache) {
+        delete require.cache[key];
+      }
       if (updater_updated) {
         webContents.send('update_done', '更新成功，正在重新启动，请稍候！');
         // 自动关闭程序
