@@ -27,24 +27,24 @@ const build_all_platform = argv.all || false;
 const out_dir = 'dist/releases';
 
 const OPTIONS = {
-  'dir': '.',
+  'dir': './build',
   'name': packageJson.productName,
   'build-version': packageJson.version,
   'icon': app_icon,
   'ignore': [
-    /^\/assets/,
-    /^\/cache/,
-    /^\/data/,
-    /^\/dist/,
-    /^\/node_modules/,
-    /^\/src/,
-    /^\/test/,
-    /^\/updater/,
-    /^\/.+?\.log/,
-    /^\/.+?\.md/,
-    /^\/\..+/,
-    /gulpfile.js/,
-    /packager.js/
+    // /^\/assets\//,
+    // /^\/cache\//,
+    // /^\/data\//,
+    // /^\/dist\//,
+    // /^\/node_modules\//,
+    // /^\/src\//,
+    // /^\/test\//,
+    // /^\/updater\//,
+    // /^\/.+?\.log/,
+    // /^\/.+?\.md/,
+    // /^\/\..+/,
+    // /gulpfile.js/,
+    // /packager.js/
   ],
   'overwrite': true,
   // prune: true,

@@ -16,7 +16,7 @@
     "dev": "concurrently --raw --kill-others \"npm run watch\" \"npm run electron\"",
     "test": "cross-env NODE_ENV=development gulp test",
     "prestart": "npm run dist",
-    "start": "cross-env NODE_ENV=production electron ./",
+    "start": "cross-env NODE_ENV=production electron ./build",
     "prebuild": "echo '「build script」has been deprecated. Please use 「package script」 instead.' && gulp",
     "build": "npm run build:osx && npm run build:linux && npm run build:windows",
     "build:osx": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=darwin --arch=x64 --icon=src/app.icns --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
@@ -80,8 +80,5 @@
     "app-bundle-id": "net.wedn.tms",
     "app-category-type": "net.wedn.tms",
     "iconUrl": "src/app.ico"
-  },
-  "dependencies": {
-    "archiver": "^1.0.0"
   }
 }
