@@ -4,7 +4,7 @@ const http = require('http');
 const download = require('download');
 
 const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
-  console.time('utils');
+  // console.time('utils');
   const request = http.get(uri, res => {
     // console.log(`Got response: ${res.statusCode}`);
     // if(res.statusCode !== )
@@ -15,7 +15,7 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
       // console.log(`BODY: ${chunk}`);
       contents.push(chunk);
     }).on('end', () => {
-      console.timeEnd('utils');
+      // console.timeEnd('utils');
       // console.log('No more data in response.')
       resolve(contents.join(''));
     }).on('error', reject);
