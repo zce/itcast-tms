@@ -53,6 +53,7 @@ const update = exports.update = (uri, to, progress) => new Promise((resolve, rej
         else
           resolve(to);
       });
+      // resolve(file);
     })
     .catch(reject);
 });

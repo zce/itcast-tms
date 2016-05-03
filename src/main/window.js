@@ -32,8 +32,8 @@ function createWindow() {
     minWidth: 1024,
     height: 720,
     minHeight: 720,
-    x: 0,
-    y: 0,
+    // x: 0,
+    // y: 0,
     frame: false,
     show: false
   });

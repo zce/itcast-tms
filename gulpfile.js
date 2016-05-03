@@ -82,15 +82,15 @@ gulp.task('default', ['clean'], () => {
 
 gulp.task('zip', () => {
   const corePkg = require('./core/package.json');
-  gulp.src('core/**/*')
+  gulp.src('./cor*/**/*')
     .pipe(plugins.zip(`core-${corePkg.version}.zip`))
     .pipe(gulp.dest('zip'));
   const dataPkg = require('./data/package.json');
-  gulp.src('data/**/*')
+  gulp.src('./dat*/**/*')
     .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
     .pipe(gulp.dest('zip'));
   const updaterPkg = require('./updater/package.json');
-  gulp.src('updater/**/*')
+  gulp.src('./update*/**/*')
     .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
     .pipe(gulp.dest('zip'));
 });
