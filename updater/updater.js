@@ -1,23 +1,32 @@
+const fs = require('fs-extra');
 const utils = require('./utils');
 
 // 读取当前的版本信息
-const packages = {
-  core: require(`../${process.env.NODE_ENV === 'production' ? 'core' : 'src'}/package.json`),
-  data: require('../data/package.json'),
-  updater: require('./package.json'),
-};
+const packages = {};
+
+packages[process.env.CORE_PACKAGE] = require(`../${process.env.CORE_PACKAGE}/package.json`);
+packages['data'] = require('../data/package.json');
+packages['updater'] = require('./package.json');
+
 const keys = Object.keys(packages);
 
 const feed_url = 'http://git.oschina.net/micua/files/raw/master/tms/latest/index.json';
 
+/**
+ * 检查更新
+ * @param  {Function} ) [description]
+ * @return {[type]}     [description]
+ */
 const check = exports.check = () => new Promise((resolve, reject) => {
+  // 获取更新链接
   utils.fetchUrl(`${feed_url}?version=${new Date().getTime()}`)
     .then(feed => {
+      // 分别获取远端版本
       const feedUrls = JSON.parse(feed);
       return Promise.all(keys.map(key => utils.fetchUrl(`${feedUrls[key]}?version=${packages[key].version}`)));
     })
     .then(feeds => {
-      // resolve(feeds);
+      // 比对本地版本校验是否需要更新
       const need_updates = {};
       keys.forEach((key, i) => {
         const item = JSON.parse(feeds[i]);
@@ -29,7 +38,25 @@ const check = exports.check = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const update = exports.update = (uri, dir, progress) => utils.fetchFile(uri, progress);
+/**
+ * 更新指定地址
+ * @param  {[type]} uri       [description]
+ * @param  {[type]} to        [description]
+ * @param  {[type]} progress) [description]
+ * @return {[type]}           [description]
+ */
+const update = exports.update = (uri, to, progress) => new Promise((resolve, reject) => {
+  utils.fetchFile(uri, progress)
+    .then(file => {
+      fs.move(file.path, to, { clobber: true }, error => {
+        if (error)
+          reject(error);
+        else
+          resolve(to);
+      });
+    })
+    .catch(reject);
+});
 
 
 // module.exports = () => new Promise((resolve, reject) => {

@@ -1,27 +1,48 @@
+process.env.CORE_PACKAGE = process.env.NODE_ENV === 'production' ? 'core' : 'src';
+
+const path = require('path');
 const { app, BrowserWindow } = require('electron');
+const updater = require('./updater');
 
 let mainWindow, webContents;
+
 app.on('ready', () => {
   mainWindow = new BrowserWindow({ x: 0, y: 0, width: 600, height: 400, resizable: false, movable: false, frame: false });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   process.env.NODE_ENV !== 'production' && mainWindow.openDevTools({ detach: true });
   mainWindow.on('closed', () => mainWindow = null);
   webContents = mainWindow.webContents;
-  update();
+  beginUpdate();
 });
 
-const updater = require('./updater');
 
-function update() {
-  updater()
-    .then((version) => {
-      console.log('update to ' + version);
-      require(process.env.NODE_ENV === 'production' ? '../core' : '../src');
-      mainWindow.close();
+function beginUpdate() {
+  updater
+    .check()
+    .then(needs => {
+      return Promise.all(Object.key(needs)
+        .map(key => updater.update(needs[key], path.resolve(__dirname, '..', 'test', key), p => {
+          webContents.send('update_progress', p);
+          switch (key) {
+            case 'core':
+            case 'src':
+              webContents.send('update_message', '正在更新系统内核！');
+              break;
+            case 'data':
+              webContents.send('update_message', '正在更新系统数据！');
+              break;
+            case 'updater':
+              webContents.send('update_message', '正在更新系统更新器！');
+              break;
+          }
+        })));
+    })
+    .then(files => {
+      console.log('更新成功', files);
+      require(`../${process.env.CORE_PACKAGE}`);
     })
     .catch(error => {
-      console.log(error);
-      require(process.env.NODE_ENV === 'production' ? '../core' : '../src');
+      require(`../${process.env.CORE_PACKAGE}`);
     });
 }
 

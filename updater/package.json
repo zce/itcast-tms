@@ -1,11 +1,12 @@
 {
   "name": "itcast-tms-updater",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-alpha",
   "description": "Itcast teaching management by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
   "dependencies": {
-    "download": "^4.4.3"
+    "download": "^4.4.3",
+    "fs-extra": "^0.30.0"
   }
 }
