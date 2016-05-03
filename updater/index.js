@@ -12,10 +12,9 @@ const { app, BrowserWindow } = require('electron');
 
 const updater = require('./updater');
 let mainWindow, webContents;
+let updater_updated = false;
 
 app.on('ready', () => {
-
-  let updater_updated = false;
   updater
     .check()
     .then(needs => {
@@ -27,9 +26,9 @@ app.on('ready', () => {
       return beginUpdate(needs, keys);
     })
     .then(files => {
-      console.log(`更新成功，更新了${files.toString()}`);
+      console.log(`更新成功，更新了${files.toString()}`, updater_updated);
       if (updater_updated) {
-        webContents.send('update_done', '更新成功，请重新启动！');
+        webContents.send('update_done', '更新成功，正在重新启动，请稍候！');
         // 自动关闭程序
         setTimeout(() => {
           // mainWindow.close();

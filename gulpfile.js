@@ -14,7 +14,7 @@ const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
 const plugins = gulpLoadPlugins();
 
-const distDir = 'core';
+const distDir = '.tmp';
 
 gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'core.asar', 'data.asar', 'updater.asar', 'itcast-tms.log', 'npm-debug.log']));
 
@@ -86,8 +86,7 @@ gulp.task('build', ['size'], () => {
     asarPack('data', './data.asar'),
     asarPack('updater', './updater.asar')
   ]).then(() => {
-    del(distDir);
-    const corePkg = require('./core/package.json');
+    const corePkg = require(`./${distDir}/package.json`);
     gulp.src('./core.asar')
       .pipe(plugins.rename('core'))
       .pipe(plugins.zip(`core-${corePkg.version}.zip`))
@@ -102,6 +101,7 @@ gulp.task('build', ['size'], () => {
       .pipe(plugins.rename('updater'))
       .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
       .pipe(gulp.dest('dist/zip'));
+    del(distDir);
   });
 });
 
