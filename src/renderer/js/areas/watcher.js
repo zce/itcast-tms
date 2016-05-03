@@ -14,10 +14,11 @@
       '$rootScope',
       '$location',
       '$routeParams',
+      '$timeout',
       WatcherController
     ]);
 
-  function WatcherController($scope, $rootScope, $location, $routeParams) {
+  function WatcherController($scope, $rootScope, $location, $routeParams, $timeout) {
 
     // 获取当前打开记录的stamp
     const stamp = $routeParams.stamp;
@@ -82,18 +83,28 @@
     };
 
     // 结束评测按钮
+    let stoping = false;
     $scope.action.stop = () => {
+      if (stoping)
+        return false;
+      // 防止多次点击
+      stoping = true;
       $scope.data.rated_count = Object.keys($scope.data.rated_info).length;
       if (!$scope.data.rated_count) {
         alert('尚未有人提交测评表单！');
+        stoping = false;
         return false;
       }
-      if (!(confirm('确定结束吗？') && confirm('真的确定结束吗？'))) return false;
+      if (!(confirm('确定结束吗？') && confirm('真的确定结束吗？'))) {
+        stoping = false;
+        return false;
+      }
       // 当前状态为正在测评
       if ($scope.data.status === $.options.status_keys.rating) {
         // 测评完成状态
         $scope.data.status = $.options.status_keys.rated;
         save();
+        stoping = false;
         // 计算报告
         // $.report($scope.data);
         // Object.assign($scope.data, $.report($scope.data));
@@ -102,25 +113,45 @@
     };
 
     // 发送邮件按钮
+    let sending = false;
     $scope.action.send = () => {
-      console.log($scope.data);
-      if (!(confirm('确定发送邮件吗？')))
+      if (sending)
         return false;
+      // 防止多次点击
+      sending = true;
+      // console.log($scope.data);
+      if (!(confirm('确定发送邮件吗？'))) {
+        sending = false;
+        return false;
+      }
       if ($scope.data.status === $.options.status_keys.rated) {
         $scope.data.status = $.options.status_keys.sending;
         save();
-        // 发送邮件
-        $.mail($scope.data)
-          .then(message => {
-            $.logger.debug(message);
-            $scope.data.status = $.options.status_keys.send;
-            save();
-            alert('邮件发送成功\n' + JSON.stringify(message));
-          })
-          .catch(error => {
-            $.logger.error(error);
-            alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn');
-          });
+        $timeout(() => {
+          // 发送邮件
+          $.mail($scope.data)
+            .then(message => {
+              $.logger.debug(message);
+              $scope.data.status = $.options.status_keys.send;
+              save();
+              // alert('邮件发送成功\n' + JSON.stringify(message));
+              sending = false;
+            })
+            .catch(error => {
+              $.logger.error(error);
+              if (error.responseCode == 598) {
+                alert(`邮件中包含违禁词，发送失败\n请将本次打分的记录文件「${stamp}.tms」\n发送到wanglei3@itcast.cn`);
+              } else if (error.code == 'ENOTFOUND' && error.syscall == 'getaddrinfo') {
+                alert(`网络连接失败，请确认网络正常`);
+              } else {
+                alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn');
+              }
+              // 测评完成状态
+              $scope.data.status = $.options.status_keys.rated;
+              save();
+              sending = false;
+            });
+        }, 0);
       }
     };
 

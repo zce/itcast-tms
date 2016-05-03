@@ -1,8 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use('/update', nuts.router);
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.all('/submit', (req, res) => {
+  console.log(req.body);
+  res.send('ok');
+});
 
 app.listen(4000, err => err || console.log('update server is ready! @ http://localhost:4000/'));
 

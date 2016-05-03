@@ -9,7 +9,7 @@ const { transport, options } = config.mail;
 const txt_tpl = path.join(config.template_root, 'txt.xtpl');
 const mail_tpl = path.join(config.template_root, 'mail.xtpl');
 
-const Transport = nodemailer.createTransport(config.mail.transport);
+const Transport = nodemailer.createTransport(config.mail.transport, { connectionTimeout: 3000 });
 
 module.exports = (data) => {
 
@@ -61,7 +61,7 @@ function send(message) {
     // });
 
     Transport.sendMail(message, (error, response) => {
-      if (error) return reject(new Error(error));
+      if (error) return reject(error);
 
       if (Transport.transportType !== 'DIRECT')
         return resolve(response);

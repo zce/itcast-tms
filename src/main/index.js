@@ -1,7 +1,5 @@
 'use strict';
 
-require('./crash-reporter');
-
 const { app, hideInternalModules } = require('electron');
 hideInternalModules(); // 禁用旧版的API
 

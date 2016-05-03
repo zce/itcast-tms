@@ -52,7 +52,7 @@ module.exports = (data) => {
   const notes = getNotes(data);
   const result = getResult(data);
   Object.assign(data, { notes, result });
-  data.status = options.status_keys.rated;
+  // data.status = options.status_keys.rated;
   storage.set(data.stamp, data);
   return data;
 

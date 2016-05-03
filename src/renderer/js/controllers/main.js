@@ -23,10 +23,13 @@
     this.title = $.options.app_name;
 
     // ===== window button =====
+    let max = 'unmaximize';
     this.window = (action) => {
       const mainWindow = $.electron.remote.BrowserWindow.getFocusedWindow();
       // console.log(mainWindow);
-      mainWindow && mainWindow[action] && mainWindow[action]();
+      if (action === 'maximize')
+        action = mainWindow.isMaximized() ? 'unmaximize' : 'maximize';
+      mainWindow[action]();
     };
 
     // ===== sidebar =====

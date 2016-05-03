@@ -18,7 +18,7 @@ const fs = window.require && require('fs');
     ])
     // .constant('options', options)
     .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.otherwise({ redirectTo: '/home' /*'/watcher/1234'*/ })
+      $routeProvider.otherwise({ redirectTo: '/starter' /*'/watcher/1234'*/ })
     }]);
 
 }(angular));

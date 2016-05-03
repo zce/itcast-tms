@@ -2,9 +2,14 @@ process.env.CORE_PACKAGE = process.env.NODE_ENV === 'production' ? 'core' : 'src
 
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
+const crashReporter = require('./crash-reporter');
 const updater = require('./updater');
 
 let mainWindow, webContents;
+
+app.on('will-finish-launching', () => {
+  crashReporter.init();
+});
 
 app.on('ready', () => {
 
@@ -49,7 +54,7 @@ function beginUpdate(needs, keys) {
   webContents = mainWindow.webContents;
   return Promise.all(keys.map(key => updater.update(
     needs[key],
-    path.resolve(__dirname, '..', 'test', key),
+    path.resolve(__dirname, '..', key),
     p => {
       webContents.send('update_progress', p);
       switch (key) {

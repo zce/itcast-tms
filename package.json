@@ -22,6 +22,8 @@
     "build:mas": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=mas --arch=x64 --icon=src/app.icns --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
     "build:linux": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=linux --arch=x64 --app-bundle-id=net.wedn.tms --app-version=$npm_package_version --version=$npm_package_electronVersion --overwrite",
     "build:windows": "electron-packager . $npm_package_productName --overwrite --out=release --ignore='^/(node_modules|src|test)$' --prune --platform=win32 --arch=ia32 --icon=src/app.ico --version=$npm_package_electronVersion --version-string.ProductName=$npm_package_productName --version-string.ProductVersion=$npm_package_electronVersion --overwrite",
+    "prezip": "npm run dist",
+    "zip": "gulp zip",
     "prepack": "npm run dist",
     "pack": "node packager"
   },

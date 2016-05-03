@@ -4,7 +4,7 @@ const http = require('http');
 const download = require('download');
 
 const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
-  http.get(uri, res => {
+  const request = http.get(uri, res => {
     // console.log(`Got response: ${res.statusCode}`);
     // if(res.statusCode !== )
     // consume response body
@@ -18,7 +18,14 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
       resolve(contents.join(''));
     }).on('error', reject);
     res.resume();
-  }).on('error', reject);
+  }).on('error', (error) => {
+    console.log(error);
+    reject(error);
+  });
+  request.setTimeout(800, ()=> {
+    // handle timeout here
+    reject(new Error('request timeout...'));
+  });
 });
 
 const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, reject) => {

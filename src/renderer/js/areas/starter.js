@@ -38,14 +38,14 @@
     $scope.model.school_name = '';
     $scope.model.academy_name = '';
     $scope.model.subject_name = '';
-    $scope.model.class_count = 100;
+    // $scope.model.class_count = 0;
     $scope.model.reasons = { 留级: 0, 病假: 0, 事假: 0, 回学校: 0, 已就业: 0, 其他教室自习: 0, 在家复习: 0, 不想听课: 0, 其他: 0 };
-    $scope.model.class_name = '测试评分系统班级';
-    $scope.model.course_name = '测试评分系统课程';
-    $scope.model.course_days = 10;
-    $scope.model.head_name = '班主任';
-    $scope.model.teacher_name = '汪磊';
-    $scope.model.teacher_email = 'wanglei3@itcast.cn';
+    $scope.model.class_name = '';
+    $scope.model.course_name = '';
+    // $scope.model.course_days = 0;
+    $scope.model.head_name = '';
+    $scope.model.teacher_name = '';
+    $scope.model.teacher_email = '';
     $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm');
 
     // ===== 读取配置文件 =====
