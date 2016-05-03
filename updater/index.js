@@ -13,11 +13,12 @@ app.on('ready', () => {
     .check()
     .then(needs => {
       const keys = Object.keys(needs);
+      // console.log(keys);
       if (!(keys && keys.length)) {
         // 不需要需要更新
         return Promise.reject(new Error('不需要需要更新'));
       }
-      return beginUpdate(keys);
+      return beginUpdate(needs, keys);
     })
     .then(files => {
       console.log('更新成功', files.toString());
@@ -39,7 +40,7 @@ app.on('ready', () => {
 
 });
 
-function beginUpdate(keys) {
+function beginUpdate(needs, keys) {
   // 窗口开始更新
   mainWindow = new BrowserWindow({ /* x: 0, y: 0, */ width: 600, height: 400, resizable: false, movable: false, frame: false });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
