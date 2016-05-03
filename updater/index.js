@@ -1,4 +1,4 @@
-process.env.CORE_PACKAGE = process.env.NODE_ENV === 'production' ? 'core' : 'src';
+process.env.CORE_PACKAGE = process.env.NODE_ENV === 'production' ? 'core.asar' : 'src';
 
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
@@ -25,7 +25,7 @@ app.on('ready', () => {
       return beginUpdate(needs, keys);
     })
     .then(files => {
-      // console.log(`更新成功，更新了${files.toString()}`);
+      console.log(`更新成功，更新了${files.toString()}`);
       if (updater_updated) {
         webContents.send('update_done', '更新成功，请重新启动！');
         // 自动关闭程序
@@ -55,7 +55,7 @@ function beginUpdate(needs, keys) {
   webContents = mainWindow.webContents;
   return Promise.all(keys.map(key => updater.update(
     needs[key],
-    path.resolve(__dirname, '..', key), // !!!!! 自动更新文件位置
+    path.resolve(__dirname, '..', key + '.asar'), // !!!!! 自动更新文件位置
     p => {
       webContents.send('update_progress', p);
       switch (key) {

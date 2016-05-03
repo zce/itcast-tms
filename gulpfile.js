@@ -16,7 +16,7 @@ const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
 
-gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'zip', 'itcast-tms.log', 'npm-debug.log']));
+gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'core.asar', 'data.asar', 'updater.asar', 'itcast-tms.log', 'npm-debug.log']));
 
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
@@ -80,37 +80,26 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
   asar.createPackage(src, dest, resolve);
 });
 
-const zip = () => {
-  // const corePkg = require('./core/package.json');
-  // gulp.src('./cor*/**/*')
-  //   .pipe(plugins.zip(`core-${corePkg.version}.zip`))
-  //   .pipe(gulp.dest('zip'));
-  // const dataPkg = require('./data/package.json');
-  // gulp.src('./dat*/**/*')
-  //   .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
-  //   .pipe(gulp.dest('zip'));
-  // const updaterPkg = require('./updater/package.json');
-  // gulp.src('./update*/**/*')
-  //   .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
-  //   .pipe(gulp.dest('zip'));
-}
-
 gulp.task('build', ['size'], () => {
   Promise.all([
-    asarPack(distDir, './dist/asar/core.asar'),
-    asarPack('data', './dist/asar/data.asar'),
-    asarPack('updater', './dist/asar/updater.asar')
+    asarPack(distDir, './core.asar'),
+    asarPack('data', './data.asar'),
+    asarPack('updater', './updater.asar')
   ]).then(() => {
+    del(distDir);
     const corePkg = require('./core/package.json');
-    gulp.src('./dist/asar/core.asar')
+    gulp.src('./core.asar')
+      .pipe(plugins.rename('core'))
       .pipe(plugins.zip(`core-${corePkg.version}.zip`))
       .pipe(gulp.dest('dist/zip'));
     const dataPkg = require('./data/package.json');
-    gulp.src('./dist/asar/data.asar')
+    gulp.src('./data.asar')
+      .pipe(plugins.rename('data'))
       .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
       .pipe(gulp.dest('dist/zip'));
     const updaterPkg = require('./updater/package.json');
-    gulp.src('./dist/asar/updater.asar')
+    gulp.src('./updater.asar')
+      .pipe(plugins.rename('updater'))
       .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
       .pipe(gulp.dest('dist/zip'));
   });

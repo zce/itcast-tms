@@ -56,6 +56,7 @@
     "gulp-less": "^3.0.5",
     "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.2.2",
+    "gulp-rename": "^1.2.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
