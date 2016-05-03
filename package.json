@@ -6,7 +6,6 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd src && npm install && cd ../updater && npm install && cd ..",
-    "clean:dist": "gulp clean",
     "clean:npm": "rm -rf node_modules && cd src && rm -rf node_modules && cd ../updater && rm -rf node_modules && cd ..",
     "lint": "eslint src updater *.js",
     "main-css": "cleancss -o src/template/style.min.css src/template/style.css",
