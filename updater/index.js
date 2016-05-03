@@ -55,7 +55,7 @@ function beginUpdate(needs, keys) {
   webContents = mainWindow.webContents;
   return Promise.all(keys.map(key => updater.update(
     needs[key],
-    path.resolve(__dirname, '..','test', key), // !!!!! 自动更新文件位置
+    path.resolve(__dirname, '..', key), // !!!!! 自动更新文件位置
     p => {
       webContents.send('update_progress', p);
       switch (key) {
