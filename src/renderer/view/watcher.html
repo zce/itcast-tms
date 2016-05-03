@@ -48,7 +48,7 @@
           </tr>
           <tr>
             <td>已完成测评人数</td>
-            <td style="color:#f40">{{ data.rated_count }}人（{{ data.class_count - data.leave_count - data.rated_count > 0 ? '还少' + (data.class_count - data.leave_count - data.rated_count) : '超出' + -(data.class_count - data.leave_count - data.rated_count) }}人）</td>
+            <td style="color:#f40">{{ data.rated_count }}人（{{ data.class_count - data.leave_count - data.rated_count >= 0 ? '还少' + (data.class_count - data.leave_count - data.rated_count) : '超出' + -(data.class_count - data.leave_count - data.rated_count) }}人）</td>
           </tr>
           <tr ng-if="data.status">
             <td>测评状态</td>

@@ -30,7 +30,7 @@ const options = {
     send: '邮件发送完成'
   },
   mail: {
-    transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net',
+    transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net?connectionTimeout=3000',
     from: '教学测评系统·传智播客 <pingfen@itcast.cn>'
   },
   allow_student_repeat: false,

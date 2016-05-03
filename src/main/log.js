@@ -2,12 +2,13 @@ const path = require('path');
 const log4js = require('log4js');
 const options = require('./config');
 
+const filename = path.join(options.app_root, 'itcast-tms.log');
 // ===== 日志记录 =====
 log4js.configure({
   appenders: [
     { type: 'console' },
-    { type: 'file', filename: path.join(options.app_root, 'renderer.log'), category: 'renderer' },
-    { type: 'file', filename: path.join(options.app_root, 'main.log'), category: 'main' }
+    { type: 'file', filename: filename, category: 'renderer' },
+    { type: 'file', filename: filename, category: 'main' }
   ]
 });
 

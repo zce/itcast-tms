@@ -18,7 +18,7 @@ function read(uri) {
     const content = buffer.toString('utf8', 4, length + 4);
     return JSON.parse(content);
   } catch (e) {
-    console.info('read file ' + e);
+    // console.info('read file ' + e);
     return null;
   }
 };
@@ -37,7 +37,7 @@ function watch(stamp, callback) {
     if (curr && curr.size && curr.mtime !== prev.mtime) {
       const data = get(stamp);
       data && callback(data);
-      console.log(`『${stamp}』 changed`);
+      // console.log(`『${stamp}』 changed`);
     }
   });
 }

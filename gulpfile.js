@@ -9,14 +9,13 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const del = require('del');
-// const bs = require('browser-sync').create();
 const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
 const plugins = gulpLoadPlugins();
 
 const distDir = 'core';
 
-gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'zip', 'main.log', 'renderer.log']));
+gulp.task('clean', del.bind(null, [distDir, 'cache', 'dist', 'src/renderer/css', 'zip', 'itcast-tms.log', 'npm-debug.log']));
 
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
