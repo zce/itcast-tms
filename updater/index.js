@@ -7,40 +7,17 @@ const updater = require('./updater');
 let mainWindow, webContents;
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ /* x: 0, y: 0, */ width: 600, height: 400, resizable: false, movable: false, frame: false });
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
-  process.env.NODE_ENV !== 'production' && mainWindow.openDevTools({ detach: true });
-  mainWindow.on('closed', () => mainWindow = null);
-  webContents = mainWindow.webContents;
-  beginUpdate();
-});
 
-
-function beginUpdate() {
   let updater_updated = false;
   updater
     .check()
     .then(needs => {
-      return Promise.all(Object.keys(needs)
-        .map(key => updater.update(
-          needs[key],
-          path.resolve(__dirname, '..', key),
-          p => {
-            webContents.send('update_progress', p);
-            switch (key) {
-              case 'core':
-              case 'src':
-                webContents.send('update_message', '正在更新系统内核！');
-                break;
-              case 'data':
-                webContents.send('update_message', '正在更新系统数据！');
-                break;
-              case 'updater':
-                updater_updated = true;
-                webContents.send('update_message', '正在更新系统更新器！');
-                break;
-            }
-          })));
+      const keys = Object.keys(needs);
+      if (!(keys && keys.length)) {
+        // 不需要需要更新
+        return Promise.reject(new Error('不需要需要更新'));
+      }
+      return beginUpdate();
     })
     .then(files => {
       console.log('更新成功', files.toString());
@@ -57,6 +34,37 @@ function beginUpdate() {
     .catch(error => {
       console.error(error);
       require(`../${process.env.CORE_PACKAGE}`);
-      mainWindow.close();
+      mainWindow && mainWindow.close();
     });
+
+});
+
+
+function beginUpdate() {
+  // 窗口开始更新
+  mainWindow = new BrowserWindow({ /* x: 0, y: 0, */ width: 600, height: 400, resizable: false, movable: false, frame: false });
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  process.env.NODE_ENV !== 'production' && mainWindow.openDevTools({ detach: true });
+  mainWindow.on('closed', () => mainWindow = null);
+  webContents = mainWindow.webContents;
+  return Promise.all(
+    .map(key => updater.update(
+      needs[key],
+      path.resolve(__dirname, '..', 'test', key),
+      p => {
+        webContents.send('update_progress', p);
+        switch (key) {
+          case 'core':
+          case 'src':
+            webContents.send('update_message', '正在更新系统内核！');
+            break;
+          case 'data':
+            webContents.send('update_message', '正在更新系统数据！');
+            break;
+          case 'updater':
+            updater_updated = true;
+            webContents.send('update_message', '正在更新系统更新器！');
+            break;
+        }
+      })));
 }

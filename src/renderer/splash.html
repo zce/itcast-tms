@@ -69,11 +69,13 @@
 </head>
 
 <body>
-  <div class="input-group">
-    <label for="token" class="addon">口令</label>
-    <input type="password" id="token" class="field" placeholder="请输入密码">
-    <button id="btn" class="addon">开始使用</button>
-  </div>
+  <form action="#">
+    <div class="input-group">
+      <label for="token" class="addon">口令</label>
+      <input type="password" id="token" class="field" placeholder="请输入密码">
+      <button type="submit" id="btn" class="addon">开始使用</button>
+    </div>
+  </form>
   <script src="js/common.js"></script>
   <script>
     (function(window, document) {
@@ -83,7 +85,7 @@
       const btn = document.getElementById('btn');
       const token = document.getElementById('token');
       btn.addEventListener('click', function(e) {
-        if(!token.value){
+        if (!token.value) {
           alert('请输入操作口令！');
           return false;
         }
@@ -94,6 +96,7 @@
           return false;
         }
         window.location = './index.html';
+        return false;
       });
     })(window, document);
   </script>
