@@ -9,6 +9,7 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const del = require('del');
+const asar = require('asar');
 const electron = require('electron-prebuilt')
 const spawn = require('child_process').spawn;
 const plugins = gulpLoadPlugins();
@@ -66,7 +67,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest(distDir));
 });
 
-gulp.task('build', ['html', 'extras'], () => {
+gulp.task('size', ['html', 'extras'], () => {
   return gulp.src(distDir + '/**/*.*')
     .pipe(plugins.size({
       title: 'build',
@@ -75,25 +76,50 @@ gulp.task('build', ['html', 'extras'], () => {
     .pipe(gulp.dest(distDir));
 });
 
+const asarPack = (src, dest) => new Promise((resolve, reject) => {
+  asar.createPackage(src, dest, resolve);
+});
+
+const zip = () => {
+  // const corePkg = require('./core/package.json');
+  // gulp.src('./cor*/**/*')
+  //   .pipe(plugins.zip(`core-${corePkg.version}.zip`))
+  //   .pipe(gulp.dest('zip'));
+  // const dataPkg = require('./data/package.json');
+  // gulp.src('./dat*/**/*')
+  //   .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
+  //   .pipe(gulp.dest('zip'));
+  // const updaterPkg = require('./updater/package.json');
+  // gulp.src('./update*/**/*')
+  //   .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
+  //   .pipe(gulp.dest('zip'));
+}
+
+gulp.task('build', ['size'], () => {
+  Promise.all([
+    asarPack(distDir, './dist/asar/core.asar'),
+    asarPack('data', './dist/asar/data.asar'),
+    asarPack('updater', './dist/asar/updater.asar')
+  ]).then(() => {
+    const corePkg = require('./core/package.json');
+    gulp.src('./dist/asar/core.asar')
+      .pipe(plugins.zip(`core-${corePkg.version}.zip`))
+      .pipe(gulp.dest('dist/zip'));
+    const dataPkg = require('./data/package.json');
+    gulp.src('./dist/asar/data.asar')
+      .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
+      .pipe(gulp.dest('dist/zip'));
+    const updaterPkg = require('./updater/package.json');
+    gulp.src('./dist/asar/updater.asar')
+      .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
+      .pipe(gulp.dest('dist/zip'));
+  });
+});
+
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-
-gulp.task('zip', () => {
-  const corePkg = require('./core/package.json');
-  gulp.src('./cor*/**/*')
-    .pipe(plugins.zip(`core-${corePkg.version}.zip`))
-    .pipe(gulp.dest('zip'));
-  const dataPkg = require('./data/package.json');
-  gulp.src('./dat*/**/*')
-    .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
-    .pipe(gulp.dest('zip'));
-  const updaterPkg = require('./updater/package.json');
-  gulp.src('./update*/**/*')
-    .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
-    .pipe(gulp.dest('zip'));
-});
 
 
 gulp.task('watch', ['less'], () => {

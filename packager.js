@@ -24,7 +24,7 @@ const electron_version = argv.version || argv.v;
 const use_asar = argv.asar || argv.a || false;
 const build_all_platform = argv.all || false;
 
-const out_dir = 'dist';
+const out_dir = 'dist/releases';
 
 const OPTIONS = {
   'dir': '.',
