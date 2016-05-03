@@ -2,11 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const utils = require('./main/utils');
 
+const data_root = path.resolve(__dirname, '..', process.env.DATA_ROOT);
 const options = {
   // 数据文件所在目录
-  data_root: path.resolve(__dirname, '../data'),
+  data_root: data_root,
   // 数据文件版本
-  data_version: require('../data/package.json').version,
+  data_version: require(path.resolve(data_root, 'package.json')).version,
   // 临时目录
   template_root: path.resolve(__dirname, 'template'),
   // 日志文件目录
