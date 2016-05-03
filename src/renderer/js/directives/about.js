@@ -19,15 +19,17 @@
     <div class="dialog-window">
       <div class="dialog-text">
         <h4>{{app_name}}</h4>
-        <h5>System: <strong>{{app_version}}</strong> Data: <strong>{{data_version}}</strong></h5>
+        <h6>Core: <strong>v{{core_version}}</strong></h6>
+        <h6>Data: <strong>v{{data_version}}</strong></h6>
+        <h6>Updater: <strong>v{{updater_version}}</strong></h6>
         <p>Copyright &copy; Itcast, Inc. All Rights Reserved.</p>
       </div>
       <div class="dialog-buttons">
         <button class="dialog-button" ng-click="open=false">OK</button>
-        <button class="dialog-button">Cancel</button>
       </div>
     </div>
   </div>`,
+  // <button class="dialog-button">Cancel</button>
       // templateUrl: '',
       replace: true,
       // transclude: true,
@@ -36,8 +38,9 @@
         // scope.open = attributes.open;
         // console.log(attributes);
         scope.app_name = $.options.app_name;
-        scope.app_version = $.options.app_version;
+        scope.core_version = $.options.core_version;
         scope.data_version = $.options.data_version;
+        scope.updater_version = $.options.updater_version;
       }
     };
   }

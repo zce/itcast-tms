@@ -2,12 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const utils = require('./main/utils');
 
+const core_root = path.resolve(__dirname, '..', process.env.CORE_ROOT);
 const data_root = path.resolve(__dirname, '..', process.env.DATA_ROOT);
+const updater_root = path.resolve(__dirname, '..', process.env.UPDATER_ROOT);
+
 const options = {
+  core_version:require(path.resolve(core_root, 'package.json')).version,
+  data_version: require(path.resolve(data_root, 'package.json')).version,
+  updater_version: require(path.resolve(updater_root, 'package.json')).version,
   // 数据文件所在目录
   data_root: data_root,
-  // 数据文件版本
-  data_version: require(path.resolve(data_root, 'package.json')).version,
   // 临时目录
   template_root: path.resolve(__dirname, 'template'),
   // 日志文件目录
