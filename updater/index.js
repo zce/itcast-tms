@@ -22,37 +22,30 @@ function beginUpdate() {
     .check()
     .then(needs => {
       return Promise.all(Object.keys(needs)
-        .map(key => {
-          const dist = key === 'core' ? process.env.CORE_PACKAGE : key;
-          return updater.update(
-            needs[key],
-            path.resolve(__dirname, '..', dist),
-            p => {
-              webContents.send('update_progress', p);
-              switch (key) {
-                case 'core':
-                case 'src':
-                  webContents.send('update_message', '正在更新系统内核！');
-                  break;
-                case 'data':
-                  webContents.send('update_message', '正在更新系统数据！');
-                  break;
-                case 'updater':
-                  updater_updated = true;
-                  webContents.send('update_message', '正在更新系统更新器！');
-                  break;
-              }
-            })
-        }));
+        .map(key => updater.update(
+          needs[key],
+          path.resolve(__dirname, '..', key),
+          p => {
+            webContents.send('update_progress', p);
+            switch (key) {
+              case 'core':
+              case 'src':
+                webContents.send('update_message', '正在更新系统内核！');
+                break;
+              case 'data':
+                webContents.send('update_message', '正在更新系统数据！');
+                break;
+              case 'updater':
+                updater_updated = true;
+                webContents.send('update_message', '正在更新系统更新器！');
+                break;
+            }
+          })));
     })
     .then(files => {
       console.log('更新成功', files.toString());
       if (updater_updated) {
-        // for (let key in require.cache) {
-        //   delete require.cache[key];
-        // }
-        // console.log('重新启动');
-        webContents.send('update_message', '更新成功，请重新启动！');
+        webContents.send('update_done', '更新成功，请重新启动！');
         setTimeout(function() {
           mainWindow.close();
         }, 3000);

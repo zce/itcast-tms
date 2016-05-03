@@ -97,20 +97,26 @@
     <progress id="progress" class="progress progress-tms" value="0"></progress>
   </div>
   <script>
-    const {
-      ipcRenderer
-    } = require('electron');
-    const progressElement = document.getElementById('progress');
-    const messageElement = document.getElementById('message');
-    // let updating = false;
-    ipcRenderer.on('update_progress', (event, progress) => {
-      // updating ? (updating = true) : (progressElement.style.display = 'block');
-      progressElement.value = progress;
-      // progressElement.value >= 1 && (updating = false);
-    });
-    ipcRenderer.on('update_message', (event, message) => {
-      messageElement.innerHTML = message;
-    });
+    (function(window, document) {
+      const {
+        ipcRenderer
+      } = require('electron');
+      const progressElement = document.getElementById('progress');
+      const messageElement = document.getElementById('message');
+      // let updating = false;
+      ipcRenderer.on('update_progress', (event, progress) => {
+        // updating ? (updating = true) : (progressElement.style.display = 'block');
+        progressElement.value = progress;
+        // progressElement.value >= 1 && (updating = false);
+      });
+      ipcRenderer.on('update_message', (event, message) => {
+        messageElement.innerHTML = message;
+      });
+      ipcRenderer.on('update_done', (event, message) => {
+        messageElement.innerHTML = message;
+        document.body.style.backgroundImage = 'none';
+      });
+    })(window, document);
   </script>
 </body>
 
