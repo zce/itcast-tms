@@ -84,6 +84,7 @@
       const btn = document.getElementById('btn');
       const token = document.getElementById('token');
       btn.addEventListener('click', function(e) {
+        e.preventDefault();
         if (!token.value) {
           alert('请输入操作口令！');
           return false;
