@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const options = require('./config');
 const storage = require('../common/storage');
+const logger = require('../common/logger').main;
 
 const app = express();
 
@@ -75,7 +76,6 @@ app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
     return false;
   }
 
-  // console.log(req.clientIp);
   if (data.rated_info[req.clientIp] && !options.allow_student_repeat) {
     res.render('rated', { error: true, message: '你已经评价过了，不可以重复评价！' });
     return false;
@@ -83,7 +83,6 @@ app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 
   // 存储
   const info = convert(stamp, req.body);
-  // console.log(info);
   if (!info) {
     res.render('rated', { error: true, stamp: stamp, message: '同学，请完整勾选表单选项！' });
     return false;
@@ -91,8 +90,6 @@ app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 
   data.rated_info[req.clientIp] = info;
   data.rated_count++;
-
-  // console.log(data);
 
   storage.set(stamp, data);
 
@@ -131,22 +128,13 @@ function convert(stamp, body) {
 }
 
 
-
-
-
-
-
-
-
-
 // 启动服务
-const server = options.server = app.listen(options.server_port, options.server_ip, err => {
-  if (err) {
-    options.logger.main.error(err);
+const server = options.server = app.listen(options.server_port, options.server_ip, error => {
+  if (error) {
+    logger.fatal(error);
     return false;
   }
   const link = `http://${server.address().address}:${server.address().port}/`;
-  // options.logger.main.info(`server run @ ${link}`);
   console.log(`server run @ ${link}`);
   options.server_link = link;
 });

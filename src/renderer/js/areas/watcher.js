@@ -131,14 +131,14 @@
           // 发送邮件
           $.mail($scope.data)
             .then(message => {
-              $.logger.debug(message);
+              $.logger.info(message);
               $scope.data.status = $.options.status_keys.send;
               save();
               // alert('邮件发送成功\n' + JSON.stringify(message));
               sending = false;
             })
             .catch(error => {
-              $.logger.error(error);
+              $.logger.fatal(error);
               if (error.code == 'ENOTFOUND' && error.syscall == 'getaddrinfo') {
                 alert(`网络连接失败，请确认网络正常`);
               } else if (error.responseCode == 550 && error.code == 'EENVELOPE') {

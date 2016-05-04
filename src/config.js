@@ -18,14 +18,14 @@ const options = {
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
   storage_ext: '.tms',
-  //
+  // 文件戳长度
   stamp_length: 8,
   // 服务器信息
   main_url: `file://${path.resolve(__dirname, 'renderer')}/${ process.env.NODE_ENV === 'production' ? 'splash' : 'index' }.html`,
   // 服务IP
   server_ip: utils.getLocalAreaIp(),
   // 服务Port
-  server_port: 8080,
+  server_port: 0,
   // 测评状态
   status_keys: {
     initial: '尚未开始测评',
@@ -44,6 +44,9 @@ const options = {
   report_file_token: 'wedn.net',
   token: 'itcast'
 };
+
+console.log(options);
+console.log(__dirname);
 
 // ===== 目录不存在 则创建 =====
 fs.existsSync(options.storage_root) || fs.mkdir(options.storage_root);

@@ -2,7 +2,7 @@
   "name": "itcast-tms",
   "version": "4.0.0",
   "productName": "Itcast TMS",
-  "description": "Itcast teaching management by iceStone",
+  "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC"

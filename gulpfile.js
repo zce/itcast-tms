@@ -6,17 +6,32 @@
  */
 'use strict';
 
+const spawn = require('child_process').spawn;
+
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const del = require('del');
 const asar = require('asar');
 const electron = require('electron-prebuilt')
-const spawn = require('child_process').spawn;
+
 const plugins = gulpLoadPlugins();
 
-const build_dir = '.tmp';
+const buildTemp = '.tmp';
 
-gulp.task('clean', del.bind(null, [build_dir, 'cache', 'dist', 'src/renderer/css', 'core.asar', 'data.asar', 'updater.asar', 'itcast-tms.log', 'npm-debug.log']));
+gulp.task('clean', del.bind(null, [
+  buildTemp,
+  'build/cache',
+  'build/core.asar',
+  'build/data.asar',
+  'build/itcast-tms.log',
+  'build/updater.asar',
+  'cache',
+  'dist/packages',
+  'itcast-log',
+  'src/renderer/css',
+  'itcast-tms.log',
+  'npm-debug.log'
+]));
 
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
@@ -25,7 +40,7 @@ gulp.task('less', () => {
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/renderer/css'))
     .pipe(plugins.livereload());
-  // .pipe(bs.stream({ match: '**/*.css' }));
+    // .pipe(server.reload());
 });
 
 gulp.task('useref', ['less'], () => {
@@ -37,11 +52,11 @@ gulp.task('useref', ['less'], () => {
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano()))
-    .pipe(gulp.dest(build_dir + '/renderer'));
+    .pipe(gulp.dest(buildTemp + '/renderer'));
 });
 
 gulp.task('html', ['useref'], () => {
-  return gulp.src(build_dir + '/renderer/*.html')
+  return gulp.src(buildTemp + '/renderer/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -53,7 +68,7 @@ gulp.task('html', ['useref'], () => {
       minifyCSS: true,
       minifyJS: true,
     }))
-    .pipe(gulp.dest(build_dir + '/renderer'));
+    .pipe(gulp.dest(buildTemp + '/renderer'));
 });
 
 gulp.task('extras', () => {
@@ -64,16 +79,16 @@ gulp.task('extras', () => {
     '!src/renderer/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest(build_dir));
+  }).pipe(gulp.dest(buildTemp));
 });
 
 gulp.task('size', ['html', 'extras'], () => {
-  return gulp.src(build_dir + '/**/*.*')
+  return gulp.src(buildTemp + '/**/*.*')
     .pipe(plugins.size({
       title: 'build',
       gzip: true
     }))
-    .pipe(gulp.dest(build_dir));
+    .pipe(gulp.dest(buildTemp));
 });
 
 const asarPack = (src, dest) => new Promise((resolve, reject) => {
@@ -82,31 +97,31 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
 
 gulp.task('build', ['size'], () => {
   Promise.all([
-    asarPack(build_dir, './build/core.asar'),
+    asarPack(buildTemp, './build/core.asar'),
     asarPack('data', './build/data.asar'),
     asarPack('updater', './build/updater.asar')
   ]).then(() => {
-    const corePkg = require(`./${build_dir}/package.json`);
+    const corePkg = require(`./${buildTemp}/package.json`);
     gulp.src('./build/core.asar')
       .pipe(plugins.rename('core'))
       .pipe(plugins.zip(`core-${corePkg.version}.zip`))
-      .pipe(gulp.dest('./dist/zip'));
+      .pipe(gulp.dest('./dist/packages'));
     const dataPkg = require('./data/package.json');
     gulp.src('./build/data.asar')
       .pipe(plugins.rename('data'))
       .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
-      .pipe(gulp.dest('./dist/zip'));
+      .pipe(gulp.dest('./dist/packages'));
     const updaterPkg = require('./updater/package.json');
     gulp.src('./build/updater.asar')
       .pipe(plugins.rename('updater'))
       .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
-      .pipe(gulp.dest('./dist/zip'));
+      .pipe(gulp.dest('./dist/packages'));
 
     // copy entry portal
     // gulp.src(['./index.js', './package.json'])
     //   .pipe(gulp.dest('./build'))
 
-    del(build_dir);
+    del(buildTemp);
   });
 });
 

@@ -2,6 +2,7 @@
 const path = require('path');
 const http = require('http');
 const download = require('download');
+const logger = require('./logger');
 
 const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
   // console.time('utils');
@@ -23,14 +24,14 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
   }).on('error', reject);
   request.setTimeout(3000, () => {
     // handle timeout here
-    reject(new Error('request timeout...'));
+    reject(new Error(`request '${uri} timeout! '`));
   });
 });
 
 const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, reject) => {
   download({ extract: true, mode: '755' })
     .get(uri)
-    .dest(path.resolve(__dirname, '../cache/'))
+    .dest(path.resolve(__dirname, '../../cache/'))
     .use((res, uri, next) => {
       if (!res.headers['content-length']) {
         next();
@@ -44,7 +45,7 @@ const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, r
     // .rename(filename)
     .run((error, files) => {
       if (error) {
-        console.log(`Got file error: ${error.message}`);
+        // console.log(`Got file error: ${error.message}`);
         reject(error);
       } else {
         resolve(files[0]);

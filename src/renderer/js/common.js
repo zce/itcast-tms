@@ -11,11 +11,10 @@
   // $.report = require('../common/report');
   $.storage = require('../common/storage');
 
-  $.logger = $.options.logger.renderer;
+  $.logger = require('../common/logger').renderer;
 
   // $.marked = marked;
-
-
+  //
   window.$ = $;
 }(window.$ || {}));
 

@@ -3,9 +3,9 @@ const utils = require('./utils');
 
 // 读取当前的版本信息
 const packages = {};
-packages['core'] = require(`../${process.env.CORE_ROOT}/package.json`);
-packages['data'] = require(`../${process.env.DATA_ROOT}/package.json`);
-packages['updater'] = require(`../${process.env.UPDATER_ROOT}/package.json`);
+packages['core'] = require(`../../${process.env.CORE_ROOT}/package.json`);
+packages['data'] = require(`../../${process.env.DATA_ROOT}/package.json`);
+packages['updater'] = require(`../../${process.env.UPDATER_ROOT}/package.json`);
 
 const keys = Object.keys(packages);
 

@@ -1,6 +1,7 @@
 cache
 core
 dist
+itcast-log
 node_modules
 src/renderer/css
 *.log

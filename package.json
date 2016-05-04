@@ -2,7 +2,7 @@
   "name": "itcast-tms",
   "version": "4.0.0",
   "productName": "Itcast TMS",
-  "description": "Itcast teaching management by iceStone",
+  "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "scripts": {
     "postinstall": "cd src && npm install && cd ../updater && npm install && cd ..",
@@ -46,6 +46,7 @@
     "concurrently": "^2.0.0",
     "cross-env": "^1.0.7",
     "del": "^2.2.0",
+    "electron-connect": "^0.3.9",
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^0.37.8",
     "eslint": "^2.8.0",

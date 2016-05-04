@@ -10,9 +10,7 @@ const options = require('./config');
 require('./server');
 
 // 日志记录模块
-Object.assign(options, {
-  logger: require('./log')
-});
+// Object.assign(options, {});
 
 global.OPTIONS = options;
 
