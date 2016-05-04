@@ -1,4 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production';
+
 process.env.CORE_ROOT = isProduction ? 'core.asar' : 'src';
 process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data';
 process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater';
@@ -14,7 +15,7 @@ let updater_updated = false;
 
 app.on('ready', () => {
   updater
-    .check()
+    .check() // 检查更新
     .then(needs => {
       const keys = Object.keys(needs);
       if (!(keys && keys.length)) {

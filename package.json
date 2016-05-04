@@ -8,7 +8,7 @@
     "postinstall": "cd src && npm install && cd ../updater && npm install && cd ..",
     "clean:npm": "rm -rf node_modules && cd src && rm -rf node_modules && cd ../updater && rm -rf node_modules && cd ..",
     "lint": "eslint src updater *.js",
-    "main-css": "cleancss -o src/template/style.min.css src/template/style.css",
+    "main-css": "cleancss -o src/static/style.min.css src/static/style.css",
     "predist": "npm run main-css",
     "dist": "gulp",
     "watch": "cross-env NODE_ENV=development gulp watch",

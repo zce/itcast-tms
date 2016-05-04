@@ -6,8 +6,8 @@ const report = require('./report');
 const config = require('../config');
 const { transport, options } = config.mail;
 
-const txt_tpl = path.join(config.template_root, 'txt.xtpl');
-const mail_tpl = path.join(config.template_root, 'mail.xtpl');
+const txt_tpl = path.join(config.static_root, 'txt.xtpl');
+const mail_tpl = path.join(config.static_root, 'mail.xtpl');
 
 const Transport = nodemailer.createTransport(config.mail.transport);
 

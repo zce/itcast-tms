@@ -22,6 +22,7 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
     }).on('error', reject);
     res.resume();
   }).on('error', reject);
+  // 超时操作
   request.setTimeout(3000, () => {
     // handle timeout here
     reject(new Error(`request '${uri} timeout! '`));

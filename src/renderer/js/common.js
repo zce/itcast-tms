@@ -7,14 +7,13 @@
   $.options = $.electron.remote.getGlobal('OPTIONS') || {};
 
   $.data = require('../common/data');
+
   $.mail = require('../common/mail');
-  // $.report = require('../common/report');
+
   $.storage = require('../common/storage');
 
   $.logger = require('../common/logger').renderer;
 
-  // $.marked = marked;
-  //
   window.$ = $;
 }(window.$ || {}));
 
