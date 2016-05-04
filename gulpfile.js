@@ -29,7 +29,10 @@ gulp.task('clean', del.bind(null, [
   'dist/packages',
   'itcast-log',
   'src/renderer/css',
+  'core.asar',
+  'data.asar',
   'itcast-tms.log',
+  'updater.asar',
   'npm-debug.log'
 ]));
 
