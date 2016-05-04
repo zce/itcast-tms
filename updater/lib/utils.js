@@ -31,7 +31,9 @@ const fetchUrl = exports.fetchUrl = uri => new Promise((resolve, reject) => {
 const fetchFile = exports.fetchFile = (uri, progress) => new Promise((resolve, reject) => {
   download({ extract: true, mode: '755' })
     .get(uri)
+    // 输出到下载缓存目录
     .dest(path.resolve(__dirname, '../../cache/'))
+    // 监视下载进度
     .use((res, uri, next) => {
       if (!res.headers['content-length']) {
         next();

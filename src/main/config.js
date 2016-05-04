@@ -1,6 +1,6 @@
 const { app } = require('electron');
 
-const path = require('path');
+// const path = require('path');
 const config = require('../config');
 
 const options = {};

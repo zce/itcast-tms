@@ -11,9 +11,9 @@ const logger = require('../common/logger').main;
 const app = express();
 
 app.set('view engine', 'xtpl');
-app.set('views', options.template_root);
+app.set('views', options.static_root);
 
-app.use(express.static(options.template_root));
+app.use(express.static(options.static_root));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {

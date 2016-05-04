@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const utils = require('./main/utils');
 
@@ -12,8 +11,8 @@ const options = {
   updater_version: require(path.resolve(updater_root, 'package.json')).version,
   // 数据文件所在目录
   data_root: data_root,
-  // 临时目录
-  template_root: path.resolve(__dirname, 'template'),
+  // 服务端静态文件根目录
+  static_root: path.resolve(__dirname, 'static'),
   // 日志文件目录
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
@@ -44,12 +43,5 @@ const options = {
   report_file_token: 'wedn.net',
   token: 'itcast'
 };
-
-console.log(options);
-console.log(__dirname);
-
-// ===== 目录不存在 则创建 =====
-fs.existsSync(options.storage_root) || fs.mkdir(options.storage_root);
-// fs.existsSync(options.temp_root) || fs.mkdir(options.temp_root);
 
 module.exports = options;

@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const options = require('./config');
 
 let mainWindow;
 
@@ -41,7 +42,7 @@ function createWindow() {
   process.env.NODE_ENV !== 'production' && mainWindow.openDevTools({ detach: true });
 
   // and load the index.html of the app.
-  mainWindow.loadURL(OPTIONS.main_url);
+  mainWindow.loadURL(options.main_url);
 
   mainWindow.show();
 

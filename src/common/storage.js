@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const options = require('../config');
 
+// ===== 目录不存在 则创建 =====
+fs.existsSync(options.storage_root) || fs.mkdir(options.storage_root);
+// fs.existsSync(options.temp_root) || fs.mkdir(options.temp_root);
+
+
 function write(uri, value) {
   value = JSON.stringify(value);
   const length = Buffer.byteLength(value); // new Buffer(value).length;
