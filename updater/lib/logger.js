@@ -4,7 +4,7 @@ const log4js = require('log4js');
 log4js.configure({
   appenders: [
     { type: 'console' },
-    { type: 'file', filename: path.resolve(__dirname,'../..', 'itcast-tms.log'), category: 'updater' }
+    { type: 'file', filename: path.resolve(__dirname,'../../..', 'itcast-tms.log'), category: 'updater' }
   ]
 });
 

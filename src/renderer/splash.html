@@ -5,15 +5,85 @@
   <meta charset="UTF-8">
   <title>Teaching Management « Itcast</title>
   <style>
+    .icon-button {
+      -webkit-app-region: no-drag;
+      background-color: transparent;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      cursor: pointer;
+      height: 36px;
+      margin: 0 10px;
+      width: 36px;
+      padding: 0;
+    }
+
+    .icon-button:hover,
+    .icon-button:active,
+    .icon-button.selected {
+      border: 1px solid rgba(0, 0, 0, .2);
+      color: #333;
+      opacity: 0.8;
+    }
+
+    .icon-button:focus {
+      outline: 0
+    }
+
+    .icon-button.minimize {
+      background-image: url('img/minimize.svg');
+    }
+
+    .icon-button.maximize {
+      background-image: url('img/maximize.svg');
+    }
+
+    .icon-button.close {
+      background-image: url('img/close.svg');
+    }
+
     html,
     body {
       height: 100%;
       width: 100%;
       display: flex;
+      flex-direction: column;
       margin: 0;
+      -webkit-app-region: drag;
+      -webkit-user-select: none;
+    }
+
+    .titlebar {
+      display: flex;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+      height: 45px;
+      min-height: 45px;
+      line-height: normal;
+      padding-left: 1px;
+      position: relative;
+      text-align: center;
+      -webkit-app-region: drag;
+    }
+
+    .title {
+      display: block;
+      flex: 1;
+      font-size: 15px;
+      max-width: 100%;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      transition: all 200ms ease-in-out;
+      white-space: nowrap;
+    }
+
+    form {
+      display: flex;
+      flex: 1;
       align-items: center;
       justify-content: center;
-      -webkit-app-region: drag;
     }
 
     .input-group {
@@ -57,6 +127,7 @@
 
     button.addon {
       background-color: #fff;
+      cursor: pointer;
     }
 
     button.addon:hover {
@@ -71,6 +142,12 @@
 </head>
 
 <body>
+  <header class="titlebar">
+    <span class="title"></span>
+    <button class="icon-button minimize" title="最小化" onclick="action.window('minimize')"></button>
+    <button class="icon-button maximize" title="最大化" onclick="action.window('maximize')"></button>
+    <button class="icon-button close" title="关闭" onclick="action.window('close')"></button>
+  </header>
   <form action="#">
     <div class="input-group">
       <label for="token" class="addon">口令</label>
@@ -82,6 +159,7 @@
     (function(window, document) {
       'use strict';
       const electron = require('electron');
+      const mainWindow = electron.remote.BrowserWindow.getFocusedWindow();
       const options = electron.remote.getGlobal('OPTIONS');
       const btn = document.getElementById('btn');
       const token = document.getElementById('token');
@@ -100,6 +178,14 @@
         window.location = './index.html';
         return false;
       });
+      let max = 'unmaximize';
+      window.action = {
+        window: function(action) {
+          if (action === 'maximize')
+            action = mainWindow.isMaximized() ? 'unmaximize' : 'maximize';
+          mainWindow[action]();
+        }
+      }
     })(window, document);
   </script>
 </body>

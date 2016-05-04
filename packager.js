@@ -10,7 +10,6 @@ const path = require('path');
 const os = require('os');
 const exec = require('child_process').exec;
 
-const archiver = require('archiver');
 const packager = require('electron-packager');
 const argv = require('minimist')(process.argv.slice(2));
 

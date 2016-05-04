@@ -36,7 +36,7 @@
     // ===== sidebar =====
     this.sidebarOpened = false;
     $timeout(() => {
-      this.sidebarOpened = Setting.get('sidebar_opened');
+      this.sidebarOpened = Setting.get('sidebar_opened') || true;
     }, 500);
     this.toggleSidebar = () => {
       this.sidebarOpened = !this.sidebarOpened;
