@@ -1,12 +1,17 @@
 const path = require('path');
 const utils = require('./main/utils');
 
+const isProduction = process.env.NODE_ENV === 'production';
+process.env.CORE_ROOT = process.env.CORE_ROOT || (isProduction ? 'core.asar' : 'src');
+process.env.DATA_ROOT = process.env.DATA_ROOT || (isProduction ? 'data.asar' : 'data');
+process.env.UPDATER_ROOT = process.env.UPDATER_ROOT || (isProduction ? 'updater.asar' : 'updater');
+
 const core_root = path.resolve(__dirname, '..', process.env.CORE_ROOT);
 const data_root = path.resolve(__dirname, '..', process.env.DATA_ROOT);
 const updater_root = path.resolve(__dirname, '..', process.env.UPDATER_ROOT);
 
 const options = {
-  core_version:require(path.resolve(core_root, 'package.json')).version,
+  core_version: require(path.resolve(core_root, 'package.json')).version,
   data_version: require(path.resolve(data_root, 'package.json')).version,
   updater_version: require(path.resolve(updater_root, 'package.json')).version,
   // 数据文件所在目录

@@ -38,13 +38,11 @@ function get(stamp) {
 
 function watch(stamp, callback) {
   fs.watchFile(path.join(options.storage_root, stamp + options.storage_ext), { interval: 500 }, (curr, prev) => {
-    // console.log(curr);
     if (curr && curr.size && curr.mtime !== prev.mtime) {
       const data = get(stamp);
       data && callback(data);
-      // console.log(`『${stamp}』 changed`);
     }
   });
 }
 
-module.exports = { set: set, get: get, watch: watch };
+module.exports = { write: write, read: read, set: set, get: get, watch: watch };
