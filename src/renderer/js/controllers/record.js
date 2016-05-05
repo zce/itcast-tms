@@ -57,5 +57,12 @@
 
       return false
     }
+
+    this.reveal = (name, e) => {
+      e.preventDefault()
+      e.stopPropagation()
+
+      this.records[name] && $.electron.shell.showItemInFolder(this.records[name])
+    }
   }
 }(angular, $))

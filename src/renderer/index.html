@@ -29,9 +29,10 @@
         <h3>测评记录</h3>
         <div class="scroll">
           <ul ng-controller="RecordController as record">
-            <li title="{{ value }}" draggable="true" ng-repeat="(key, value) in record.records" ng-class="{ active: current_stamp === key }" ng-click="root.go('/watcher/' + key)">
-              <span class="name">{{ key + root.options.storage_ext }}</span>
-              <span class="close" ng-click="record.remove(key, $event)"></span>
+            <li title="{{ fullpath }}" draggable="true" ng-repeat="(name, fullpath) in record.records" ng-class="{ active: current_stamp === name }" ng-click="root.go('/watcher/' + name)">
+              <span class="name">{{ name + root.options.storage_ext }}</span>
+              <span class="reveal" title="在文件夹中找到“{{ name + root.options.storage_ext }}”" ng-click="record.reveal(name, $event)"></span>
+              <span class="close" title="删除“{{ name + root.options.storage_ext }}”" ng-click="record.remove(name, $event)"></span>
             </li>
           </ul>
         </div>
