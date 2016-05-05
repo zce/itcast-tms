@@ -4,22 +4,22 @@
  * @Last Modified by:   iceStone
  * @Last Modified time: 2015-12-30 22:10:58
  */
-'use strict';
+'use strict'
 
-const spawn = require('child_process').spawn;
+const spawn = require('child_process').spawn
 
-const gulp = require('gulp');
-const gulpLoadPlugins = require('gulp-load-plugins');
+const gulp = require('gulp')
+const gulpLoadPlugins = require('gulp-load-plugins')
 
-const Promise = require('bluebird');
-const fs = Promise.promisifyAll(require('fs-extra'));
-const del = require('del');
-const asar = require('asar');
+const Promise = require('bluebird')
+const fs = Promise.promisifyAll(require('fs-extra'))
+const del = require('del')
+const asar = require('asar')
 const electron = require('electron-prebuilt')
 
-const plugins = gulpLoadPlugins();
-// const buildTemp = '.tmp';
-const repo = 'http://git.oschina.net/micua/tms/raw/master/';
+const plugins = gulpLoadPlugins()
+// const buildTemp = '.tmp'
+const repo = 'http://git.oschina.net/micua/tms/raw/master/'
 
 /**
  * 清理临时文件
@@ -40,7 +40,7 @@ gulp.task('clean', del.bind(null, [
   './itcast-tms.log',
   './updater.asar',
   './npm-debug.log'
-]));
+]))
 
 /**
  * 编译less文件
@@ -51,8 +51,8 @@ gulp.task('less', () => {
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest('./src/renderer/css'))
-    .pipe(plugins.livereload());
-});
+    .pipe(plugins.livereload())
+})
 
 /**
  * 行内编译任务
@@ -62,8 +62,8 @@ gulp.task('useref', ['less'], () => {
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano()))
-    .pipe(gulp.dest('./core/renderer'));
-});
+    .pipe(gulp.dest('./core/renderer'))
+})
 
 /**
  * HTML压缩
@@ -81,8 +81,8 @@ gulp.task('html', ['useref'], () => {
       minifyCSS: true,
       minifyJS: true,
     }))
-    .pipe(gulp.dest('./core/renderer'));
-});
+    .pipe(gulp.dest('./core/renderer'))
+})
 
 /**
  * 额外文件拷贝到目标路径
@@ -95,8 +95,8 @@ gulp.task('extras', () => {
     '!./src/renderer/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest('./core'));
-});
+  }).pipe(gulp.dest('./core'))
+})
 
 /**
  * 文件GZIP压缩
@@ -107,78 +107,79 @@ gulp.task('size', ['html', 'extras'], () => {
       title: 'build',
       gzip: true
     }))
-    .pipe(gulp.dest('./core'));
-});
+    .pipe(gulp.dest('./core'))
+})
 
 /**
  * ASAR 打包任务
  */
 const asarPack = (src, dest) => new Promise((resolve, reject) => {
-  asar.createPackage(src, dest, resolve);
-});
+  asar.createPackage(src, dest, resolve)
+})
 
 /**
  * 编译归档文件和压缩包
  */
 gulp.task('build', ['size'], () => {
 
-  const items = ['core', 'data', 'updater'];
+  const items = ['core', 'data', 'updater']
 
   Promise.all(items.map(item => asarPack(`./${item}`, `./build/${item}.asar`)))
     .then(() => {
-      console.log('pack to asar done...');
-      return fs.mkdirs('./dist/latest');
+      console.log('pack to asar done...')
+      return fs.mkdirs('./dist/latest')
     })
     .then(() => {
-      const index = {};
+
+      const index = {}
       const tasks = items.map(item => {
-        const pkg = require(`./${item}/package.json`);
+        const pkg = require(`./${item}/package.json`)
         gulp.src(`./build/${item}.asar`)
           .pipe(plugins.rename(item))
           .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
-          .pipe(gulp.dest('./dist/packages'));
+          .pipe(gulp.dest('./dist/packages'))
 
-        index[item] = `${repo}latest/${item}.json`;
+        index[item] = `${repo}latest/${item}.json`
         return fs.writeJson(`./dist/latest/${item}.json`, {
           url: `${repo}packages/${item}-${pkg.version}.zip`,
           name: pkg.version,
           notes: pkg.notes || pkg.description || '',
           pub_date: new Date()
-        });
-      });
-      return Promise.all(tasks.concat(fs.writeJson(`./dist/latest/index.json`, index)));
+        })
+      })
+
+      return Promise.all(tasks.concat(fs.writeJson(`./dist/latest/index.json`, index)))
     })
     .then(() => {
-      console.log('latest manifest file done');
-      del('./core');
+      console.log('latest manifest file done')
+      del('./core')
     })
     .catch(error => {
-      console.log(error);
-    });
-});
+      console.log(error)
+    })
+})
 
 gulp.task('default', ['clean'], () => {
-  gulp.start('build');
-});
-
+  gulp.start('build')
+})
 
 /**
  * 监视文件变化自动刷新
  */
 gulp.task('watch', ['less'], () => {
-  plugins.livereload.listen( /* { basePath: 'src' } */ );
+  plugins.livereload.listen( /* { basePath: 'src' } */)
 
   gulp.watch([
     './src/renderer/**/*.html',
     './src/renderer/**/*.js'
   ]).on('change', e => {
-    plugins.livereload.changed(e.path);
-  });
+    plugins.livereload.changed(e.path)
+  })
 
-  gulp.watch('./src/renderer/less/**/*.less', ['less']);
-});
+  gulp.watch('./src/renderer/less/**/*.less', ['less'])
+})
 
 gulp.task('test', ['watch'], () => {
-  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-  spawn(electron, ['./']);
-});
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+  spawn(electron, ['./'])
+})
