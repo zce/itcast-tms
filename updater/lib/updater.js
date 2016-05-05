@@ -1,4 +1,5 @@
 'use strict'
+const path = require('path')
 const { app, BrowserWindow } = require('electron')
 const utils = require('./utils')
 const logger = require('./logger')
@@ -9,10 +10,15 @@ process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data'
 process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater'
 
 // 读取当前的版本信息
+// const packages = {
+//   core: {version:'4.0.0-alpha1'}, // require(`../../${process.env.CORE_ROOT}/package.json`),
+//   data: {version:'20160503'}, // require(`../../${process.env.DATA_ROOT}/package.json`),
+//   updater: {version:'1.0.0-alpha1'}, // require(`../../${process.env.UPDATER_ROOT}/package.json`)
+// }
 const packages = {
-  core: require(`../../${process.env.CORE_ROOT}/package.json`),
-  data: require(`../../${process.env.DATA_ROOT}/package.json`),
-  updater: require(`../../${process.env.UPDATER_ROOT}/package.json`)
+  core: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.CORE_ROOT}`)),
+  data: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.DATA_ROOT}`)),
+  updater: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.UPDATER_ROOT}`))
 }
 const packagesKeys = Object.keys(packages)
 
@@ -23,14 +29,14 @@ const check = root => new Promise((resolve, reject) => {
     .then(content => {
       // 分别获取远端信息
       const feed = JSON.parse(content)
-      return Promise.all(packagesKeys.map(key => utils.fetchUrl(`${feed[key]}?version=${packages[key].version}`)))
+      return Promise.all(packagesKeys.map(key => utils.fetchUrl(`${feed[key]}?version=${packages[key]}`)))
     })
     .then(contents => {
       // 比对本地版本校验是否需要更新
       const needs = {}
       packagesKeys.forEach((key, i) => {
         const item = JSON.parse(contents[i])
-        if (packages[key].version !== item.name)
+        if (packages[key] !== item.name)
           needs[key] = item.url
       })
       return needs

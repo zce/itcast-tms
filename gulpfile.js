@@ -6,6 +6,7 @@
  */
 'use strict'
 
+const crypto = require('crypto')
 const spawn = require('child_process').spawn
 
 const gulp = require('gulp')
@@ -117,6 +118,13 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
   asar.createPackage(src, dest, resolve)
 })
 
+const getFileStamp = (filename, type) => {
+  type = type || 'sha1'
+  const buffer = fs.readFileSync(filename)
+  var hash = crypto.createHash(type)
+  hash.update(buffer)
+  return hash.digest('hex')
+}
 /**
  * 编译归档文件和压缩包
  */
@@ -142,7 +150,7 @@ gulp.task('build', ['size'], () => {
         index[item] = `${repo}latest/${item}.json`
         return fs.writeJson(`./dist/latest/${item}.json`, {
           url: `${repo}packages/${item}-${pkg.version}.zip`,
-          name: pkg.version,
+          name: getFileStamp(`./build/${item}.asar`), // pkg.version,
           notes: pkg.notes || pkg.description || '',
           pub_date: new Date()
         })
