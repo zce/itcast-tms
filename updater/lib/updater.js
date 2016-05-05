@@ -16,9 +16,9 @@ process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater'
 //   updater: {version:'1.0.0-alpha1'}, // require(`../../${process.env.UPDATER_ROOT}/package.json`)
 // }
 const packages = {
-  core: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.CORE_ROOT}`)),
-  data: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.DATA_ROOT}`)),
-  updater: utils.getFileStamp(path.resolve(__dirname,`../../${process.env.UPDATER_ROOT}`))
+  core: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.CORE_ROOT}`)),
+  data: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.DATA_ROOT}`)),
+  updater: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.UPDATER_ROOT}`))
 }
 const packagesKeys = Object.keys(packages)
 
@@ -66,7 +66,7 @@ const download = needs => {
   return Promise.all(tasks)
 }
 
-let updaterUpdated = false
+// let updaterUpdated = false
 const progress = key => p => {
   webContents.send('update_progress', p)
   switch (key) {
@@ -77,7 +77,7 @@ const progress = key => p => {
       webContents.send('update_message', '正在更新系统数据！')
       break
     case 'updater':
-      updaterUpdated = true
+      // updaterUpdated = true
       webContents.send('update_message', '正在更新系统更新器！')
       break
   }
@@ -86,30 +86,39 @@ const progress = key => p => {
 // Step 3 更新完成
 const done = (files) => {
   logger.info(`更新成功，更新了${files.toString()}`)
-  if (updaterUpdated) {
-    // 如果更新器更新了，强制重新启动
-    webContents.send('update_done', '更新成功，正在退出，请重新启动！')
-    // 自动关闭程序
-    setTimeout(() => {
-      // mainWindow.close()
-      app.quit()
-    }, 3000)
-  } else {
-    // 更新核心包和数据 直接启动
-    webContents.send('update_done', '更新成功，正在启动，请稍候！')
-    for (let key in require.cache) {
-      delete require.cache[key]
-    }
-    launch()
+  // if (updaterUpdated) {
+  //   // 如果更新器更新了，强制重新启动
+  //   webContents.send('update_done', '更新成功，正在退出，请重新启动！')
+  //   // 自动关闭程序
+  //   setTimeout(() => {
+  //     // mainWindow.close()
+  //     app.quit()
+  //   }, 3000)
+  // } else {
+  // 更新核心包和数据 直接启动
+  webContents.send('update_done', '更新成功，正在启动，请稍候！')
+  for (let key in require.cache) {
+    delete require.cache[key]
   }
+  launch()
+// }
 }
 
 // failed
 const failed = error => {
-  if (typeof error !== 'string')
+  if (typeof error !== 'string') {
     logger.error(error)
-  else
+  } else if (error === 'updater_updated') {
+    // 如果更新器更新了，强制重新启动
+    console.log('更新的是更新器，需要重启动')
+    webContents.send('update_done', '更新成功，正在退出，请重新启动！')
+    // 自动关闭程序
+    setTimeout(() => {
+      app.quit()
+    }, 3000)
+  } else {
     console.log(error)
+  }
   launch()
 }
 

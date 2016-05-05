@@ -77,9 +77,9 @@ function pack (platform, arch, callback) {
   if (platform === 'darwin' && arch === 'ia32') return
 
   // 不同平台不同图标扩展名
-  options.icon += platform === 'darwin' ? '.icns' : platform === 'win32' ? '.ico' : '.png'
-  console.log(options.icon)
+  const ext = platform === 'darwin' ? '.icns' : platform === 'win32' ? '.ico' : '.png'
   packager(Object.assign({}, options, {
+    icon: options.icon + ext,
     'app-version': packageJson.version || options.version,
     arch: arch,
     // out: `${out_dir}/v${packageJson.version}`, // /${platform}-${arch}

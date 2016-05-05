@@ -63,7 +63,7 @@ const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => 
         fs.rename(files[0].path, to, error => {
           if (error) {
             if (filename === 'updater') {
-              reject('更新的是更新器，需要重启动')
+              reject('updater_updated')
             } else {
               reject(error)
             }
