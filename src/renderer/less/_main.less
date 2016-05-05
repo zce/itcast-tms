@@ -33,21 +33,28 @@
 }
 
 .editor {
-  // display: flex;
+  display: flex;
   flex: 1;
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
   padding: 2rem;
   overflow: hidden;
-  .scroll {
-    flex: 1;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  > .page-header {
+    border-bottom: .1rem solid #e0e0e0;
+    padding: 0 0 .5rem .5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: content-box;
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      height: 3.2rem;
+      letter-spacing: -.1rem;
+    }
   }
   > .row {
-    // flex: 1;
-    height: calc(~"100vh - 19.3rem");
+    flex: 1;
+    // height: calc(~"100vh - 19.3rem");
     > .col-md-8,
     > .col-md-4 {
       display: flex;
@@ -56,6 +63,11 @@
   }
   > .action {
     margin-top: 1rem;
+  }
+  .scroll {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   .btn {
     // margin-top: .5rem;
