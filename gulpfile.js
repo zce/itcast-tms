@@ -6,49 +6,51 @@
  */
 'use strict';
 
-const fs = require('fs');
 const spawn = require('child_process').spawn;
 
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
+
+const Promise = require('bluebird');
+const fs = Promise.promisifyAll(require('fs-extra'));
 const del = require('del');
 const asar = require('asar');
 const electron = require('electron-prebuilt')
 
 const plugins = gulpLoadPlugins();
-const buildTemp = '.tmp';
+// const buildTemp = '.tmp';
 const repo = 'http://git.oschina.net/micua/tms/raw/master/';
 
 /**
  * 清理临时文件
  */
 gulp.task('clean', del.bind(null, [
-  buildTemp,
-  'build/cache',
-  'build/core.asar',
-  'build/data.asar',
-  'build/itcast-tms.log',
-  'build/updater.asar',
-  'cache',
-  'dist/releases',
-  'itcast-log',
-  'src/renderer/css',
-  'core.asar',
-  'data.asar',
-  'itcast-tms.log',
-  'updater.asar',
-  'npm-debug.log'
+  './core',
+  './build/cache',
+  './build/core.asar',
+  './build/data.asar',
+  './build/itcast-tms.log',
+  './build/updater.asar',
+  './cache',
+  './dist/releases',
+  './itcast-log',
+  './src/renderer/css',
+  './core.asar',
+  './data.asar',
+  './itcast-tms.log',
+  './updater.asar',
+  './npm-debug.log'
 ]));
 
 /**
  * 编译less文件
  */
 gulp.task('less', () => {
-  return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
+  return gulp.src(['./src/renderer/less/*.less', '!./src/renderer/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
-    .pipe(plugins.sourcemaps.write('.'))
-    .pipe(gulp.dest('src/renderer/css'))
+    .pipe(plugins.sourcemaps.write('./'))
+    .pipe(gulp.dest('./src/renderer/css'))
     .pipe(plugins.livereload());
 });
 
@@ -56,18 +58,18 @@ gulp.task('less', () => {
  * 行内编译任务
  */
 gulp.task('useref', ['less'], () => {
-  return gulp.src('src/renderer/*.html')
+  return gulp.src('./src/renderer/*.html')
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano()))
-    .pipe(gulp.dest(buildTemp + '/renderer'));
+    .pipe(gulp.dest('./core/renderer'));
 });
 
 /**
  * HTML压缩
  */
 gulp.task('html', ['useref'], () => {
-  return gulp.src(buildTemp + '/renderer/*.html')
+  return gulp.src('./core/renderer/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -79,7 +81,7 @@ gulp.task('html', ['useref'], () => {
       minifyCSS: true,
       minifyJS: true,
     }))
-    .pipe(gulp.dest(buildTemp + '/renderer'));
+    .pipe(gulp.dest('./core/renderer'));
 });
 
 /**
@@ -87,25 +89,25 @@ gulp.task('html', ['useref'], () => {
  */
 gulp.task('extras', () => {
   return gulp.src([
-    'src/**/*.*',
-    '!src/renderer/js/**/*.*',
-    '!src/renderer/less/**/*.*',
-    '!src/renderer/*.html'
+    './src/**/*.*',
+    '!./src/renderer/js/**/*.*',
+    '!./src/renderer/less/**/*.*',
+    '!./src/renderer/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest(buildTemp));
+  }).pipe(gulp.dest('./core'));
 });
 
 /**
  * 文件GZIP压缩
  */
 gulp.task('size', ['html', 'extras'], () => {
-  return gulp.src(buildTemp + '/**/*.*')
+  return gulp.src('./core/**/*.*')
     .pipe(plugins.size({
       title: 'build',
       gzip: true
     }))
-    .pipe(gulp.dest(buildTemp));
+    .pipe(gulp.dest('./core'));
 });
 
 /**
@@ -120,45 +122,39 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
  */
 gulp.task('build', ['size'], () => {
 
-  Promise.all([
-    asarPack(buildTemp, './build/core.asar'),
-    asarPack('data', './build/data.asar'),
-    asarPack('updater', './build/updater.asar')
-  ]).then(() => {
+  const items = ['core', 'data', 'updater'];
 
-  });
+  Promise.all(items.map(item => asarPack(`./${item}`, `./build/${item}.asar`)))
+    .then(() => {
+      console.log('pack to asar done...');
+      return fs.mkdirs('./dist/latest');
+    })
+    .then(() => {
+      const index = {};
+      const tasks = items.map(item => {
+        const pkg = require(`./${item}/package.json`);
+        gulp.src(`./build/${item}.asar`)
+          .pipe(plugins.rename(item))
+          .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
+          .pipe(gulp.dest('./dist/packages'));
 
-  // Promise.all([
-  //   asarPack(buildTemp, './build/core.asar'),
-  //   asarPack('data', './build/data.asar'),
-  //   asarPack('updater', './build/updater.asar')
-  // ]).then(() => {
-
-  //   const index = {};
-  //   fs.mkdirSync('./dist');
-  //   fs.mkdirSync('./dist/latest');
-  //   ['core', 'data', 'updater'].forEach(item => {
-  //     const pkg = require(`./${item === 'core' ? buildTemp : item}/package.json`);
-  //     gulp.src(`./build/${item}.asar`)
-  //       .pipe(plugins.rename(item))
-  //       .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
-  //       .pipe(gulp.dest('./dist/packages'));
-  //     // fs.writeFileSync(`./dist/latest/${item}.json`, JSON.stringify({
-  //     //   url: `${repo}packages/${item}-${pkg.version}.zip`,
-  //     //   name: pkg.version,
-  //     //   notes: pkg.notes || pkg.description,
-  //     //   pub_date: new Date()
-  //     // }));
-  //     // index[item] = `${repo}latest/${item}.json`;
-  //   });
-  //   try {
-  //     // fs.writeFileSync(`./dist/latest/index.json`, JSON.stringify(index));
-  //     del(buildTemp);
-  //     console.log(111);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // });
+        index[item] = `${repo}latest/${item}.json`;
+        return fs.writeJson(`./dist/latest/${item}.json`, {
+          url: `${repo}packages/${item}-${pkg.version}.zip`,
+          name: pkg.version,
+          notes: pkg.notes || pkg.description || '',
+          pub_date: new Date()
+        });
+      });
+      return Promise.all(tasks.concat(fs.writeJson(`./dist/latest/index.json`, index)));
+    })
+    .then(() => {
+      console.log('latest manifest file done');
+      del('./core');
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 gulp.task('default', ['clean'], () => {
@@ -173,16 +169,16 @@ gulp.task('watch', ['less'], () => {
   plugins.livereload.listen( /* { basePath: 'src' } */ );
 
   gulp.watch([
-    'src/renderer/**/*.html',
-    'src/renderer/**/*.js'
+    './src/renderer/**/*.html',
+    './src/renderer/**/*.js'
   ]).on('change', e => {
     plugins.livereload.changed(e.path);
   });
 
-  gulp.watch('src/renderer/less/**/*.less', ['less']);
+  gulp.watch('./src/renderer/less/**/*.less', ['less']);
 });
 
 gulp.task('test', ['watch'], () => {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-  spawn(electron, ['.']);
+  spawn(electron, ['./']);
 });

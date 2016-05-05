@@ -7,6 +7,7 @@
   "scripts": {
     "postinstall": "cd src && npm install && cd ../updater && npm install && cd ..",
     "clean:npm": "rm -rf node_modules && cd src && rm -rf node_modules && cd ../updater && rm -rf node_modules && cd ..",
+    "standard":"standard \"src/**/*.js\" \"updater/**/*.js\"",
     "lint": "eslint src updater *.js",
     "main-css": "cleancss -o src/static/style.min.css src/static/style.css",
     "predist": "npm run main-css",
@@ -42,6 +43,7 @@
     "angular-animate": "^1.5.5",
     "angular-route": "^1.5.5",
     "asar": "^0.11.0",
+    "bluebird": "^3.3.5",
     "clean-css": "^3.4.12",
     "concurrently": "^2.0.0",
     "cross-env": "^1.0.7",
@@ -50,6 +52,7 @@
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^0.37.8",
     "eslint": "^2.8.0",
+    "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-htmlmin": "^2.0.0",
@@ -64,7 +67,8 @@
     "gulp-useref": "^3.1.0",
     "gulp-zip": "^3.2.0",
     "minimist": "^1.2.0",
-    "normalize.css": "^4.1.1"
+    "normalize.css": "^4.1.1",
+    "standard": "^7.0.1"
   },
   "directories": {
     "test": "test"

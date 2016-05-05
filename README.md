@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Micua/itcast-tms.svg?branch=v4.x)](https://travis-ci.org/Micua/itcast-tms)
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
 
 ## How to use
@@ -71,21 +73,21 @@ ISC © [iceStone](https://github.com/Micua)
 ```js
 [
 	'school_name',
-  'academy_name',
-  'subject_name',
-  'class_count',
-  'reasons',
-  'class_name',
-  'course_name',
-  'course_days',
-  'head_name',
-  'teacher_name',
-  'teacher_email',
-  'datetime',
-  'rated_count',
-  'status',
-  'questions',
-  'emails',
-  'leave_count'
+	'academy_name',
+	'subject_name',
+	'class_count',
+	'reasons',
+	'class_name',
+	'course_name',
+	'course_days',
+	'head_name',
+	'teacher_name',
+	'teacher_email',
+	'datetime',
+	'rated_count',
+	'status',
+	'questions',
+	'emails',
+	'leave_count'
 ]
 ```
