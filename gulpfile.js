@@ -148,7 +148,7 @@ gulp.task('build', ['size'], () => {
         })
       })
 
-      return Promise.all(tasks.concat(fs.writeJson(`./dist/latest/index.json`, index)))
+      return Promise.all(tasks.concat(fs.writeJson('./dist/latest/index.json', index)))
     })
     .then(() => {
       console.log('latest manifest file done')

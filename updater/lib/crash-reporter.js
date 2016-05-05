@@ -1,5 +1,5 @@
 // crashReporter
-const { crashReporter } = require('electron');
+const { crashReporter } = require('electron')
 
 exports.init = () => {
   // crashReporter.start({
@@ -7,5 +7,5 @@ exports.init = () => {
   //   companyName: 'Itcast, Inc.',
   //   submitURL: 'http://localhost:1127/',
   //   autoSubmit: true
-  // });
-};
+  // })
+}

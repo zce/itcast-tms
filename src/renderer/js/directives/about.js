@@ -1,10 +1,10 @@
-(function(angular, $) {
-  'use strict';
+;(function (angular, $) {
+  'use strict'
 
   angular.module('itcast-tms.directives')
-    .directive('about', [about]);;
+    .directive('about', [about])
 
-  function about() {
+  function about () {
     return {
       // name: '',
       // priority: 1,
@@ -34,14 +34,14 @@
       replace: true,
       // transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-      link: function(scope, element, attributes, controller) {
-        // scope.open = attributes.open;
-        // console.log(attributes);
-        scope.app_name = $.options.app_name;
-        scope.core_version = $.options.core_version;
-        scope.data_version = $.options.data_version;
-        scope.updater_version = $.options.updater_version;
+      link: function (scope, element, attributes, controller) {
+        // scope.open = attributes.open
+        // console.log(attributes)
+        scope.app_name = $.options.app_name
+        scope.core_version = $.options.core_version
+        scope.data_version = $.options.data_version
+        scope.updater_version = $.options.updater_version
       }
-    };
+    }
   }
-}(angular, $));
+}(angular, $))

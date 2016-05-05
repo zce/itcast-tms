@@ -1,3 +1,3 @@
-const updater = require('../lib/updater');
+const updater = require('../lib/updater')
 
-updater();
+updater()

@@ -1,6 +1,5 @@
-(function(angular) {
-  'use strict';
+;(function (angular) {
+  'use strict'
 
-  angular.module('itcast-tms.services', []);
-
-}(angular));
+  angular.module('itcast-tms.services', [])
+}(angular))

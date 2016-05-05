@@ -1,140 +1,137 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require('express')
+const bodyParser = require('body-parser')
 
-const options = require('./config');
-const storage = require('../common/storage');
-const logger = require('../common/logger').main;
+const options = require('./config')
+const storage = require('../common/storage')
+const logger = require('../common/logger').main
 
-const app = express();
+const app = express()
 
-app.set('view engine', 'xtpl');
-app.set('views', options.static_root);
+app.set('view engine', 'xtpl')
+app.set('views', options.static_root)
 
-app.use(express.static(options.static_root));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(options.static_root))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use((req, res, next) => {
-  res.set('X-Powered-By', 'WEDN.NET');
-  next();
-});
+  res.set('X-Powered-By', 'WEDN.NET')
+  next()
+})
 
 app.use((req, res, next) => {
   // 注入请求客户端IP
   if (process.env.NODE_ENV === 'production') {
     req.clientIp = req.headers['x-forwarded-for'] ||
-      req.connection.remoteAddress ||
-      req.socket.remoteAddress ||
-      req.connection.socket.remoteAddress;
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress
   } else {
     // 测试允许多次提交
-    req.clientIp = new Date().getTime();
+    req.clientIp = new Date().getTime()
   }
-  // req.connection.socket.remoteAddress || '::1';
+  // req.connection.socket.remoteAddress || '::1'
   // 注入是否本地请求
   req.isLocal = '127.0.0.1' === req.clientIp || options.server_ip === req.clientIp
-  next();
-});
+  next()
+})
 
-app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
+app.get(`/:stamp(\w{${options.stamp_length}})`, (req, res) => {
 
-  const { stamp } = req.params;
-  const data = storage.get(stamp);
+  const { stamp } = req.params
+  const data = storage.get(stamp)
 
   if (!data || data.status !== options.status_keys.rating) {
-    res.sendStatus(404);
-    return false;
+    res.sendStatus(404)
+    return false
   }
 
-  const rule_keys = Object.keys(data.rules);
-  data.rule_key = rule_keys[rule_keys.length - 1];
-  data.stamp = stamp;
+  const rule_keys = Object.keys(data.rules)
+  data.rule_key = rule_keys[rule_keys.length - 1]
+  data.stamp = stamp
 
-  res.render('rating', data);
+  res.render('rating', data)
+})
 
-});
-
-app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
+app.post(`/r/:stamp(\w{${options.stamp_length}})`, (req, res) => {
 
   if (req.isLocal && !options.allow_admin_rating) {
-    res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' });
-    return false;
+    res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })
+    return false
   }
 
-  const { stamp } = req.params;
-  const data = storage.get(stamp);
+  const { stamp } = req.params
+  const data = storage.get(stamp)
 
   if (!data) {
-    res.sendStatus(404);
-    return false;
+    res.sendStatus(404)
+    return false
   }
 
   if (data.status !== options.status_keys.rating) {
-    res.render('rated', { error: true, message: '测评已经结束，不可以继续评价了！' });
-    return false;
+    res.render('rated', { error: true, message: '测评已经结束，不可以继续评价了！' })
+    return false
   }
 
   if (data.rated_info[req.clientIp] && !options.allow_student_repeat) {
-    res.render('rated', { error: true, message: '你已经评价过了，不可以重复评价！' });
-    return false;
+    res.render('rated', { error: true, message: '你已经评价过了，不可以重复评价！' })
+    return false
   }
 
   // 存储
-  const info = convert(stamp, req.body);
+  const info = convert(stamp, req.body)
   if (!info) {
-    res.render('rated', { error: true, stamp: stamp, message: '同学，请完整勾选表单选项！' });
-    return false;
+    res.render('rated', { error: true, stamp: stamp, message: '同学，请完整勾选表单选项！' })
+    return false
   }
 
-  data.rated_info[req.clientIp] = info;
-  data.rated_count++;
+  data.rated_info[req.clientIp] = info
+  data.rated_count++
 
-  storage.set(stamp, data);
+  storage.set(stamp, data)
 
-  res.render('rated', { error: false, message: '谢谢你的帮助，我们会及时将情况反馈给相关人员！' });
+  res.render('rated', { error: false, message: '谢谢你的帮助，我们会及时将情况反馈给相关人员！' })
+})
 
-});
-
-function convert(stamp, body) {
+function convert (stamp, body) {
   const rateData = {
     note: body.note,
     marks: {}
-  };
-  const rules = storage.get(stamp).rules;
+  }
+  const rules = storage.get(stamp).rules
 
-  let validated = true;
+  let validated = true
   for (const version in rules) {
-    rateData.marks[version] = {};
+    rateData.marks[version] = {}
     for (const id in body) {
       if ('note' == id) {
-        continue;
+        continue
       }
       rateData.marks[version][id] = {
         back: 0,
         front: 0
-      };
-      const score = rules[version].questions[id].answers[body[id]].score;
-      rateData.marks[version][id].back = score.back;
-      rateData.marks[version][id].front = score.front;
+      }
+      const score = rules[version].questions[id].answers[body[id]].score
+      rateData.marks[version][id].back = score.back
+      rateData.marks[version][id].front = score.front
     }
     if (Object.keys(rateData.marks[version]).length !== rules[version].questions.length) {
-      validated = false;
+      validated = false
     }
   }
 
-  return validated ? rateData : null;
+  return validated ? rateData : null
 }
-
 
 // 启动服务
 const server = options.server = app.listen(options.server_port, options.server_ip, error => {
   if (error) {
-    logger.fatal(error);
-    return false;
+    logger.fatal(error)
+    return false
   }
-  const link = `http://${server.address().address}:${server.address().port}/`;
-  console.log(`server run @ ${link}`);
-  options.server_link = link;
-});
+  const link = `http://${server.address().address}:${server.address().port}/`
+  console.log(`server run @ ${link}`)
+  options.server_link = link
+})

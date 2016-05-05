@@ -1,9 +1,9 @@
-const { app } = require('electron');
+const { app } = require('electron')
 
-// const path = require('path');
-const config = require('../config');
+// const path = require('path')
+const config = require('../config')
 
-const options = {};
+const options = {}
 
 Object.assign(options, config, {
   // 应用程序名
@@ -12,6 +12,6 @@ Object.assign(options, config, {
   app_version: app.getVersion(),
   // 程序所在目录
   app_root: app.getAppPath()
-});
+})
 
-module.exports = options;
+module.exports = options

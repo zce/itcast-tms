@@ -1,9 +1,9 @@
-(function(angular, $) {
-  'use strict';
+;(function (angular, $) {
+  'use strict'
 
   angular
     .module('itcast-tms.areas')
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
       $routeProvider.when('/home', {
         controller: 'DashboardController',
         templateUrl: 'dashboard_tmpl'
@@ -12,10 +12,8 @@
     .controller('DashboardController', [
       '$scope',
       DashboardController
-    ]);
+    ])
 
-  function DashboardController($scope) {
-
+  function DashboardController ($scope) {
   }
-
-}(angular, $));
+}(angular, $))

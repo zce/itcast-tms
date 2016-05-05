@@ -1,12 +1,6 @@
 // 渲染线程
-const path = window.require && require('path');
-const fs = window.require && require('fs');
-
-// Object.assign($.options, {});
-
-
-(function(angular) {
-  'use strict';
+;(function (angular) {
+  'use strict'
 
   angular
     .module('itcast-tms', [
@@ -17,8 +11,7 @@ const fs = window.require && require('fs');
       'itcast-tms.directives'
     ])
     // .constant('options', options)
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
       $routeProvider.otherwise({ redirectTo: '/starter' /*'/watcher/1234'*/ })
-    }]);
-
-}(angular));
+    }])
+}(angular))

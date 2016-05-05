@@ -8,7 +8,7 @@
     "postinstall": "cd src && npm install && cd ../updater && npm install && cd ..",
     "clean:npm": "rm -rf node_modules && cd src && rm -rf node_modules && cd ../updater && rm -rf node_modules && cd ..",
     "standard":"standard \"src/**/*.js\" \"updater/**/*.js\"",
-    "lint": "eslint src updater *.js",
+    "lint": "eslint \"src/**/*.js\" \"updater/**/*.js\"",
     "main-css": "cleancss -o src/static/style.min.css src/static/style.css",
     "predist": "npm run main-css",
     "dist": "gulp",

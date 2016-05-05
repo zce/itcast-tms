@@ -1,7 +1,7 @@
-const { join } = require('path');
-const options = require('../config');
+const { join } = require('path')
+const options = require('../config')
 
-const files = {};
+const files = {}
 Object.assign(files, {
   academies: join(options.data_root, 'academies.json'),
   itcast: join(options.data_root, 'itcast.json'),
@@ -9,10 +9,10 @@ Object.assign(files, {
   rules: join(options.data_root, 'rules.json'),
   schools: join(options.data_root, 'schools.json'),
   subjects: join(options.data_root, 'subjects.json')
-});
+})
 
 Object.keys(files).forEach(key => {
   exports[key] = () => {
-    return require(files[key]);
-  };
-});
+    return require(files[key])
+  }
+})

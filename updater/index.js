@@ -1,1 +1,1 @@
-require('./lib/updater');
+require('./lib/updater')
