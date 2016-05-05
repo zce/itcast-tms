@@ -106,9 +106,7 @@ const done = (files) => {
 
 // failed
 const failed = error => {
-  if (typeof error !== 'string') {
-    logger.error(error)
-  } else if (error === 'updater_updated') {
+  if (error === 'updater_updated') {
     // 如果更新器更新了，强制重新启动
     console.log('更新的是更新器，需要重启动')
     webContents.send('update_done', '更新成功，正在退出，请重新启动！')
@@ -116,6 +114,11 @@ const failed = error => {
     setTimeout(() => {
       app.quit()
     }, 3000)
+    return false
+  }
+
+  if (typeof error !== 'string') {
+    logger.error(error)
   } else {
     console.log(error)
   }
