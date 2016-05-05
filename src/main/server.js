@@ -35,10 +35,11 @@ app.use((req, res, next) => {
   // req.connection.socket.remoteAddress || '::1'
   // 注入是否本地请求
   req.isLocal = '127.0.0.1' === req.clientIp || options.server_ip === req.clientIp
+
   next()
 })
 
-app.get(`/:stamp(\w{${options.stamp_length}})`, (req, res) => {
+app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 
   const { stamp } = req.params
   const data = storage.get(stamp)
@@ -50,12 +51,11 @@ app.get(`/:stamp(\w{${options.stamp_length}})`, (req, res) => {
 
   const rule_keys = Object.keys(data.rules)
   data.rule_key = rule_keys[rule_keys.length - 1]
-  data.stamp = stamp
 
   res.render('rating', data)
 })
 
-app.post(`/r/:stamp(\w{${options.stamp_length}})`, (req, res) => {
+app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
 
   if (req.isLocal && !options.allow_admin_rating) {
     res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })
