@@ -5,8 +5,10 @@ let mainWindow
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// app.on('ready', createWindow)
-createWindow()
+if (process.env.NODE_ENV !== 'production')
+  app.on('ready', createWindow)
+else
+  createWindow()
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
