@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
 const http = require('http');
-const fs = require('fs-extra');
+const fs = require('original-fs');
 const download = require('download');
 const logger = require('./logger');
 
@@ -54,7 +54,7 @@ const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => 
         reject(error);
       } else {
         const to = path.resolve(cacheRoot, `../${filename}.asar`);
-        fs.move(files[0].path, to, { clobber: true }, error => {
+        fs.rename(files[0].path, to, error => {
           if (error)
             reject(error);
           else

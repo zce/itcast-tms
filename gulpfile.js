@@ -6,6 +6,7 @@
  */
 'use strict';
 
+const fs = require('fs');
 const spawn = require('child_process').spawn;
 
 const gulp = require('gulp');
@@ -15,9 +16,12 @@ const asar = require('asar');
 const electron = require('electron-prebuilt')
 
 const plugins = gulpLoadPlugins();
-
 const buildTemp = '.tmp';
+const repo = 'http://git.oschina.net/micua/tms/raw/master/';
 
+/**
+ * 清理临时文件
+ */
 gulp.task('clean', del.bind(null, [
   buildTemp,
   'build/cache',
@@ -26,7 +30,7 @@ gulp.task('clean', del.bind(null, [
   'build/itcast-tms.log',
   'build/updater.asar',
   'cache',
-  'dist/packages',
+  'dist/releases',
   'itcast-log',
   'src/renderer/css',
   'core.asar',
@@ -36,6 +40,9 @@ gulp.task('clean', del.bind(null, [
   'npm-debug.log'
 ]));
 
+/**
+ * 编译less文件
+ */
 gulp.task('less', () => {
   return gulp.src(['src/renderer/less/*.less', '!src/renderer/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
@@ -43,14 +50,12 @@ gulp.task('less', () => {
     .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest('src/renderer/css'))
     .pipe(plugins.livereload());
-    // .pipe(server.reload());
 });
 
+/**
+ * 行内编译任务
+ */
 gulp.task('useref', ['less'], () => {
-  const iff = (file) => {
-    console.log(file.path);
-    return false;
-  };
   return gulp.src('src/renderer/*.html')
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
@@ -58,6 +63,9 @@ gulp.task('useref', ['less'], () => {
     .pipe(gulp.dest(buildTemp + '/renderer'));
 });
 
+/**
+ * HTML压缩
+ */
 gulp.task('html', ['useref'], () => {
   return gulp.src(buildTemp + '/renderer/*.html')
     .pipe(plugins.htmlmin({
@@ -74,6 +82,9 @@ gulp.task('html', ['useref'], () => {
     .pipe(gulp.dest(buildTemp + '/renderer'));
 });
 
+/**
+ * 额外文件拷贝到目标路径
+ */
 gulp.task('extras', () => {
   return gulp.src([
     'src/**/*.*',
@@ -85,6 +96,9 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest(buildTemp));
 });
 
+/**
+ * 文件GZIP压缩
+ */
 gulp.task('size', ['html', 'extras'], () => {
   return gulp.src(buildTemp + '/**/*.*')
     .pipe(plugins.size({
@@ -94,38 +108,57 @@ gulp.task('size', ['html', 'extras'], () => {
     .pipe(gulp.dest(buildTemp));
 });
 
+/**
+ * ASAR 打包任务
+ */
 const asarPack = (src, dest) => new Promise((resolve, reject) => {
   asar.createPackage(src, dest, resolve);
 });
 
+/**
+ * 编译归档文件和压缩包
+ */
 gulp.task('build', ['size'], () => {
+
   Promise.all([
     asarPack(buildTemp, './build/core.asar'),
     asarPack('data', './build/data.asar'),
     asarPack('updater', './build/updater.asar')
   ]).then(() => {
-    const corePkg = require(`./${buildTemp}/package.json`);
-    gulp.src('./build/core.asar')
-      .pipe(plugins.rename('core'))
-      .pipe(plugins.zip(`core-${corePkg.version}.zip`))
-      .pipe(gulp.dest('./dist/packages'));
-    const dataPkg = require('./data/package.json');
-    gulp.src('./build/data.asar')
-      .pipe(plugins.rename('data'))
-      .pipe(plugins.zip(`data-${dataPkg.version}.zip`))
-      .pipe(gulp.dest('./dist/packages'));
-    const updaterPkg = require('./updater/package.json');
-    gulp.src('./build/updater.asar')
-      .pipe(plugins.rename('updater'))
-      .pipe(plugins.zip(`updater-${updaterPkg.version}.zip`))
-      .pipe(gulp.dest('./dist/packages'));
 
-    // copy entry portal
-    // gulp.src(['./index.js', './package.json'])
-    //   .pipe(gulp.dest('./build'))
-
-    del(buildTemp);
   });
+
+  // Promise.all([
+  //   asarPack(buildTemp, './build/core.asar'),
+  //   asarPack('data', './build/data.asar'),
+  //   asarPack('updater', './build/updater.asar')
+  // ]).then(() => {
+
+  //   const index = {};
+  //   fs.mkdirSync('./dist');
+  //   fs.mkdirSync('./dist/latest');
+  //   ['core', 'data', 'updater'].forEach(item => {
+  //     const pkg = require(`./${item === 'core' ? buildTemp : item}/package.json`);
+  //     gulp.src(`./build/${item}.asar`)
+  //       .pipe(plugins.rename(item))
+  //       .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
+  //       .pipe(gulp.dest('./dist/packages'));
+  //     // fs.writeFileSync(`./dist/latest/${item}.json`, JSON.stringify({
+  //     //   url: `${repo}packages/${item}-${pkg.version}.zip`,
+  //     //   name: pkg.version,
+  //     //   notes: pkg.notes || pkg.description,
+  //     //   pub_date: new Date()
+  //     // }));
+  //     // index[item] = `${repo}latest/${item}.json`;
+  //   });
+  //   try {
+  //     // fs.writeFileSync(`./dist/latest/index.json`, JSON.stringify(index));
+  //     del(buildTemp);
+  //     console.log(111);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // });
 });
 
 gulp.task('default', ['clean'], () => {
@@ -133,7 +166,9 @@ gulp.task('default', ['clean'], () => {
 });
 
 
-
+/**
+ * 监视文件变化自动刷新
+ */
 gulp.task('watch', ['less'], () => {
   plugins.livereload.listen( /* { basePath: 'src' } */ );
 

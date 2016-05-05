@@ -5,22 +5,22 @@ const logger = require('./logger');
 
 
 const isProduction = process.env.NODE_ENV === 'production';
-const core_root = process.env.CORE_ROOT = isProduction ? 'core.asar' : 'src';
-const data_root = process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data';
-const updater_root = process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater';
+process.env.CORE_ROOT = isProduction ? 'core.asar' : 'src';
+process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data';
+process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater';
 
 // 读取当前的版本信息
 const packages = {
-  core: require(`../../${core_root}/package.json`),
-  data: require(`../../${data_root}/package.json`),
-  updater: require(`../../${updater_root}/package.json`)
+  core: require(`../../${process.env.CORE_ROOT}/package.json`),
+  data: require(`../../${process.env.DATA_ROOT}/package.json`),
+  updater: require(`../../${process.env.UPDATER_ROOT}/package.json`)
 };
 const packagesKeys = Object.keys(packages);
 
 // Step 1 检查更新
 const check = root => new Promise((resolve, reject) => {
   // 获取更新链接
-  utils.fetchUrl(`${root}?version=${Math.floor(new Date().getTime() / 1000 / 60 / 60)}`)
+  utils.fetchUrl(`${root}?version=${Math.floor(Date.now() / 1000 / 60 / 60)}`)
     .then(content => {
       // 分别获取远端信息
       const feed = JSON.parse(content);
@@ -110,17 +110,17 @@ const failed = error => {
 
 const launch = () => {
   try {
-    require(`../../${core_root}`);
+    require(`../../${process.env.CORE_ROOT}`);
     mainWindow && mainWindow.close();
   } catch (e) {
     logger.fatal(e);
   }
 }
 
-const feed_root = 'http://git.oschina.net/micua/files/raw/master/tms/latest/index.json';
+const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json';
 
 // 检查更新
-check(feed_root)
+check(manifest)
   // 下载更新
   .then(download)
   // 更新完成
@@ -129,7 +129,7 @@ check(feed_root)
   .catch(failed);
 
 // module.exports = root => new Promise((resolve, reject) => {
-//   root = root || feed_root;
+//   root = root || manifest;
 //   check(root)
 //     .then(download)
 //     .then(resolve)
