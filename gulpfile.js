@@ -33,7 +33,7 @@ gulp.task('clean', del.bind(null, [
   './build/itcast-tms.log',
   './build/updater.asar',
   './cache',
-  './dist/releases',
+  // './dist/releases',
   './itcast-log',
   './src/renderer/css',
   './core.asar',
