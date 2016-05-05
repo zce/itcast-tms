@@ -9,7 +9,7 @@ var fsHash = crypto.createHash('sha1');
 
 fsHash.update(buffer);
 var md5 = fsHash.digest('hex');
-console.log("文件的MD5是：%s", md5);
+console.log('文件的MD5是：%s', md5);
 console.timeEnd('read');
 
 
@@ -20,5 +20,5 @@ var fsHash2 = crypto.createHash('sha1');
 
 fsHash2.update(buffer2);
 var md52 = fsHash2.digest('hex');
-console.log("文件的MD5是：%s", md52);
+console.log('文件的MD5是：%s', md52);
 console.timeEnd('read1');
