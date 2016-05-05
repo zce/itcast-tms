@@ -5,6 +5,12 @@
 
 This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
 
+## Screenshots
+
+![创建新的测评记录](./assets/screenshot1.png)
+
+![监视操作](./assets/screenshot2.png)
+
 ## How to use
 
 First, clone the repo via git:
