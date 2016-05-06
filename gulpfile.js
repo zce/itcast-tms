@@ -6,6 +6,7 @@
  */
 'use strict'
 
+const path = require('path')
 const crypto = require('crypto')
 const spawn = require('child_process').spawn
 
@@ -130,11 +131,11 @@ const getFileStamp = (filename, type) => {
  */
 gulp.task('build', ['size'], () => {
   const items = ['core', 'data', 'updater']
-
+  const latestDir = path.resolve(__dirname, './dist/latest')
   Promise.all(items.map(item => asarPack(`./${item}`, `./build/${item}.asar`)))
     .then(() => {
       console.log('pack to asar done...')
-      return fs.mkdirs('./dist/latest')
+      return fs.mkdirs(latestDir)
     })
     .then(() => {
       const index = {}
@@ -146,7 +147,7 @@ gulp.task('build', ['size'], () => {
           .pipe(gulp.dest('./dist/packages'))
 
         index[item] = `${repo}latest/${item}.json`
-        return fs.writeJson(`./dist/latest/${item}.json`, {
+        return fs.writeJson(`${latestDir}/${item}.json`, {
           url: `${repo}packages/${item}-${pkg.version}.zip`,
           name: getFileStamp(`./build/${item}.asar`), // pkg.version,
           notes: pkg.notes || pkg.description || '',
@@ -154,7 +155,7 @@ gulp.task('build', ['size'], () => {
         })
       })
 
-      return Promise.all(tasks.concat(fs.writeJson('./dist/latest/index.json', index)))
+      return Promise.all(tasks.concat(fs.writeJson(`${latestDir}/index.json`, index)))
     })
     .then(() => {
       console.log('latest manifest file done')
