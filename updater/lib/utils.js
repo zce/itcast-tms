@@ -83,10 +83,14 @@ const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => 
 
 const getFileStamp = (filename, type) => {
   type = type || 'sha1'
-  const buffer = fs.readFileSync(filename)
-  var hash = crypto.createHash(type)
-  hash.update(buffer)
-  return hash.digest('hex')
+  try {
+    const buffer = fs.readFileSync(filename)
+    var hash = crypto.createHash(type)
+    hash.update(buffer)
+    return hash.digest('hex')
+  } catch (e) {
+    return ''
+  }
 }
 
 module.exports = { fetchUrl, fetchFile, getFileStamp }

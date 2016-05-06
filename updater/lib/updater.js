@@ -100,15 +100,6 @@ const done = (files) => {
 
 // failed
 const failed = error => {
-  // if (error === 'updater_updated') {
-  //   // 如果更新器更新了，强制重新启动
-  //   console.log('更新的是更新器，需要重启动')
-  //   webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
-  //   // 自动关闭程序
-  //   setTimeout(() => app.quit(), 3000)
-  //   return
-  // }
-
   if (typeof error !== 'string') {
     logger.error(error)
   } else {
@@ -128,8 +119,15 @@ const launch = () => {
 
 const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 
+console.time('updater')
+
 // 检查更新
 check(manifest)
+  .then((needs) => {
+    console.timeEnd('updater')
+    // console.log(needs)
+    return needs
+  })
   // 下载更新
   .then(download)
   // 更新完成
@@ -137,13 +135,19 @@ check(manifest)
   // 更新失败
   .catch(failed)
 
-  // module.exports = root => new Promise((resolve, reject) => {
-  //   root = root || manifest
-  //   check(root)
-  //     .then(download)
-  //     .then(resolve)
-  //     .catch(error => {
-  //       console.error(error, error.stack)
-  //       reject(error)
-  //     })
-  // })
+
+// const online = require('./online')
+// online()
+//   // 检查更新
+//   .then(() => check(manifest))
+//   .then((needs) => {
+//     console.timeEnd('updater')
+//     console.log(needs)
+//     return needs
+//   })
+//   // 下载更新
+//   .then(download)
+//   // 更新完成
+//   .then(done)
+//   // 更新失败
+//   .catch(failed)
