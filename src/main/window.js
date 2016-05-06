@@ -5,17 +5,17 @@ let mainWindow
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-if (process.env.APP_READY) {
-  createWindow()
-} else {
-  app.on('ready', createWindow)
-}
+// if (process.env.APP_READY) {
+createWindow()
+// } else {
+//   app.on('ready', createWindow)
+// }
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // if (process.platform !== 'darwin') {
   app.quit()
-// }
+  // }
 })
 
 // app.on('activate', () => {

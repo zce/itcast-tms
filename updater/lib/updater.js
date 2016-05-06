@@ -119,7 +119,7 @@ const launch = () => {
 
 const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 
-app.on('ready', () => {
+module.exports = () => {
   process.env.APP_READY = true
   console.time('updater')
 
@@ -152,4 +152,4 @@ app.on('ready', () => {
   //   .then(done)
   //   // 更新失败
   //   .catch(failed)
-})
+}

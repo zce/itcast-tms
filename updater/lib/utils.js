@@ -25,7 +25,7 @@ const fetchUrl = uri => new Promise((resolve, reject) => {
     res.resume()
   }).on('error', reject)
   // 超时操作
-  request.setTimeout(2000, () => {
+  request.setTimeout(1500, () => {
     // handle timeout here
     reject(new Error(`request '${uri} timeout! '`))
   })
