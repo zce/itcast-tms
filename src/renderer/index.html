@@ -30,7 +30,7 @@
         <div class="scroll">
           <ul ng-controller="RecordController as record">
             <li title="{{ fullpath }}" draggable="true" ng-repeat="(name, fullpath) in record.records" ng-class="{ active: current_stamp === name }" ng-click="root.go('/watcher/' + name)">
-              <span class="name">{{ name + root.options.storage_ext }}</span>
+              <span class="name">{{ name }}</span>
               <span class="reveal" title="在文件夹中找到“{{ name + root.options.storage_ext }}”" ng-click="record.reveal(name, $event)"></span>
               <span class="close" title="删除“{{ name + root.options.storage_ext }}”到回收站" ng-click="record.remove(name, $event)"></span>
             </li>

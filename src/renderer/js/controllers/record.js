@@ -18,14 +18,21 @@
           $.logger.error('没有存贮目录：' + $.options.storage_root)
           return false
         }
-        files.forEach(file => file.endsWith($.options.storage_ext) && (this.records[$.path.basename(file, $.options.storage_ext)] = $.path.join($.options.storage_root, file)))
+        files.forEach(file => {
+          if(!file.endsWith($.options.storage_ext)){
+            return false
+          }
+          const stamp = $.path.basename(file, $.options.storage_ext);
+          const info = $.storage.get(stamp);
+          this.records[`${info.teacher_name}（${info.datetime}）`] = $.path.join($.options.storage_root, file)
+        })
         $scope.$apply()
       })
     }
 
     loadFiles()
 
-    $.fs.watch($.options.storage_root, { interval: 300 }, (event, filename) => {
+    $.fs.watch($.options.storage_root, { interval: 400 }, (event, filename) => {
       if (event !== 'change') {
         loadFiles()
       }
