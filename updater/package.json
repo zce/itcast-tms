@@ -1,6 +1,6 @@
 {
   "name": "itcast-tms-updater",
-  "version": "1.0.0-alpha2",
+  "version": "1.0.0-alpha1",
   "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",

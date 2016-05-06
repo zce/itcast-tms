@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const options = require('./config')
 const storage = require('../common/storage')
 const logger = require('../common/logger').main
-const stamp_format = `\\w{${options.stamp_length}}`
+const stamp_format = '\\w{' + options.stamp_length + '}'
 
 const app = express()
 

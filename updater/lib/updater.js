@@ -10,11 +10,6 @@ process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data'
 process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater'
 
 // 读取当前的版本信息
-// const packages = {
-//   core: {version:'4.0.0-alpha1'}, // require(`../../${process.env.CORE_ROOT}/package.json`),
-//   data: {version:'20160503'}, // require(`../../${process.env.DATA_ROOT}/package.json`),
-//   updater: {version:'1.0.0-alpha1'}, // require(`../../${process.env.UPDATER_ROOT}/package.json`)
-// }
 const packages = {
   core: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.CORE_ROOT}`)),
   data: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.DATA_ROOT}`)),
@@ -85,28 +80,33 @@ const progress = key => p => {
 
 // Step 3 更新完成
 const done = (files) => {
-  logger.info(`更新成功，更新了${files.toString()}`)
+  logger.info(`更新成功，更新了『${files.toString()}』`)
+  if (files.includes('updater_updated')) {
+    // 如果更新器更新了，强制重新启动
+    console.log('更新的是更新器，需要重启动')
+    webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
+    // 自动关闭程序
+    setTimeout(() => app.quit(), 3000)
+    return
+  }
   // 更新核心包和数据 直接启动
   webContents.send('update_done', '更新成功，正在启动，请稍候！')
   for (let key in require.cache) {
     delete require.cache[key]
   }
   launch()
-// }
 }
 
 // failed
 const failed = error => {
-  if (error === 'updater_updated') {
-    // 如果更新器更新了，强制重新启动
-    console.log('更新的是更新器，需要重启动')
-    webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
-    // 自动关闭程序
-    setTimeout(() => {
-      app.quit()
-    }, 3000)
-    return false
-  }
+  // if (error === 'updater_updated') {
+  //   // 如果更新器更新了，强制重新启动
+  //   console.log('更新的是更新器，需要重启动')
+  //   webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
+  //   // 自动关闭程序
+  //   setTimeout(() => app.quit(), 3000)
+  //   return
+  // }
 
   if (typeof error !== 'string') {
     logger.error(error)

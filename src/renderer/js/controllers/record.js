@@ -27,31 +27,36 @@
     loadFiles()
 
     $.fs.watch($.options.storage_root, { interval: 300 }, (event, filename) => {
-      if (event !== 'change')
+      if (event !== 'change'){
         loadFiles()
+      }
     })
 
     this.remove = (key, e) => {
       e.preventDefault()
       e.stopPropagation()
-      if (!confirm(`确认删除『${key}${$.options.storage_ext}』?`))
+      if (!confirm(`确认删除『${key}${$.options.storage_ext}』?`)){
         return false
+      }
       this.records[key] && $.fs.unlink(this.records[key], error => {
         if (error) {
           $.logger.error(error)
           return false
         }
         // 当前打开的不是该文件
-        if ($rootScope.current_stamp !== key)
+        if ($rootScope.current_stamp !== key){
           return false
+        }
 
         const stamps = Object.keys(this.records)
         stamps.remove(key)
         // console.log(stamps)
-        if (stamps && stamps.length)
+        if (stamps && stamps.length){
           $location.url('/watcher/' + stamps[0])
-        else
+        }
+        else{
           $location.url('/starter')
+        }
       })
       // delete this.records[key]
 
