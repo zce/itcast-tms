@@ -4,7 +4,7 @@ const http = require('http')
 const crypto = require('crypto')
 const fs = require('original-fs')
 const download = require('download')
-const logger = require('./logger')
+// const logger = require('./logger')
 
 const fetchUrl = uri => new Promise((resolve, reject) => {
   // console.time('utils')
@@ -71,16 +71,15 @@ const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => 
     })
 })
 
-const getFileStampAsync = (filename, type) => new Promise((resolve, reject) => {
-  type = type || 'sha1'
-  fs.readFile(filename, (error, buffer) => {
-    if (error)
-      return reject(error)
-    const hash = crypto.createHash(type)
-    hash.update(buffer)
-    resolve(hash.digest('hex'))
-  })
-})
+// const getFileStampAsync = (filename, type) => new Promise((resolve, reject) => {
+//   type = type || 'sha1'
+//   fs.readFile(filename, (error, buffer) => {
+//     if (error) return reject(error)
+//     const hash = crypto.createHash(type)
+//     hash.update(buffer)
+//     resolve(hash.digest('hex'))
+//   })
+// })
 
 const getFileStamp = (filename, type) => {
   type = type || 'sha1'
@@ -90,4 +89,4 @@ const getFileStamp = (filename, type) => {
   return hash.digest('hex')
 }
 
-module.exports = { fetchUrl, fetchFile, getFileStamp}
+module.exports = { fetchUrl, fetchFile, getFileStamp }

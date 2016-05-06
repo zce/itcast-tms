@@ -1,6 +1,5 @@
 ;(function (angular, $) {
   'use strict'
-
   angular.module('itcast-tms.directives')
     .directive('resizer', ['$window', '$document', 'Setting', resizer])
 
@@ -40,4 +39,4 @@
       }
     }
   }
-}(angular, $))
+}(window.angular, window.$))

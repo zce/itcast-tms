@@ -1,13 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-
 const express = require('express')
 const bodyParser = require('body-parser')
 
 const options = require('./config')
 const storage = require('../common/storage')
 const logger = require('../common/logger').main
-const stamp_format = '\\w{' + options.stamp_length + '}'
+const stampFormat = '\\w{' + options.stamp_length + '}'
 
 const app = express()
 
@@ -35,13 +32,12 @@ app.use((req, res, next) => {
   }
   // req.connection.socket.remoteAddress || '::1'
   // 注入是否本地请求
-  req.isLocal = '127.0.0.1' === req.clientIp || options.server_ip === req.clientIp
+  req.isLocal = req.clientIp === '127.0.0.1' || req.clientIp === options.server_ip
 
   next()
 })
 
-app.get(`/:stamp(${stamp_format})`, (req, res) => {
-
+app.get(`/:stamp(${stampFormat})`, (req, res) => {
   const { stamp } = req.params
   const data = storage.get(stamp)
 
@@ -50,14 +46,13 @@ app.get(`/:stamp(${stamp_format})`, (req, res) => {
     return false
   }
 
-  const rule_keys = Object.keys(data.rules)
-  data.rule_key = rule_keys[rule_keys.length - 1]
+  const ruleKeys = Object.keys(data.rules)
+  data.rule_key = ruleKeys.length && ruleKeys[ruleKeys.length - 1]
 
   res.render('rating', data)
 })
 
-app.post(`/r/:stamp(${stamp_format})`, (req, res) => {
-
+app.post(`/r/:stamp(${stampFormat})`, (req, res) => {
   if (req.isLocal && !options.allow_admin_rating) {
     res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })
     return false
@@ -104,10 +99,10 @@ function convert (stamp, body) {
   const rules = storage.get(stamp).rules
 
   let validated = true
-  for (const version in rules) {
+  for (let version in rules) {
     rateData.marks[version] = {}
-    for (const id in body) {
-      if ('note' == id) {
+    for (let id in body) {
+      if (id === 'note') {
         continue
       }
       rateData.marks[version][id] = {

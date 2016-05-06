@@ -1,8 +1,6 @@
 ;(function (angular, $) {
   'use strict'
 
-  const files = {}
-
   angular.module('itcast-tms.services')
     .service('Setting', ['$window', Setting])
 
@@ -17,4 +15,4 @@
   Setting.prototype.set = function (key, value) {
     this.storage.setItem(key, JSON.stringify(value))
   }
-}(angular, $))
+}(window.angular, window.$))

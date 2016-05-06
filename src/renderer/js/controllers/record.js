@@ -1,6 +1,5 @@
 ;(function (angular, $) {
   'use strict'
-
   angular.module('itcast-tms.controllers')
     .controller('RecordController', [
       '$scope',
@@ -27,7 +26,7 @@
     loadFiles()
 
     $.fs.watch($.options.storage_root, { interval: 300 }, (event, filename) => {
-      if (event !== 'change'){
+      if (event !== 'change') {
         loadFiles()
       }
     })
@@ -35,11 +34,10 @@
     this.remove = (name, e) => {
       e.preventDefault()
       e.stopPropagation()
-      if (!confirm(`确认删除『${name}${$.options.storage_ext}』?`)){
-        return false
-      }
 
-      try{
+      if (!$.confirm(`确认删除『${name}${$.options.storage_ext}』?`)) return false
+
+      try {
         // 删除到回收站
         this.records[name] && $.electron.shell.moveItemToTrash(this.records[name])
       } catch (e) {
@@ -48,14 +46,14 @@
       }
 
       // 当前打开的不是该文件
-      if ($rootScope.current_stamp !== name){
+      if ($rootScope.current_stamp !== name) {
         return false
       }
       // 跳转到第一个记录
       const stamps = Object.names(this.records)
-      stamps.remove(name)
+      stamps.splice(stamps.indexOf(name), 1)
       // console.log(stamps)
-      if (stamps && stamps.length){
+      if (stamps && stamps.length) {
         $location.url('/watcher/' + stamps[0])
         return false
       }
@@ -72,4 +70,4 @@
       this.records[name] && $.electron.shell.showItemInFolder(this.records[name])
     }
   }
-}(angular, $))
+}(window.angular, window.$))

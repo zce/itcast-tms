@@ -1,6 +1,5 @@
 ;(function (angular, $) {
   'use strict'
-
   angular
     .module('itcast-tms.areas')
     .config(['$routeProvider', function ($routeProvider) {
@@ -14,6 +13,5 @@
       DashboardController
     ])
 
-  function DashboardController ($scope) {
-  }
-}(angular, $))
+  function DashboardController ($scope) { }
+}(window.angular, window.$))

@@ -5,10 +5,7 @@
 
 'use strict'
 
-const fs = require('fs')
-const path = require('path')
 const os = require('os')
-const exec = require('child_process').exec
 
 const packager = require('electron-packager')
 const argv = require('minimist')(process.argv.slice(2))
@@ -16,26 +13,26 @@ const argv = require('minimist')(process.argv.slice(2))
 const packageJson = require('./package.json')
 
 // const app_name = argv.name || argv.n || packageJson.productName
-const app_icon = argv.icon || argv.i || 'assets/app'
+const appIcon = argv.icon || argv.i || 'assets/app'
 
-const electron_version = argv.version || argv.v
+const electronVersion = argv.version || argv.v
 
-const use_asar = argv.asar || argv.a || false
-const build_all_platform = argv.all || false
+const useAsar = argv.asar || argv.a || false
+const buildAllPlatform = argv.all || false
 
-const out_dir = './dist/releases'
+const outDir = './dist/releases'
 
 const options = {
   'dir': './build',
   'name': packageJson.productName,
   'build-version': packageJson.version,
-  'icon': app_icon,
+  'icon': appIcon,
   'ignore': [],
   'overwrite': true,
   // prune: true,
   'version': '0.37.8',
   'app-version': packageJson.version,
-  'asar': use_asar,
+  'asar': useAsar,
   'asar-unpack': '',
   'asar-unpack-dir': '',
   'download': {},
@@ -53,11 +50,11 @@ const options = {
 }
 
 try {
-  options.version = electron_version || require('./node_modules/electron-prebuilt/package.json').version
+  options.version = electronVersion || require('./node_modules/electron-prebuilt/package.json').version
 } catch (e) {}
 
 (function startPack () {
-  if (build_all_platform) {
+  if (buildAllPlatform) {
     // build for all platforms
     const archs = ['ia32', 'x64']
     const platforms = ['linux', 'win32', 'darwin']
@@ -82,9 +79,9 @@ function pack (platform, arch, callback) {
     icon: options.icon + ext,
     'app-version': packageJson.version || options.version,
     arch: arch,
-    // out: `${out_dir}/v${packageJson.version}`, // /${platform}-${arch}
-    out: `${out_dir}/${platform}`, // /${platform}-${arch}
-    platform: platform,
+    // out: `${outDir}/v${packageJson.version}`, // /${platform}-${arch}
+    out: `${outDir}/${platform}`, // /${platform}-${arch}
+    platform: platform
   }), callback)
 }
 

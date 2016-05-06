@@ -31,8 +31,9 @@ const check = root => new Promise((resolve, reject) => {
       const needs = {}
       packagesKeys.forEach((key, i) => {
         const item = JSON.parse(contents[i])
-        if (packages[key] !== item.name)
+        if (packages[key] !== item.name) {
           needs[key] = item.url
+        }
       })
       return needs
     })
@@ -51,7 +52,7 @@ let mainWindow, webContents
 const download = needs => {
   // 创建窗口显示更新提示
   mainWindow = new BrowserWindow({ width: 600, height: 400, resizable: false, movable: false, frame: false })
-  mainWindow.on('closed', () => mainWindow = null)
+  mainWindow.on('closed', () => { mainWindow = null })
   // 加载更新提示界面
   mainWindow.loadURL(`file://${__dirname}/../index.html`)
   webContents = mainWindow.webContents

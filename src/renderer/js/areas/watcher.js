@@ -1,6 +1,5 @@
 ;(function (angular, $) {
   'use strict'
-
   angular
     .module('itcast-tms.areas')
     .config(['$routeProvider', function ($routeProvider) {
@@ -31,7 +30,7 @@
 
     // TODO: 没有文件情况
     if (!$scope.data) {
-      alert('没有对应的测评信息！')
+      $.alert('没有对应的测评信息！')
       $location.url('/starter')
       return false
     }
@@ -60,7 +59,6 @@
     // 删除邮箱
     $scope.action.del_email = (item) => {
       $scope.data.added_emails.splice($scope.data.added_emails.indexOf(this), 1)
-      // $scope.data.added_emails.remove(item)
       save()
     }
     // ===== ======= =====
@@ -68,7 +66,7 @@
     // 复制链接
     $scope.action.copy = txt => {
       $.electron.clipboard.writeText(txt)
-      alert('已经将打分链接复制到剪切板\n请将链接发送给学生')
+      $.alert('已经将打分链接复制到剪切板\n请将链接发送给学生')
     }
 
     // 开始评测按钮
@@ -84,17 +82,16 @@
     // 结束评测按钮
     let stoping = false
     $scope.action.stop = () => {
-      if (stoping)
-        return false
+      if (stoping) return false
       // 防止多次点击
       stoping = true
       $scope.data.rated_count = Object.keys($scope.data.rated_info).length
       if (!$scope.data.rated_count) {
-        alert('尚未有人提交测评表单！')
+        $.alert('尚未有人提交测评表单！')
         stoping = false
         return false
       }
-      if (!(confirm('确定结束吗？') && confirm('真的确定结束吗？'))) {
+      if (!($.confirm('确定结束吗？') && $.confirm('真的确定结束吗？'))) {
         stoping = false
         return false
       }
@@ -114,12 +111,11 @@
     // 发送邮件按钮
     let sending = false
     $scope.action.send = () => {
-      if (sending)
-        return false
+      if (sending) return false
       // 防止多次点击
       sending = true
       // console.log($scope.data)
-      if (!(confirm('确定发送邮件吗？'))) {
+      if (!($.confirm('确定发送邮件吗？'))) {
         sending = false
         return false
       }
@@ -133,23 +129,23 @@
               $.logger.info(message)
               $scope.data.status = $.options.status_keys.send
               save()
-              // alert('邮件发送成功\n' + JSON.stringify(message))
+              // $.alert('邮件发送成功\n' + JSON.stringify(message))
               sending = false
             })
             .catch(error => {
               $.logger.fatal(error)
-              if (error.code == 'ENOTFOUND' && error.syscall == 'getaddrinfo') {
-                alert('网络连接失败，请确认网络正常')
-              } else if (error.responseCode == 550 && error.code == 'EENVELOPE') {
-                alert(`收件人错误（不存在）
+              if (error.code === 'ENOTFOUND' && error.syscall === 'getaddrinfo') {
+                $.alert('网络连接失败，请确认网络正常')
+              } else if (error.responseCode === 550 && error.code === 'EENVELOPE') {
+                $.alert(`收件人错误（不存在）
 请将本次打分的记录文件「${stamp}.tms」
 发送到wanglei3@itcast.cn`)
-              } else if (error.responseCode == 598) {
-                alert(`邮件中包含违禁词，发送失败
+              } else if (error.responseCode === 598) {
+                $.alert(`邮件中包含违禁词，发送失败
 请将本次打分的记录文件「${stamp}.tms」
 发送到wanglei3@itcast.cn`)
               } else {
-                alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn')
+                $.alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn')
               }
               // 测评完成状态
               $scope.data.status = $.options.status_keys.rated
@@ -164,4 +160,4 @@
       $.storage.set(stamp, $scope.data)
     }
   }
-}(angular, $))
+}(window.angular, window.$))

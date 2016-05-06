@@ -44,4 +44,4 @@
       }
     }
   }
-}(angular, $))
+}(window.angular, window.$))

@@ -1,7 +1,6 @@
 // 渲染线程
 ;(function (angular) {
   'use strict'
-
   angular
     .module('itcast-tms', [
       'ngRoute',
@@ -10,8 +9,7 @@
       'itcast-tms.controllers',
       'itcast-tms.directives'
     ])
-    // .constant('options', options)
     .config(['$routeProvider', function ($routeProvider) {
-      $routeProvider.otherwise({ redirectTo: '/starter' /*'/watcher/1234'*/ })
+      $routeProvider.otherwise({ redirectTo: '/starter' })
     }])
-}(angular))
+}(window.angular))

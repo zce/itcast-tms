@@ -6,16 +6,16 @@ process.env.CORE_ROOT = process.env.CORE_ROOT || (isProduction ? 'core.asar' : '
 process.env.DATA_ROOT = process.env.DATA_ROOT || (isProduction ? 'data.asar' : 'data')
 process.env.UPDATER_ROOT = process.env.UPDATER_ROOT || (isProduction ? 'updater.asar' : 'updater')
 
-const core_root = path.resolve(__dirname, '..', process.env.CORE_ROOT)
-const data_root = path.resolve(__dirname, '..', process.env.DATA_ROOT)
-const updater_root = path.resolve(__dirname, '..', process.env.UPDATER_ROOT)
+const coreRoot = path.resolve(__dirname, '..', process.env.CORE_ROOT)
+const dataRoot = path.resolve(__dirname, '..', process.env.DATA_ROOT)
+const updaterRoot = path.resolve(__dirname, '..', process.env.UPDATER_ROOT)
 
 const options = {
-  core_version: require(path.resolve(core_root, 'package.json')).version,
-  data_version: require(path.resolve(data_root, 'package.json')).version,
-  updater_version: require(path.resolve(updater_root, 'package.json')).version,
+  core_version: require(path.resolve(coreRoot, 'package.json')).version,
+  data_version: require(path.resolve(dataRoot, 'package.json')).version,
+  updater_version: require(path.resolve(updaterRoot, 'package.json')).version,
   // 数据文件所在目录
-  data_root: data_root,
+  data_root: dataRoot,
   // 服务端静态文件根目录
   static_root: path.resolve(__dirname, 'static'),
   // 日志文件目录
@@ -25,7 +25,7 @@ const options = {
   // 文件戳长度
   stamp_length: 8,
   // 服务器信息
-  main_url: `file://${path.resolve(__dirname, 'renderer')}/${ process.env.NODE_ENV === 'production' ? 'splash' : 'index' }.html`,
+  main_url: `file://${path.resolve(__dirname, 'renderer')}/${process.env.NODE_ENV === 'production' ? 'splash' : 'index'}.html`,
   // 服务IP
   server_ip: utils.getLocalAreaIp(),
   // 服务Port

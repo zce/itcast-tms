@@ -80,7 +80,7 @@ gulp.task('html', ['useref'], () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
       minifyCSS: true,
-      minifyJS: true,
+      minifyJS: true
     }))
     .pipe(gulp.dest('./core/renderer'))
 })
@@ -129,7 +129,6 @@ const getFileStamp = (filename, type) => {
  * 编译归档文件和压缩包
  */
 gulp.task('build', ['size'], () => {
-
   const items = ['core', 'data', 'updater']
 
   Promise.all(items.map(item => asarPack(`./${item}`, `./build/${item}.asar`)))
@@ -138,7 +137,6 @@ gulp.task('build', ['size'], () => {
       return fs.mkdirs('./dist/latest')
     })
     .then(() => {
-
       const index = {}
       const tasks = items.map(item => {
         const pkg = require(`./${item}/package.json`)
@@ -175,7 +173,7 @@ gulp.task('default', ['clean'], () => {
  * 监视文件变化自动刷新
  */
 gulp.task('watch', ['less'], () => {
-  plugins.livereload.listen( /* { basePath: 'src' } */)
+  plugins.livereload.listen()
 
   gulp.watch([
     './src/renderer/**/*.html',

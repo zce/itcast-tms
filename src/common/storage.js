@@ -8,7 +8,7 @@ fs.existsSync(options.storage_root) || fs.mkdir(options.storage_root)
 
 function write (uri, value) {
   value = JSON.stringify(value)
-  const length = Buffer.byteLength(value); // new Buffer(value).length
+  const length = Buffer.byteLength(value)
   const buffer = new Buffer(length + 4)
   buffer.writeUInt32BE(length, 0)
   buffer.write(value, 4)
@@ -22,7 +22,6 @@ function read (uri) {
     const content = buffer.toString('utf8', 4, length + 4)
     return JSON.parse(content)
   } catch (e) {
-    // console.info('read file ' + e)
     return null
   }
 }

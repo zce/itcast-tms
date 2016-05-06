@@ -1,6 +1,5 @@
 ;(function (angular, $) {
   'use strict'
-
   const itcast = $.data.itcast()
   const schools = $.data.schools()
   const academies = $.data.academies()
@@ -45,7 +44,7 @@
     $scope.model.head_name = ''
     $scope.model.teacher_name = ''
     $scope.model.teacher_email = ''
-    $scope.model.datetime = new Date().format('yyyy-MM-dd HH:mm')
+    $scope.model.datetime = $.formatDate(new Date(), 'yyyy-MM-dd HH:mm')
 
     // ===== 读取配置文件 =====
     $scope.data.schools = schools
@@ -62,11 +61,10 @@
 
     // ===== 创建一个打分文件 =====
     $scope.action.start = () => {
-
       // 校验表单数据
       for (let key in $scope.model) {
         if (!$scope.model[key]) {
-          alert('请完整填写所有信息！')
+          $.alert('请完整填写所有信息！')
           return false
         }
       }
@@ -95,10 +93,10 @@
       $scope.model.status = $.options.status_keys.initial
 
       // 本次测评问题
-      let rule_keys = subject.rules && subject.rules.length ? subject.rules : academy.rules && academy.rules.length ? academy.rules : school.rules && school.rules.length ? school.rules : itcast.rules
-      ;(rule_keys && rule_keys.length) || $.logger.error(new Error(`【${$scope.model.school_name} / ${$scope.model.academy_name} / ${$scope.model.subject_name}】 没有题目信息`))
+      let ruleKeys = subject.rules && subject.rules.length ? subject.rules : academy.rules && academy.rules.length ? academy.rules : school.rules && school.rules.length ? school.rules : itcast.rules
+      ;(ruleKeys && ruleKeys.length) || $.logger.error(new Error(`【${$scope.model.school_name} / ${$scope.model.academy_name} / ${$scope.model.subject_name}】 没有题目信息`))
       $scope.model.rules = {}
-      rule_keys.forEach(k => $scope.model.rules[k] = rules[k])
+      ruleKeys.forEach(k => { $scope.model.rules[k] = rules[k] })
 
       // 处理邮箱后缀
       $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn')
@@ -110,7 +108,7 @@
       $scope.model.added_emails = []
 
       // 获取一个戳
-      $scope.model.stamp = String.getStamp()
+      $scope.model.stamp = $.getStamp()
 
       // 持久化
       $.storage.set($scope.model.stamp, $scope.model)
@@ -122,4 +120,4 @@
       $location.url('/watcher/' + $scope.model.stamp)
     }
   }
-}(angular, $))
+}(window.angular, window.$))

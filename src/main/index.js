@@ -1,7 +1,9 @@
 'use strict'
 
-const { app, hideInternalModules } = require('electron')
-hideInternalModules(); // 禁用旧版的API
+const { hideInternalModules } = require('electron')
+
+// 禁用旧版的API
+hideInternalModules()
 
 // 全局配置选项
 const options = require('./config')

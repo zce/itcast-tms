@@ -1,5 +1,4 @@
 const storage = require('./storage')
-const options = require('../config')
 
 function getNotes (data) {
   const notes = []
@@ -44,12 +43,11 @@ function getResult (data) {
 }
 
 module.exports = (data) => {
-
   // const data = storage.get(stamp)
   // data.rated_count = Object.keys(data.rated_info).length
   const notes = getNotes(data)
   const result = getResult(data)
-  Object.assign(data, { notes, result})
+  Object.assign(data, { notes, result })
   // data.status = options.status_keys.rated
   storage.set(data.stamp, data)
   return data
