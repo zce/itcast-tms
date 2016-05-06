@@ -119,34 +119,37 @@ const launch = () => {
 
 const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 
-console.time('updater')
+app.on('ready', () => {
+  process.env.APP_READY = true;
+  console.time('updater')
 
-// 检查更新
-check(manifest)
-  .then((needs) => {
-    console.timeEnd('updater')
-    // console.log(needs)
-    return needs
-  })
-  // 下载更新
-  .then(download)
-  // 更新完成
-  .then(done)
-  // 更新失败
-  .catch(failed)
+  // 检查更新
+  check(manifest)
+    .then((needs) => {
+      console.timeEnd('updater')
+      // console.log(needs)
+      return needs
+    })
+    // 下载更新
+    .then(download)
+    // 更新完成
+    .then(done)
+    // 更新失败
+    .catch(failed)
 
-// const online = require('./online')
-// online()
-//   // 检查更新
-//   .then(() => check(manifest))
-//   .then((needs) => {
-//     console.timeEnd('updater')
-//     console.log(needs)
-//     return needs
-//   })
-//   // 下载更新
-//   .then(download)
-//   // 更新完成
-//   .then(done)
-//   // 更新失败
-//   .catch(failed)
+  // const online = require('./online')
+  // online()
+  //   // 检查更新
+  //   .then(() => check(manifest))
+  //   .then((needs) => {
+  //     console.timeEnd('updater')
+  //     console.log(needs)
+  //     return needs
+  //   })
+  //   // 下载更新
+  //   .then(download)
+  //   // 更新完成
+  //   .then(done)
+  //   // 更新失败
+  //   .catch(failed)
+})
