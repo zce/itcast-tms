@@ -53,7 +53,12 @@
     $scope.data.academies && ($scope.model.academy_name = Object.keys($scope.data.academies)[0])
     const showSubjects = () => {
       $scope.data.subjects = subjects.filter(item => item.academy === $scope.model.academy_name && item.school === $scope.model.school_name)
-      $scope.data.subjects.length && ($scope.model.subject_name = $scope.data.subjects[0].name)
+      if (!$scope.data.subjects.length) {
+        $scope.model.subject_name = '暂无对应学科'
+        $scope.data.subjects = [{name: '暂无对应学科'}]
+        return false
+      }
+      $scope.model.subject_name = $scope.data.subjects[0].name
     }
     // 校区和学院改变 → 学科对应变化
     $scope.$watch('model.school_name', showSubjects)
@@ -61,6 +66,11 @@
 
     // ===== 创建一个打分文件 =====
     $scope.action.start = () => {
+      if ($scope.model.subject_name === '暂无对应学科') {
+        $.alert('请正确选择学科信息！')
+        return false
+      }
+
       // 校验表单数据
       for (let key in $scope.model) {
         if (!$scope.model[key]) {
@@ -73,6 +83,10 @@
       const school = schools[$scope.model.school_name]
       const academy = academies[$scope.model.academy_name]
       const subject = subjects.find(s => s.academy === $scope.model.academy_name && s.school === $scope.model.school_name && s.name === $scope.model.subject_name)
+      if (!(school && academy && subject)) {
+        $.alert('请确认选择校区、学院、学科信息！')
+        return false
+      }
 
       // 请假人数
       $scope.model.leave_count = (reasons => {
