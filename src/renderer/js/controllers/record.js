@@ -32,33 +32,35 @@
       }
     })
 
-    this.remove = (key, e) => {
+    this.remove = (name, e) => {
       e.preventDefault()
       e.stopPropagation()
-      if (!confirm(`确认删除『${key}${$.options.storage_ext}』?`)){
+      if (!confirm(`确认删除『${name}${$.options.storage_ext}』?`)){
         return false
       }
-      this.records[key] && $.fs.unlink(this.records[key], error => {
-        if (error) {
-          $.logger.error(error)
-          return false
-        }
-        // 当前打开的不是该文件
-        if ($rootScope.current_stamp !== key){
-          return false
-        }
 
-        const stamps = Object.keys(this.records)
-        stamps.remove(key)
-        // console.log(stamps)
-        if (stamps && stamps.length){
-          $location.url('/watcher/' + stamps[0])
-        }
-        else{
-          $location.url('/starter')
-        }
-      })
-      // delete this.records[key]
+      try{
+        // 删除到回收站
+        this.records[name] && $.electron.shell.moveItemToTrash(this.records[name])
+      } catch (e) {
+        $.logger.error(e)
+        return false
+      }
+
+      // 当前打开的不是该文件
+      if ($rootScope.current_stamp !== name){
+        return false
+      }
+      // 跳转到第一个记录
+      const stamps = Object.names(this.records)
+      stamps.remove(name)
+      // console.log(stamps)
+      if (stamps && stamps.length){
+        $location.url('/watcher/' + stamps[0])
+        return false
+      }
+      // 没有记录跳转到开始界面
+      $location.url('/starter')
 
       return false
     }
