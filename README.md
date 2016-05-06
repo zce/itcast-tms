@@ -58,6 +58,8 @@ ISC © [iceStone](https://github.com/Micua)
 
 ## Thanks
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 - https://github.com/szwacz/electron-boilerplate
 - https://github.com/kristoferjoseph/flexboxgrid
 - https://philipwalton.github.io/solved-by-flexbox/
@@ -69,8 +71,8 @@ ISC © [iceStone](https://github.com/Micua)
 
 ## TODOS
 
-- Student submit rate info is empty
-- Email keyworks reject
+- [x]Student submit rate info is empty
+- [x]Email keyworks reject
 
 
 ## Model
