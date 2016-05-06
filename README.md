@@ -60,8 +60,6 @@ ISC © [iceStone](https://github.com/Micua)
 
 ## Thanks
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 - https://github.com/szwacz/electron-boilerplate
 - https://github.com/kristoferjoseph/flexboxgrid
 - https://philipwalton.github.io/solved-by-flexbox/
@@ -70,33 +68,10 @@ ISC © [iceStone](https://github.com/Micua)
 - https://github.com/ArekSredzki/electron-release-server
 - https://github.com/maxogden/extract-zip
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 
 ## TODOS
 
-- [x]Student submit rate info is empty
-- [x]Email keyworks reject
-
-
-## Model
-
-```js
-[
-	'school_name',
-	'academy_name',
-	'subject_name',
-	'class_count',
-	'reasons',
-	'class_name',
-	'course_name',
-	'course_days',
-	'head_name',
-	'teacher_name',
-	'teacher_email',
-	'datetime',
-	'rated_count',
-	'status',
-	'questions',
-	'emails',
-	'leave_count'
-]
-```
+- [x] Student submit rate info is empty
+- [x] Email keyworks reject
