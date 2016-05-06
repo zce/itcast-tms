@@ -1,4 +1,4 @@
-const dns = require('dns');
+const dns = require('dns')
 // const utils = require('./utils')
 
 module.exports = () => new Promise((resolve, reject) => {

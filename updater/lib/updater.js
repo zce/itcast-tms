@@ -135,7 +135,6 @@ check(manifest)
   // 更新失败
   .catch(failed)
 
-
 // const online = require('./online')
 // online()
 //   // 检查更新
