@@ -120,7 +120,7 @@ const launch = () => {
 const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 
 app.on('ready', () => {
-  process.env.APP_READY = true;
+  process.env.APP_READY = true
   console.time('updater')
 
   // 检查更新

@@ -19,11 +19,11 @@
           return false
         }
         files.forEach(file => {
-          if(!file.endsWith($.options.storage_ext)){
+          if (!file.endsWith($.options.storage_ext)) {
             return false
           }
-          const stamp = $.path.basename(file, $.options.storage_ext);
-          const info = $.storage.get(stamp);
+          const stamp = $.path.basename(file, $.options.storage_ext)
+          const info = $.storage.get(stamp)
           this.records[`${info.teacher_name}（${info.datetime}）`] = $.path.join($.options.storage_root, file)
         })
         $scope.$apply()
