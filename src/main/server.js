@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const options = require('./config')
 const storage = require('../common/storage')
 const logger = require('../common/logger').main
+const stamp_format = `\\w{${options.stamp_length}}`
 
 const app = express()
 
@@ -39,7 +40,7 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
+app.get(`/:stamp(${stamp_format})`, (req, res) => {
 
   const { stamp } = req.params
   const data = storage.get(stamp)
@@ -55,7 +56,7 @@ app.get(`/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
   res.render('rating', data)
 })
 
-app.post(`/r/:stamp(\\w{${options.stamp_length}})`, (req, res) => {
+app.post(`/r/:stamp(${stamp_format})`, (req, res) => {
 
   if (req.isLocal && !options.allow_admin_rating) {
     res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })

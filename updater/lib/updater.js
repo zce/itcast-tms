@@ -86,15 +86,6 @@ const progress = key => p => {
 // Step 3 更新完成
 const done = (files) => {
   logger.info(`更新成功，更新了${files.toString()}`)
-  // if (updaterUpdated) {
-  //   // 如果更新器更新了，强制重新启动
-  //   webContents.send('update_done', '更新成功，正在退出，请重新启动！')
-  //   // 自动关闭程序
-  //   setTimeout(() => {
-  //     // mainWindow.close()
-  //     app.quit()
-  //   }, 3000)
-  // } else {
   // 更新核心包和数据 直接启动
   webContents.send('update_done', '更新成功，正在启动，请稍候！')
   for (let key in require.cache) {

@@ -54,22 +54,18 @@ const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => 
         // console.log(`Got file error: ${error.message}`)
         reject(error)
       } else {
-        // resolve(files[0])
+        // 如果更新的是更新器，不能直接运行
+        if (filename === 'updater') {
+          return reject('updater_updated')
+        }
 
         const to = path.resolve(cacheRoot, `../${filename}.asar`)
 
-        // process.noAsar = true
-
         fs.rename(files[0].path, to, error => {
           if (error) {
-            if (filename === 'updater') {
-              reject('updater_updated')
-            } else {
-              reject(error)
-            }
-          } else {
-            resolve(to)
+           return reject(error)
           }
+          resolve(to)
         })
       }
     })

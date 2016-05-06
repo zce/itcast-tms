@@ -27,11 +27,11 @@
     this.window = (action) => {
       const mainWindow = $.electron.remote.BrowserWindow.getFocusedWindow()
       // console.log(mainWindow)
-      if (action === 'maximize'){
+      if (action === 'maximize') {
         action = mainWindow.isMaximized() ? 'unmaximize' : 'maximize'
       } else if (action === 'close') {
-        if(!confirm('确认关闭？'))
-          return false;
+        if (!confirm('确认关闭？'))
+          return false
       }
       mainWindow[action]()
     }
