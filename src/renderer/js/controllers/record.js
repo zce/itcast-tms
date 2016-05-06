@@ -50,7 +50,7 @@
         return false
       }
       // 跳转到第一个记录
-      const stamps = Object.names(this.records)
+      const stamps = Object.keys(this.records)
       stamps.splice(stamps.indexOf(name), 1)
       // console.log(stamps)
       if (stamps && stamps.length) {
