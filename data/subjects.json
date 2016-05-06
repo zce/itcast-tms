@@ -420,6 +420,15 @@
     "rules": []
   },
   {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "深圳",
+    "emails": [
+      { "name": "高志远", "title": "教学总监", "email": "gzy@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
     "name": "iOS",
     "academy": "iOS",
     "school": "深圳",
@@ -712,6 +721,15 @@
     "school": "深圳",
     "emails": [
       { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "深圳",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
     ],
     "rules": []
   },
