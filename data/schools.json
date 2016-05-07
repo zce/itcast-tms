@@ -46,9 +46,11 @@
   "武汉": {
     "emails": [
       { "name": "何家旺", "title": "校长", "email": "hjw@itcast.cn" },
-      { "name": "田亮", "title": "就业部主管", "email": "tianliang@itcast.cn" },
-      { "name": "张彬", "title": "就业部主管助理", "email": "zhangbin@itcast.cn" },
-      { "name": "张瑞利", "title": "学工部主管", "email": "zhangruili@itcast.cn" }
+      { "name": "张彬", "title": "就业部主管", "email": "zhangbin@itcast.cn" },
+      { "name": "张瑞利", "title": "学工部主管", "email": "zhangruili@itcast.cn" },
+      { "name": "苏晓霞", "title": "咨询部组长", "email": "sxx@itcast.cn" },
+      { "name": "明翠莉", "title": "学工部组长", "email": "mingcuili@itcast.cn" },
+      { "name": "陈悠然", "title": "学工部文员", "email": "chenyouran@itcast.cn" }
     ],
     "rules": []
   },

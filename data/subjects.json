@@ -442,7 +442,9 @@
     "academy": "Java",
     "school": "武汉",
     "emails": [
-      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" }
+      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" },
+      { "name": "谢子龙", "title": "基础组组长", "email": "xiezilong@itcast.cn" },
+      { "name": "陈长远", "title": "就业组组长", "email": "chenchangyuan@itcast.cn" }
     ],
     "rules": []
   },

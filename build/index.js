@@ -1,19 +1,20 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
 const path = require('path')
 const fs = require('original-fs')
-
-process.env.NODE_ENV = 'production'
+const { app } = require('electron')
 
 const from = path.resolve(__dirname, './cache/updater')
 const to = path.resolve(__dirname, './updater.asar')
+const start = to
+
+app.on('ready', () => { process.appReady = true })
 
 fs.stat(from, (error, state) => {
-  if (error) {
-    require(to)
-    return false
-  }
+  if (error) return require(start)
   fs.rename(from, to, error => {
-    if (error) throw error
+    if (error) return require(start)
     console.log('更新器完成更新')
-    require(to)
+    require(start)
   })
 })

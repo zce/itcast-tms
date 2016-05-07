@@ -4,16 +4,15 @@ const { app, BrowserWindow } = require('electron')
 const utils = require('./utils')
 const logger = require('./logger')
 
-const isProduction = process.env.NODE_ENV === 'production'
-process.env.CORE_ROOT = isProduction ? 'core.asar' : 'src'
-process.env.DATA_ROOT = isProduction ? 'data.asar' : 'data'
-process.env.UPDATER_ROOT = isProduction ? 'updater.asar' : 'updater'
+process.coreRoot = process.isProduction ? 'core.asar' : 'src'
+process.dataRoot = process.isProduction ? 'data.asar' : 'data'
+process.updaterRoot = process.isProduction ? 'updater.asar' : 'updater'
 
 // 读取当前的版本信息
 const packages = {
-  core: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.CORE_ROOT}`)),
-  data: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.DATA_ROOT}`)),
-  updater: utils.getFileStamp(path.resolve(__dirname, `../../${process.env.UPDATER_ROOT}`))
+  core: utils.getFileStamp(path.resolve(__dirname, `../../${process.coreRoot}`)),
+  data: utils.getFileStamp(path.resolve(__dirname, `../../${process.dataRoot}`)),
+  updater: utils.getFileStamp(path.resolve(__dirname, `../../${process.updaterRoot}`))
 }
 const packagesKeys = Object.keys(packages)
 
@@ -48,16 +47,16 @@ const check = root => new Promise((resolve, reject) => {
 })
 
 let mainWindow, webContents
-// Step 2 开始下载更新
+  // Step 2 开始下载更新
 const download = needs => {
   // 创建窗口显示更新提示
   mainWindow = new BrowserWindow({ width: 600, height: 400, resizable: false, movable: false, frame: false })
   mainWindow.on('closed', () => { mainWindow = null })
-  // 加载更新提示界面
+    // 加载更新提示界面
   mainWindow.loadURL(`file://${__dirname}/../index.html`)
   webContents = mainWindow.webContents
-  // 打开开发工具
-  isProduction || mainWindow.openDevTools({ detach: true })
+    // 打开开发工具
+  process.isProduction || mainWindow.openDevTools({ detach: true })
   const tasks = Object.keys(needs).map(key => utils.fetchFile(needs[key], key, progress(key)))
   return Promise.all(tasks)
 }
@@ -86,7 +85,7 @@ const done = (files) => {
     // 如果更新器更新了，强制重新启动
     console.log('更新的是更新器，需要重启动')
     webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
-    // 自动关闭程序
+      // 自动关闭程序
     setTimeout(() => app.quit(), 3000)
     return
   }
@@ -98,7 +97,7 @@ const done = (files) => {
   launch()
 }
 
-// failed
+// 更新失败
 const failed = error => {
   if (typeof error !== 'string') {
     logger.error(error)
@@ -108,9 +107,10 @@ const failed = error => {
   launch()
 }
 
+// 启动核心
 const launch = () => {
   try {
-    require(`../../${process.env.CORE_ROOT}`)
+    require(`../../${process.coreRoot}`)
     mainWindow && mainWindow.close()
   } catch (e) {
     logger.fatal(e)
@@ -120,14 +120,14 @@ const launch = () => {
 const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 
 module.exports = () => {
-  process.env.APP_READY = true
+  process.appReady = true
   console.time('updater')
 
   // 检查更新
   check(manifest)
     .then((needs) => {
       console.timeEnd('updater')
-      // console.log(needs)
+        // console.log(needs)
       return needs
     })
     // 下载更新
@@ -136,20 +136,21 @@ module.exports = () => {
     .then(done)
     // 更新失败
     .catch(failed)
-
-  // const online = require('./online')
-  // online()
-  //   // 检查更新
-  //   .then(() => check(manifest))
-  //   .then((needs) => {
-  //     console.timeEnd('updater')
-  //     console.log(needs)
-  //     return needs
-  //   })
-  //   // 下载更新
-  //   .then(download)
-  //   // 更新完成
-  //   .then(done)
-  //   // 更新失败
-  //   .catch(failed)
 }
+
+// const online = require('./online')
+//
+// online()
+//   // 检查更新
+//   .then(() => check(manifest))
+//   .then((needs) => {
+//     console.timeEnd('updater')
+//     console.log(needs)
+//     return needs
+//   })
+//   // 下载更新
+//   .then(download)
+//   // 更新完成
+//   .then(done)
+//   // 更新失败
+//   .catch(failed)
