@@ -88,8 +88,8 @@ function send (message) {
   })
 }
 
-const crypto = require('crypto');
+const crypto = require('crypto')
 const encrypt = (text) => {
   const step1 = crypto.createHash('md5').update(text).digest('base64')
-  return crypto.createHash('sha1').update(step1).digest('hex');
+  return crypto.createHash('sha1').update(step1).digest('hex')
 }
