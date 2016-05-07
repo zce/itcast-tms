@@ -27,7 +27,7 @@ const repo = 'http://git.oschina.net/micua/tms/raw/master/'
  * 清理临时文件
  */
 gulp.task('clean', del.bind(null, [
-  './core',
+  // './core',
   './build/cache',
   './build/core.asar',
   './build/data.asar',
@@ -45,6 +45,16 @@ gulp.task('clean', del.bind(null, [
 ]))
 
 /**
+ * 压缩JS文件
+ */
+gulp.task('js', () => {
+  return gulp.src('./src/main/**/*.js')
+    .pipe(plugins.babel())
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('./core/main'))
+})
+
+/**
  * 编译less文件
  */
 gulp.task('less', () => {
@@ -59,10 +69,12 @@ gulp.task('less', () => {
 /**
  * 行内编译任务
  */
-gulp.task('useref', ['less'], () => {
+gulp.task('useref', ['less', 'js'], () => {
   return gulp.src('./src/renderer/*.html')
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
+    .pipe(plugins.if('**/bundle.js', plugins.babel()))
+    .pipe(plugins.if('**/bundle.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano()))
     .pipe(gulp.dest('./core/renderer'))
 })
@@ -92,10 +104,11 @@ gulp.task('html', ['useref'], () => {
 gulp.task('extras', () => {
   return gulp.src([
     './src/**/*.*',
-    '!./src/test/**/*.*',
+    '!./src/main/**/*.js',
     '!./src/renderer/js/**/*.*',
     '!./src/renderer/less/**/*.*',
-    '!./src/renderer/*.html'
+    '!./src/renderer/*.html',
+    '!./src/test/**/*.*'
   ], {
     dot: true
   }).pipe(gulp.dest('./core'))
