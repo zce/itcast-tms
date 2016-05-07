@@ -1,4 +1,5 @@
-;(function (angular, $) {
+;
+(function(angular, $) {
   'use strict'
   angular.module('itcast-tms.controllers')
     .controller('RecordController', [
@@ -19,7 +20,9 @@
           if (!file.endsWith($.options.storage_ext)) return false
           const stamp = $.path.basename(file, $.options.storage_ext)
           const info = $.storage.get(stamp)
-          this.records.push({ stamp: stamp, title: `${info.teacher_name}（${info.datetime}）`, path: $.path.join($.options.storage_root, file) })
+          if (info) {
+            this.records.push({ stamp: stamp, title: `${info.teacher_name}（${info.datetime}）`, path: $.path.join($.options.storage_root, file) })
+          }
         })
         $scope.$apply()
       })

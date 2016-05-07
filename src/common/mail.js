@@ -26,23 +26,22 @@ module.exports = (data) => {
     // 附件和正文
   const attachments = []
   let body = ''
-
+  let all = ''
   Object.keys(data.result).forEach(version => {
     xtpl.renderFile(txtTemplate, { data, version }, (error, content) => {
-      if (error) throw error
+      if (error) return Promise.reject(error)
       const filename = `${data.datetime.replace(/-/g, '').replace(/:/g, '').replace(/\s/g, '')}_${data.teacher_name}_${version}.txt`
       attachments.push({ filename, content })
-    })
-
-    // const notes = []
-    // data.notes.forEach(n => notes.push(marked(n)))
-    // console.log(notes)
-    xtpl.renderFile(mailTemplate, { data, version }, (error, content) => {
-      if (error) throw error
-      body += content
+      all += content
     })
   })
 
+  // 渲染邮件模板
+  xtpl.renderFile(mailTemplate, { data, hash: encrypt(all) }, (error, content) => {
+    if (error) return Promise.reject(error)
+    body += content
+  })
+  // body += `<hr><br><p>${encrypt(all)}</p>`
   return send({ from: from, to: to.toString(), cc: cc.toString(), subject: subject, html: body, attachments: attachments })
 }
 
@@ -87,4 +86,10 @@ function send (message) {
       // })
     })
   })
+}
+
+const crypto = require('crypto');
+const encrypt = (text) => {
+  const step1 = crypto.createHash('md5').update(text).digest('base64')
+  return crypto.createHash('sha1').update(step1).digest('hex');
 }

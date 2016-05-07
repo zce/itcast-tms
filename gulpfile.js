@@ -92,6 +92,7 @@ gulp.task('html', ['useref'], () => {
 gulp.task('extras', () => {
   return gulp.src([
     './src/**/*.*',
+    '!./src/test/**/*.*',
     '!./src/renderer/js/**/*.*',
     '!./src/renderer/less/**/*.*',
     '!./src/renderer/*.html'
@@ -170,12 +171,17 @@ gulp.task('zip-releases', () => {
   const pkg = require('./package.json')
   fs.readdir('./dist/releases', (error, dirs) => {
     dirs.forEach(dir => {
+      // if(!dir.includes('darwin')) return
       fs.stat(`./dist/releases/${dir}`, (error, stats) => {
         if (stats.isFile()) return
-        gulp.src(`./dist/releases/${dir}/*`)
-          // .pipe(plugins.rename(item))
-          .pipe(plugins.zip(`itcast-tms-${pkg.version}-${dir.substr(11)}.zip`))
-          .pipe(gulp.dest('./dist/releases'))
+        try {
+          gulp.src([`./dist/releases/${dir}`], { base: './dist/releases' })
+            // .pipe(plugins.rename(item))
+            // .pipe(plugins.zip(`itcast-tms-${pkg.version}-${dir.substr(11)}.zip`))
+            .pipe(gulp.dest('./dist/releases'))
+        } catch(e) {
+          console.error(e);
+        }
       })
     })
   })
