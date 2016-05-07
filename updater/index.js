@@ -3,7 +3,7 @@ const updater = require('./lib/updater')
 
 if (process.appReady) {
   updater()
-}  else {
+} else {
   const { app } = require('electron')
   app.on('ready', updater)
 }

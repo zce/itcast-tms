@@ -29,7 +29,7 @@ const options = {
   // 服务IP
   server_ip: utils.getLocalAreaIp(),
   // 服务Port
-  server_port: 56899,
+  server_port: 56899, // ????
   // 测评状态
   status_keys: {
     initial: '尚未开始测评',
