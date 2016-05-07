@@ -9,22 +9,17 @@
     ])
 
   function RecordController ($scope, $rootScope, $location) {
-    this.records = {}
+    this.records = []
 
     const loadFiles = () => {
-      this.records = {}
+      this.records = []
       $.fs.readdir($.options.storage_root, (error, files) => {
-        if (error) {
-          $.logger.error('没有存贮目录：' + $.options.storage_root)
-          return false
-        }
+        if (error) return false
         files.forEach(file => {
-          if (!file.endsWith($.options.storage_ext)) {
-            return false
-          }
+          if (!file.endsWith($.options.storage_ext)) return false
           const stamp = $.path.basename(file, $.options.storage_ext)
           const info = $.storage.get(stamp)
-          this.records[`${info.teacher_name}（${info.datetime}）`] = $.path.join($.options.storage_root, file)
+          this.records.push({ stamp: stamp, title: `${info.teacher_name}（${info.datetime}）`, path: $.path.join($.options.storage_root, file) })
         })
         $scope.$apply()
       })
@@ -33,35 +28,30 @@
     loadFiles()
 
     $.fs.watch($.options.storage_root, { interval: 400 }, (event, filename) => {
-      if (event !== 'change') {
-        loadFiles()
-      }
+      if (event !== 'change') loadFiles()
     })
 
-    this.remove = (name, e) => {
+    this.remove = (item, e) => {
       e.preventDefault()
       e.stopPropagation()
 
-      if (!$.confirm(`确认删除『${name}${$.options.storage_ext}』?`)) return false
+      if (!$.confirm(`确认删除『${item.stamp}${$.options.storage_ext}』?`)) return false
 
       try {
         // 删除到回收站
-        this.records[name] && $.electron.shell.moveItemToTrash(this.records[name])
+        item.path && $.electron.shell.moveItemToTrash(item.path)
       } catch (e) {
-        $.logger.error(e)
-        return false
+        return $.logger.error(e)
       }
 
       // 当前打开的不是该文件
-      if ($rootScope.current_stamp !== name) {
-        return false
-      }
+      if ($rootScope.current_stamp !== item.stamp) return false
+
       // 跳转到第一个记录
-      const stamps = Object.keys(this.records)
-      stamps.splice(stamps.indexOf(name), 1)
-      // console.log(stamps)
-      if (stamps && stamps.length) {
-        $location.url('/watcher/' + stamps[0])
+      this.records.splice(this.records.indexOf(item), 1)
+        // console.log(this.records)
+      if (this.records && this.records.length) {
+        $location.url('/watcher/' + this.records[0].stamp)
         return false
       }
       // 没有记录跳转到开始界面
@@ -70,11 +60,11 @@
       return false
     }
 
-    this.reveal = (name, e) => {
+    this.reveal = (item, e) => {
       e.preventDefault()
       e.stopPropagation()
 
-      this.records[name] && $.electron.shell.showItemInFolder(this.records[name])
+      item.path && $.electron.shell.showItemInFolder(item.path)
     }
   }
 }(window.angular, window.$))
