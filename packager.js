@@ -80,7 +80,7 @@ function pack (platform, arch, callback) {
     'app-version': packageJson.version || options.version,
     arch: arch,
     // out: `${outDir}/v${packageJson.version}`, // /${platform}-${arch}
-    out: `${outDir}/${platform}`, // /${platform}-${arch}
+    out: `${outDir}`, // /${platform}-${arch}
     platform: platform
   }), callback)
 }

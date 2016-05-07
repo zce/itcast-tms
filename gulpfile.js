@@ -20,7 +20,7 @@ const asar = require('asar')
 const electron = require('electron-prebuilt')
 
 const plugins = gulpLoadPlugins()
-// const buildTemp = '.tmp'
+  // const buildTemp = '.tmp'
 const repo = 'http://git.oschina.net/micua/tms/raw/master/'
 
 /**
@@ -120,15 +120,15 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
 })
 
 const getFileStamp = (filename, type) => {
-  type = type || 'sha1'
-  const buffer = fs.readFileSync(filename)
-  var hash = crypto.createHash(type)
-  hash.update(buffer)
-  return hash.digest('hex')
-}
-/**
- * 编译归档文件和压缩包
- */
+    type = type || 'sha1'
+    const buffer = fs.readFileSync(filename)
+    var hash = crypto.createHash(type)
+    hash.update(buffer)
+    return hash.digest('hex')
+  }
+  /**
+   * 编译归档文件和压缩包
+   */
 gulp.task('build', ['size'], () => {
   const items = ['core', 'data', 'updater']
 
@@ -164,6 +164,21 @@ gulp.task('build', ['size'], () => {
     .catch(error => {
       console.log(error)
     })
+})
+
+gulp.task('zip-releases', () => {
+  const pkg = require('./package.json')
+  fs.readdir('./dist/releases', (error, dirs) => {
+    dirs.forEach(dir => {
+      fs.stat(`./dist/releases/${dir}`, (error, stats) => {
+        if (stats.isFile()) return
+        gulp.src(`./dist/releases/${dir}/*`)
+          // .pipe(plugins.rename(item))
+          .pipe(plugins.zip(`itcast-tms-${pkg.version}-${dir.substr(11)}.zip`))
+          .pipe(gulp.dest('./dist/releases'))
+      })
+    })
+  })
 })
 
 gulp.task('default', ['clean'], () => {
