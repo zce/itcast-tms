@@ -153,11 +153,11 @@ exports.doSend = function*(ctx, next) {
   let teacherEmail = ctx.request.body.teacherEmail.trim();
   let teacherName = ctx.request.body.teacherName.trim();
   let emails = ctx.request.body.emails;
-  if (process.env.NODE_ENV === 'development') {
-    for (var i = 0; i < emails.length; i++) {
-      emails[i] = emails[i] + 'n';
-    }
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   for (var i = 0; i < emails.length; i++) {
+  //     emails[i] = emails[i] + 'n';
+  //   }
+  // }
 
   // 获取临时目录中所有有效的文件
   let filePaths = getAllTempFilePaths().sort();

@@ -69,7 +69,7 @@
       { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
       { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
       { "name": "金兴", "title": "Android基础组组长", "email": "jinxing@itcast.cn" },
-      { "name": "邱本���", "title": "Android项目组组长", "email": "qiubenchao@itcast.cn" }
+      { "name": "邱本超", "title": "Android项目组组长", "email": "qiubenchao@itcast.cn" }
     ],
     "questions": []
   },
@@ -420,6 +420,15 @@
     "questions": []
   },
   {
+    "name": "UI设计",
+    "academy": "UI设计",
+    "school": "深圳",
+    "emails": [
+      { "name": "高志远", "title": "教学总监", "email": "gzy@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
     "name": "iOS",
     "academy": "iOS",
     "school": "深圳",
@@ -433,7 +442,9 @@
     "academy": "Java",
     "school": "武汉",
     "emails": [
-      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" }
+      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" },
+      { "name": "谢子龙", "title": "基础组组长", "email": "xiezilong@itcast.cn" },
+      { "name": "陈长远", "title": "就业组组长", "email": "chenchangyuan@itcast.cn" }
     ],
     "questions": []
   },
@@ -596,7 +607,7 @@
     "academy": "双元课堂",
     "school": "北京-修正校区",
     "emails": [
-      { "name": "���帅", "title": "组长", "email": "lishuai@itcast.cn" }
+      { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" }
     ],
     "questions": []
   },
@@ -677,7 +688,7 @@
   },
   {
     "name": "前端与移动开发",
-    "academy": "双元课堂",
+    "academy": "���元课堂",
     "school": "北京-修正校区",
     "emails": [
       { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
@@ -709,6 +720,15 @@
     "school": "深圳",
     "emails": [
       { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "深圳",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
     ],
     "questions": []
   },
@@ -754,6 +774,15 @@
     "school": "郑州",
     "emails": [
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "郑州",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
     ],
     "questions": []
   },
