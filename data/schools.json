@@ -73,9 +73,7 @@
   },
   "长沙": {
     "emails": [
-      { "name": "覃基权", "title": "校长", "email": "qinjiquan@itcast.cn" },
-      { "name": "张美", "title": "助教主管", "email": "zhangmei@itcast.cn" },
-      { "name": "阳丹", "title": "就业部主管", "email": "yangdan@itcast.cn" }
+      { "name": "田亮", "title": "校长", "email": "tianliang@itcast.cn" }
     ],
     "rules": []
   },
