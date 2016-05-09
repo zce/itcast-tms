@@ -172,7 +172,7 @@
           return false;
         }
 
-        if (token.value !== options.token) {
+        if (token.value !== options.login_token) {
           alert('操作口令不正确！\n请联系『汪磊(13241087977)』获取');
           electron.remote.app.quit();
           return false;

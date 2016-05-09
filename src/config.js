@@ -40,13 +40,12 @@ const options = {
   },
   mail: {
     transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net?connectionTimeout=3000',
-    from: '教学测评系统·传智播客 <pingfen@itcast.cn>'
+    from: '教学测评系统 « 传智播客·黑马程序员 <pingfen@itcast.cn>'
   },
   allow_student_repeat: false,
-  allow_admin_rating: true,
-  remove_log_after_send: true,
-  report_file_token: 'wedn.net',
-  token: 'itcast'
+  allow_admin_rating: false,
+  report_token: 'wedn.net',
+  login_token: 'itcast'
 }
 
 module.exports = options
