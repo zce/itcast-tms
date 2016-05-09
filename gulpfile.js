@@ -58,11 +58,11 @@ gulp.task('js', () => {
  * 编译less文件
  */
 gulp.task('less', () => {
-  return gulp.src(['./src/renderer/less/*.less', '!./src/renderer/less/_*.less'])
+  return gulp.src(['./src/renderer/assets/less/*.less', '!./src/renderer/assets/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest('./src/renderer/css'))
+    .pipe(gulp.dest('./src/renderer/assets/css'))
     .pipe(plugins.livereload())
 })
 
@@ -105,8 +105,8 @@ gulp.task('extras', () => {
   return gulp.src([
     './src/**/*.*',
     '!./src/main/**/*.js',
-    '!./src/renderer/js/**/*.*',
-    '!./src/renderer/less/**/*.*',
+    '!./src/renderer/**/*.js',
+    '!./src/renderer/assets/less/**/*.*',
     '!./src/renderer/*.html',
     '!./src/test/**/*.*'
   ], {

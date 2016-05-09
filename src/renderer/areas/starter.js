@@ -11,7 +11,7 @@
     .config(['$routeProvider', function ($routeProvider) {
       $routeProvider.when('/starter', {
         controller: 'StarterController',
-        templateUrl: 'view/starter.html'
+        templateUrl: 'views/starter.html'
       })
     }])
     .controller('StarterController', [

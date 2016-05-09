@@ -5,7 +5,7 @@
     .config(['$routeProvider', function ($routeProvider) {
       $routeProvider.when('/watcher/:stamp', {
         controller: 'WatcherController',
-        templateUrl: 'view/watcher.html'
+        templateUrl: 'views/watcher.html'
       })
     }])
     .controller('WatcherController', [
