@@ -497,6 +497,13 @@
 
 
 
+
+
+
+
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -547,8 +554,8 @@
     "academy": "双元课堂",
     "school": "北京-金燕龙和中腾校区",
     "emails": [
-      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
-      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+      { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
     ],
     "rules": []
   },
@@ -561,6 +568,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -611,8 +621,8 @@
     "academy": "双元课堂",
     "school": "北京-软件园校区",
     "emails": [
-      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
-      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+      { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
     ],
     "rules": []
   },
@@ -625,6 +635,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -675,8 +688,8 @@
     "academy": "双元课堂",
     "school": "北京-修正校区",
     "emails": [
-      { "name": "杨国祯", "title": "主管", "email": "tanrenlong@itcast.cn" },
-      { "name": "何景", "title": "主管助理", "email": "yanghongbo@itcast.cn" }
+      { "name": "杨国祯", "title": "主管", "email": "yangguozhen@itcast.cn" },
+      { "name": "何景", "title": "主管助理", "email": "hejing@itcast.cn" }
     ],
     "rules": []
   },
@@ -689,6 +702,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -698,6 +714,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -717,6 +736,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -744,6 +766,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Android",
     "academy": "双元课堂",
@@ -762,6 +787,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Android",
     "academy": "双元课堂",
@@ -780,6 +808,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Android",
     "academy": "双元课堂",
@@ -793,42 +824,6 @@
     "name": "Java基础",
     "academy": "双元课堂",
     "school": "西安",
-    "emails": [
-      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
-    ],
-    "rules": []
-  },
-  {
-    "name": "Android",
-    "academy": "双元课堂",
-    "school": "哈尔滨",
-    "emails": [
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
-    ],
-    "rules": []
-  },
-  {
-    "name": "Java基础",
-    "academy": "双元课堂",
-    "school": "哈尔滨",
-    "emails": [
-      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
-    ],
-    "rules": []
-  },
-  {
-    "name": "Android",
-    "academy": "双元课堂",
-    "school": "济南",
-    "emails": [
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
-    ],
-    "rules": []
-  },
-  {
-    "name": "Java基础",
-    "academy": "双元课堂",
-    "school": "济南",
     "emails": [
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
     ],
@@ -843,6 +838,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -862,6 +860,9 @@
     ],
     "rules": []
   },
+
+
+
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -879,5 +880,68 @@
       { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
     ],
     "rules": []
+  },
+
+
+
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "济南",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "济南",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "rules": []
+  },
+
+
+
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "哈尔滨",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "哈尔滨",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "rules": []
+  },
+
+
+
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "杭州",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "questions": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "杭州",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "questions": []
   }
 ]
