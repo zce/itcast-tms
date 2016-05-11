@@ -1,9 +1,9 @@
-.tmp
-cache
-core
+build/cache
 dist
 itcast-log
 node_modules
+src/cache
 src/renderer/css
+temp
 *.log
 *.asar

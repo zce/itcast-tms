@@ -1,0 +1,44 @@
+// icon
+.icon-button {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: .1rem solid transparent;
+  border-radius: @radius;
+  cursor: pointer;
+  height: 3.6rem;
+  margin: 0 1rem;
+  width: 3.6rem;
+  padding: 0;
+  &:hover,
+  &:active,
+  &.selected {
+    border: .1rem solid rgba(0, 0, 0, .2);
+    color: #333;
+    opacity: 0.8;
+  }
+  &:focus {
+    outline: 0
+  }
+  &.toggle {
+    background-image: url('../img/menu.svg');
+  }
+  &.minimize {
+    background-image: url('../img/minimize.svg');
+  }
+  &.maximize {
+    background-image: url('../img/maximize.svg');
+  }
+  &.close {
+    background-image: url('../img/close.svg');
+  }
+}
+
+.hide-controls {
+  .minimize,
+  .maximize,
+  .close {
+    visibility: hidden;
+  }
+}

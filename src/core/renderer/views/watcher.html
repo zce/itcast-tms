@@ -1,0 +1,104 @@
+<div class="page-header"><h1>测评信息</h1></div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th width="30%">项目</th>
+            <th width="70%">数据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>学科信息</td>
+            <td><span>{{:: data.school_name }}</span> / <span>{{:: data.academy_name }}</span> / <span>{{:: data.subject_name }}</span></td>
+          </tr>
+          <tr>
+            <td>评分时间</td>
+            <td>{{:: data.datetime }}</td>
+          </tr>
+          <tr>
+            <td>评分班主任</td>
+            <td>{{:: data.head_name }}</td>
+          </tr>
+          <tr>
+            <td>评分班级</td>
+            <td>{{:: data.class_name }}</td>
+          </tr>
+          <tr>
+            <td>课程阶段</td>
+            <td>{{:: data.course_name }}</td>
+          </tr>
+          <tr>
+            <td>课程天数</td>
+            <td>{{:: data.course_days }}天</td>
+          </tr>
+          <tr>
+            <td>讲师姓名</td>
+            <td>{{:: data.teacher_name }}</td>
+          </tr>
+          <tr>
+            <td>讲师邮箱</td>
+            <td>{{:: data.teacher_email }}</td>
+          </tr>
+          <tr>
+            <td>班级总人数</td>
+            <td>{{:: data.class_count }}人（应到） - {{:: data.leave_count }}人（请假） = {{:: data.class_count - data.leave_count }}人（实到）</td>
+          </tr>
+          <tr>
+            <td>已完成测评人数</td>
+            <td style="color:#f40">{{ data.rated_count }}人（{{ data.class_count - data.leave_count - data.rated_count >= 0 ? '还少' + (data.class_count - data.leave_count - data.rated_count) : '超出' + -(data.class_count - data.leave_count - data.rated_count) }}人）</td>
+          </tr>
+          <tr ng-if="data.status">
+            <td>测评状态</td>
+            <td style="color:#f60">{{ data.status }}</td>
+          </tr>
+          <tr ng-if="data.status === root.options.status_keys.rating">
+            <td>测评链接</td>
+            <td>
+              <a ng-click="root.openExternal(root.options.server_link + data.stamp)">{{ root.options.server_link + data.stamp }}</a>
+              <span>&nbsp;&nbsp;</span>
+              <a ng-click="action.copy(root.options.server_link + data.stamp)">点击复制</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th width="35%">姓名</th>
+            <th width="65%">邮箱</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in :: data.emails track by $index">
+            <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+          </tr>
+          <tr style="color: #f70;" ng-repeat="item in data.added_emails track by $index">
+            <td title="{{ item.name }}（{{ item.title }}）">{{ item.name }}</td>
+            <td>{{ item.email }}<span class="close pull-right" title="移除{{ item.email }}" ng-click="action.del_email(item)">&times;&nbsp;&nbsp;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <form ng-submit="action.add_email()" ng-if="data.status === root.options.status_keys.rated">
+      <div class="input-group">
+        <input class="field" type="text" ng-model="model.email_input" placeholder="请输入额外添加的收件人">
+        <button class="addon" type="submit">添加</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="action">
+  <button class="btn btn-primary btn-block btn-lg" ng-if="data.status === root.options.status_keys.initial" ng-click="action.start()">开始测评</button>
+  <button class="btn btn-danger btn-block btn-lg" ng-if="data.status === root.options.status_keys.rating" ng-click="action.stop()">结束测评</button>
+  <button class="btn btn-success btn-block btn-lg" ng-if="data.status === root.options.status_keys.rated" ng-click="action.send()">发送邮件</button>
+  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.sending">邮件发送中......</div>
+  <div class="btn btn-block btn-lg" ng-if="data.status === root.options.status_keys.send">邮件发送完成（可以删除左侧的记录文件，也可将文件拷出来备份）</div>
+</div>

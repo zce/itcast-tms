@@ -44,6 +44,15 @@ gulp.task('clean', del.bind(null, [
   './npm-debug.log'
 ]))
 
+// /**
+//  * 编译压缩数据JSON文件
+//  */
+// gulp.task('data', () => {
+//   return gulp.src(['./src/data/*.json'], {base:'./src'})
+//     .pipe(plugins.jsonminify())
+//     .pipe(gulp.dest('./temp'))
+// })
+
 /**
  * 编译压缩脚本文件
  */
@@ -204,7 +213,7 @@ gulp.task('zip-releases', () => {
             // .pipe(plugins.zip(`itcast-tms-${pkg.version}-${dir.substr(11)}.zip`))
             .pipe(gulp.dest('./dist/releases'))
         } catch(e) {
-          console.error(e);
+          console.error(e)
         }
       })
     })

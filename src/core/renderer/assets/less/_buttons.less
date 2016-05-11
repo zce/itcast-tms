@@ -1,0 +1,106 @@
+.btn {
+  transition: background-color 0.2s;
+  display: inline-block;
+  padding: @normal-size/2 @normal-size;
+  // margin-top: 1rem;
+  background: @default-color;
+  color: inherit;
+  border: .1rem solid;
+  border-color: darken(@default-color, 5%);
+  border-radius: @radius;
+  cursor: pointer;
+  font-size: @normal-size;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  &:active,
+  &:focus,
+  &:hover {
+    // border: 0;
+    background: darken(@default-color, 50%);
+    border-color: darken(@default-color, 60%);
+    text-decoration: none;
+  }
+  &.ng-enter,
+  &.ng-leave {
+    // transition: opacity .3s linear;
+    transition: opacity .2s ease;
+  }
+  &.ng-enter {
+    opacity: 0;
+    visibility: hidden;
+    // display: none;
+    // width: 100%;
+    position: absolute;
+    // transition: opacity .3s ease 0s;
+  }
+  &.ng-enter.ng-enter-active {
+    // flex: 0;
+    opacity: 1;
+  }
+  &.ng-leave {
+    opacity: 1;
+    // transition: opacity .3s ease 0s;
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+}
+
+.btn-primary {
+  background-color: @primary-color;
+  border-color: darken(@primary-color, 5%);
+  color: #fff;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken(@primary-color, 10%);
+    border-color: darken(@primary-color, 15%);
+  }
+}
+
+.btn-danger {
+  background-color: @danger-color;
+  border-color: darken(@danger-color, 5%);
+  color: #fff;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken(@danger-color, 10%);
+    border-color: darken(@danger-color, 15%);
+  }
+}
+
+.btn-success {
+  background-color: @success-color;
+  border-color: darken(@success-color, 5%);
+  color: #fff;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken(@success-color, 10%);
+    border-color: darken(@success-color, 15%);
+  }
+}
+
+.btn-wide {
+  padding-right: @normal-size * 1.5;
+  padding-left: @normal-size * 1.5;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+.btn-lg {
+  padding: @large-size/2 @large-size;
+  font-size: @large-size;
+}
+
+.btn-sm {
+  padding: @small-size/2 @small-size;
+  font-size: @small-size;
+}

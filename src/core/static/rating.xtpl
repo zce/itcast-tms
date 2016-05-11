@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>教学质量评估表 « 传智播客•黑马程序员</title>
+  <link rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC">
+  <link rel="stylesheet" href="/style.min.css">
+</head>
+
+<body>
+  <div class="page">
+    <h1 class="page-header">教学质量评估表</h1>
+    <h5 class="title">亲爱的同学：</h5>
+    <p class="paragraph">{{ rules[rule_key].introduction }}</p>
+    <hr>
+    <h5 class="title">测评信息：</h5>
+    <div class="meta row">
+      <div class="col-md-5"><span>被评估的老师：</span><strong>{{ teacher_name }}</strong></div>
+      <div class="col-md-6"><span>所属班级：</span><strong>{{ class_name }}</strong></div>
+      <div class="col-md-4"><span>评估时间：</span><strong>{{ datetime }}</strong></div>
+    </div>
+    <form action="/r/{{ stamp }}" method="post">
+      <ol class="questions">
+        {{#each(rules[rule_key].questions)}}
+        <li>
+          <h6>{{ this.question }}</h6>
+          <div class="row">
+            {{#each(this.answers)}}
+            <label class="col-md-3">
+              <input type="radio" name="{{../xindex}}" value="{{xindex}}">{{this.text}}</label>
+            {{/each}}
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      <hr>
+      <h5 class="title">其他意见或建议：</h5>
+      <textarea class="form-control" name="note" cols="160" rows="8" placeholder="相信您的建议一定可以一针见血（不支持富文本）"></textarea>
+      <p class="text-danger">注意：每人只能提交一次，请认真填写后再提交！</p>
+      <button id="btn" type="submit">确认提交</button>
+    </form>
+  </div>
+  <script>(function(e,a){var d={{rules[rule_key].questions.length}};var g=a.getElementsByTagName("input");var c=a.getElementById("btn");var f=[];for(var b=0;b<d;b++){f[b]=false}c.onclick=function(){for(var k=0;k<g.length;k++){var h=g[k];if(h.checked){f[h.name]=true}}for(var j=0;j<d;j++){if(!f[j]){alert("同学，请完整勾选表单选项！");return false}}}}(window,document));</script>
+</body>
+
+</html>
