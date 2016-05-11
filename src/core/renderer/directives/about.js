@@ -19,9 +19,11 @@
     <div class="dialog-window">
       <div class="dialog-text">
         <h4>{{app_name}}</h4>
-        <h6>Core: <strong>v{{core_version}}</strong></h6>
-        <h6>Data: <strong>v{{data_version}}</strong></h6>
-        <h6>Updater: <strong>v{{updater_version}}</strong></h6>
+        <table>
+          <tr><td>Core:</td><td><strong>v{{core_version}}</strong></td><td>Node:</td><td><strong>v{{node_version}}</strong></td></tr>
+          <tr><td>Data:</td><td><strong>v{{data_version}}</strong></td><td>Chrome:</td><td><strong>v{{chrome_version}}</strong></td></tr>
+          <tr><td>Updater:</td><td><strong>v{{updater_version}}</strong></td><td>Electron:</td><td><strong>v{{electron_version}}</strong></td></tr>
+        </table>
         <p>Copyright &copy; Itcast, Inc. All Rights Reserved.</p>
       </div>
       <div class="dialog-buttons">
@@ -29,7 +31,6 @@
       </div>
     </div>
   </div>`,
-      // <button class="dialog-button">Cancel</button>
       // templateUrl: '',
       replace: true,
       // transclude: true,
@@ -41,6 +42,9 @@
         scope.core_version = $.options.core_version
         scope.data_version = $.options.data_version
         scope.updater_version = $.options.updater_version
+        scope.node_version = process.versions.node
+        scope.chrome_version = process.versions.chrome
+        scope.electron_version = process.versions.electron
       }
     }
   }

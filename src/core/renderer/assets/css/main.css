@@ -140,18 +140,20 @@ table {
   border-collapse: collapse;
   font-size: 1.225rem;
 }
+table tr {
+  border-bottom: .1rem solid #e1e1e1;
+}
 table th,
 table td {
   margin: 0;
   padding: 1rem;
   text-align: left;
-  border-bottom: .1rem solid #E1E1E1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-table th:first-child,
-table td:first-child {
+table th:not(:last-child),
+table td:not(:last-child) {
   border-right: .1rem solid #e1e1e1;
 }
 .close {
@@ -1352,17 +1354,22 @@ label > .label-body {
 .dialog .dialog-text h4 {
   font-size: 2.6rem;
   font-weight: 500;
-}
-.dialog .dialog-text h6 {
-  font-size: 1.2rem;
   margin-bottom: .6rem;
-}
-.dialog .dialog-text h6 strong {
-  font-weight: 500;
 }
 .dialog .dialog-text p {
   font-size: 1.1rem;
-  margin-bottom: .5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.dialog .dialog-text tr:first-child {
+  border-top: .1rem solid #e1e1e1;
+}
+.dialog .dialog-text td {
+  padding: .8rem .5rem;
+}
+.dialog .dialog-text td strong {
+  font-weight: 500;
+  padding-right: .5rem;
 }
 .dialog .dialog-buttons {
   display: flex;

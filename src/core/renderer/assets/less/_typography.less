@@ -114,24 +114,26 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1.225rem;
+  // thead > tr,
+  // tr:not(:last-child) {
+  //   border-bottom: .1rem solid #E1E1E1;
+  // }
+  tr {
+    border-bottom: .1rem solid #e1e1e1;
+  }
   th,
   td {
     margin: 0;
     padding: 1rem;
     text-align: left;
-    border-bottom: .1rem solid #E1E1E1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  th:first-child,
-  td:first-child {
+  th:not(:last-child),
+  td:not(:last-child) {
     // padding-left: 1rem;
     border-right: .1rem solid #e1e1e1;
-  }
-  th:last-child,
-  td:last-child {
-    // padding-right: 0;
   }
 }
 

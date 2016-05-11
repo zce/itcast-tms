@@ -6,7 +6,6 @@
  */
 'use strict'
 
-const path = require('path')
 const crypto = require('crypto')
 const spawn = require('child_process').spawn
 
@@ -38,7 +37,7 @@ gulp.task('clean', del.bind(null, [
   './src/core.asar',
   './src/data.asar',
   './src/updater.asar',
-  './src/renderer/css',
+  './src/core/renderer/assets/css',
   './itcast-log',
   './itcast-tms.log',
   './npm-debug.log'
@@ -57,7 +56,7 @@ gulp.task('clean', del.bind(null, [
  * 编译压缩脚本文件
  */
 gulp.task('scripts', () => {
-  return gulp.src(['./src/**/*.js', '!./src/**/node_modules/**/*.*', '!./src/**/renderer/**/*.*', '!./src/**/test/**/*.*'], {base:'./src'})
+  return gulp.src(['./src/**/*.js', '!./src/**/node_modules/**/*.*', '!./src/**/renderer/**/*.*', '!./src/**/test/**/*.*'], { base: './src' })
     .pipe(plugins.babel())
     .pipe(plugins.uglify())
     .pipe(gulp.dest('./temp'))
@@ -67,11 +66,11 @@ gulp.task('scripts', () => {
  * 编译样式文件
  */
 gulp.task('styles', () => {
-  return gulp.src(['./src/renderer/assets/less/*.less', '!./src/renderer/assets/less/_*.less'])
+  return gulp.src(['./src/core/renderer/assets/less/*.less', '!./src/core/renderer/assets/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest('./src/renderer/assets/css'))
+    .pipe(gulp.dest('./src/core/renderer/assets/css'))
     .pipe(plugins.livereload())
 })
 
@@ -150,15 +149,16 @@ const asarPack = (src, dest) => new Promise((resolve, reject) => {
 })
 
 const getFileStamp = (filename, type) => {
-    type = type || 'sha1'
-    const buffer = fs.readFileSync(filename)
-    var hash = crypto.createHash(type)
-    hash.update(buffer)
-    return hash.digest('hex')
-  }
-  /**
-   * 编译归档文件和压缩包
-   */
+  type = type || 'sha1'
+  const buffer = fs.readFileSync(filename)
+  var hash = crypto.createHash(type)
+  hash.update(buffer)
+  return hash.digest('hex')
+}
+
+/**
+ * 编译归档文件和压缩包
+ */
 gulp.task('build', ['size'], () => {
   const items = ['core', 'data', 'updater']
 
@@ -201,18 +201,20 @@ gulp.task('default', ['clean'], () => {
 })
 
 gulp.task('zip-releases', () => {
-  const pkg = require('./package.json')
+  // const pkg = require('./package.json')
   fs.readdir('./dist/releases', (error, dirs) => {
+    if (error) throw error
     dirs.forEach(dir => {
       // if(!dir.includes('darwin')) return
       fs.stat(`./dist/releases/${dir}`, (error, stats) => {
+        if (error) throw error
         if (stats.isFile()) return
         try {
           gulp.src([`./dist/releases/${dir}`], { base: './dist/releases' })
             // .pipe(plugins.rename(item))
             // .pipe(plugins.zip(`itcast-tms-${pkg.version}-${dir.substr(11)}.zip`))
             .pipe(gulp.dest('./dist/releases'))
-        } catch(e) {
+        } catch (e) {
           console.error(e)
         }
       })
@@ -227,13 +229,13 @@ gulp.task('watch', ['styles'], () => {
   plugins.livereload.listen()
 
   gulp.watch([
-    './src/renderer/**/*.html',
-    './src/renderer/**/*.js'
+    './src/core/renderer/**/*.html',
+    './src/core/renderer/**/*.js'
   ]).on('change', e => {
     plugins.livereload.changed(e.path)
   })
 
-  gulp.watch('./src/renderer/less/**/*.less', ['styles'])
+  gulp.watch('./src/core/renderer/assets/less/**/*.less', ['styles'])
 })
 
 gulp.task('test', ['watch'], () => {
