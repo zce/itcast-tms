@@ -10,7 +10,7 @@ const { app } = require('electron')
 
 const from = path.resolve(__dirname, './cache/updater')
 const to = path.resolve(__dirname, './updater.asar')
-const start = path.resolve(__dirname, './updater')
+const start = path.resolve(__dirname, './core')
 
 app.on('ready', () => { process.appReady = true })
 
@@ -22,18 +22,3 @@ fs.stat(from, (error, state) => {
     require(start)
   })
 })
-
-// try {
-//   fs.statSync(from)
-//   fs.renameSync(from, to)
-//   console.log('更新器完成更新')
-//   require(start)
-// } catch(e) {
-//   require(start)
-// }
-
-// const { app } = require('electron')
-
-// app.on('ready', () => {
-//   require('./src')
-// })
