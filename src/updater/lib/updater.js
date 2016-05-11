@@ -4,15 +4,11 @@ const { app, BrowserWindow } = require('electron')
 const utils = require('./utils')
 const logger = require('./logger')
 
-process.coreRoot = process.isProduction ? 'core.asar' : 'src'
-process.dataRoot = process.isProduction ? 'data.asar' : 'data'
-process.updaterRoot = process.isProduction ? 'updater.asar' : 'updater'
-
 // 读取当前的版本信息
 const packages = {
-  core: utils.getFileStamp(path.resolve(__dirname, `../../${process.coreRoot}`)),
-  data: utils.getFileStamp(path.resolve(__dirname, `../../${process.dataRoot}`)),
-  updater: utils.getFileStamp(path.resolve(__dirname, `../../${process.updaterRoot}`))
+  core: utils.getFileStamp(path.resolve(__dirname, '../../core.asar')),
+  data: utils.getFileStamp(path.resolve(__dirname, '../../data.asar')),
+  updater: utils.getFileStamp(path.resolve(__dirname, '../../updater.asar'))
 }
 const packagesKeys = Object.keys(packages)
 
@@ -110,7 +106,7 @@ const failed = error => {
 // 启动核心
 const launch = () => {
   try {
-    require(`../../${process.coreRoot}`)
+    require(`../../${process.isProduction ? 'core.asar' : 'core'}`)
     mainWindow && mainWindow.close()
   } catch (e) {
     logger.fatal(e)

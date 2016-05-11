@@ -1,16 +1,9 @@
 {
-  "name": "itcast-tms-core",
-  "version": "4.0.0-beta2",
+  "name": "itcast-tms",
+  "version": "4.0.0",
+  "productName": "Itcast TMS",
   "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.15.1",
-    "express": "^4.13.4",
-    "log4js": "^0.6.36",
-    "nodemailer": "^2.3.2",
-    "xtemplate": "^4.5.1",
-    "xtpl": "^3.2.0"
-  }
+  "license": "ISC"
 }

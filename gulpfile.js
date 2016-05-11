@@ -27,37 +27,37 @@ const repo = 'http://git.oschina.net/micua/tms/raw/master/'
  * 清理临时文件
  */
 gulp.task('clean', del.bind(null, [
-  // './core',
+  './temp',
+
   './build/cache',
   './build/core.asar',
   './build/data.asar',
-  './build/itcast-tms.log',
   './build/updater.asar',
-  './cache',
   // './dist/releases',
-  './itcast-log',
+  './src/cache',
+  './src/core.asar',
+  './src/data.asar',
+  './src/updater.asar',
   './src/renderer/css',
-  './core.asar',
-  './data.asar',
+  './itcast-log',
   './itcast-tms.log',
-  './updater.asar',
   './npm-debug.log'
 ]))
 
 /**
- * 压缩JS文件
+ * 编译压缩脚本文件
  */
-gulp.task('js', () => {
-  return gulp.src('./src/main/**/*.js')
+gulp.task('scripts', () => {
+  return gulp.src(['./src/**/*.js', '!./src/**/node_modules/**/*.*', '!./src/**/renderer/**/*.*', '!./src/**/test/**/*.*'], {base:'./src'})
     .pipe(plugins.babel())
     .pipe(plugins.uglify())
-    .pipe(gulp.dest('./core/main'))
+    .pipe(gulp.dest('./temp'))
 })
 
 /**
- * 编译less文件
+ * 编译样式文件
  */
-gulp.task('less', () => {
+gulp.task('styles', () => {
   return gulp.src(['./src/renderer/assets/less/*.less', '!./src/renderer/assets/less/_*.less'])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less())
@@ -69,21 +69,27 @@ gulp.task('less', () => {
 /**
  * 行内编译任务
  */
-gulp.task('useref', ['less', 'js'], () => {
-  return gulp.src('./src/renderer/*.html')
+gulp.task('useref', ['scripts', 'styles'], () => {
+  gulp.src(['./src/core/renderer/*.html'])
     .pipe(plugins.useref())
     .pipe(plugins.if('**/vendor.js', plugins.uglify()))
     .pipe(plugins.if('**/bundle.js', plugins.babel()))
     .pipe(plugins.if('**/bundle.js', plugins.uglify()))
     .pipe(plugins.if('*.css', plugins.cssnano()))
-    .pipe(gulp.dest('./core/renderer'))
+    .pipe(gulp.dest('./temp/core/renderer'))
+  return gulp.src(['./src/updater/*.html'])
+    // .pipe(plugins.useref())
+    // .pipe(plugins.if('*.js', plugins.babel()))
+    // .pipe(plugins.if('*.js', plugins.uglify()))
+    // .pipe(plugins.if('*.css', plugins.cssnano()))
+    .pipe(gulp.dest('./temp/updater'))
 })
 
 /**
  * HTML压缩
  */
 gulp.task('html', ['useref'], () => {
-  return gulp.src('./core/renderer/*.html')
+  return gulp.src('./temp/**/*.html')
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       collapseBooleanAttributes: true,
@@ -95,35 +101,36 @@ gulp.task('html', ['useref'], () => {
       minifyCSS: true,
       minifyJS: true
     }))
-    .pipe(gulp.dest('./core/renderer'))
+    .pipe(gulp.dest('./temp'))
 })
 
 /**
  * 额外文件拷贝到目标路径
  */
-gulp.task('extras', () => {
+gulp.task('extras', ['html'], () => {
   return gulp.src([
     './src/**/*.*',
-    '!./src/main/**/*.js',
-    '!./src/renderer/**/*.js',
-    '!./src/renderer/assets/less/**/*.*',
-    '!./src/renderer/*.html',
-    '!./src/test/**/*.*'
+    '!./src/core/{common,main,renderer,static}/**/*.js',
+    '!./src/core/renderer/assets/less/**/*.*',
+    '!./src/core/renderer/*.html',
+    '!./src/updater/{lib}/**/*.js',
+    '!./src/updater/*.html',
+    '!./src/**/test/**/*.*'
   ], {
     dot: true
-  }).pipe(gulp.dest('./core'))
+  }).pipe(gulp.dest('./temp'))
 })
 
 /**
  * 文件GZIP压缩
  */
-gulp.task('size', ['html', 'extras'], () => {
-  return gulp.src('./core/**/*.*')
+gulp.task('size', ['extras'], () => {
+  return gulp.src('./temp/**/*.*')
     .pipe(plugins.size({
       title: 'build',
       gzip: true
     }))
-    .pipe(gulp.dest('./core'))
+    .pipe(gulp.dest('./temp'))
 })
 
 /**
@@ -146,7 +153,7 @@ const getFileStamp = (filename, type) => {
 gulp.task('build', ['size'], () => {
   const items = ['core', 'data', 'updater']
 
-  Promise.all(items.map(item => asarPack(`./${item}`, `./build/${item}.asar`)))
+  Promise.all(items.map(item => asarPack(`./temp/${item}`, `./build/${item}.asar`)))
     .then(() => {
       console.log('pack to asar done...')
       return fs.mkdirsSync('./dist/latest')
@@ -154,7 +161,7 @@ gulp.task('build', ['size'], () => {
     .then(() => {
       const index = {}
       const tasks = items.map(item => {
-        const pkg = require(`./${item}/package.json`)
+        const pkg = require(`./temp/${item}/package.json`)
         gulp.src(`./build/${item}.asar`)
           .pipe(plugins.rename(item))
           .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
@@ -173,11 +180,15 @@ gulp.task('build', ['size'], () => {
     })
     .then(() => {
       console.log('latest manifest file done')
-      del('./core')
+      del('./temp')
     })
     .catch(error => {
       console.log(error)
     })
+})
+
+gulp.task('default', ['clean'], () => {
+  gulp.start('build')
 })
 
 gulp.task('zip-releases', () => {
@@ -200,14 +211,10 @@ gulp.task('zip-releases', () => {
   })
 })
 
-gulp.task('default', ['clean'], () => {
-  gulp.start('build')
-})
-
 /**
  * 监视文件变化自动刷新
  */
-gulp.task('watch', ['less'], () => {
+gulp.task('watch', ['styles'], () => {
   plugins.livereload.listen()
 
   gulp.watch([
@@ -217,10 +224,10 @@ gulp.task('watch', ['less'], () => {
     plugins.livereload.changed(e.path)
   })
 
-  gulp.watch('./src/renderer/less/**/*.less', ['less'])
+  gulp.watch('./src/renderer/less/**/*.less', ['styles'])
 })
 
 gulp.task('test', ['watch'], () => {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development'
-  spawn(electron, ['./'])
+  spawn(electron, ['./src'])
 })

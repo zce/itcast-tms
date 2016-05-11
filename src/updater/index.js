@@ -1,4 +1,5 @@
 process.isProduction = process.env.NODE_ENV === 'production'
+
 const updater = require('./lib/updater')
 
 if (process.appReady) {

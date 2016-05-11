@@ -111,33 +111,31 @@
     <progress id="progress" class="progress progress-tms" value="0"></progress>
   </div>
   <script>
-    // (function(window, document) {
-    const {
+    (function(window, document) {
+      var electron = require('electron');
+      var ipcRenderer = electron.ipcRenderer;
+      var progressElement = document.getElementById('progress');
+      var messageElement = document.getElementById('message');
+      var rectElements = document.getElementsByTagName('rect');
+      var transformElement = document.getElementById('transform');
+      // let updating = false;
       ipcRenderer
-    } = require('electron');
-    const progressElement = document.getElementById('progress');
-    const messageElement = document.getElementById('message');
-    const rectElements = document.getElementsByTagName('rect');
-    const transformElement = document.getElementById('transform');
-    // let updating = false;
-    ipcRenderer
-      .on('update_progress', (event, progress) => {
-        // updating ? (updating = true) : (progressElement.style.display = 'block');
-        progressElement.value = progress;
-        // progressElement.value >= 1 && (updating = false);
-      })
-      .on('update_message', (event, message) => {
-        messageElement.innerHTML = message;
-      })
-      .on('update_done', (event, message) => {
-        messageElement.innerHTML = message;
-        transformElement.remove();
-        // Array.prototype.forEach.call(svgAnimates, a => a.remove());
-        for (let i = 0; i < rectElements.length; i++) {
-          rectElements[i].innerHTML = '';
-        }
-      });
-    // })(window, document);
+        .on('update_progress', function (event, progress) {
+          // updating ? (updating = true) : (progressElement.style.display = 'block');
+          progressElement.value = progress;
+          // progressElement.value >= 1 && (updating = false);
+        })
+        .on('update_message',function  (event, message) {
+          messageElement.innerHTML = message;
+        })
+        .on('update_done',function  (event, message) {
+          messageElement.innerHTML = message;
+          transformElement.remove();
+          for (let i = 0; i < rectElements.length; i++) {
+            rectElements[i].innerHTML = '';
+          }
+        });
+    })(window, document);
   </script>
 </body>
 
