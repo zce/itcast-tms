@@ -3,7 +3,7 @@ dist
 itcast-log
 node_modules
 src/cache
-src/renderer/css
+src/core/renderer/assets/css
 temp
 *.log
 *.asar
