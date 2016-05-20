@@ -8,13 +8,10 @@
       <tr><td>所属校区：</td><td>{{ data.school_name }}</td></tr>
       <tr><td>所属学院：</td><td>{{ data.academy_name }}</td></tr>
       <tr><td>所属学科：</td><td>{{ data.subject_name }}</td></tr>
-      <tr><td>讲师姓名：</td><td>{{ data.teacher_name }}</td></tr>
-      <tr><td>讲师邮箱：</td><td>{{ data.teacher_email }}</td></tr>
-      <tr><td>评分班级：</td><td>{{ data.class_name }}</td></tr>
-      <tr><td>评分班主任：</td><td>{{ data.head_name }}</td></tr>
-      <tr><td>课程内容：</td><td>{{ data.course_name }}</td></tr>
-      <tr><td>上课天数：</td><td>{{ data.course_days }}</td></tr>
-      <tr><td>评分时间：</td><td>{{ data.datetime }}</td></tr>
+      <tr><td>被测评人姓名：</td><td>{{ data.teacher_name }}</td></tr>
+      <tr><td>测评班级：</td><td>{{ data.class_name }}</td></tr>
+      <tr><td>测评人姓名：</td><td>{{ data.head_name }}</td></tr>
+      <tr><td>测评时间：</td><td>{{ data.datetime }}</td></tr>
       <tr><td>班级总人数：</td><td>{{ data.class_count }}人</td></tr>
 		  {{#if(data.class_count - data.rated_count > 0)}}
 		  <tr><td>未打分人数：</td><td>{{ data.class_count - data.rated_count }}人</td></tr>

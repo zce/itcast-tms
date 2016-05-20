@@ -17,12 +17,12 @@ module.exports = (data) => {
 
   // 发送邮件
   // const to = `${data.teacher_name} <${data.teacher_email}>`
-  const cc = []
+  const cc = [] // `wanglei <wanglei3@itcast.cn>`
   if (process.env.NODE_ENV === 'production') {
     data.emails.concat(data.added_emails).forEach(e => cc.push(`${e.name} <${e.email}>`))
   }
   // 邮件标题
-  const subject = `❈ 教学测评报告：${data.teacher_name}老师（${data.course_name}）`
+  const subject = `❈ 工作测评报告：${data.teacher_name}老师（${data.class_name}）`
     // 附件和正文
   const attachments = []
   let body = ''
