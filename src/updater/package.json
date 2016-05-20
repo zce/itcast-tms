@@ -6,7 +6,7 @@
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
   "dependencies": {
-    "download": "^4.4.3",
-    "log4js": "^0.6.36"
+    "download": "latest",
+    "log4js": "latest"
   }
 }

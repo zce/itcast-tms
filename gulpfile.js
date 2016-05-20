@@ -19,7 +19,7 @@ const asar = require('asar')
 const electron = require('electron-prebuilt')
 
 const plugins = gulpLoadPlugins()
-  // const buildTemp = '.tmp'
+
 const repo = 'http://git.oschina.net/micua/tms/raw/master/'
 
 /**

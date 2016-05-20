@@ -45,6 +45,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(options.main_url)
+  // mainWindow.loadURL('data:text/html, <h1>Hello world</h1>')
 
   mainWindow.show()
 

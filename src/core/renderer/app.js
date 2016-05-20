@@ -1,4 +1,3 @@
-// 渲染线程
 ;(function (angular) {
   'use strict'
   angular

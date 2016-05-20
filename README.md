@@ -1,8 +1,8 @@
 # Itcast Teaching Management System
 
-[![Build Status](https://travis-ci.org/Micua/itcast-tms.svg?branch=v4.x)](https://travis-ci.org/Micua/itcast-tms)
+[![Build Status](https://travis-ci.org/zce/itcast-tms.svg?branch=v4.x)](https://travis-ci.org/zce/itcast-tms)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Build Status](https://david-dm.org/Micua/itcast-tms.svg)](https://david-dm.org/Micua/itcast-tms)
+[![Build Status](https://david-dm.org/zce/itcast-tms.svg)](https://david-dm.org/zce/itcast-tms)
 
 
 This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
@@ -18,7 +18,7 @@ This repo is a teaching management system for Itcast, Inc. project. You could us
 First, clone the repo via git:
 
 ```bash
-$ git clone https://github.com/Micua/itcast-tms.git -b v4.x
+$ git clone https://github.com/zce/itcast-tms.git -b v4.x
 ```
 
 And then install dependencies.
@@ -50,12 +50,12 @@ If you want to have native-like User Interface (OS X El Capitan and Windows 10),
 
 ## Maintainers
 
-- [iceStone](https://github.com/Micua)
+- [iceStone](https://github.com/zce)
 
 
 ## LICENSE
 
-ISC © [iceStone](https://github.com/Micua)
+ISC © [iceStone](https://github.com/zce)
 
 
 ## Thanks
