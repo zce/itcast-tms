@@ -21,7 +21,7 @@ const options = {
   // 日志文件目录
   storage_root: path.resolve(__dirname, '../../itcast-log'),
   // 日志扩展名
-  storage_ext: '.tms',
+  storage_ext: '.hms',
   // 文件戳长度
   stamp_length: 8,
   // 服务器信息

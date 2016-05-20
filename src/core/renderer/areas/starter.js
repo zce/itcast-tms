@@ -37,13 +37,14 @@
     $scope.model.academy_name = ''
     $scope.model.subject_name = ''
     // $scope.model.class_count = 0
-    $scope.model.reasons = { 留级: 0, 病假: 0, 事假: 0, 回学校: 0, 已就业: 0, 其他教室自习: 0, 在家复习: 0, 不想听课: 0, 其他: 0 }
+    $scope.model.reasons = {}
+    // { 留级: 0, 病假: 0, 事假: 0, 回学校: 0, 已就业: 0, 其他教室自习: 0, 在家复习: 0, 不想听课: 0, 其他: 0 }
     $scope.model.class_name = ''
-    $scope.model.course_name = ''
+    // $scope.model.course_name = ''
     // $scope.model.course_days = 0
     $scope.model.head_name = ''
     $scope.model.teacher_name = ''
-    $scope.model.teacher_email = ''
+    // $scope.model.teacher_email = ''
     $scope.model.datetime = $.formatDate(new Date(), 'yyyy-MM-dd HH:mm')
 
     // ===== 读取配置文件 =====
@@ -113,14 +114,10 @@
       ruleKeys.forEach(k => { $scope.model.rules[k] = rules[k] })
 
       // 处理邮箱后缀
-      $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn')
+      // $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn')
 
       // 本次测评的收件人列表
-      if ($scope.model.academy_name === '学工部') {
-        $scope.model.emails = $.data.itcast().emails.concat(academy.emails, subject.emails)
-      } else {
-        $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
-      }
+      $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
 
       // 手动添加的收件人
       $scope.model.added_emails = []

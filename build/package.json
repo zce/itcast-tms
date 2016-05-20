@@ -1,7 +1,7 @@
 {
-  "name": "itcast-tms",
+  "name": "itcast-hms",
   "version": "4.0.0",
-  "productName": "Itcast TMS",
+  "productName": "Itcast HMS",
   "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",

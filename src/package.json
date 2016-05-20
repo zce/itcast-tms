@@ -1,8 +1,8 @@
 {
-  "name": "itcast-tms",
+  "name": "itcast-hms",
   "version": "4.0.0",
-  "productName": "Itcast TMS",
-  "description": "Teaching Management System by iceStone",
+  "productName": "Itcast HMS",
+  "description": "Headmaster Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC"
