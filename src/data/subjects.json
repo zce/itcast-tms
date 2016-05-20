@@ -943,5 +943,22 @@
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
     ],
     "questions": []
+  },
+
+
+
+  {
+    "name": "班主任",
+    "academy": "学工部",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [],
+    "rules": ["2016-学工部-班主任"]
+  },
+  {
+    "name": "组长",
+    "academy": "学工部",
+    "school": "北京-金燕龙和中腾校区",
+    "emails": [],
+    "rules": ["2016-学工部-组长"]
   }
 ]

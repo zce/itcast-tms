@@ -1,6 +1,6 @@
 {
   "2015": {
-    "introduction": "为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。",
+    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
     "questions": [
       {
         "shortname": "上课纪律",
@@ -115,7 +115,7 @@
     ]
   },
   "2016": {
-    "introduction": "为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。",
+    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
     "questions": [
       {
         "shortname": "上课纪律",
@@ -230,7 +230,7 @@
     ]
   },
   "2016-双元": {
-    "introduction": "为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。",
+    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
     "questions": [
       {
         "shortname": "上课纪律",
@@ -334,6 +334,236 @@
       {
         "shortname": "总体评价",
         "question": "你对该授课老师的总体评价是？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      }
+    ]
+  },
+  "2016-学工部-班主任": {
+    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">班级管理的好坏关系到每一个同学是否能拥有一个良好的学习环境及氛围。而好的学习环境和氛围是大家学好知识的重要保证。我们的班主任都很不错，但我们对更高质量班级管理的追求永远不会停止。而这也需要每一位同学的配合与帮助。下面请给班主任老师评价(匿名)，希望大家客观公正，以自已的真实感受为准。</p>",
+    "questions": [
+      {
+        "shortname": "班级半军事化管理制度执行",
+        "question": "对于你所在班级，班级半军事化管理制度执行是否严格公正？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级巡查",
+        "question": "班主任老师在班级巡查上做的如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级学习氛围",
+        "question": "你觉得本班的学习氛围如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级晚自习纪律",
+        "question": "你认为你们班的晚自习纪律如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班干部作用发挥情况",
+        "question": "你觉得班上班干部作用发挥得如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级活动的组织能力",
+        "question": "班主任对班级活动的组织你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "对学生的关注程度",
+        "question": "班主任对学生的关注程度你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "解决问题能力",
+        "question": "你在遇到困难或困惑找到班主任时，班主任提供帮助或指导你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级管理能力",
+        "question": "你觉得现在班级管理的状态是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "总体评价",
+        "question": "你对班主任工作的总体评价？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      }
+    ]
+  },
+  "2016-学工部-组长": {
+    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">现在我们每个人都有自已的组长，各组长也都做的很不错，但我们希望能做的更好，各组长也希望自已能不断进步，所以希望大家对你的组长给出评价及好的建议。下面请给组长老师评价(匿名).希望大家客观公正.以自已的真实感受为准。(匿名)，希望大家客观公正，以自已的真实感受为准。</p>",
+    "questions": [
+      {
+        "shortname": "日常管理公平度",
+        "question": "对于你所在的组，组长日常管理感觉是否公平公正？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "班级巡查",
+        "question": "你感觉组长在班级巡查上做的如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "团队氛围",
+        "question": "你觉得本组的团队氛围如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "帮助（培训）能力",
+        "question": "你觉得组长在帮助（培训）组员成长提高上做的如何？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "管理工作清晰度",
+        "question": "你觉得组长的管理工作是否清晰明了？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "组内团队活动的组织能力",
+        "question": "组长对组内团队活动的组织你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "对组员关注关心程度",
+        "question": "组长对你的关注关心程度你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "解决问题能力",
+        "question": "你在遇到困难或困惑找到组长时，组长提供帮助或指导你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "小组管理能力",
+        "question": "你觉得现在组内管理的状态是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "总体评价",
+        "question": "你对组长工作的总体评价？",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },

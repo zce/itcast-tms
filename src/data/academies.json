@@ -69,5 +69,11 @@
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
     "rules": ["2016-双元"]
+  },
+  "学工部": {
+    "emails": [
+      { "name": "冯威", "title": "副总裁", "email": "fw@itcast.cn" }
+    ],
+    "rules": []
   }
 }
