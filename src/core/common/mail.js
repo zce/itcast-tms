@@ -16,7 +16,7 @@ module.exports = (data) => {
   data = report(data)
 
   // 发送邮件
-  const to = `${data.teacher_name} <${data.teacher_email}>`
+  // const to = `${data.teacher_name} <${data.teacher_email}>`
   const cc = []
   if (process.env.NODE_ENV === 'production') {
     data.emails.concat(data.added_emails).forEach(e => cc.push(`${e.name} <${e.email}>`))
@@ -42,7 +42,7 @@ module.exports = (data) => {
     body += content
   })
   // body += `<hr><br><p>${encrypt(all)}</p>`
-  return send({ from: from, to: to.toString(), cc: cc.toString(), subject: subject, html: body, attachments: attachments })
+  return send({ from: from, to: cc.toString(), /* cc: cc.toString(), */ subject: subject, html: body, attachments: attachments })
 }
 
 function send (message) {
