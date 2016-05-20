@@ -118,10 +118,10 @@ const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
 module.exports = () => {
   process.appReady = true
   // console.time('updater')
-  if (true) {
-    // TODO: 开发阶段的
-    return failed('开发环境不自动更新')
-  }
+  // if (true) {
+  //   // TODO: 开发阶段的
+  //   return failed('开发环境不自动更新')
+  // }
   // 检查更新
   check(manifest)
     .then((needs) => {

@@ -82,9 +82,9 @@
     "school": "北京-金燕龙和中腾校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
-      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
-      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
+      { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
+      { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],
     "rules": []
   },
@@ -178,9 +178,9 @@
     "school": "北京-软件园校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
-      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
-      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
+      { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
+      { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],
     "rules": []
   },
@@ -276,9 +276,9 @@
     "school": "北京-修正校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" },
-      { "name": "王书奎", "title": "前端组长", "email": "wangshukui@itcast.cn" },
-      { "name": "汪磊", "title": "前端组长", "email": "wanglei3@itcast.cn" }
+      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
+      { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
+      { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],
     "rules": []
   },
@@ -399,7 +399,7 @@
     "academy": "前端与移动开发",
     "school": "广州",
     "emails": [
-      { "name": "江佳恒", "title": "前端组长", "email": "jiangjiaheng@itcast.cn" }
+      { "name": "江佳恒", "title": "组长", "email": "jiangjiaheng@itcast.cn" }
     ],
     "rules": []
   },
@@ -434,6 +434,15 @@
     "school": "深圳",
     "emails": [
       { "name": "王绚文", "title": "教学总监", "email": "wxw@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "前端与移动开发",
+    "academy": "前端与移动开发",
+    "school": "广州",
+    "emails": [
+      { "name": "张扬波", "title": "教学总监", "email": "zyb@itcast.cn" }
     ],
     "rules": []
   },
