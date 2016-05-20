@@ -116,7 +116,11 @@
       $scope.model.teacher_email.includes('@') || ($scope.model.teacher_email += '@itcast.cn')
 
       // 本次测评的收件人列表
-      $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
+      if ($scope.model.academy_name === '学工部') {
+        $scope.model.emails = $.data.itcast().emails.concat(academy.emails, subject.emails)
+      } else {
+        $scope.model.emails = $.data.itcast().emails.concat(school.emails, academy.emails, subject.emails)
+      }
 
       // 手动添加的收件人
       $scope.model.added_emails = []

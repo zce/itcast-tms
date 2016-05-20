@@ -951,14 +951,66 @@
     "name": "班主任",
     "academy": "学工部",
     "school": "北京-金燕龙和中腾校区",
-    "emails": [],
+    "emails": [
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
+      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
+      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+    ],
     "rules": ["2016-学工部-班主任"]
   },
   {
     "name": "组长",
     "academy": "学工部",
     "school": "北京-金燕龙和中腾校区",
-    "emails": [],
+    "emails": [
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
+      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
+      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+    ],
+    "rules": ["2016-学工部-组长"]
+  },
+
+
+  {
+    "name": "班主任",
+    "academy": "学工部",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
+      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
+      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+    ],
+    "rules": ["2016-学工部-班主任"]
+  },
+  {
+    "name": "组长",
+    "academy": "学工部",
+    "school": "北京-软件园校区",
+    "emails": [
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
+      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
+      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+    ],
+    "rules": ["2016-学工部-组长"]
+  },
+
+
+  {
+    "name": "班主任",
+    "academy": "学工部",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "任霞君", "title": "学工部主管", "email": "renxiajun@itcast.cn" }
+    ],
+    "rules": ["2016-学工部-班主任"]
+  },
+  {
+    "name": "组长",
+    "academy": "学工部",
+    "school": "北京-修正校区",
+    "emails": [
+      { "name": "任霞君", "title": "学工部主管", "email": "renxiajun@itcast.cn" }
+    ],
     "rules": ["2016-学工部-组长"]
   }
 ]

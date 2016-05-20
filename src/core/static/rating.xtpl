@@ -13,7 +13,6 @@
 <body>
   <div class="page">
     <h1 class="page-header">教学质量评估表</h1>
-    {{!-- <h5 class="title">亲爱的同学：</h5><p class="paragraph">{{ rules[rule_key].introduction }}</p> --}}
     {{{ rules[rule_key].introduction }}}
     <hr>
     <h5 class="title">测评信息：</h5>
