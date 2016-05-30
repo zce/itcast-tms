@@ -942,7 +942,7 @@
     "emails": [
       { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
   },
   {
     "name": "Java基础",
@@ -951,6 +951,27 @@
     "emails": [
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
     ],
-    "questions": []
+    "rules": []
+  },
+
+
+
+  {
+    "name": "Android",
+    "academy": "双元课堂",
+    "school": "南京",
+    "emails": [
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "南京",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "rules": []
   }
 ]

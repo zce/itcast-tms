@@ -103,5 +103,11 @@
       { "name": "孙晓威", "title": "校长", "email": "sxw@itcast.cn" }
     ],
     "rules": []
+  },
+  "南京": {
+    "emails": [
+      { "name": "郭俊峰", "title": "校长", "email": "guojunfeng@itcast.cn" }
+    ],
+    "rules": []
   }
 }
