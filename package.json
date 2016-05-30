@@ -8,7 +8,7 @@
     "postinstall": "cd src/core && npm install && cd ../updater && npm install && cd ../..",
     "clean:npm": "rm -rf node_modules && cd src/core && rm -rf node_modules && cd ../updater && rm -rf node_modules && cd ../..",
     "standard": "standard \"src/**/*.js\" \"updater/**/*.js\"",
-    "lint": "eslint \"src/**/*.js\" \"updater/**/*.js\"",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.js\" \"updater/**/*.js\"",
     "main-css": "cleancss -o src/core/static/style.min.css src/core/static/style.css",
     "predist": "npm run main-css",
     "dist": "gulp",
