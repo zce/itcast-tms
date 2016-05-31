@@ -1,12 +1,12 @@
 {
   "name": "itcast-tms-updater",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0-beta5",
   "description": "Headmaster Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
   "dependencies": {
-    "download": "latest",
-    "log4js": "latest"
+    "download": "^5.0.0",
+    "log4js": "^0.6.36"
   }
 }
