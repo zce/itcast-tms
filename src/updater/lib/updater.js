@@ -113,7 +113,7 @@ const launch = () => {
   }
 }
 
-const manifest = 'http://git.oschina.net/micua/tms/raw/master/latest/index.json'
+const manifest = 'http://git.oschina.net/micua/tms/raw/v4.x/latest/index.json'
 
 module.exports = () => {
   process.appReady = true

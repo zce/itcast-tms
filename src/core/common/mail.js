@@ -51,45 +51,44 @@ function send (message) {
       return reject(new Error('邮件信息不完整'))
     }
 
-    // Object.assign(message, {
-    //   generateTextFromHTML: true,
-    //   encoding: 'base64'
-    // })
+    Object.assign(message, {
+      generateTextFromHTML: true,
+      encoding: 'base64'
+    })
 
     Transport.sendMail(message, (error, response) => {
       if (error) return reject(error)
 
       if (Transport.transportType !== 'DIRECT') return resolve(response)
 
-      // response.statusHandler.once('failed', function(data) {
-      //   var reason = 'errors.mail.failedSendingEmail.error'
+      response.statusHandler.once('failed', data => {
+        let reason = 'errors.mail.failedSendingEmail.error'
 
-      //   if (data.error && data.error.errno === 'ENOTFOUND') {
-      //     reason += 'errors.mail.noMailServerAtAddress.error domain: ' + data.domain
-      //   }
-      //   reason += '.'
-      //   return reject(new Error(reason))
-      // })
+        if (data.error && data.error.errno === 'ENOTFOUND') {
+          reason += 'errors.mail.noMailServerAtAddress.error domain: ' + data.domain
+        }
+        reason += '.'
 
-      // response.statusHandler.once('requeue', function(data) {
-      //   var errorMessage = 'errors.mail.messageNotSent.error'
+        return reject(new Error(reason))
+      })
 
-      //   if (data.error && data.error.message) {
-      //     errorMessage += 'errors.general.moreInfo info: ' + data.error.message
-      //   }
+      response.statusHandler.once('requeue', data => {
+        let errorMessage = 'errors.mail.messageNotSent.error'
 
-      //   return reject(new Error(errorMessage))
-      // })
+        if (data.error && data.error.message) {
+          errorMessage += 'errors.general.moreInfo info: ' + data.error.message
+        }
 
-      // response.statusHandler.once('sent', function() {
-      //   return resolve('notices.mail.messageSent')
-      // })
+        return reject(new Error(errorMessage))
+      })
+
+      response.statusHandler.once('sent', () => {
+        return resolve('notices.mail.messageSent')
+      })
     })
   })
 }
 
 const crypto = require('crypto')
-const encrypt = (text) => {
-  const step1 = crypto.createHash('md5').update(text).digest('base64')
-  return crypto.createHash('sha1').update(step1 + config.report_token).digest('hex')
-}
+
+const encrypt = (text) => crypto.createHash('sha1').update(crypto.createHash('md5').update(text).digest('base64') + config.report_token).digest('hex')

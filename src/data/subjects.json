@@ -82,7 +82,6 @@
     "school": "北京-金燕龙和中腾校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],
@@ -178,7 +177,6 @@
     "school": "北京-软件园校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],
@@ -276,7 +274,6 @@
     "school": "北京-修正校区",
     "emails": [
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
-      { "name": "王书奎", "title": "组长", "email": "wangsk@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" }
     ],

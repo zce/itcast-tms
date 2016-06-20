@@ -20,7 +20,7 @@ const electron = require('electron-prebuilt')
 
 const plugins = gulpLoadPlugins()
 
-const repo = 'http://git.oschina.net/micua/tms/raw/master/'
+const repo = 'http://git.oschina.net/micua/tms/raw/v4.x/'
 
 /**
  * 清理临时文件

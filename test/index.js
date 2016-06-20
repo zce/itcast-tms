@@ -1,1 +1,1 @@
-root.Hello = 'world'
+// root.Hello = 'world'

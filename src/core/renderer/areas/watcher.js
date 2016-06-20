@@ -126,7 +126,7 @@
           // 发送邮件
           $.mail($scope.data)
             .then(message => {
-              $.logger.info(message)
+              // $.logger.info(message)
               $scope.data.status = $.options.status_keys.send
               save()
               // $.alert('邮件发送成功\n' + JSON.stringify(message))
@@ -138,14 +138,14 @@
                 $.alert('网络连接失败，请确认网络正常')
               } else if (error.responseCode === 550 && error.code === 'EENVELOPE') {
                 $.alert(`收件人错误（不存在）
-请将本次打分的记录文件「${stamp}.tms」
-发送到wanglei3@itcast.cn`)
+请将本次打分的记录文件「${stamp}${$.options.storage_ext}」
+发送到「wanglei3@itcast.cn」`)
               } else if (error.responseCode === 598) {
                 $.alert(`邮件中包含违禁词，发送失败
-请将本次打分的记录文件「${stamp}.tms」
-发送到wanglei3@itcast.cn`)
+请将本次打分的记录文件「${stamp}${$.options.storage_ext}」
+发送到「wanglei3@itcast.cn」`)
               } else {
-                $.alert('邮件发送失败\n请将renderer.log发送到wanglei3@itcast.cn')
+                $.alert('邮件发送失败\n请将「renderer.log」发送到「wanglei3@itcast.cn」')
               }
               // 测评完成状态
               $scope.data.status = $.options.status_keys.rated

@@ -42,7 +42,7 @@ const options = {
   'app-copyright': 'Copyright (c) 2016 WEDN.NET.',
   'version-string': {
     CompanyName: 'WEDN.NET',
-    FileDescription: '教学管理系统',
+    FileDescription: 'TMS',
     OriginalFilename: 'TMS.exe',
     ProductName: packageJson.productName,
     InternalName: 'TMS.exe'

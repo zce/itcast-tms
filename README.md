@@ -83,4 +83,4 @@ cd ../..
 ## TODOS
 
 - [x] Student submit rate info is empty
-- [x] Email keyworks reject
+- [ ] Email keyworks reject

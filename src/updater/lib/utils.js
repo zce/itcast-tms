@@ -33,42 +33,42 @@ const fetchUrl = uri => new Promise((resolve, reject) => {
 
 const cacheRoot = path.resolve(__dirname, '../../cache/')
 const fetchFile = (uri, filename, progress) => new Promise((resolve, reject) => {
-  download({ extract: true, mode: '755' })
-    .get(uri)
-    // 输出到下载缓存目录
-    .dest(cacheRoot)
-    // 监视下载进度
-    .use((res, uri, next) => {
-      if (!res.headers['content-length']) {
-        next()
-        return
-      }
-      const total = parseInt(res.headers['content-length'], 10)
-      let current = 0
-      res.on('data', chunk => progress && progress((current += chunk.length) / total))
-      res.on('end', () => next())
-    })
-    // .rename(`../${filename}.asar`)
-    .run((error, files) => {
-      if (error) {
-        // console.log(`Got file error: ${error.message}`)
-        reject(error)
-      } else {
-        // 如果更新的是更新器，不能直接运行
-        if (filename === 'updater') {
-          return resolve('updater_updated')
-        }
+  // download({ extract: true, mode: '755' })
+  //   .get(uri)
+  //   // 输出到下载缓存目录
+  //   .dest(cacheRoot)
+  //   // 监视下载进度
+  //   .use((res, uri, next) => {
+  //     if (!res.headers['content-length']) {
+  //       next()
+  //       return
+  //     }
+  //     const total = parseInt(res.headers['content-length'], 10)
+  //     let current = 0
+  //     res.on('data', chunk => progress && progress((current += chunk.length) / total))
+  //     res.on('end', () => next())
+  //   })
+  //   // .rename(`../${filename}.asar`)
+  //   .run((error, files) => {
+  //     if (error) {
+  //       // console.log(`Got file error: ${error.message}`)
+  //       reject(error)
+  //     } else {
+  //       // 如果更新的是更新器，不能直接运行
+  //       if (filename === 'updater') {
+  //         return resolve('updater_updated')
+  //       }
 
-        const to = path.resolve(cacheRoot, `../${filename}.asar`)
+  //       const to = path.resolve(cacheRoot, `../${filename}.asar`)
 
-        fs.rename(files[0].path, to, error => {
-          if (error) {
-            return reject(error)
-          }
-          resolve(filename)
-        })
-      }
-    })
+  //       fs.rename(files[0].path, to, error => {
+  //         if (error) {
+  //           return reject(error)
+  //         }
+  //         resolve(filename)
+  //       })
+  //     }
+  //   })
 })
 
 // const getFileStampAsync = (filename, type) => new Promise((resolve, reject) => {
