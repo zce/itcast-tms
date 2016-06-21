@@ -1,4 +1,3 @@
-'use strict'
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
 const utils = require('./utils')
@@ -15,17 +14,16 @@ const packagesKeys = Object.keys(packages)
 // Step 1 检查更新
 const check = root => new Promise((resolve, reject) => {
   // 获取更新链接
-  utils.fetchUrl(`${root}?version=${Math.floor(Date.now() / 1000 / 60 / 60)}`)
-    .then(content => {
+  utils.fetchJson(`${root}?version=${Math.floor(Date.now() / 1000 / 60 / 60)}`)
+    .then(feed => {
       // 分别获取远端信息
-      const feed = JSON.parse(content)
-      return Promise.all(packagesKeys.map(key => utils.fetchUrl(`${feed[key]}?version=${packages[key]}`)))
+      return Promise.all(packagesKeys.map(key => utils.fetchJson(`${feed[key]}?version=${packages[key]}`)))
     })
     .then(contents => {
       // 比对本地版本校验是否需要更新
       const needs = {}
       packagesKeys.forEach((key, i) => {
-        const item = JSON.parse(contents[i])
+        const item = contents[i]
         if (packages[key] !== item.name) {
           needs[key] = item.url
         }
@@ -52,13 +50,13 @@ const download = needs => {
   mainWindow.loadURL(`file://${__dirname}/../index.html`)
   webContents = mainWindow.webContents
     // 打开开发工具
-  process.isProduction || mainWindow.openDevTools({ detach: true })
-  const tasks = Object.keys(needs).map(key => utils.fetchFile(needs[key], key, progress(key)))
+  process.env.NODE_ENV === 'production' || mainWindow.openDevTools({ detach: true })
+  const tasks = Object.keys(needs).map(key => utils.fetchFile(needs[key], key).progress(onProgress(key)))
   return Promise.all(tasks)
 }
 
 // let updaterUpdated = false
-const progress = key => p => {
+const onProgress = key => p => {
   webContents.send('update_progress', p)
   switch (key) {
     case 'core':
@@ -106,7 +104,7 @@ const failed = error => {
 // 启动核心
 const launch = () => {
   try {
-    require(`../../${process.isProduction ? 'core.asar' : 'core'}`)
+    require(`../../${process.env.NODE_ENV === 'production' ? 'core.asar' : 'core'}`)(true)
     mainWindow && mainWindow.close()
   } catch (e) {
     logger.fatal(e)
@@ -116,7 +114,7 @@ const launch = () => {
 const manifest = 'http://git.oschina.net/micua/tms/raw/v4.x/latest/index.json'
 
 module.exports = () => {
-  process.appReady = true
+  // process.appReady = true
   // console.time('updater')
   // if (true) {
   //   // TODO: 开发阶段的

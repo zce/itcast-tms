@@ -1,3 +1,6 @@
+/**
+ * 后台HTTP服务
+ */
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -37,6 +40,9 @@ app.use((req, res, next) => {
   next()
 })
 
+/**
+ * GET /:stamp
+ */
 app.get(`/:stamp(${stampFormat})`, (req, res) => {
   const { stamp } = req.params
   const data = storage.get(stamp)
@@ -52,6 +58,9 @@ app.get(`/:stamp(${stampFormat})`, (req, res) => {
   res.render('rating', data)
 })
 
+/**
+ * POST /r/:stamp
+ */
 app.post(`/r/:stamp(${stampFormat})`, (req, res) => {
   if (req.isLocal && !options.allow_admin_rating) {
     res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })
@@ -123,11 +132,9 @@ function convert (stamp, body) {
 
 // 启动服务
 const server = options.server = app.listen(options.server_port, options.server_ip, error => {
-  if (error) {
-    logger.fatal(error)
-    return false
-  }
-  const link = `http://${server.address().address}:${server.address().port}/`
+  if (error) return logger.fatal(error)
+  const addr = server.address()
+  const link = `http://${addr.address}:${addr.port}/`
   console.log(`server run @ ${link}`)
   options.server_link = link
 })

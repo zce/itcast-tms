@@ -45,7 +45,7 @@
     "del": "^2.2.0",
     "electron-packager": "^7.0.4",
     "electron-prebuilt": "^1.2.3",
-    "eslint": "^2.13.0",
+    "eslint": "^2.13.1",
     "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -82,5 +82,8 @@
     "app-bundle-id": "net.wedn.tms",
     "app-category-type": "net.wedn.tms",
     "iconUrl": "src/app.ico"
+  },
+  "dependencies": {
+    "eslint": "^2.13.1"
   }
 }

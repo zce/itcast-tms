@@ -1,5 +1,11 @@
+const got = require('got')
 const utils = require('../lib/utils')
 
-utils.fetchFile('http://git.oschina.net/micua/files/raw/master/tms/dist/core-4.0.0-alpha1.zip', 'core.asar', p => {
-  console.log(p)
-})
+
+
+utils.fetchFile('http://git.oschina.net/micua/tms/raw/v4.x/packages/core-4.1.0-beta1.zip', 'core')
+  .progress(p => console.log(`current progress is ${p}`))
+  .then(res => {
+    console.log(res)
+  })
+  .catch(error => console.error('12'))

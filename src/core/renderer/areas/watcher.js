@@ -58,7 +58,7 @@
 
     // 删除邮箱
     $scope.action.del_email = (item) => {
-      $scope.data.added_emails.splice($scope.data.added_emails.indexOf(this), 1)
+      $scope.data.added_emails.splice($scope.data.added_emails.indexOf(item), 1)
       save()
     }
     // ===== ======= =====

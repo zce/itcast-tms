@@ -75,7 +75,7 @@ npm i angular angular-animate angular-route asar babel-preset-es2015 babel-prese
 cd src/core
 npm i body-parser express log4js nodemailer xtemplate xtpl --save
 cd ../updater
-npm i download log4js --save
+npm i download got log4js --save
 cd ../..
 ```
 

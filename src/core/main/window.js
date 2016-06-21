@@ -5,11 +5,11 @@ let mainWindow
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-if (process.appReady) {
-  createWindow()
-} else {
-  app.on('ready', createWindow)
-}
+// if (process.appReady) {
+//   createWindow()
+// } else {
+//   app.on('ready', createWindow)
+// }
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -18,16 +18,16 @@ app.on('window-all-closed', () => {
   // }
 })
 
-// app.on('activate', () => {
-//   // throw new Error('出现错伏了')
-//   // On OS X it's common to re-create a window in the app when the
-//   // dock icon is clicked and there are no other windows open.
-//   if (mainWindow === null) {
-//     createWindow()
-//   }
-// })
+app.on('activate', () => {
+  // throw new Error('出现错伏了')
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
+  }
+})
 
-function createWindow () {
+module.exports = function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1024,
@@ -47,7 +47,7 @@ function createWindow () {
   mainWindow.loadURL(options.main_url)
   // mainWindow.loadURL('data:text/html, <h1>Hello world</h1>')
 
-  mainWindow.show()
+  mainWindow.once('ready-to-show', () => mainWindow.show())
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

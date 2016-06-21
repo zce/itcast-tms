@@ -1,13 +1,21 @@
+/**
+ * 主线程入口
+ */
+
 // 全局配置选项
 const options = require('./config')
-
-// 后台服务
-require('./server')
-
-// 日志记录模块
-// Object.assign(options, {})
-
 global.OPTIONS = options
 
-// 创建窗口
-require('./window')
+module.exports = (appReady) => {
+  // 后台服务
+  require('./server')
+
+  // 创建窗口
+  const createWindow = require('./window')
+  if (appReady) {
+    createWindow()
+  } else {
+    const { app } = require('electron')
+    app.on('ready', createWindow)
+  }
+}

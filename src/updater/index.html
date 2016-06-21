@@ -120,15 +120,20 @@
       var transformElement = document.getElementById('transform');
       // let updating = false;
       ipcRenderer
-        .on('update_progress', function (event, progress) {
+        .on('update_progress', (event, progress) => {
           // updating ? (updating = true) : (progressElement.style.display = 'block');
-          progressElement.value = progress;
+          if (progress === -1) {
+            progressElement.style.display = 'none'
+          } else {
+            progressElement.style.display === 'none' && (progressElement.style.display = 'block')
+            progressElement.value = progress;
+          }
           // progressElement.value >= 1 && (updating = false);
         })
-        .on('update_message',function  (event, message) {
+        .on('update_message', (event, message) => {
           messageElement.innerHTML = message;
         })
-        .on('update_done',function  (event, message) {
+        .on('update_done', (event, message) => {
           messageElement.innerHTML = message;
           transformElement.remove();
           for (let i = 0; i < rectElements.length; i++) {

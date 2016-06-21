@@ -1,12 +1,12 @@
 {
   "name": "tms-updater",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
   "license": "ISC",
   "dependencies": {
-    "download": "^4.4.3",
+    "got": "^6.3.0",
     "log4js": "^0.6.37"
   }
 }
