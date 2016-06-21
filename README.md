@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/zce/itcast-tms.svg?branch=v4.x)](https://travis-ci.org/zce/itcast-tms)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Build Status](https://david-dm.org/zce/itcast-tms.svg)](https://david-dm.org/zce/itcast-tms)
+[![Dependency Status](https://david-dm.org/zce/itcast-tms.svg)](https://david-dm.org/zce/itcast-tms)
+[![devDependency Status](https://david-dm.org/zce/itcast-tms/dev-status.svg)](https://david-dm.org/zce/itcast-tms#info=devDependencies)
 
 
 This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
