@@ -71,7 +71,7 @@ ISC © [iceStone](https://github.com/zce)
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ```bash
-npm i angular angular-animate angular-route asar babel-preset-es2015 babel-preset-es2015-loose bluebird clean-css concurrently cross-env del electron-packager electron-prebuilt eslint fs-extra gulp gulp-babel gulp-cssnano gulp-htmlmin gulp-if gulp-less gulp-livereload gulp-load-plugins gulp-rename gulp-size gulp-sourcemaps gulp-uglify gulp-useref gulp-zip minimist normalize.css standard uglify-js --save-dev
+npm i angular angular-animate angular-route asar babel-preset-es2015 babel-preset-es2015-loose bluebird clean-css concurrently cross-env del electron-packager electron-prebuilt eslint fs-extra gulp gulp-babel gulp-cssnano gulp-gzip gulp-htmlmin gulp-if gulp-less gulp-livereload gulp-load-plugins gulp-rename gulp-size gulp-sourcemaps gulp-uglify gulp-useref gulp-zip minimist normalize.css standard uglify-js --save-dev
 cd src/core
 npm i body-parser express log4js nodemailer xtemplate xtpl --save
 cd ../updater

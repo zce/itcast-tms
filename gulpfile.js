@@ -173,12 +173,14 @@ gulp.task('build', ['size'], () => {
         const pkg = require(`./temp/${item}/package.json`)
         gulp.src(`./build/${item}.asar`)
           .pipe(plugins.rename(item))
-          .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
+          // .pipe(plugins.zip(`${item}-${pkg.version}.zip`))
+          .pipe(plugins.gzip({ gzipOptions: { level: 9 } }))
+          .pipe(plugins.rename(`${item}-${pkg.version}.gz`))
           .pipe(gulp.dest('./dist/packages'))
 
         index[item] = `${repo}latest/${item}.json`
         return fs.writeJson(`./dist/latest/${item}.json`, {
-          url: `${repo}packages/${item}-${pkg.version}.zip`,
+          url: `${repo}packages/${item}-${pkg.version}.gz`,
           name: getFileStamp(`./build/${item}.asar`), // pkg.version,
           notes: pkg.notes || pkg.description || '',
           pub_date: new Date()
