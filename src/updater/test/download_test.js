@@ -1,4 +1,4 @@
-const fs = require('fs')
+// const fs = require('fs')
 const download = require('download')
 
 // download('http://git.oschina.net/micua/files/raw/master/tms/dist/core-4.0.0-alpha1.zip', '../temp', { extract: true })
@@ -17,7 +17,7 @@ download(target, 'temp', { extract: true })
     response.on('data', chunk => console.log((current += chunk.length) / total))
     response.on('end', () => console.log('end'))
   })
-  .on('error', (error, body, response) => { })
+  // .on('error', (error, body, response) => { })
   .then(file => {
     console.log(file[0])
     console.log('-------------')

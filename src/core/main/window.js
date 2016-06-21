@@ -27,7 +27,7 @@ app.on('activate', () => {
   }
 })
 
-module.exports = function createWindow () {
+const createWindow = module.exports = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1024,

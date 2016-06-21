@@ -2,7 +2,6 @@
  * 基础操作工具
  */
 const path = require('path')
-const http = require('http')
 const zlib = require('zlib')
 const crypto = require('crypto')
 const fs = process.versions.electron ? require('original-fs') : require('fs')
