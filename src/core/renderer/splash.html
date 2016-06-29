@@ -162,11 +162,11 @@
   <script type="text/javascript">
     (function(window, document) {
       'use strict';
-      var electron = require('electron');
-      var mainWindow = electron.remote.BrowserWindow.getFocusedWindow();
-      var options = electron.remote.getGlobal('OPTIONS');
-      var btn = document.getElementById('btn');
-      var token = document.getElementById('token');
+      const electron = require('electron');
+      const mainWindow = electron.remote.getCurrentWindow();
+      const options = electron.remote.getGlobal('OPTIONS');
+      const btn = document.getElementById('btn');
+      const token = document.getElementById('token');
       btn.addEventListener('click', function(e) {
         e.preventDefault();
         if (!token.value) {
