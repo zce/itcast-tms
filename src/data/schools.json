@@ -109,5 +109,11 @@
       { "name": "郭俊峰", "title": "校长", "email": "guojunfeng@itcast.cn" }
     ],
     "rules": []
+  },
+  "成都": {
+    "emails": [
+      { "name": "贾乐飞", "title": "校长", "email": "jialefei@itcast.cn" }
+    ],
+    "rules": []
   }
 }

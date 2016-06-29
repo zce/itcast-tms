@@ -814,6 +814,15 @@
     ],
     "rules": []
   },
+  {
+    "name": "PHP",
+    "academy": "双元课堂",
+    "school": "郑州",
+    "emails": [
+      { "name": "李帅", "title": "主管", "email": "lishuai@itcast.cn" }
+    ],
+    "rules": []
+  },
 
 
 
@@ -836,6 +845,18 @@
     "rules": []
   },
   {
+    "name": "UI设计",
+    "academy": "双元课堂",
+    "school": "西安",
+    "emails": [
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+    ],
+    "rules": []
+  },
+
+
+
+  {
     "name": "Android",
     "academy": "双元课堂",
     "school": "长沙",
@@ -844,9 +865,6 @@
     ],
     "rules": []
   },
-
-
-
   {
     "name": "Java基础",
     "academy": "双元课堂",
@@ -966,6 +984,27 @@
     "name": "Java基础",
     "academy": "双元课堂",
     "school": "南京",
+    "emails": [
+      { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
+    ],
+    "rules": []
+  },
+
+
+
+  {
+    "name": "JavaEE",
+    "academy": "双元课堂",
+    "school": "成都",
+    "emails": [
+      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "Java基础",
+    "academy": "双元课堂",
+    "school": "成都",
     "emails": [
       { "name": "黄建响", "title": "主管", "email": "huangjianxiang@itcast.cn" }
     ],
