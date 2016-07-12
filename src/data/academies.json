@@ -37,7 +37,7 @@
     "emails": [
       { "name": "李伟", "title": "院长", "email": "liwei@itcast.cn" },
       { "name": "韩旭", "title": "院长助理", "email": "hanxu@itcast.cn" },
-      { "name": "胡美玲", "title": "院长文员", "email": "humeiling@itcast.cn" },
+      { "name": "张双巧", "title": "院长文员", "email": "zhangshuangqiao@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
     "rules": []
