@@ -57,6 +57,7 @@ const download = needs => {
 
 // let updaterUpdated = false
 const onProgress = key => p => {
+  if (!mainWindow || !webContents) return
   webContents.send('update_progress', p)
   switch (key) {
     case 'core':
@@ -78,9 +79,13 @@ const done = (files) => {
   if (files.includes('updater_updated')) {
     // 如果更新器更新了，强制重新启动
     console.log('更新的是更新器，需要重启动')
-    webContents.send('update_done', '更新成功（需要重启软件），正在退出，请重新启动！')
-      // 自动关闭程序
-    setTimeout(() => app.quit(), 3000)
+    webContents.send('update_done', '更新成功（需要重启软件），正在退出并重新启动！')
+    // 自动关闭程序
+    // setTimeout(() => app.relaunch(), 3000)
+    setTimeout(() => {
+      app.relaunch({ args: process.argv.slice(1) + ['--relaunch'] })
+      app.exit(0)
+    }, 3000)
     return
   }
   // 更新核心包和数据 直接启动

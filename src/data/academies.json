@@ -3,6 +3,7 @@
     "emails": [
       { "name": "汤阳光", "title": "院长", "email": "tyg@itcast.cn" },
       { "name": "朱晓煜", "title": "院长文员", "email": "zhuxiaoyu@itcast.cn" },
+      { "name": "滑紫妍", "title": "院长文员", "email": "huaziyan@itcast.cn" },
       { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
     ],
     "rules": []
