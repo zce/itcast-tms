@@ -21,14 +21,14 @@ const userAgent = `itcast-tms/${pkg.version} (https://github.com/zce/itcast-tms)
  * @return {[type]}          [description]
  */
 const fetchUrl = (uri, options) => new Promise((resolve, reject) => {
-  const def = { encoding: 'utf8', headers: { 'user-agent': userAgent }, timeout: 1500 }
+  const def = { encoding: 'utf8', headers: { 'user-agent': userAgent }, timeout: 800, retries: 1 }
   Object.assign(def, options)
   got(uri, def)
     .then(response => {
       resolve(response.body)
     })
     .catch(error => {
-      console.log(error.response.body)
+      // console.log(error.response.body)
       reject(error)
     })
 })
@@ -45,7 +45,7 @@ const fetchFile = (uri, filename) => {
     let current = 0
     let timer = null
     got.stream(uri, def)
-      .on('request', request => { timer = setTimeout(() => request && request.abort(), 2 * 60 * 1000) })
+      .on('request', request => { timer = setTimeout(() => request && request.abort(), 0.1 * 60 * 1000) })
       .on('response', response => {
         if (!response.headers['content-length']) return onProgress(-1)
         total = parseInt(response.headers['content-length'], 10)

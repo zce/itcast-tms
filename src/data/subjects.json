@@ -417,6 +417,15 @@
     "rules": []
   },
   {
+    "name": "C/C++",
+    "academy": "C/C++",
+    "school": "深圳",
+    "emails": [
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
     "name": "UI设计",
     "academy": "UI设计",
     "school": "深圳",

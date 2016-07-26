@@ -1,6 +1,6 @@
 {
   "name": "tms-core",
-  "version": "4.1.0-beta2",
+  "version": "4.1.1",
   "description": "Teaching Management System by iceStone",
   "main": "index.js",
   "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
@@ -8,8 +8,8 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "log4js": "^0.6.37",
-    "nodemailer": "^2.4.2",
+    "log4js": "^0.6.38",
+    "nodemailer": "^2.5.0",
     "xtemplate": "^4.5.1",
     "xtpl": "^3.2.0"
   }
