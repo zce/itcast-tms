@@ -1,0 +1,48 @@
+{
+  "name": "English",
+  "sidebar": {
+    "actions": {
+      "title": "ACTIONS",
+      "dashboard": "Dashboard",
+      "start": "Start",
+      "update": "Update",
+      "vuex": "VUEX"
+    },
+    "records": {
+      "title": "RECORDS",
+      "revealinfinder": "Reveal {name} in the Finder",
+      "movetotrash": "Move {name} to Trash"
+    },
+    "settings": {
+      "title": "Settings"
+    },
+    "options": {
+      "title": "OPTIONS",
+      "theme": {
+        "title": "Theme",
+        "default": "Default",
+        "dark": "Dark",
+        "light": "Light"
+      },
+      "address": "IP Address",
+      "port": "Port",
+      "locales": "Language"
+    },
+    "help": {
+      "title": "HELPS",
+      "options": "Options",
+      "about": "About",
+      "back": "Back"
+    }
+  },
+  "about": {
+    "v8": "V8",
+    "env": "Env",
+    "core": "Core",
+    "data": "Data",
+    "node": "Node",
+    "chromium": "Chromium",
+    "electron": "Electron",
+    "datetime": "Datetime"
+  }
+}
