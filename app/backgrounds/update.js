@@ -2,7 +2,7 @@ import { BrowserWindow } from 'electron'
 import updater from 'asar-updater'
 
 // const server = 'https://raw.githubusercontent.com/zce/electron-boilerplate/vue-auto-update/dist/latest/'
-const server = 'http://git.oschina.net/wedn/ebp/raw/master/latest/'
+const server = 'http://git.oschina.net/wedn/itcast-tms/raw/master/latest/'
 
 updater.init()
 updater.setFeedURL('core.asar', server + 'core.json')
@@ -28,11 +28,11 @@ export default (callback) => {
     .on('progress', (task, p) => {
       webContents.send('update_progress', p)
       if (p === -1) {
-        webContents.send('update_message', `『${task.name}』更新中...`)
+        webContents && webContents.send('update_message', `『${task.name}』更新中...`)
       }
     })
     .on('downloaded', (task) => {
-      webContents.send('update_message', `『${task.name}』更新完成！`)
+      webContents && webContents.send('update_message', `『${task.name}』更新完成！`)
     })
     .on('completed', (result) => {
       if (!result) return callback()
@@ -40,7 +40,7 @@ export default (callback) => {
       updater.quitAndInstall(1000)
     })
     .on('error', (error) => {
-      webContents.send('update_done', '更新出错，请联系作者！')
+      webContents && webContents.send('update_done', '更新出错，请联系作者！')
       callback()
     })
     .checkForUpdates()

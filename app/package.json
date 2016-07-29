@@ -1,11 +1,11 @@
 {
-  "name": "electron-boilerplate",
-  "version": "0.2.5",
-  "description": "A Bolierplate application for Electron runtime",
+  "name": "tms",
+  "version": "5.0.0",
+  "description": "A teaching management system for Itcast, Inc.",
   "updated": "2016-07-29T02:56:12.476Z",
   "main": "main.js",
   "dependencies": {
-    "asar-updater": "^0.2.5",
+    "asar-updater": "^0.2.6",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "xtemplate": "^4.5.1",
