@@ -17,11 +17,20 @@ export default {
     ext: '.dat',
     sign: `© ${new Date().getFullYear()} WEDN.NET`
   },
+  stamp_length: 8,
   server: {
     address: '',
     port: 20800
   },
-  stamp_length: 8
+  status_keys: {
+    initial: '尚未开始统计',
+    rating: '统计中',
+    rated: '统计完成',
+    sending: '邮件发送中',
+    send: '邮件发送完成'
+  },
+  allow_admin_rating: true,
+  allow_student_repeat: false
 }
 
 // status_keys: {

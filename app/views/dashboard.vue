@@ -4,30 +4,27 @@
     justify-content: center;
   }
   img {
-    margin-top: -25px;
-    width: 450px;
+    width: 265px;
   }
-  code {
-    background-color: rgba(40, 56, 76, .5);
-    border-radius: 3px;
-    color: #fff;
-    font-weight: bold;
-    padding: 3px 6px;
-    margin: 0 3px;
-    vertical-align: bottom;
+  .rotate {
+    transition: transform .5s ease-in-out
+  }
+  .rotate:hover {
+    transform: rotate(360deg);
   }
   p {
     line-height: 24px;
   }
   a {
-    color: rgb(50, 174, 110);
+    color: #fff;
     text-decoration: none;
 
-    &:hover { color: rgb(40, 56, 76); }
+    &:hover { color: #fff; }
   }
   ul {
     list-style-type: none;
     margin-top: 10px;
+    padding: 0;
   }
   li {
     display: inline-block;
@@ -36,38 +33,30 @@
 
 <template>
   <div class="inner">
-    <img src="../assets/img/logo.png" alt="electron-vue">
-    <h1>Hello Electron + Vue.</h1>
-    <p>
-      You are currently at <code>`{{ route.path }}`</code> on the <code>`{{ route.name }}`</code> view.
-    </p>
-    <p>
-      You are using electron v{{ versions['atom-shell'] }} with node v{{ versions.node }} on the {{ platform }} platform.
-    </p>
-    <p>{{$db.options.message}}</p>
-    <ul class="js-external-link">
-      <li><a href="https://github.com/zce/electron-boilerplate">documentation</a> |</li>
-      <li><a href="http://electron.atom.io/">electron</a> |</li>
-      <li><a href="http://vuejs.org/">vue.js</a> |</li>
-      <li><a v-link="{ name: 'demo' }">demo</a></li>
+    <img src="../assets/img/itcast.svg" alt="itcast" :class="{rotate: rotate}" @dblclick="addRotate()">
+    <h1>{{$config.app.name}}</h1>
+    <p>请点击左侧菜单中的创建，开始新的测评</p>
+    <ul>
+      <li><a v-link="{ name: 'start' }" class="btn btn-warning btn-lg">开始新的测评</a></li>
     </ul>
-    <ul class="js-external-link">
-      <li><a href="http://{{$config.server.address}}:{{$config.server.port}}/">http://{{$config.server.address}}:{{$config.server.port}}/</a></li>
-    </ul>
+    <p>Copyright (c) 2016 Itcast, Inc</p>
   </div>
 </template>
 
 <script>
-  import os from 'os'
-
   export default {
     name: 'dashboard',
     components: {},
     data () {
-      return {
-        route: this.$router._currentRoute,
-        platform: os.platform(),
-        versions: process.versions
+      return { click: 0, rotate: false }
+    },
+    methods: {
+      addRotate () {
+        this.click++
+        if (this.click > 2) {
+          this.click = 0
+          this.rotate = !this.rotate
+        }
       }
     }
   }
