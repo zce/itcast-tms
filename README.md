@@ -1,47 +1,77 @@
-# electron-boilerplate
+# Itcast Teaching Management System
 
-A boilerplate application for Electron runtime
-
-[![Build Status](https://travis-ci.org/zce/electron-boilerplate.svg?branch=vue-auto-update)](https://travis-ci.org/zce/electron-boilerplate)
-[![Dependency Status](https://david-dm.org/zce/electron-boilerplate.svg)](https://david-dm.org/zce/electron-boilerplate)
-[![devDependency Status](https://david-dm.org/zce/electron-boilerplate/dev-status.svg)](https://david-dm.org/zce/electron-boilerplate#info=devDependencies)
+[![Build Status](https://travis-ci.org/zce/itcast-tms.svg?branch=v5.x)](https://travis-ci.org/zce/itcast-tms)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Dependency Status](https://david-dm.org/zce/itcast-tms.svg)](https://david-dm.org/zce/itcast-tms)
+[![devDependency Status](https://david-dm.org/zce/itcast-tms/dev-status.svg)](https://david-dm.org/zce/itcast-tms#info=devDependencies)
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+This repo is a teaching management system for Itcast, Inc. project. You could use it as a base to build your own desktop app.
+
+## Screenshots
 
 
-## Quick start
 
-The only development dependency of this project is Node.js. So just make sure you have it installed. Then type few commands known to every Node developer...
+## How to use
+
+First, clone the repo via git:
 
 ```bash
-$ git clone https://github.com/zce/electron-boilerplate.git your-proj-name -b vue-auto-update
-$ cd your-proj-name
+$ git clone https://github.com/zce/itcast-tms.git -b v5.x
+```
+
+And then install dependencies.
+
+```bash
+$ cd itcast-tms
 $ npm install
+```
+
+### Run it
+
+```bash
+$ npm start
+```
+
+### Develop it
+
+```bash
 $ npm run watch
 # Open a new terminal and run
 $ npm run boot
 ```
 
-... and boom! You have running desktop application on your screen.
+*Note: requires a node version >= 4 and an npm version >= 2.*
 
-### Then you can ...
 
-1. Rewrite the `package.json` (root, app, build)
-  - `./package.json` remove all fields without `script`, `dependencies` and `devDependencies`
-  - `./app/package.json`
-  - `./build/package.json`
+## Native-like UI
 
-2. Put your application icons in `./tasks/resources` to replace original
+If you want to have native-like User Interface (OS X El Capitan and Windows 10), [react-desktop](https://github.com/gabrielbull/react-desktop) may perfect suit for you.
 
-3. Change asar auto updater repo url
-  - create new repo for dist update
-  - clone the repo to `./dist`
-  - change repo url in `./gulpfile.json`
-  - change repo url in `./app/backgrounds/update.js`
 
-4. First of all, Run `npm run dist` to create dist file
-  - run `npm run dist` in proj folder
-  - commit `dist` folder
-  
+## Maintainers
 
+- [iceStone](https://github.com/zce)
+
+
+## LICENSE
+
+ISC © [iceStone](https://github.com/zce)
+
+
+## Thanks
+
+- https://github.com/szwacz/electron-boilerplate
+- https://github.com/kristoferjoseph/flexboxgrid
+- https://philipwalton.github.io/solved-by-flexbox/
+- http://www.juxt.com/pov/thoughts/building-native-desktop-apps-with-web-tech
+- https://github.com/GitbookIO/nuts
+- https://github.com/ArekSredzki/electron-release-server
+- https://github.com/maxogden/extract-zip
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+## TODOS
+
+- [x] Student submit rate info is empty
+- [ ] Email keyworks reject
