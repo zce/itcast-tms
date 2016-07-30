@@ -22,7 +22,7 @@ module.exports = merge(base, {
       ignore: [
         '*.md',
         '*.markdown',
-        { glob: '**/.bin', dot: true },
+        { glob: '**/.bin/*', dot: true },
         { glob: '**/LICENSE', dot: true }
       ]
     })
