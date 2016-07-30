@@ -10,30 +10,30 @@
 
 <template>
   <div class="inner">
-    <h1 class="page-header">创建新的测评记录</h1>
+    <h1 class="page-header">{{$t('start.title')}}</h1>
     <div class="row scroll">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="school_name">所属校区</label>
+          <label for="school_name">{{$t('start.school_name.title')}}</label>
           <select id="school_name" v-model="item.school_name" lazy>
             <option value="{{* key }}" v-for="(key, value) in data.schools" track-by="$index">{{* key }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="academy_name">所属学院</label>
+          <label for="academy_name">{{$t('start.academy_name.title')}}</label>
           <select id="academy_name" v-model="item.academy_name" lazy>
             <option value="{{* key }}" v-for="(key, value) in data.academies" track-by="$index">{{* key }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="subject_name">所属学科</label>
+          <label for="subject_name">{{$t('start.subject_name.title')}}</label>
           <select id="subject_name" v-model="item.subject_name" lazy>
             <option value="{{* s.name }}" v-for="s in data.subjects">{{* s.name }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="class_count">班级总人数</label>
-          <input type="number" id="class_count" v-model="item.class_count" lazy number placeholder="请输入班级总人数" min="0" max="200">
+          <label for="class_count">{{$t('start.class_count.title')}}</label>
+          <input type="number" id="class_count" v-model="item.class_count" lazy number placeholder="{{$t('start.class_count.placeholder')}}" min="0" max="200">
         </div>
         <div class="row">
           <div class="col-sm-4 form-group" v-for="(key, value) in item.reasons" track-by="$index">
@@ -44,37 +44,37 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="head_name">班主任姓名</label>
-          <input type="text" id="head_name" v-model="item.head_name" lazy placeholder="请输入班主任姓名">
+          <label for="head_name">{{$t('start.head_name.title')}}</label>
+          <input type="text" id="head_name" v-model="item.head_name" lazy placeholder="{{$t('start.head_name.placeholder')}}">
         </div>
         <div class="form-group">
-          <label for="class_name">班级名称</label>
-          <input type="text" id="class_name" v-model="item.class_name" lazy placeholder="分校名+品牌+学科名+班级类型+期数（时间+授课模式）">
+          <label for="class_name">{{$t('start.class_name.title')}}</label>
+          <input type="text" id="class_name" v-model="item.class_name" lazy placeholder="{{$t('start.class_name.placeholder')}}">
         </div>
         <div class="form-group">
-          <label for="course_name">课程阶段</label>
-          <input type="text" id="course_name" v-model="item.course_name" lazy placeholder="请输入课程阶段">
+          <label for="course_name">{{$t('start.course_name.title')}}</label>
+          <input type="text" id="course_name" v-model="item.course_name" lazy placeholder="{{$t('start.course_name.placeholder')}}">
         </div>
         <div class="form-group">
-          <label for="course_days">课程天数</label>
-          <input type="number" id="course_days" v-model="item.course_days" lazy number placeholder="请输入课程天数" min="0" max="50">
+          <label for="course_days">{{$t('start.course_days.title')}}</label>
+          <input type="number" id="course_days" v-model="item.course_days" lazy number placeholder="{{$t('start.course_days.placeholder')}}" min="0" max="50">
         </div>
         <div class="form-group">
-          <label for="teacher_name">讲师姓名</label>
-          <input type="text" id="teacher_name" v-model="item.teacher_name" lazy placeholder="请输入讲师名称">
+          <label for="teacher_name">{{$t('start.teacher_name.title')}}</label>
+          <input type="text" id="teacher_name" v-model="item.teacher_name" lazy placeholder="{{$t('start.teacher_name.placeholder')}}">
         </div>
         <div class="form-group">
-          <label for="teacher_email">讲师邮箱</label>
-          <input type="text" id="teacher_email" v-model="item.teacher_email" lazy placeholder="请输入讲师邮箱">
+          <label for="teacher_email">{{$t('start.teacher_email.title')}}</label>
+          <input type="text" id="teacher_email" v-model="item.teacher_email" lazy placeholder="{{$t('start.teacher_email.placeholder')}}">
         </div>
         <div class="form-group">
-          <label for="datetime">测评日期</label>
+          <label for="datetime">{{$t('start.datetime.title')}}</label>
           <input type="text" id="datetime" v-model="item.datetime" lazy readonly="readonly" tabindex="-1">
         </div>
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-primary btn-lg btn-block" @click="submit()">创建新的测评</button>
+      <button class="btn btn-primary btn-lg btn-block" @click="submit()">{{$t('start.submit')}}</button>
     </div>
   </div>
 </template>

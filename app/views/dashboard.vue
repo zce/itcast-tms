@@ -10,7 +10,7 @@
     transition: transform .5s ease-in-out
   }
   .rotate:hover {
-    transform: rotate(360deg);
+    transform: rotate(720deg);
   }
   p {
     line-height: 24px;

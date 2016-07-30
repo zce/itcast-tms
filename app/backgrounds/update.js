@@ -2,7 +2,7 @@ import { BrowserWindow } from 'electron'
 import updater from 'asar-updater'
 
 // const server = 'https://raw.githubusercontent.com/zce/electron-boilerplate/vue-auto-update/dist/latest/'
-const server = 'http://git.oschina.net/wedn/itcast-tms/raw/master/latest/'
+const server = 'http://git.oschina.net/wedn/itcast-tms/raw/v5.x/latest/'
 
 updater.init()
 updater.setFeedURL('core.asar', server + 'core.json')

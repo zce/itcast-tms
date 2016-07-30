@@ -21,68 +21,68 @@
 
 <template>
   <div class="inner">
-    <h1 class="page-header">测评信息监视</h1>
+    <h1 class="page-header">{{$t('watch.title')}}</h1>
     <div class="row select">
       <div class="col-md-8">
         <div class="scroll">
           <table>
             <thead>
               <tr>
-                <th width="30%">项目</th>
-                <th width="70%">数据</th>
+                <th width="30%">{{$t('watch.items')}}</th>
+                <th width="70%">{{$t('watch.data')}}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>学科信息</td>
-                <td><span>{{ item.school_name }}</span> / <span>{{ item.academy_name }}</span> / <span>{{ item.subject_name }}</span></td>
+                <td>{{$t('watch.subject_info')}}</td>
+                <td><span>{{item.school_name}}</span> / <span>{{item.academy_name}}</span> / <span>{{item.subject_name}}</span></td>
               </tr>
               <tr>
-                <td>评分时间</td>
-                <td>{{ item.datetime }}</td>
+                <td>{{$t('watch.datetime')}}</td>
+                <td>{{item.datetime}}</td>
               </tr>
               <tr>
-                <td>评分班主任</td>
-                <td>{{ item.head_name }}</td>
+                <td>{{$t('watch.head_name')}}</td>
+                <td>{{item.head_name}}</td>
               </tr>
               <tr>
-                <td>评分班级</td>
-                <td>{{ item.class_name }}</td>
+                <td>{{$t('watch.class_name')}}</td>
+                <td>{{item.class_name}}</td>
               </tr>
               <tr>
-                <td>课程阶段</td>
-                <td>{{ item.course_name }}</td>
+                <td>{{$t('watch.course_name')}}</td>
+                <td>{{item.course_name}}</td>
               </tr>
               <tr>
-                <td>课程天数</td>
-                <td>{{ item.course_days }}天</td>
+                <td>{{$t('watch.course_days')}}</td>
+                <td>{{item.course_days}}天</td>
               </tr>
               <tr>
-                <td>讲师姓名</td>
-                <td>{{ item.teacher_name }}</td>
+                <td>{{$t('watch.teacher_name')}}</td>
+                <td>{{item.teacher_name}}</td>
               </tr>
               <tr>
-                <td>讲师邮箱</td>
-                <td>{{ item.teacher_email }}</td>
+                <td>{{$t('watch.teacher_email')}}</td>
+                <td>{{item.teacher_email}}</td>
               </tr>
               <tr>
-                <td>班级总人数</td>
-                <td>{{ item.class_count }}人（应到） - {{ item.leave_count }}人（请假） = {{ item.class_count - item.leave_count }}人（实到）</td>
+                <td>{{$t('watch.class_count')}}</td>
+                <td>{{item.class_count}}人（应到） - {{item.leave_count}}人（请假） = {{item.class_count - item.leave_count}}人（实到）</td>
               </tr>
               <tr>
-                <td>已完成测评人数</td>
-                <td style="color:#f40">{{ item.receives_count }}人（{{ item.class_count - item.leave_count - item.receives_count >= 0 ? '还少' + (item.class_count - item.leave_count - item.receives_count) : '超出' + -(item.class_count - item.leave_count - item.receives_count) }}人）</td>
+                <td>{{$t('watch.receives_count')}}</td>
+                <td style="color:#f40">{{item.receives_count}}人（{{item.class_count - item.leave_count - item.receives_count >= 0 ? '还少' + (item.class_count - item.leave_count - item.receives_count) : '超出' + -(item.class_count - item.leave_count - item.receives_count)}}人）</td>
               </tr>
               <tr v-if="item.status">
-                <td>测评状态</td>
-                <td style="color:#f60">{{ item.status }}</td>
+                <td>{{$t('watch.status')}}</td>
+                <td style="color:#f60">{{item.status}}</td>
               </tr>
               <tr v-if="item.status === $config.status_keys.rating">
-                <td>测评链接</td>
+                <td>{{$t('watch.link')}}</td>
                 <td>
                   <a class="js-external-link" href="{{server_link + item.stamp}}">{{server_link + item.stamp}}</a>
                   <span>&nbsp;&nbsp;</span>
-                  <a href="javascript:;" @click="copy(server_link + item.stamp)">点击复制</a>
+                  <a href="javascript:;" @click="copy(server_link + item.stamp)">{{$t('watch.copy')}}</a>
                 </td>
               </tr>
             </tbody>
@@ -94,36 +94,36 @@
           <table>
             <thead>
               <tr>
-                <th width="35%">姓名</th>
-                <th width="65%">邮箱</th>
+                <th width="35%">{{$t('watch.name')}}</th>
+                <th width="65%">{{$t('watch.email')}}</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="i in item.emails" track-by="$index">
-                <td title="{{ i.name }}（{{ i.title }}）">{{ i.name }}</td>
-                <td>{{ i.email }}</td>
+                <td title="{{i.name}}（{{i.title}}）">{{i.name}}</td>
+                <td>{{i.email}}</td>
               </tr>
               <tr style="color: #f70;" v-for="i in item.added_emails" track-by="$index">
-                <td title="{{ i.name }}（{{ i.title }}）">{{ i.name }}</td>
-                <td>{{ i.email }}<span class="close pull-right" title="移除{{ i.email }}" @click="del_email(i)">&times;&nbsp;&nbsp;</span></td>
+                <td title="{{i.name}}（{{i.title}}）">{{i.name}}</td>
+                <td>{{i.email}}<span class="close pull-right" title="{{$t('watch.remove', {item: i.email})}}" @click="del_email(i)">&times;&nbsp;&nbsp;</span></td>
               </tr>
             </tbody>
           </table>
         </div>
         <form v-if="item.status === $config.status_keys.rated" @submit="add_email($event)">
           <div class="input-group">
-            <input class="field" type="text" v-model="email_input" placeholder="请输入额外添加的收件人">
-            <button class="addon" type="submit">添加</button>
+            <input class="field" type="text" v-model="email_input" placeholder="{{$t('watch.placeholder')}}">
+            <button class="addon" type="submit">{{$t('watch.add')}}</button>
           </div>
         </form>
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-primary btn-block btn-lg" v-if="item.status === $config.status_keys.initial" @click="start()">开始测评</button>
-      <button class="btn btn-danger btn-block btn-lg" v-if="item.status === $config.status_keys.rating" @click="stop()">结束测评</button>
-      <button class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.rated" @click="send()">发送邮件</button>
-      <div class="btn btn-default btn-block btn-lg" v-if="item.status === $config.status_keys.sending">邮件发送中......</div>
-      <div class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.send" @click="reveal($event)">邮件发送完成（可以删除左侧的记录文件，也可将文件拷出来备份）</div>
+      <button class="btn btn-primary btn-block btn-lg" v-if="item.status === $config.status_keys.initial" @click="start()">{{$t('watch.actions.start')}}</button>
+      <button class="btn btn-danger btn-block btn-lg" v-if="item.status === $config.status_keys.rating" @click="stop()">{{$t('watch.actions.stop')}}</button>
+      <button class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.rated" @click="send()">{{$t('watch.actions.send')}}</button>
+      <div class="btn btn-default btn-block btn-lg" v-if="item.status === $config.status_keys.sending">{{$t('watch.actions.sending')}}......</div>
+      <div class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.send" @click="reveal($event)">{{$t('watch.actions.done')}}</div>
     </div>
   </div>
 </template>

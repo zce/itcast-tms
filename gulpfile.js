@@ -89,7 +89,7 @@ const getFileStamp = (filename, type) => {
 gulp.task('archive', ['compile:renderer'], archive)
 
 // const repo = 'https://raw.githubusercontent.com/zce/electron-boilerplate/vue-auto-update/dist/'
-const repo = 'http://git.oschina.net/wedn/itcast-tms/raw/master/'
+const repo = 'http://git.oschina.net/wedn/itcast-tms/raw/v5.x/'
 
 gulp.task('dist', ['archive'], () => {
   fs.existsSync('./dist') || fs.mkdir('./dist')
