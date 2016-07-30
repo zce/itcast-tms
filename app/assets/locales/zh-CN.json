@@ -44,5 +44,26 @@
     "chromium": "Chromium",
     "electron": "Electron",
     "datetime": "Datetime"
+  },
+  "dashboard": {
+    "intro": "请点击左侧菜单中的创建，开始新的测评",
+    "start": "开始新的测评",
+    "copyright": "版权所有 (c) 2016 传智播客，保留一切权利"
+  },
+  "start": {
+    "title": "创建新的测评记录",
+    "school_name": {
+      "title": "所属校区"
+    },
+    "academy_name": {
+      "title": "所属学院"
+    },
+    "subject_name": {
+      "title": "所属学科"
+    },
+    "class_count": {
+      "title": "班级总人数",
+      "placeholder": "请输入班级总人数"
+    }
   }
 }

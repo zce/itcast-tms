@@ -1,39 +1,4 @@
-<style lang="less">
-  // .form-control {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-bottom: 10/16rem ;
-
-  //   &.full {
-  //     flex: 1;
-  //   }
-
-  //   label {
-  //     font-size: 20/16rem;
-  //     font-weight: 500;
-  //     margin-bottom: 10/16rem;
-  //   }
-
-  //   textarea, input {
-  //     flex: 1;
-  //     width: 100%;
-  //     resize: none;
-  //     padding: 5/16rem 10/16rem;
-  //     font-size: 16/16rem;
-  //     line-height: 26/16rem;
-  //     border: 1/16rem solid #eee;
-
-  //     &:focus {
-  //       border-color: #ccc;
-  //     }
-  //   }
-
-  //   .help-desk {
-  //     font-size: 13/16rem;
-  //     color: #999;
-  //     margin: 5/16rem 2/16rem;
-  //   }
-  // }
+<style lang="less" scoped>
   .scroll {
     overflow-y: auto;
     flex: 1;
@@ -50,61 +15,61 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="school_name">所属校区</label>
-          <select id="school_name" v-model="item.school_name">
-            <option value="{{key}}" v-for="(key, value) in data.schools" track-by="$index">{{key}}</option>
+          <select id="school_name" v-model="item.school_name" lazy>
+            <option value="{{* key }}" v-for="(key, value) in data.schools" track-by="$index">{{* key }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="academy_name">所属学院</label>
-          <select id="academy_name" v-model="item.academy_name">
-            <option value="{{key}}" v-for="(key, value) in data.academies" track-by="$index">{{key}}</option>
+          <select id="academy_name" v-model="item.academy_name" lazy>
+            <option value="{{* key }}" v-for="(key, value) in data.academies" track-by="$index">{{* key }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="subject_name">所属学科</label>
-          <select id="subject_name" v-model="item.subject_name">
-            <option value="{{s.name}}" v-for="s in data.subjects">{{s.name}}</option>
+          <select id="subject_name" v-model="item.subject_name" lazy>
+            <option value="{{* s.name }}" v-for="s in data.subjects">{{* s.name }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="class_count">班级总人数</label>
-          <input type="number" id="class_count" v-model="item.class_count" placeholder="请输入班级总人数" min="0" max="200">
+          <input type="number" id="class_count" v-model="item.class_count" lazy number placeholder="请输入班级总人数" min="0" max="200">
         </div>
         <div class="row">
           <div class="col-sm-4 form-group" v-for="(key, value) in item.reasons" track-by="$index">
-            <label for="reason{{$index}}_count">{{key}}人数</label>
-            <input type="number" id="reason{{$index}}_count" v-model="item.reasons[key]" placeholder="请输入{{key}}人数" min="0" max="50" tabindex="-1">
+            <label for="reason{{* $index }}_count">{{* key }}人数</label>
+            <input type="number" id="reason{{* $index }}_count" v-model="item.reasons[key]" lazy number placeholder="请输入{{* key }}人数" min="0" max="50" tabindex="-1">
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="head_name">班主任姓名</label>
-          <input type="text" id="head_name" v-model="item.head_name" placeholder="请输入班主任姓名">
+          <input type="text" id="head_name" v-model="item.head_name" lazy placeholder="请输入班主任姓名">
         </div>
         <div class="form-group">
           <label for="class_name">班级名称</label>
-          <input type="text" id="class_name" v-model="item.class_name" placeholder="分校名+品牌+学科名+班级类型+期数（时间+授课模式）">
+          <input type="text" id="class_name" v-model="item.class_name" lazy placeholder="分校名+品牌+学科名+班级类型+期数（时间+授课模式）">
         </div>
         <div class="form-group">
           <label for="course_name">课程阶段</label>
-          <input type="text" id="course_name" v-model="item.course_name" placeholder="请输入课程阶段">
+          <input type="text" id="course_name" v-model="item.course_name" lazy placeholder="请输入课程阶段">
         </div>
         <div class="form-group">
           <label for="course_days">课程天数</label>
-          <input type="number" id="course_days" v-model="item.course_days" placeholder="请输入课程天数" min="0" max="50">
+          <input type="number" id="course_days" v-model="item.course_days" lazy number placeholder="请输入课程天数" min="0" max="50">
         </div>
         <div class="form-group">
           <label for="teacher_name">讲师姓名</label>
-          <input type="text" id="teacher_name" v-model="item.teacher_name" placeholder="请输入讲师名称">
+          <input type="text" id="teacher_name" v-model="item.teacher_name" lazy placeholder="请输入讲师名称">
         </div>
         <div class="form-group">
           <label for="teacher_email">讲师邮箱</label>
-          <input type="text" id="teacher_email" v-model="item.teacher_email" placeholder="请输入讲师邮箱">
+          <input type="text" id="teacher_email" v-model="item.teacher_email" lazy placeholder="请输入讲师邮箱">
         </div>
         <div class="form-group">
           <label for="datetime">测评日期</label>
-          <input type="text" id="datetime" v-model="item.datetime" readonly="readonly" tabindex="-1">
+          <input type="text" id="datetime" v-model="item.datetime" lazy readonly="readonly" tabindex="-1">
         </div>
       </div>
     </div>
@@ -138,6 +103,7 @@
         teacher_email: '',
         datetime: this.$utils.formatDate(new Date(), 'yyyy-MM-dd HH:mm')
       }
+
       // ===== 读取配置文件 =====
       vm.data = {}
       vm.data.schools = this.$db.schools
@@ -145,6 +111,7 @@
       vm.data.academies = this.$db.academies
       vm.data.academies && (vm.item.academy_name = Object.keys(vm.data.academies)[0])
       vm.data.subjects = []
+
       return vm
     },
 
@@ -168,7 +135,10 @@
         // ====================== 数据校验 =====================
         // ====================================================
         for (let key in temp) {
-          if (!temp[key]) return alert('请完整填写所有信息！')
+          let item = temp[key]
+          item.trim && (item = item.trim())
+          if (!item) return alert('请完整填写所有信息！')
+          this.item[key] = temp[key] = item
         }
 
         // 学科选择
@@ -216,11 +186,10 @@
         temp.status = this.$config.status_keys.initial
 
         // 本次测评问题
-        console.log(subject.rules.length, academy.rules.length, school.rules.length, this.$db.root.rules.length)
         let ruleKeys = subject.rules && subject.rules.length ? subject.rules : academy.rules && academy.rules.length ? academy.rules : school.rules && school.rules.length ? school.rules : this.$db.root.rules
-        if (ruleKeys && ruleKeys.length) {
+        if (!(ruleKeys && ruleKeys.length)) {
           // TODO: error log
-          console.error(new Error(`【${temp.school_name} / ${temp.academy_name} / ${temp.subject_name}】 没有题目信息`))
+          return alert(`【${temp.school_name} / ${temp.academy_name} / ${temp.subject_name}】 没有题目信息`)
         }
         temp.rules = {}
         ruleKeys.forEach(k => { temp.rules[k] = this.$db.rules[k] })

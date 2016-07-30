@@ -44,5 +44,10 @@
     "chromium": "Chromium",
     "electron": "Electron",
     "datetime": "Datetime"
+  },
+  "dashboard": {
+    "intro": "Click on the left-hand menu to create and start a new evaluation",
+    "start": "Start a new evaluation",
+    "copyright": "Copyright (c) 2016 Itcast, Inc. All Rights Reserved."
   }
 }

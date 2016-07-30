@@ -156,7 +156,7 @@
       <h3>{{$t('sidebar.actions.title')}}</h3>
       <div class="scroll actions">
         <ul>
-          <li v-link="{name: 'dashboard'}" :class="{active: $route.name === 'dashboard'}">{{$t('sidebar.actions.dashboard')}}</li>
+          <!-- <li v-link="{name: 'dashboard'}" :class="{active: $route.name === 'dashboard'}">{{$t('sidebar.actions.dashboard')}}</li> -->
           <li v-link="{name: 'start'}" :class="{active: $route.name === 'start'}">{{$t('sidebar.actions.start')}}</li>
           <!-- <li v-link="{name: 'update'}" :class="{active: $route.name === 'update'}">{{$t('sidebar.actions.update')}}</li>
           <li v-link="{name: 'vuex'}" :class="{active: $route.name === 'vuex'}">{{$t('sidebar.actions.vuex')}}</li> -->
@@ -275,7 +275,7 @@
         // 跳转到第一个记录
         const find = this.records.some(r => {
           if (r.stamp !== item.stamp) {
-            this.$router.go({ name: 'watcher', params: { item: r.stamp } })
+            this.$router.go({ name: 'watch', params: { item: r.stamp } })
             return true
           }
         })

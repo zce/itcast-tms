@@ -35,11 +35,11 @@
   <div class="inner">
     <img src="../assets/img/itcast.svg" alt="itcast" :class="{rotate: rotate}" @dblclick="addRotate()">
     <h1>{{$config.app.name}}</h1>
-    <p>请点击左侧菜单中的创建，开始新的测评</p>
+    <p>{{$t('dashboard.intro')}}</p>
     <ul>
-      <li><a v-link="{ name: 'start' }" class="btn btn-warning btn-lg">开始新的测评</a></li>
+      <li><a v-link="{ name: 'start' }" class="btn btn-warning btn-lg">{{$t('dashboard.start')}}</a></li>
     </ul>
-    <p>Copyright (c) 2016 Itcast, Inc</p>
+    <p>{{$t('dashboard.copyright')}}</p>
   </div>
 </template>
 
