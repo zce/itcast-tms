@@ -26,8 +26,8 @@ app.on('ready', () => {
   update(() => {
     setAppMenu()
     mainWindow = createWindow('main', {
-      x: 0,
-      y: 0,
+      // x: 0,
+      // y: 0,
       minWidth: 1200,
       minHeight: 720,
       width: 1200,
