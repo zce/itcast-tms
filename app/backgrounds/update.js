@@ -1,8 +1,8 @@
 import { BrowserWindow } from 'electron'
 import updater from 'asar-updater'
+import config from '../../tasks/updater.config'
 
-// const server = 'https://raw.githubusercontent.com/zce/electron-boilerplate/vue-auto-update/dist/latest/'
-const server = 'http://git.oschina.net/wedn/itcast-tms/raw/v5.x/latest/'
+const server = `${config.service}/${config.repository}/raw/${config.branch}/latest/`
 
 updater.init()
 updater.setFeedURL('core.asar', server + 'core.json')
@@ -26,7 +26,7 @@ export default (callback) => {
       webContents && webContents.send('update_message', `『${task.name}』无需更新！`)
     })
     .on('progress', (task, p) => {
-      webContents.send('update_progress', p)
+      webContents && webContents.send('update_progress', p)
       if (p === -1) {
         webContents && webContents.send('update_message', `『${task.name}』更新中...`)
       }
@@ -40,7 +40,7 @@ export default (callback) => {
       updater.quitAndInstall(1000)
     })
     .on('error', (error) => {
-      webContents && webContents.send('update_done', '更新出错，请联系作者！')
+      if (error) webContents && webContents.send('update_done', '更新出错，请联系作者！')
       callback()
     })
     .checkForUpdates()

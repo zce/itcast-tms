@@ -22,7 +22,7 @@
       <div class="col-md-4"><span>评估时间：</span><strong>{{ datetime }}</strong></div>
     </div>
     <form action="/{{ stamp }}" method="post">
-      <ol class="questions">
+      <ol id="questions" class="questions">
         {{#each(rules[rule_key].questions)}}
         <li>
           <h6>{{ this.question }}</h6>
@@ -39,10 +39,12 @@
       <h5 class="title">其他意见或建议：</h5>
       <textarea class="form-control" name="note" cols="160" rows="8" placeholder="相信您的建议一定可以一针见血（不支持富文本）"></textarea>
       <p class="text-danger">注意：每人只能提交一次，请认真填写后再提交！</p>
+      <input type="hidden" name="hash">
       <button id="btn" type="submit">确认提交</button>
     </form>
   </div>
-  <script>(function(e,a){var d={{rules[rule_key].questions.length}};var g=a.getElementsByTagName("input");var c=a.getElementById("btn");var f=[];for(var b=0;b<d;b++){f[b]=false}c.onclick=function(){for(var k=0;k<g.length;k++){var h=g[k];if(h.checked){f[h.name]=true}}for(var j=0;j<d;j++){if(!f[j]){alert("同学，请完整勾选表单选项！");return false}}}}(window,document));</script>
+  <script src="fingerprint2.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

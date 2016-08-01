@@ -30,9 +30,10 @@ app.use((req, res, next) => {
   // 注入请求客户端IP
   if (process.env.NODE_ENV === 'production') {
     req.clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress
+    req.finger = req.body.hash ? req.body.hash.trim() : ''
   } else {
     // 测试允许多次提交
-    req.clientIp = new Date().getTime()
+    req.finger = req.clientIp = Date.now()
   }
   // req.connection.socket.remoteAddress || '::1'
   // 注入是否本地请求
@@ -63,6 +64,10 @@ app.get(`/:stamp(${stampFormat})`, (req, res) => {
  * POST /:stamp
  */
 app.post(`/:stamp(${stampFormat})`, (req, res) => {
+  // if (!req.finger) {
+  //   return res.render('rated', { error: true, message: '同学，不可以禁止JS脚本的执行！' })
+  // }
+
   if (req.isLocal && !config.allow_admin_rating) {
     return res.render('rated', { error: true, message: '您是管理员，不允许参加测评！' })
   }
@@ -76,6 +81,7 @@ app.post(`/:stamp(${stampFormat})`, (req, res) => {
     return res.render('rated', { error: true, message: '测评已经结束，不可以继续提交了！' })
   }
 
+  // const hasFinger = Object.keys(data.receives).some(k => data.receives[k].hash === req.finger)
   if (data.receives[req.clientIp] && !config.allow_student_repeat) {
     return res.render('rated', { error: true, message: '你已经提交过了，不可以重复提交！' })
   }
@@ -95,28 +101,27 @@ app.post(`/:stamp(${stampFormat})`, (req, res) => {
 })
 
 function convert (stamp, body) {
-  const rateData = {
-    note: body.note.trim(),
+  const item = {
+    hash: body.hash ? body.hash.trim() : '',
+    note: body.note ? body.note.trim() : '',
     marks: {}
   }
   const rules = storage.get(stamp).rules
-
   let validated = true
   for (let version in rules) {
-    rateData.marks[version] = {}
+    item.marks[version] = {}
     for (let id in body) {
       if (id === 'note' || id === 'hash') continue
-      rateData.marks[version][id] = { back: 0, front: 0 }
+      item.marks[version][id] = { back: 0, front: 0 }
       const score = rules[version].questions[id].answers[body[id]].score
-      rateData.marks[version][id].back = score.back
-      rateData.marks[version][id].front = score.front
+      item.marks[version][id].back = score.back
+      item.marks[version][id].front = score.front
     }
-    if (Object.keys(rateData.marks[version]).length !== rules[version].questions.length) {
+    if (Object.keys(item.marks[version]).length !== rules[version].questions.length) {
       validated = false
     }
   }
-
-  return validated ? rateData : null
+  return validated ? item : null
 }
 
 let server

@@ -36,7 +36,6 @@ export default (data) => {
       all += content
     })
   })
-  console.log(data)
   // 渲染邮件模板
   xtpl.renderFile(mailTemplate, { data, hash: encrypt(all) }, (error, content) => {
     if (error) return Promise.reject(error)
