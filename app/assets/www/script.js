@@ -76,31 +76,25 @@
     }())
   }
 
-  new Fingerprint2().get(function (result, components) {
-    var questionCount = document.getElementById('questions').childElementCount
-    var inputs = document.getElementsByTagName('input')
-    var submit = document.getElementById('btn')
-    var flags = new Array(questionCount)
-    // for (var b = 0; b < questionCount; b++) {
-    //   flags[b] = false
-    // }
-    submit.onclick = function () {
-      for (var k = 0; k < inputs.length; k++) {
-        var h = inputs[k]
-        if (h.name === 'hash') {
-          h.value = result
-          continue
-        }
-        if (h.checked) {
-          flags[h.name] = true
-        }
+  var questionCount = document.getElementById('questions').childElementCount
+  var inputs = document.getElementsByTagName('input')
+  var submit = document.getElementById('btn')
+  var flags = new Array(questionCount)
+  submit.onclick = function () {
+    for (var k = 0; k < inputs.length; k++) {
+      var h = inputs[k]
+      if (h.name === 'hash') {
+        continue
       }
-      for (var j = 0; j < questionCount; j++) {
-        if (!flags[j]) {
-          alert('同学，请完整填写表单！')
-          return false
-        }
+      if (h.checked) {
+        flags[h.name] = true
       }
     }
-  })
+    for (var j = 0; j < questionCount; j++) {
+      if (!flags[j]) {
+        alert('同学，请完整填写表单！')
+        return false
+      }
+    }
+  }
 }(window, document))

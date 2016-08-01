@@ -43,7 +43,6 @@
       <button id="btn" type="submit">确认提交</button>
     </form>
   </div>
-  <script src="fingerprint2.min.js"></script>
   <script src="script.js"></script>
 </body>
 
