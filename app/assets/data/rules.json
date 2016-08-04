@@ -1,11 +1,11 @@
 {
-  "2015": {
+  "2015-助教": {
     "title": "教学质量评估表",
     "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
     "questions": [
       {
-        "shortname": "上课纪律",
-        "question": "遵守教学纪律，无迟到、提前下课，上课拨手机等现象。",
+        "shortname": "在班辅导情况",
+        "question": "助教是否在班辅导，若不在班里，你是否清楚助教的去向。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 5 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 4.25 } },
@@ -15,8 +15,8 @@
         ]
       },
       {
-        "shortname": "上课热情",
-        "question": "老师在课堂上是否有热情，有一种想把知识交给你强烈的愿望与激情，没有仅仅是完成任务式的教学。",
+        "shortname": "遵守纪律情况",
+        "question": "助教是否存在做与辅导无关的事情，例如玩手机、看电影等。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 15 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 12.75 } },
@@ -26,8 +26,8 @@
         ]
       },
       {
-        "shortname": "备课充分",
-        "question": "老师是否备课充分，熟悉所教内容，无知识性错误。",
+        "shortname": "技术水平",
+        "question": "学生是否认可助教的技术水平。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -37,8 +37,8 @@
         ]
       },
       {
-        "shortname": "讲课清晰",
-        "question": "老师是否讲课思路清晰，知识、概念的阐述是否清晰准确。",
+        "shortname": "课程熟悉程度",
+        "question": "助教是否熟悉课程内容（重点、难点、案例等）。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -48,8 +48,8 @@
         ]
       },
       {
-        "shortname": "课程信息量",
-        "question": "老师上课课程信息量是否足够，课程内容充实。",
+        "shortname": "思路是否清晰",
+        "question": "助教讲解问题思路是否清晰。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -59,8 +59,8 @@
         ]
       },
       {
-        "shortname": "课程深度",
-        "question": "老师对难点的讲解是否有深度。",
+        "shortname": "辅导态度",
+        "question": "助教辅导过程中，是否耐心、积极、热情。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -70,8 +70,8 @@
         ]
       },
       {
-        "shortname": "关注学员消化",
-        "question": "老师在课堂上是否乐于提问，关注你的消化、吸收情况。",
+        "shortname": "是否主动辅导",
+        "question": "助教是否主动帮助学生学习（了解学习情况、指导学习方法、规划学习方案等）。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -81,8 +81,8 @@
         ]
       },
       {
-        "shortname": "学生学习效果",
-        "question": "你对该老师所讲的课程内容消化、吸收情况如何，也就是学习效果如何。",
+        "shortname": "辅导结果",
+        "question": "通过助教的辅导，你技术能力是否提高。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 8.5 } },
@@ -92,8 +92,8 @@
         ]
       },
       {
-        "shortname": "激发能力",
-        "question": "老师在教学中能否激发学生的学习兴趣，发挥学生的学习主动性，培养学生独立思考和勇于创新的精神？也就是教师的激发能力如何。",
+        "shortname": "营造学习氛围",
+        "question": "助教是否能够充满正能量的调动同学学习的积极性，营造班级学习氛围。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 5 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 4.25 } },
@@ -104,7 +104,7 @@
       },
       {
         "shortname": "总体评价",
-        "question": "你对该授课老师的总体评价是？",
+        "question": "你对助教的总体评价是。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 15 } },
           { "text": "B.比较满意", "score": { "front": 8, "back": 12.75 } },
@@ -115,13 +115,13 @@
       }
     ]
   },
-  "2016": {
+  "2016-助教": {
     "title": "教学质量评估表",
     "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
     "questions": [
       {
-        "shortname": "上课纪律",
-        "question": "遵守教学纪律，无迟到、提前下课，上课拨手机等现象。",
+        "shortname": "在班辅导情况",
+        "question": "助教是否在班辅导，若不在班里，你是否清楚助教的去向。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -131,8 +131,8 @@
         ]
       },
       {
-        "shortname": "上课热情",
-        "question": "老师在课堂上是否有热情，有一种想把知识交给你强烈的愿望与激情，没有仅仅是完成任务式的教学。",
+        "shortname": "遵守纪律情况",
+        "question": "助教是否存在做与辅导无关的事情，例如玩手机、看电影等。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -142,8 +142,8 @@
         ]
       },
       {
-        "shortname": "备课充分",
-        "question": "老师是否备课充分，熟悉所教内容，无知识性错误。",
+        "shortname": "技术水平",
+        "question": "学生是否认可助教的技术水平。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -153,8 +153,8 @@
         ]
       },
       {
-        "shortname": "讲课清晰",
-        "question": "老师是否讲课思路清晰，知识、概念的阐述是否清晰准确。",
+        "shortname": "课程熟悉程度",
+        "question": "助教是否熟悉课程内容（重点、难点、案例等）。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -164,8 +164,8 @@
         ]
       },
       {
-        "shortname": "课程信息量",
-        "question": "老师上课课程信息量是否足够，课程内容充实。",
+        "shortname": "思路是否清晰",
+        "question": "助教讲解问题思路是否清晰。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -175,8 +175,8 @@
         ]
       },
       {
-        "shortname": "课程深度",
-        "question": "老师对难点的讲解是否有深度。",
+        "shortname": "辅导态度",
+        "question": "助教辅导过程中，是否耐心、积极、热情。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -186,8 +186,8 @@
         ]
       },
       {
-        "shortname": "关注学员消化",
-        "question": "老师在课堂上是否乐于提问，关注你的消化、吸收情况。",
+        "shortname": "是否主动辅导",
+        "question": "助教是否主动帮助学生学习（了解学习情况、指导学习方法、规划学习方案等）。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -197,8 +197,8 @@
         ]
       },
       {
-        "shortname": "学生学习效果",
-        "question": "你对该老师所讲的课程内容消化、吸收情况如何，也就是学习效果如何。",
+        "shortname": "辅导结果",
+        "question": "通过助教的辅导，你技术能力是否提高。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -208,8 +208,8 @@
         ]
       },
       {
-        "shortname": "激发能力",
-        "question": "老师在教学中能否激发学生的学习兴趣，发挥学生的学习主动性，培养学生独立思考和勇于创新的精神？也就是教师的激发能力如何。",
+        "shortname": "营造学习氛围",
+        "question": "助教是否能够充满正能量的调动同学学习的积极性，营造班级学习氛围。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -220,123 +220,7 @@
       },
       {
         "shortname": "总体评价",
-        "question": "你对该授课老师的总体评价是？",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      }
-    ]
-  },
-  "2016-双元": {
-    "title": "教学质量评估表",
-    "introduction": "<h5 class=\"title\">亲爱的同学：</h5><p class=\"paragraph\">为了全面提高教育质量，请你们对学过的或正在学的课程教学质量作出实事求是的评价。你们是受教者，因此你们是最有发言权的。请对下列问题作出适当地回答。</p>",
-    "questions": [
-      {
-        "shortname": "上课纪律",
-        "question": "遵守教学纪律，无迟到、提前下课，上课拨手机等现象。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "上课热情",
-        "question": "老师在课堂上是否有热情，有一种想把知识交给你强烈的愿望与激情，没有仅仅是完成任务式的教学。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "备课充分",
-        "question": "老师是否备课充分，熟悉所教内容，无知识性错误。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "讲课清晰",
-        "question": "老师在补充讲解视频中的难点和重点时，讲解思路是否清晰，知识、概念的阐述是否清晰准确。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "课程信息量",
-        "question": "老师在讲解课堂练习题和作业题，思路是否清晰，知识、概念的阐述是否清晰准确。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "课程深度",
-        "question": "老师对重点难点的讲解是否有深度。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "关注学员消化",
-        "question": "老师在课堂上是否乐于提问，关注你的消化、吸收情况。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "学生学习效果",
-        "question": "当你学习或练习时遇到问题，老师的指导讲解效果如何。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "激发能力",
-        "question": "老师在教学中能否激发学生的学习兴趣，发挥学生的学习主动性，培养学生独立思考和勇于创新的精神？也就是教师的激发能力如何。",
-        "answers": [
-          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
-          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
-          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
-          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
-          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
-        ]
-      },
-      {
-        "shortname": "总体评价",
-        "question": "你对该授课老师的总体评价是？",
+        "question": "你对助教的总体评价是。",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },

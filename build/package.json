@@ -1,12 +1,12 @@
 {
-  "name": "tms",
-  "productName": "Itcast TMS",
+  "name": "ams",
+  "productName": "Itcast AMS",
   "version": "5.0.0",
-  "description": "A teaching management system for Itcast, Inc.",
+  "description": "A teaching assistant management system for Itcast, Inc.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zce/electron-boilerplate.git"
+    "url": "git+https://github.com/zce/itcast-tms.git"
   },
   "keywords": [
     "iceStone",
@@ -21,7 +21,7 @@
   "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zce/electron-boilerplate/issues"
+    "url": "https://github.com/zce/itcast-tms/issues"
   },
-  "homepage": "https://github.com/zce/electron-boilerplate#readme"
+  "homepage": "https://github.com/zce/itcast-tms#readme"
 }

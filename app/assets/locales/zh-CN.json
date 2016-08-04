@@ -82,12 +82,12 @@
       "placeholder": "请输入课程天数"
     },
     "teacher_name": {
-      "title": "讲师姓名",
-      "placeholder": "请输入讲师姓名"
+      "title": "助教姓名",
+      "placeholder": "请输入助教姓名"
     },
     "teacher_email": {
-      "title": "讲师邮箱",
-      "placeholder": "请输入讲师邮箱"
+      "title": "助教邮箱",
+      "placeholder": "请输入助教邮箱"
     },
     "datetime": {
       "title": "测评日期"
@@ -104,8 +104,8 @@
     "class_name": "评分班级",
     "course_name": "课程阶段",
     "course_days": "课程天数",
-    "teacher_name": "讲师姓名",
-    "teacher_email": "讲师邮箱",
+    "teacher_name": "助教姓名",
+    "teacher_email": "助教邮箱",
     "class_count": "班级总人数",
     "receives_count": "已完成测评人数",
     "status": "测评状态",

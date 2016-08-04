@@ -1,6 +1,6 @@
 /*!
- * Teaching management system
- *   https://tms.wedn.net/
+ * Teaching assistant management system
+ *   https://github.com/zce/itcast-tms
  *
  * Date:
  *   2016-07-30T23:56:12.476Z

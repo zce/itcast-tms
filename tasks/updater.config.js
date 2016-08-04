@@ -3,5 +3,5 @@
 module.exports = {
   service: 'http://git.oschina.net',
   repository: 'wedn/itcast-tms',
-  branch: 'v5.x'
+  branch: 'v5.x-ta'
 }

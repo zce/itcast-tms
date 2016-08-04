@@ -3,26 +3,21 @@
     "emails": [
       { "name": "汤阳光", "title": "院长", "email": "tyg@itcast.cn" },
       { "name": "朱晓煜", "title": "院长文员", "email": "zhuxiaoyu@itcast.cn" },
-      { "name": "滑紫妍", "title": "院长文员", "email": "huaziyan@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "滑紫妍", "title": "院长文员", "email": "huaziyan@itcast.cn" }
     ],
     "rules": []
   },
   "PHP": {
     "emails": [
       { "name": "李东超", "title": "院长", "email": "ldc@itcast.cn" },
-      { "name": "项华伟", "title": "院长助理", "email": "xhw@itcast.cn" },
-      { "name": "韩娜佳", "title": "院长文员", "email": "hannajia@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "李永成", "title": "院长助理", "email": "liyongcheng@itcast.cn" },
+      { "name": "韩娜佳", "title": "院长文员", "email": "hannajia@itcast.cn" }
     ],
     "rules": []
   },
   "UI设计": {
     "emails": [
-      { "name": "张鹏", "title": "院长", "email": "zp@itcast.cn" },
-      { "name": "魏源源", "title": "院长助理", "email": "weiyuanyuan@itcast.cn" },
-      { "name": "马瑞霞", "title": "院长文员", "email": "maruixia@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "张鹏", "title": "院长", "email": "zp@itcast.cn" }
     ],
     "rules": []
   },
@@ -30,45 +25,28 @@
     "emails": [
       { "name": "朱景尧", "title": "院长", "email": "zhujingyao@itcast.cn" },
       { "name": "张波", "title": "院长助理", "email": "zhangbo@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "邢文鹏", "title": "院长助理", "email": "xingwenpeng@itcast.cn" }
     ],
     "rules": []
   },
   "iOS": {
     "emails": [
-      { "name": "李伟", "title": "院长", "email": "liwei@itcast.cn" },
+      { "name": "李伟", "title": "副院长", "email": "liwei@itcast.cn" },
       { "name": "韩旭", "title": "院长助理", "email": "hanxu@itcast.cn" },
-      { "name": "张双巧", "title": "院长文员", "email": "zhangshuangqiao@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "张双巧", "title": "院长文员", "email": "zhangshuangqiao@itcast.cn" }
     ],
     "rules": []
   },
   "电子商务": {
     "emails": [
-      { "name": "齐晓辉", "title": "院长", "email": "qxh@itcast.cn" },
-      { "name": "李艳艳", "title": "院长助理", "email": "liyanyan@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "韩旭", "title": "副院长助理", "email": "hanxu@itcast.cn" }
     ],
     "rules": []
   },
   "前端与移动开发": {
     "emails": [
-      { "name": "马伦", "title": "院长", "email": "malun@itcast.cn" },
-      { "name": "牛亮亮", "title": "院长助理", "email": "nll@itcast.cn" },
-      { "name": "张慧敏", "title": "院长文员", "email": "zhanghuimin@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
+      { "name": "马伦", "title": "院长", "email": "malun@itcast.cn" }
     ],
     "rules": []
-  },
-  "双元课堂": {
-    "emails": [
-      { "name": "冯威", "title": "副总裁", "email": "fw@itcast.cn" },
-      { "name": "孙健", "title": "总监", "email": "sunjian@itcast.cn" },
-      { "name": "李鹏鹏", "title": "总监助理", "email": "lipengpeng@itcast.cn" },
-      { "name": "韩站超", "title": "总监助理", "email": "hanzhanchao@itcast.cn" },
-      { "name": "刘迪", "title": "总监文员", "email": "liudi1@itcast.cn" },
-      { "name": "丁威", "title": "教学办公室文员", "email": "dingwei@itcast.cn" }
-    ],
-    "rules": ["2016-双元"]
   }
 }

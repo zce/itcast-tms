@@ -82,11 +82,11 @@
       "placeholder": "Input course days"
     },
     "teacher_name": {
-      "title": "Teacher",
+      "title": "Assistant",
       "placeholder": "Input teacher"
     },
     "teacher_email": {
-      "title": "Teacher email",
+      "title": "Assistant email",
       "placeholder": "Input teacher email"
     },
     "datetime": {
@@ -104,8 +104,8 @@
     "class_name": "Class name",
     "course_name": "Course name",
     "course_days": "Course days",
-    "teacher_name": "Teacher name",
-    "teacher_email": "Teacher email",
+    "teacher_name": "Assistant name",
+    "teacher_email": "Assistant email",
     "class_count": "Class name",
     "receives_count": "Done",
     "status": "Status",
