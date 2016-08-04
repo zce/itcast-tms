@@ -112,7 +112,7 @@ gulp.task('lint', () => {
 /**
  * Clean temp files
  */
-gulp.task('clean', [], del.bind(this, ['temp', 'build/*.asar']))
+gulp.task('clean', [], del.bind(this, ['build/*.asar', 'data', 'temp']))
 
 /**
  * Clean node_modules
