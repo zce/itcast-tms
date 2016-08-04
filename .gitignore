@@ -40,5 +40,8 @@ jspm_packages
 temp
 build/*.asar
 
+# Data temps
+data
+
 # Distribution directrory
 dist
