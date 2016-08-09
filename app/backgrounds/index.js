@@ -33,6 +33,7 @@ app.on('ready', () => {
       width: 1200,
       height: 720,
       useContentSize: true,
+      transparent: true,
       frame: false
     })
     if (process.env.NODE_ENV === 'production') {
