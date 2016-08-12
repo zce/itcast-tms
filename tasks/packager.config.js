@@ -31,9 +31,9 @@ module.exports = {
   'app-copyright': `Copyright (c) ${new Date().getFullYear()} WEDN.NET.`,
   'version-string': {
     CompanyName: 'WEDN.NET',
-    FileDescription: 'TMS',
-    OriginalFilename: 'TMS.exe',
+    FileDescription: 'FMS',
+    OriginalFilename: 'FMS.exe',
     ProductName: pkg.productName,
-    InternalName: 'TMS.exe'
+    InternalName: 'FMS.exe'
   }
 }

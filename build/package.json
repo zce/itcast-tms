@@ -1,8 +1,8 @@
 {
-  "name": "tms",
-  "productName": "Itcast TMS",
+  "name": "fms",
+  "productName": "Itcast FMS",
   "version": "5.0.0",
-  "description": "A teaching management system for Itcast, Inc.",
+  "description": "A functional departments management system for Itcast, Inc.",
   "main": "index.js",
   "repository": {
     "type": "git",

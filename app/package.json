@@ -1,7 +1,7 @@
 {
-  "name": "tms",
+  "name": "fms",
   "version": "5.0.2",
-  "description": "A teaching management system for Itcast, Inc.",
+  "description": "A functional departments management system for Itcast, Inc.",
   "updated": "2016-08-04T09:56:12.476Z",
   "main": "main.js",
   "dependencies": {

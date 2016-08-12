@@ -56,14 +56,14 @@
       "title": "所属校区"
     },
     "academy_name": {
-      "title": "所属学院"
+      "title": "所属部门"
     },
     "subject_name": {
-      "title": "所属学科"
+      "title": "所属职位"
     },
     "class_count": {
-      "title": "班级总人数",
-      "placeholder": "请输入班级总人数"
+      "title": "测评总人数",
+      "placeholder": "请输入测评总人数"
     },
     "head_name": {
       "title": "班主任名称",

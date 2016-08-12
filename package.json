@@ -1,6 +1,6 @@
 {
-  "name": "itcast-tms",
-  "description": "A teaching management system for Itcast, Inc.",
+  "name": "itcast-fms",
+  "description": "A functional departments management system for Itcast, Inc.",
   "version": "5.0.0",
   "repository": {
     "type": "git",
