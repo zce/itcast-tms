@@ -18,7 +18,7 @@
     <h5 class="title">测评信息：</h5>
     <div class="meta row">
       <div class="col-md-5"><span>被评估的老师：</span><strong>{{ teacher_name }}</strong></div>
-      <div class="col-md-6"><span>所属班级：</span><strong>{{ class_name }}</strong></div>
+      <div class="col-md-6"><span>评估团体：</span><strong>{{ class_name }}</strong></div>
       <div class="col-md-4"><span>评估时间：</span><strong>{{ datetime }}</strong></div>
     </div>
     <form action="/{{ stamp }}" method="post">

@@ -35,12 +35,12 @@
           <label for="class_count">{{$t('start.class_count.title')}}</label>
           <input type="number" id="class_count" v-model="item.class_count" lazy number placeholder="{{$t('start.class_count.placeholder')}}" min="0" max="200">
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-4 form-group" v-for="(key, value) in item.reasons" track-by="$index">
             <label for="reason{{* $index }}_count">{{* key }}人数</label>
             <input type="number" id="reason{{* $index }}_count" v-model="item.reasons[key]" lazy number placeholder="请输入{{* key }}人数" min="0" max="50" tabindex="-1">
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-6">
         <div class="form-group">
@@ -51,22 +51,22 @@
           <label for="class_name">{{$t('start.class_name.title')}}</label>
           <input type="text" id="class_name" v-model="item.class_name" lazy placeholder="{{$t('start.class_name.placeholder')}}">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="course_name">{{$t('start.course_name.title')}}</label>
           <input type="text" id="course_name" v-model="item.course_name" lazy placeholder="{{$t('start.course_name.placeholder')}}">
-        </div>
-        <div class="form-group">
+        </div> -->
+        <!-- <div class="form-group">
           <label for="course_days">{{$t('start.course_days.title')}}</label>
           <input type="number" id="course_days" v-model="item.course_days" lazy number placeholder="{{$t('start.course_days.placeholder')}}" min="0" max="50">
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="teacher_name">{{$t('start.teacher_name.title')}}</label>
           <input type="text" id="teacher_name" v-model="item.teacher_name" lazy placeholder="{{$t('start.teacher_name.placeholder')}}">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="teacher_email">{{$t('start.teacher_email.title')}}</label>
           <input type="text" id="teacher_email" v-model="item.teacher_email" lazy placeholder="{{$t('start.teacher_email.placeholder')}}">
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="datetime">{{$t('start.datetime.title')}}</label>
           <input type="text" id="datetime" v-model="item.datetime" lazy readonly="readonly" tabindex="-1">
@@ -94,13 +94,9 @@
         academy_name: '',
         subject_name: '',
         class_count: 0,
-        reasons: { 留级: 0, 病假: 0, 事假: 0, 回学校: 0, 已就业: 0, 其他教室自习: 0, 在家复习: 0, 不想听课: 0, 其他: 0 },
         class_name: '',
-        course_name: '',
-        course_days: 0,
         head_name: '',
         teacher_name: '',
-        teacher_email: '',
         datetime: this.$utils.formatDate(new Date(), 'yyyy-MM-dd HH:mm')
       }
 
@@ -116,10 +112,10 @@
     },
 
     methods: {
-      // 校区和学院改变 → 学科对应变化
+      // 校区和部门改变 → 岗位对应变化
       showSubjects () {
         let temp = this.$db.subjects.filter(s => s.academy === this.item.academy_name && s.school === this.item.school_name)
-        temp.length || (temp = [{name: '暂无对应学科'}])
+        temp.length || (temp = [{name: '暂无对应岗位'}])
         this.data.subjects = temp
         this.item.subject_name = this.data.subjects[0].name
         // TODO: ? track-by
@@ -141,40 +137,22 @@
           this.item[key] = temp[key] = item
         }
 
-        // 学科选择
-        if (temp.subject_name === '暂无对应学科') {
-          return alert('请正确选择学科信息！')
+        // 岗位选择
+        if (temp.subject_name === '暂无对应岗位') {
+          return alert('请正确选择岗位信息！')
         }
 
-        // 当前选择的校区、学院、学科信息
+        // 当前选择的校区、部门、岗位信息
         const school = this.$db.schools[temp.school_name]
         const academy = this.$db.academies[temp.academy_name]
         const subject = this.$db.subjects.find(s => s.academy === temp.academy_name && s.school === temp.school_name && s.name === temp.subject_name)
         if (!(school && academy && subject)) {
-          return alert('请确认选择校区、学院、学科信息！')
-        }
-
-        // 班级名称格式
-        if (!/^.+?(传智|黑马).+?(基础|就业)\d{1,5}期（\d{8}(面授|双元)）\s?$/.test(temp.class_name)) {
-          // 分校名+品牌+学科名+班级类型+期数（时间+授课模式），
-          // 例如：北京传智JavaEE基础88期（20160608面授）
-          // return alert('请输入正确格式的班级名称\n例如：北京传智JavaEE基础88期（20160608面授）')
-          if (!confirm('建议输入正确格式的班级名称\n例：北京传智PHP基础88期（20160808面授）\n忽略请点击确认，修改请点击取消')) {
-            return
-          }
+          return alert('请确认选择校区、部门、岗位信息！')
         }
 
         // ====================================================
         // ==================== 额外数据计算 ====================
         // ====================================================
-        // 请假人数
-        temp.leave_count = (() => {
-          let result = 0
-          for (let key in temp.reasons) {
-            result += temp.reasons[key]
-          }
-          return result
-        })()
 
         // 测评信息
         // { ip: { marks: { 2015: {}, 2016: {} }, note: '' } }
@@ -193,9 +171,6 @@
         }
         temp.rules = {}
         ruleKeys.forEach(k => { temp.rules[k] = this.$db.rules[k] })
-
-        // 处理邮箱后缀
-        temp.teacher_email.includes('@') || (temp.teacher_email += '@itcast.cn')
 
         // 本次测评的收件人列表
         temp.emails = this.$db.root.emails.concat(school.emails, academy.emails, subject.emails)

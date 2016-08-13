@@ -25,7 +25,7 @@ export default {
   },
   mail: {
     transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net?connectionTimeout=3000',
-    from: '教学测评系统 « 传智播客·黑马程序员 <pingfen@itcast.cn>'
+    from: '工作测评系统 « 传智播客·黑马程序员 <pingfen@itcast.cn>'
   },
   status_keys: {
     initial: '尚未开始统计',

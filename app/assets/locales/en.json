@@ -73,21 +73,9 @@
       "title": "Class name",
       "placeholder": "分校名+品牌+学科名+班级类型+期数（时间+授课模式）"
     },
-    "course_name": {
-      "title": "Course name",
-      "placeholder": "Input course name"
-    },
-    "course_days": {
-      "title": "Course days",
-      "placeholder": "Input course days"
-    },
     "teacher_name": {
       "title": "Teacher",
       "placeholder": "Input teacher"
-    },
-    "teacher_email": {
-      "title": "Teacher email",
-      "placeholder": "Input teacher email"
     },
     "datetime": {
       "title": "Datetime"

@@ -1,28 +1,18 @@
 考评结果汇总（{{ version }}）
 
 所属校区：	{{ data.school_name }}
-所属学院：	{{ data.academy_name }}
-所属学科：	{{ data.subject_name }}
-讲师姓名：	{{ data.teacher_name }}
-讲师邮箱：	{{ data.teacher_email }}
-评分班级：	{{ data.class_name }}
-评分班主任:	{{ data.head_name }}
-课程内容：	{{ data.course_name }}
-上课天数：	{{ data.course_days }}
+所属部门：	{{ data.academy_name }}
+所属岗位：	{{ data.subject_name }}
+被测评人：	{{ data.teacher_name }}
+测评团体：	{{ data.class_name }}
+发起测评人：	{{ data.head_name }}
 评分时间：	{{ data.datetime }}
-班级总人数：	{{ data.class_count + '人' ~}}
+测评总人数：	{{ data.class_count + '人' ~}}
 {{#if(data.class_count - data.receives_count > 0)}}
 未打分人数：	{{ data.class_count - data.receives_count }}人
 {{else}}
 多出打分人数：	{{ -(data.class_count - data.receives_count) }}人
 {{/if}}
-具体原因：
-{{#if(data.class_count - data.receives_count - data.leave_count > 0)}}
-未登录系统：	{{ data.class_count - data.receives_count - data.leave_count }}人
-{{/if}}
-{{#each(data.reasons, 'count', 'reason')}}
-{{~ reason }}：	{{ count }}人
-{{/each}}
 各项分数：
 
 打分总人数：	{{ data.receives_count }}人
@@ -32,7 +22,7 @@
 {{ shortname }}：	{{ value ~}}
 {{/each}}
 
-学员评价：
+意见与建议：
 {{#each(data.notes)}}
 * {{ this ~}}
 {{/each}}

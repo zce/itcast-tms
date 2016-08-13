@@ -4,5 +4,14 @@
       { "name": "翁发达", "title": "副总裁助理", "email": "wengfada@itcast.cn" }
     ],
     "rules": []
+  },
+  "全国统一咨询中心": {
+    "emails": [
+      { "name": "许瑞航", "title": "副总裁助理", "email": "xuruihang11@itcast.cn" },
+      { "name": "王利雪", "title": "咨询部主管", "email": "wlx11@itcast.cn" },
+      { "name": "张琼", "title": "咨询部助理", "email": "zhangqiong11@itcast.cn" },
+      { "name": "高冉", "title": "咨询部助理", "email": "gaoran11@itcast.cn" }
+    ],
+    "rules": []
   }
 }

@@ -42,7 +42,7 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding: 10/16rem;
+      padding: 15/16rem;
       position: relative;
 
       .inner {
@@ -65,7 +65,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 10/16rem;
+    margin: 15/16rem;
     transition: opacity 0.2s ease-in-out;
     transition-delay: 0.2s;
     overflow: hidden;

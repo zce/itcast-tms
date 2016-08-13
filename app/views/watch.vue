@@ -50,28 +50,16 @@
                 <td>{{item.class_name}}</td>
               </tr>
               <tr>
-                <td>{{$t('watch.course_name')}}</td>
-                <td>{{item.course_name}}</td>
-              </tr>
-              <tr>
-                <td>{{$t('watch.course_days')}}</td>
-                <td>{{item.course_days}}天</td>
-              </tr>
-              <tr>
                 <td>{{$t('watch.teacher_name')}}</td>
                 <td>{{item.teacher_name}}</td>
               </tr>
               <tr>
-                <td>{{$t('watch.teacher_email')}}</td>
-                <td>{{item.teacher_email}}</td>
-              </tr>
-              <tr>
                 <td>{{$t('watch.class_count')}}</td>
-                <td>{{item.class_count}}人（应到） - {{item.leave_count}}人（请假） = {{item.class_count - item.leave_count}}人（实到）</td>
+                <td>{{item.class_count}}人</td>
               </tr>
               <tr>
                 <td>{{$t('watch.receives_count')}}</td>
-                <td style="color:#f40">{{item.receives_count}}人（{{item.class_count - item.leave_count - item.receives_count >= 0 ? '还少' + (item.class_count - item.leave_count - item.receives_count) : '超出' + -(item.class_count - item.leave_count - item.receives_count)}}人）</td>
+                <td style="color:#f40">{{item.receives_count}}人（{{item.class_count - item.receives_count >= 0 ? '还少' + (item.class_count - item.receives_count) : '超出' + -(item.class_count - item.receives_count)}}人）</td>
               </tr>
               <tr v-if="item.status">
                 <td>{{$t('watch.status')}}</td>

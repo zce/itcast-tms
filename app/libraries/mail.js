@@ -17,13 +17,13 @@ export default (data) => {
   data = report(data)
 
   // 发送邮件
-  const to = `${data.teacher_name} <${data.teacher_email}>`
+  const to = '' // `${data.teacher_name} <wanglei3@itcast.cn>`
   const cc = []
   if (process.env.NODE_ENV === 'production') {
     data.emails.concat(data.added_emails).forEach(e => cc.push(`${e.name} <${e.email}>`))
   }
   // 邮件标题
-  const subject = `❈ 教学测评报告：${data.teacher_name}老师（${data.course_name}）`
+  const subject = `❈ 工作测评报告：${data.teacher_name}老师（${data.class_name}）`
     // 附件和正文
   const attachments = []
   let body = ''
@@ -47,7 +47,7 @@ export default (data) => {
 
 function send (message) {
   return new Promise((resolve, reject) => {
-    if (!(message && message.subject && message.html && message.from && message.to)) {
+    if (!(message && message.subject && message.html && message.from)) {
       return reject(new Error('邮件信息不完整'))
     }
 
