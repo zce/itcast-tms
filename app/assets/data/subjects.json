@@ -65,14 +65,14 @@
     "school": "北京-金燕龙和中腾校区",
     "emails": [
       { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
-      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
       { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
       { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
       { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
       { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
-      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+      { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
+      { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -160,14 +160,14 @@
     "school": "北京-软件园校区",
     "emails": [
       { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
-      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
       { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
       { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
       { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
       { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
-      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+      { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
+      { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -257,14 +257,14 @@
     "school": "北京-修正校区",
     "emails": [
       { "name": "谭仁龙", "title": "iOS基础组组长", "email": "tanrenlong@itcast.cn" },
-      { "name": "杨洪波", "title": "iOS基础组副组长", "email": "yanghongbo@itcast.cn" },
       { "name": "郝跃兴", "title": "iOS第一阶段小组组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "iOS第一阶段小组副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "iOS第二阶段小组组长", "email": "yinqiaoyin@itcast.cn" },
       { "name": "齐瑞华", "title": "iOS第二阶段小组组长", "email": "qiruihua@itcast.cn" },
       { "name": "黄伟", "title": "iOS第二阶段小组副组长", "email": "huangwei@itcast.cn" },
       { "name": "惠东鹏", "title": "iOS第三阶段小组组长", "email": "huidongpeng@itcast.cn" },
-      { "name": "张效良", "title": "iOS第三阶段小组副组长", "email": "zhangxiaoliang@itcast.cn" }
+      { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
+      { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -435,6 +435,14 @@
     "rules": []
   },
   {
+    "name": "PHP",
+    "academy": "PHP",
+    "school": "深圳",
+    "emails": [
+    ],
+    "rules": []
+  },
+  {
     "name": "iOS",
     "academy": "iOS",
     "school": "深圳",
@@ -457,9 +465,7 @@
     "academy": "Java",
     "school": "武汉",
     "emails": [
-      { "name": "曹睿", "title": "教学总监", "email": "caorui@itcast.cn" },
-      { "name": "谢子龙", "title": "基础组组长", "email": "xiezilong@itcast.cn" },
-      { "name": "陈长远", "title": "就业组组长", "email": "chenchangyuan@itcast.cn" }
+      { "name": "谢子龙", "title": "组长", "email": "xiezilong@itcast.cn" }
     ],
     "rules": []
   },
@@ -468,7 +474,7 @@
     "academy": "UI设计",
     "school": "武汉",
     "emails": [
-      { "name": "谭周洲", "title": "教学总监", "email": "tanzhouzhou@itcast.cn" }
+      { "name": "邓小华", "title": "组长", "email": "dengxiaohua@itcast.cn" }
     ],
     "rules": []
   },
@@ -477,7 +483,7 @@
     "academy": "iOS",
     "school": "武汉",
     "emails": [
-      { "name": "张扬波", "title": "教学总监", "email": "zyb@itcast.cn" }
+      { "name": "黄伟", "title": "主管", "email": "huangwei@itcast.cn" }
     ],
     "rules": []
   },
@@ -486,6 +492,7 @@
     "academy": "PHP",
     "school": "武汉",
     "emails": [
+      { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" },
       { "name": "王金涛", "title": "组长", "email": "wangjintao@itcast.cn" }
     ],
     "rules": []
