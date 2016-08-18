@@ -1,8 +1,8 @@
 {
   "name": "fms",
-  "version": "5.0.2",
+  "version": "5.0.4",
   "description": "A functional departments management system for Itcast, Inc.",
-  "updated": "2016-08-04T09:56:12.476Z",
+  "updated": "2016-08-18T18:56:12.476Z",
   "main": "main.js",
   "dependencies": {
     "asar-updater": "^0.2.6",

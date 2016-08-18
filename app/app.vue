@@ -42,7 +42,7 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding: 15/16rem;
+      padding: 10/16rem;
       position: relative;
 
       .inner {
@@ -65,7 +65,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 15/16rem;
+    margin: 10/16rem;
     transition: opacity 0.2s ease-in-out;
     transition-delay: 0.2s;
     overflow: hidden;
@@ -105,15 +105,11 @@
   import Vue from 'vue'
   import sidebar from './components/sidebar'
   import about from './components/about'
-  // import 我们刚刚创建的 store
-  import store from './libraries/vuex/store'
 
   const mainWindow = electron.remote.getCurrentWindow()
 
   export default {
     components: { sidebar, about },
-    // 在根组件加入 store，让它的子组件和 store 连接
-    store,
     ready () {
       this.$server.start(() => {
         const restart = (n, o) => {
