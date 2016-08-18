@@ -1,8 +1,8 @@
 {
   "name": "tms",
   "productName": "Itcast TMS",
-  "version": "5.0.0",
   "description": "A teaching management system for Itcast, Inc.",
+  "version": "5.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "tms"
   ],
   "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zce/itcast-tms/issues"
   },
