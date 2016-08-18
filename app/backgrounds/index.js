@@ -28,6 +28,7 @@ app.on('ready', () => {
     mainWindow = createWindow('main', {
       // x: 0,
       // y: 0,
+      // transparent: true,
       minWidth: 1200,
       minHeight: 720,
       width: 1200,

@@ -21,7 +21,7 @@ export default {
   stamp_length: 8,
   server: {
     address: '',
-    port: 20800
+    port: 20801
   },
   mail: {
     transport: 'smtps://pingfen%40itcast.cn:123456A@smtp.263.net?connectionTimeout=3000',
