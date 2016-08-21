@@ -1,82 +1,66 @@
 {
   "北京-金燕龙和中腾校区": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "北京-软件园校区": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "北京-修正校区": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "上海": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "广州": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "深圳": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "武汉": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "郑州": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "西安": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "长沙": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "重庆": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "济南": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "哈尔滨": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "杭州": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "南京": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   },
   "成都": {
-    "emails": [
-    ],
+    "emails": [],
     "rules": []
   }
 }
