@@ -71,6 +71,7 @@
     "academy": "iOS",
     "school": "北京-金燕龙和中腾校区",
     "emails": [
+      { "name": "谭仁龙", "title": "教学总监助理", "email": "tanrenlong@itcast.cn" },
       { "name": "郝跃兴", "title": "组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "组长", "email": "yinqiaoyin@itcast.cn" },
@@ -168,6 +169,7 @@
     "academy": "iOS",
     "school": "北京-软件园校区",
     "emails": [
+      { "name": "谭仁龙", "title": "教学总监助理", "email": "tanrenlong@itcast.cn" },
       { "name": "郝跃兴", "title": "组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "组长", "email": "yinqiaoyin@itcast.cn" },
@@ -265,6 +267,7 @@
     "academy": "iOS",
     "school": "北京-修正校区",
     "emails": [
+      { "name": "谭仁龙", "title": "教学总监助理", "email": "tanrenlong@itcast.cn" },
       { "name": "郝跃兴", "title": "组长", "email": "haoyuexing@itcast.cn" },
       { "name": "张雪超", "title": "副组长", "email": "zhangxuechao@itcast.cn" },
       { "name": "尹桥印", "title": "组长", "email": "yinqiaoyin@itcast.cn" },
