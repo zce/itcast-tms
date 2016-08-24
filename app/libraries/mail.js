@@ -23,7 +23,7 @@ export default (data) => {
     data.emails.concat(data.added_emails).forEach(e => cc.push(`${e.name} <${e.email}>`))
   }
   // 邮件标题
-  const subject = `❈ 教学测评报告：${data.teacher_name}老师（${data.course_name}）`
+  const subject = `❈ 助教测评报告：${data.teacher_name}老师（${data.course_name}）`
     // 附件和正文
   const attachments = []
   let body = ''
