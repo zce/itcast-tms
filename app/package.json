@@ -1,6 +1,6 @@
 {
   "name": "ams",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "A teaching assistant management system for Itcast, Inc.",
   "updated": "2016-08-18T18:56:12.476Z",
   "main": "main.js",
