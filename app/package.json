@@ -1,6 +1,6 @@
 {
   "name": "ams",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "A teaching assistant management system for Itcast, Inc.",
   "updated": "2016-08-18T18:56:12.476Z",
   "main": "main.js",
@@ -8,7 +8,8 @@
     "asar-updater": "^0.2.6",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "xtemplate": "^4.5.1",
+    "log4js": "^0.6.38",
+    "xtemplate": "^4.6.0",
     "xtpl": "^3.2.0"
   },
   "devDependencies": {
