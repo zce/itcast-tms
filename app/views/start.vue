@@ -81,6 +81,9 @@
 
 <script>
   export default {
+    name: 'start',
+    pathname: '/start',
+
     ready () {
       this.$root.title = '创建新的测评'
       this.$watch('item.school_name', this.showSubjects, { immediate: true })
