@@ -1,6 +1,6 @@
 {
   "name": "tms",
-  "version": "5.0.6",
+  "version": "5.0.8",
   "description": "A teaching management system for Itcast, Inc.",
   "updated": "2016-08-29T18:56:12.476Z",
   "main": "main.js",
