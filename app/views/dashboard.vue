@@ -46,10 +46,12 @@
 <script>
   export default {
     name: 'dashboard',
-    components: {},
+    pathname: '/',
+
     data () {
       return { click: 0, rotate: false }
     },
+
     methods: {
       addRotate () {
         this.click++

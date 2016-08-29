@@ -120,8 +120,12 @@
   import fs from 'fs'
   import path from 'path'
   import mail from '../libraries/mail'
+  import report from '../libraries/report'
 
   export default {
+    name: 'watch',
+    pathname: '/watch/:item',
+
     data () {
       this.$root.$on('server_link_changed', () => {
         this.server_link = `http://${this.$root.server_address}:${this.$root.server_port}/`
@@ -142,7 +146,6 @@
       loadData (stamp) {
         if (!stamp) return this.$router.go({ name: 'start' })
         const item = this.$storage.get(stamp)
-        // console.log(JSON.stringify(item, null, 2))
         if (!item) {
           alert('没有对应的测评信息！\n请重新创建')
           return this.$router.go({ name: 'start' })
@@ -151,15 +154,18 @@
         this.$root.title = stamp
         return this.item
       },
+
       // 操作剪切板
       copy (txt) {
         this.$electron.clipboard.writeText(txt)
         alert('已经将打分链接复制到剪切板\n请将链接发送给学生')
       },
+
       // 保存当前数据状态
       save () {
         this.$storage.set(this.item.stamp, this.item)
       },
+
       // 添加新邮箱
       add_email (e) {
         if (!this.email_input) return false
@@ -169,11 +175,13 @@
         this.save()
         e.preventDefault()
       },
+
       // 删除添加的邮箱
       del_email (item) {
         this.item.added_emails.splice(this.item.added_emails.indexOf(item), 1)
         this.save()
       },
+
       // 开始评测按钮
       start () {
         // 当前状态为初始状态
@@ -182,6 +190,7 @@
           this.save()
         }
       },
+
       // 结束评测按钮
       stop () {
         if (this.stoping) return
@@ -204,6 +213,7 @@
           this.stoping = false
         }
       },
+
       // 发送邮件按钮
       send () {
         if (this.sending) return
@@ -217,38 +227,26 @@
         if (this.item.status === this.$config.status_keys.rated) {
           this.item.status = this.$config.status_keys.sending
           this.save()
-          setTimeout(() => {
-            // 发送邮件
-            mail(this.item)
-              .then(message => {
-                this.item.status = this.$config.status_keys.send
-                this.save()
-                this.sending = false
-              })
-              .catch(error => {
-                // $.logger.fatal(error)
-                if (error.code === 'ENOTFOUND' && error.syscall === 'getaddrinfo') {
-                  alert('网络连接失败，请确认网络正常')
-                } else if (error.responseCode === 550 && error.code === 'EENVELOPE') {
-                  alert(`收件人错误（不存在）
-          请将本次打分的记录文件「${this.item.stamp}${this.$config.storage_ext}」
-          发送到「wanglei3@itcast.cn」`)
-                } else if (error.responseCode === 598) {
-                  alert(`邮件中包含违禁词，发送失败
-          请将本次打分的记录文件「${this.item.stamp}${this.$config.storage_ext}」
-          发送到「wanglei3@itcast.cn」`)
-                } else {
-                  alert(error)
-                  alert('邮件发送失败\n请联系「wanglei3@itcast.cn」')
-                }
-                // 测评完成状态
-                this.item.status = this.$config.status_keys.rated
-                this.save()
-                this.sending = false
-              })
-          }, 0)
+          // 计算结果
+          if (!this.item.result) {
+            this.item = report(this.item)
+          }
+          // 发送邮件
+          mail(this.item)
+            .then(res => {
+              this.item.status = this.$config.status_keys.send
+              this.save()
+              this.sending = false
+            })
+            .catch(err => {
+              alert(err.message)
+              this.item.status = this.$config.status_keys.rated
+              this.save()
+              this.sending = false
+            })
         }
       },
+
       // 找到文件
       reveal (e) {
         e.preventDefault()

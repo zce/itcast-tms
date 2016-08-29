@@ -11,6 +11,8 @@ const Promise = require('bluebird')
 const del = require('del')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const Dashboard = require('webpack-dashboard')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const electron = require('electron-prebuilt')
 const packager = require('electron-packager')
 const { createPackage } = require('asar')
@@ -63,21 +65,22 @@ const archive = (callback, prune) => {
 }
 
 const watch = (callback) => {
+  // hot module replace
   webpackConfigRenderer.entry.renderer.unshift(
     'webpack-dev-server/client?http://localhost:2080/',
     'webpack/hot/dev-server'
   )
   webpackConfigRenderer.plugins.push(new webpack.HotModuleReplacementPlugin())
-  new WebpackDevServer(webpack(webpackConfigRenderer), {
+  // webpack dashboard console
+  const dashboard = new Dashboard()
+  webpackConfigRenderer.plugins.push(new DashboardPlugin(dashboard.setData))
+  // webpack dev server
+  const server = new WebpackDevServer(webpack(webpackConfigRenderer), {
     hot: true,
-    // watchOptions: {
-    //   aggregateTimeout: 300,
-    //   poll: 1000 // is this the same as specifying --watch-poll?
-    // },
-    stats: {
-      colors: true
-    }
-  }).listen(2080, 'localhost', (error) => {
+    quiet: true, // no default console
+    stats: { colors: true }
+  })
+  server.listen(2080, 'localhost', (error) => {
     if (error) throw new plugins.util.PluginError('watch', error)
     plugins.util.log('[watch]', 'http://localhost:2080/webpack-dev-server/index.html')
     // keep the server alive or continue?
@@ -112,7 +115,7 @@ gulp.task('lint', () => {
 /**
  * Clean temp files
  */
-gulp.task('clean', [], del.bind(this, ['build/*.asar', 'data', 'temp']))
+gulp.task('clean', [], del.bind(this, ['build/*.asar', 'data', 'temp', '*.log']))
 
 /**
  * Clean node_modules

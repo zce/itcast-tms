@@ -13,7 +13,9 @@ let mainWindow
 const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
   // Someone tried to run a second instance, we should focus our window.
   if (mainWindow) {
-    if (mainWindow.isMinimized()) mainWindow.restore()
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore()
+    }
     mainWindow.focus()
   }
 })
@@ -48,6 +50,4 @@ app.on('ready', () => {
   })
 })
 
-app.on('window-all-closed', () => {
-  app.quit()
-})
+app.on('window-all-closed', () => app.quit())
