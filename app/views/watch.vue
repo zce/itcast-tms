@@ -110,6 +110,7 @@
       <button class="btn btn-primary btn-block btn-lg" v-if="item.status === $config.status_keys.initial" @click="start()">{{$t('watch.actions.start')}}</button>
       <button class="btn btn-danger btn-block btn-lg" v-if="item.status === $config.status_keys.rating" @click="stop()">{{$t('watch.actions.stop')}}</button>
       <button class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.rated" @click="send()">{{$t('watch.actions.send')}}</button>
+      <button class="btn btn-success btn-block btn-lg" v-if="item.status === '统计完成'" @click="send()">{{$t('watch.actions.send')}}</button>
       <div class="btn btn-default btn-block btn-lg" v-if="item.status === $config.status_keys.sending">{{$t('watch.actions.sending')}}......</div>
       <div class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.send" @click="reveal($event)">{{$t('watch.actions.done')}}</div>
     </div>
