@@ -19,7 +19,7 @@
     "tms"
   ],
   "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zce/itcast-tms/issues"
   },

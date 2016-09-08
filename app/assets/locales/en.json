@@ -43,7 +43,9 @@
     "node": "Node",
     "chromium": "Chromium",
     "electron": "Electron",
-    "datetime": "Datetime"
+    "datetime": "Datetime",
+    "btn_reveal": "Reveal Log File",
+    "btn_ok": "OK"
   },
   "dashboard": {
     "intro": "Click on the left-hand menu to create and start a new evaluation",

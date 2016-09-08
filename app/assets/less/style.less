@@ -1,10 +1,4 @@
 @import 'grid.less';
-// size
-// ===========================
-@radius: .2rem;
-@large-size: 1.8rem;
-@normal-size: 1.4rem;
-@small-size: 1rem;
 // color
 // ===========================
 @default-color: hsla(31, 15%, 50%, .1);
@@ -13,27 +7,34 @@
 @info-color: hsl(26, 90%, 53%);
 @danger-color: hsl(2, 68%, 58%);
 @warning-color: hsl(48, 95%, 59%);
-// style
+
+
+// font
 // =============================
 
-/* latin-ext */
 @font-face {
-  font-family: 'Lato';
+  font-family: 'HanHei SC';
   font-style: normal;
   font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(../fonts/lato1.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+  src: local('☺︎'), url('../fonts/HanHei-SC-thin.woff') format('woff');
 }
 
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(../fonts/lato2.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
+// @font-face {
+//   font-family: 'HanHei SC';
+//   font-style: normal;
+//   font-weight: 600;
+//   src: local('☺︎'), url('../fonts/HanHei-SC-semibold.woff') format('woff');
+// }
 
+// @font-face {
+//   font-family: 'HanHei SC';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local('☺︎'), url('../fonts/HanHei-SC-text.woff') format('woff');
+// }
+
+// style
+// =============================
 html {
   background: #fff url(../img/hourglass.svg) no-repeat center center;
   cursor: default;
@@ -45,7 +46,9 @@ html {
 }
 
 body {
-  font: 100%/1.5 Lato, "Microsoft Yahei Light", "Heiti SC Light", sans-serif;
+  // font: 100%/1.5 Lato, "Microsoft Yahei Light", "Heiti SC Light", sans-serif;
+  font: 100%/1.5 'HanHei SC', sans-serif;
+  font-weight: 200;
 }
 
 *,
@@ -162,7 +165,7 @@ textarea {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12/16rem;
+  font-size: 13/16rem;
   // thead > tr,
   // tr:not(:last-child) {
   //   border-bottom: 1/16rem solid #E1E1E1;
@@ -186,6 +189,8 @@ table {
   }
 }
 
+// Button
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
 .btn {
   display: inline-block;
   padding: 5/16rem 16/16rem;
@@ -268,6 +273,8 @@ table {
   }
 }
 
+// Input
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
 .input-group,
 .input-group-lg,
 .input-group-sm {
@@ -329,14 +336,14 @@ input[type="password"],
 textarea,
 select {
   // height: 3.8rem;
-  font-size: @small-size;
+  font-size: 16/16rem;
   width: 100%;
   padding: 6/16rem 10/16rem;
   // margin-top: 1rem;
   /* The .6rem vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: 1/16rem solid @border-color;
-  border-radius: @radius;
+  border-radius: 2/16rem;
   box-shadow: none;
   box-sizing: border-box;
   color: #444;
@@ -409,10 +416,6 @@ label > .label-body {
 .form-group{
   margin-bottom: 12/16rem;
 }
-
-
-// module styles
-// ================================
 
 // themes
 // ================================
