@@ -5,8 +5,6 @@ const views = [
 ]
 
 const routes = {}
-views.forEach(v => {
-  routes[v.pathname] = { name: v.name, component: v }
-})
+views.forEach(v => { routes[v.pathname] = { name: v.name, component: v } })
 
 export default routes

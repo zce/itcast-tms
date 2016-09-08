@@ -1,8 +1,8 @@
 {
   "name": "tms",
-  "version": "5.0.10",
+  "version": "5.0.11",
   "description": "A teaching management system for Itcast, Inc.",
-  "updated": "2016-08-29T18:56:12.476Z",
+  "updated": "2016-09-08T13:56:12.476Z",
   "main": "main.js",
   "dependencies": {
     "asar-updater": "^0.3.1",
