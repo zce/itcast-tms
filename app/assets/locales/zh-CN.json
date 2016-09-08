@@ -43,7 +43,9 @@
     "node": "Node",
     "chromium": "Chromium",
     "electron": "Electron",
-    "datetime": "Datetime"
+    "datetime": "Datetime",
+    "btn_reveal": "找到日志文件",
+    "btn_ok": "好的"
   },
   "dashboard": {
     "intro": "请点击左侧菜单中的创建，开始新的测评",

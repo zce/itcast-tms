@@ -41,7 +41,7 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding: 20/16rem;
+      padding: 10/16rem;
       position: relative;
     }
   }
@@ -54,7 +54,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 20/16rem;
+    margin: 10/16rem;
     transition: opacity 0.2s ease-in-out;
     transition-delay: 0.2s;
     overflow: hidden;
@@ -69,6 +69,7 @@
 </style>
 
 <template>
+  <about :open.sync="about_opened"></about>
   <div class="window {{window_theme}}">
     <sidebar :open.sync="sidebar_opened"></sidebar>
     <main class="main">
@@ -83,7 +84,6 @@
         <router-view transition="content"></router-view>
       </section>
     </main>
-    <about :open.sync="about_opened"></about>
   </div>
 </template>
 
