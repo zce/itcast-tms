@@ -74,4 +74,5 @@ ISC © [iceStone](https://github.com/zce)
 ## TODOS
 
 - [x] Student submit rate info is empty
-- [ ] Email keyworks reject
+- [ ] Email keyworks reject(SB)
+- [ ] Diff file type
