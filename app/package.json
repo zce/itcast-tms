@@ -1,6 +1,6 @@
 {
   "name": "fms",
-  "version": "5.0.11",
+  "version": "5.0.13",
   "description": "A functional departments management system for Itcast, Inc.",
   "updated": "2016-09-08T13:56:12.476Z",
   "main": "main.js",

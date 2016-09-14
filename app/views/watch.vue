@@ -110,8 +110,8 @@
       <button class="btn btn-primary btn-block btn-lg" v-if="item.status === $config.status_keys.initial" @click="start()">{{$t('watch.actions.start')}}</button>
       <button class="btn btn-danger btn-block btn-lg" v-if="item.status === $config.status_keys.rating" @click="stop()">{{$t('watch.actions.stop')}}</button>
       <button class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.rated" @click="send()">{{$t('watch.actions.send')}}</button>
-      <div class="btn btn-default btn-block btn-lg" v-if="item.status === $config.status_keys.sending">{{$t('watch.actions.sending')}}......</div>
-      <div class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.send" @click="reveal($event)">{{$t('watch.actions.done')}}</div>
+      <button class="btn btn-default btn-block btn-lg" v-if="item.status === $config.status_keys.sending" @dblclick="reset()">{{$t('watch.actions.sending')}}......</button>
+      <button class="btn btn-success btn-block btn-lg" v-if="item.status === $config.status_keys.send" @click="reveal($event)">{{$t('watch.actions.done')}}</button>
     </div>
   </div>
 </template>
@@ -251,9 +251,17 @@
         }
       },
 
+      // 重置发送状态
+      reset () {
+        if (!(confirm('确认重置为未发送状态吗？') && confirm('真的确认重置为未发送状态吗？'))) {
+          return
+        }
+        this.item.status = this.$config.status_keys.rated
+        this.save()
+      },
+
       // 找到文件
-      reveal (e) {
-        e.preventDefault()
+      reveal () {
         const source = this.$storage.getPath(this.item.stamp)
         this.$electron.remote.dialog.showSaveDialog({
           title: `备份测评详细记录`,

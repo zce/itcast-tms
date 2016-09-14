@@ -1,4 +1,7 @@
 <style lang="less" scoped>
+  .inner {
+    padding: 20/16rem;
+  }
   .scroll {
     overflow-y: auto;
     flex: 1;

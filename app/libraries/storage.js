@@ -30,17 +30,21 @@ function read (uri) {
   }
 }
 
+export function getPath (stamp) {
+  return path.join(config.storage.root, stamp + config.storage.ext)
+}
+
 export function set (stamp, value) {
   value.meta = config.storage.meta
-  write(path.join(config.storage.root, stamp + config.storage.ext), value)
+  write(getPath(stamp), value)
 }
 
 export function get (stamp) {
-  return read(path.join(config.storage.root, stamp + config.storage.ext))
+  return read(getPath(stamp))
 }
 
 export function watch (stamp, callback) {
-  fs.watchFile(path.join(config.storage.root, stamp + config.storage.ext), { interval: 500 }, (curr, prev) => {
+  fs.watchFile(getPath(stamp), { interval: 500 }, (curr, prev) => {
     if (curr && curr.size && curr.mtime !== prev.mtime) {
       const data = get(stamp)
       data && callback(data)
