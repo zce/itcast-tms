@@ -6,12 +6,12 @@
     "type": "git",
     "url": "git+https://github.com/zce/itcast-tms.git"
   },
-  "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
+  "author": "iceStone <ice@wedn.net> (http://wedn.net/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zce/itcast-tms/issues"
   },
-  "homepage": "https://github.com/zce/itcast-tms#readme",
+  "homepage": "http://tms.uieee.com/",
   "scripts": {
     "postinstall": "cd app && npm install && cd ..",
     "lint": "cross-env NODE_ENV=production gulp lint",
