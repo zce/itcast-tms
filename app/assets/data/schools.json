@@ -33,7 +33,7 @@
   },
   "广州": {
     "emails": [
-      { "name": "张晓", "title": "校长", "email": "zhangxiao@itcast.cn" },
+      { "name": "李晨", "title": "校长", "email": "lichen@itcast.cn" },
       { "name": "黄媚", "title": "学工部主管", "email": "huangmei@itcast.cn" }
     ],
     "rules": []

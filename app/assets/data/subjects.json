@@ -385,9 +385,7 @@
     "name": "UI设计",
     "academy": "UI设计",
     "school": "广州",
-    "emails": [
-      { "name": "李晨", "title": "教学总监", "email": "lichen@itcast.cn" }
-    ],
+    "emails": [],
     "rules": []
   },
   {
