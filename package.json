@@ -13,7 +13,8 @@
   },
   "homepage": "http://tms.uieee.com/",
   "scripts": {
-    "postinstall": "cd app && npm install && cd ..",
+    "submodule": "git clone https://git.oschina.net/wedn/itcast-tms.git dist -b v5.x --depth 1",
+    "postinstall": "cd app && npm install && cd .. && npm run submodule",
     "lint": "cross-env NODE_ENV=production gulp lint",
     "clean": "gulp clean",
     "clean:npm": "gulp clean:npm",
