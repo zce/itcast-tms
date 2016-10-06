@@ -324,8 +324,8 @@
         ]
       },
       {
-        "shortname": "工作舒心度",
-        "question": "你觉得现在工作中是否比较舒心？",
+        "shortname": "成长和成就感",
+        "question": "你觉得在现在的工作中是否得到成长和成就感？",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
