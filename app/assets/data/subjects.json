@@ -307,6 +307,7 @@
     "academy": "Java",
     "school": "上海",
     "emails": [
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
       { "name": "刘洋", "title": "教学总监", "email": "ly@itcast.cn" },
       { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" }
     ],
@@ -363,12 +364,22 @@
   // --------------------------------------------- 广州 ---------------------------------------------
   // -----------------------------------------------------------------------------------------------
   {
-    "name": "JavaEE/Android",
+    "name": "JavaEE",
     "academy": "Java",
     "school": "广州",
     "emails": [
-      { "name": "郑楚峰", "title": "教学总监", "email": "zhengchufeng@itcast.cn" },
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
+      { "name": "刘天源", "title": "教学总监", "email": "liutianyuan@itcast.cn" },
       { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" }
+    ],
+    "rules": []
+  },
+  {
+    "name": "Android",
+    "academy": "Java",
+    "school": "广州",
+    "emails": [
+      { "name": "李俊", "title": "教学组长", "email": "lijun@itcast.cn" }
     ],
     "rules": []
   },
@@ -414,6 +425,7 @@
     "academy": "Java",
     "school": "深圳",
     "emails": [
+      { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" }
     ],
     "rules": []
   },
