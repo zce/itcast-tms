@@ -59,8 +59,8 @@
         ]
       },
       {
-        "shortname": "班级活动的组织能力",
-        "question": "班主任对班级活动的组织你是否满意？",
+        "shortname": "管理学生能力",
+        "question": "班主任老师有没有因为评分而不敢管理学生的行为？",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
@@ -221,6 +221,122 @@
       {
         "shortname": "总体评价",
         "question": "你对组长工作的总体评价？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      }
+    ]
+  },
+  "2016-学工部-部门": {
+    "title": "学工部工作情况调查表",
+    "introduction": "<h5 class=\"title\">亲爱的伙伴：</h5><p class=\"paragraph\">团队管理的好坏关系到每一个成员是否能拥有一个良好的工作环境及氛围。团队管理及制度不可能完美,但我们对更高质量团队管理的追求永远不会停止。而这也需要每一位伙伴建言献策，让我们的团队越来越好。下面请给部门评价(匿名)，希望大家客观公正，以自已的真实感受为准。</p>",
+    "questions": [
+      {
+        "shortname": "管理制度执行",
+        "question": "对于你所在的部门，日常管理感觉是否公平公正？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "工作流程清晰",
+        "question": "你感觉部门工作流程是否简洁清晰？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "制度公平公正",
+        "question": "你感觉部门制度是否公平公正？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "工作喜爱程度",
+        "question": "你觉得现在的工作是否是你喜爱的？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "部门积极友爱氛围",
+        "question": "你觉得部门氛围是不是积极友爱的，你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "部门活动组织",
+        "question": "部门团队分享或团建活动的组织你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "关心关注度",
+        "question": "部门管理者对你的关注关心程度你是否满意？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "支持帮助度",
+        "question": "你在遇到困难或困惑时,是否都能获取帮助或指导，没有无助感？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "工作舒心度",
+        "question": "你觉得现在工作中是否比较舒心？",
+        "answers": [
+          { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
+          { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
+          { "text": "C.基本满意", "score": { "front": 0, "back": 0 } },
+          { "text": "D.不太满意", "score": { "front": -5, "back": -5 } },
+          { "text": "E.非常不满意", "score": { "front": -10, "back": -10 } }
+        ]
+      },
+      {
+        "shortname": "总体评价",
+        "question": "你对整个部门的总体评价？",
         "answers": [
           { "text": "A.非常满意", "score": { "front": 10, "back": 10 } },
           { "text": "B.比较满意", "score": { "front": 7, "back": 7 } },
