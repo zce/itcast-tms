@@ -89,8 +89,7 @@
   },
   "济南": {
     "emails": [
-      { "name": "王昭珽", "title": "校长", "email": "wzt@itcast.cn" },
-      { "name": "唐楷林", "title": "学工部主管", "email": "tangjielin@itcast.cn" }
+      { "name": "王昭珽", "title": "校长", "email": "wzt@itcast.cn" }
     ],
     "rules": []
   },
