@@ -396,7 +396,9 @@
     "name": "UI设计",
     "academy": "UI设计",
     "school": "广州",
-    "emails": [],
+    "emails": [
+      { "name": "王家家", "title": "教学组长", "email": "wangjiajia@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -892,7 +894,9 @@
     "name": "JavaEE",
     "academy": "双元课堂",
     "school": "广州",
-    "emails": [],
+    "emails": [
+      { "name": "刘天源", "title": "主管", "email": "liutianyuan@itcast.cn" }
+    ],
     "rules": []
   },
   {
