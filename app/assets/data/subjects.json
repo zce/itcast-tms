@@ -26,9 +26,7 @@
     "academy": "学工部",
     "school": "北京-金燕龙和中腾校区",
     "emails": [
-      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
-      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
-      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" }
     ],
     "rules": ["2016-学工部-部门"]
   },
@@ -61,9 +59,7 @@
     "academy": "学工部",
     "school": "北京-软件园校区",
     "emails": [
-      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" },
-      { "name": "黄盼盼", "title": "学工部助理", "email": "huangpanpan@itcast.cn" },
-      { "name": "李建成", "title": "学工部助理", "email": "lijiancheng@itcast.cn" }
+      { "name": "徐红杰", "title": "学工部主管", "email": "xuhongjie@itcast.cn" }
     ],
     "rules": ["2016-学工部-部门"]
   },
