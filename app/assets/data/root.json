@@ -1,7 +1,7 @@
 {
   "emails": [
     { "name": "评分", "title": "系统", "email": "pingfen@itcast.cn" },
-    { "name": "李印东", "title": "主任", "email": "lyd@itcast.cn" }
+    { "name": "景鑫", "title": "就业部主管", "email": "jingxin@itcast.cn" }
   ],
   "rules": ["2015-就业指导", "2016-就业指导"]
 }
