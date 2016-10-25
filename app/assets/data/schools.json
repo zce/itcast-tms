@@ -1,0 +1,69 @@
+{
+  "北京-金燕龙和中腾校区": {
+    "emails": [],
+    "rules": []
+  },
+  "北京-软件园校区": {
+    "emails": [],
+    "rules": []
+  },
+  "北京-修正校区": {
+    "emails": [],
+    "rules": []
+  },
+  "上海": {
+    "emails": [],
+    "rules": []
+  },
+  "广州": {
+    "emails": [
+      { "name": "李晨", "title": "校长", "email": "lichen@itcast.cn" },
+      { "name": "黄媚", "title": "学工部主管", "email": "huangmei@itcast.cn" }
+    ],
+    "rules": []
+  },
+  "深圳": {
+    "emails": [],
+    "rules": []
+  },
+  "武汉": {
+    "emails": [],
+    "rules": []
+  },
+  "郑州": {
+    "emails": [],
+    "rules": []
+  },
+  "西安": {
+    "emails": [],
+    "rules": []
+  },
+  "长沙": {
+    "emails": [],
+    "rules": []
+  },
+  "重庆": {
+    "emails": [],
+    "rules": []
+  },
+  "济南": {
+    "emails": [],
+    "rules": []
+  },
+  "哈尔滨": {
+    "emails": [],
+    "rules": []
+  },
+  "杭州": {
+    "emails": [],
+    "rules": []
+  },
+  "南京": {
+    "emails": [],
+    "rules": []
+  },
+  "成都": {
+    "emails": [],
+    "rules": []
+  }
+}

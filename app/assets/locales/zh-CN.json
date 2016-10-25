@@ -1,0 +1,129 @@
+{
+  "name": "简体中文",
+  "sidebar": {
+    "actions": {
+      "title": "操作",
+      "dashboard": "仪表盘",
+      "start": "开始创建新记录",
+      "update": "自动更新",
+      "vuex": "VUEX"
+    },
+    "records": {
+      "title": "记录",
+      "revealinfinder": "在文件夹中找到{name}文件",
+      "movetotrash": "将{name}文件移至回收站"
+    },
+    "settings": {
+      "title": "设置"
+    },
+    "options": {
+      "title": "选项",
+      "theme": {
+        "title": "主题",
+        "default": "默认",
+        "dark": "暗色",
+        "light": "亮色"
+      },
+      "address": "IP地址",
+      "port": "端口",
+      "locales": "语言"
+    },
+    "help": {
+      "title": "帮助",
+      "options": "选项",
+      "about": "关于",
+      "back": "返回"
+    }
+  },
+  "about": {
+    "v8": "V8",
+    "env": "环境",
+    "core": "内核",
+    "data": "数据",
+    "node": "Node",
+    "chromium": "Chromium",
+    "electron": "Electron",
+    "datetime": "Datetime",
+    "btn_reveal": "找到日志文件",
+    "btn_ok": "好的"
+  },
+  "dashboard": {
+    "intro": "请点击左侧菜单中的创建，开始新的测评",
+    "start": "开始新的测评",
+    "copyright": "版权所有 (c) 2016 传智播客，保留一切权利"
+  },
+  "start": {
+    "title": "创建新的测评记录",
+    "school_name": {
+      "title": "所属校区"
+    },
+    "academy_name": {
+      "title": "所属学院"
+    },
+    "subject_name": {
+      "title": "所属学科"
+    },
+    "class_count": {
+      "title": "班级总人数",
+      "placeholder": "请输入班级总人数"
+    },
+    "head_name": {
+      "title": "班主任名称",
+      "placeholder": "请输入班主任名称"
+    },
+    "class_name": {
+      "title": "班级名称",
+      "placeholder": "分校名+品牌+学科名+班级类型+期数（时间+授课模式）"
+    },
+    "course_name": {
+      "title": "课程阶段",
+      "placeholder": "请输入课程阶段"
+    },
+    "course_days": {
+      "title": "课程天数",
+      "placeholder": "请输入课程天数"
+    },
+    "teacher_name": {
+      "title": "就业指导姓名",
+      "placeholder": "请输入就业指导姓名"
+    },
+    "teacher_email": {
+      "title": "就业指导邮箱",
+      "placeholder": "请输入就业指导邮箱"
+    },
+    "datetime": {
+      "title": "测评日期"
+    },
+    "submit": "创建新的测评"
+  },
+  "watch": {
+    "title": "测评信息监视",
+    "items": "项目",
+    "data": "数据",
+    "subject_info": "学科信息",
+    "datetime": "评分时间",
+    "head_name": "评分班主任",
+    "class_name": "评分班级",
+    "course_name": "课程阶段",
+    "course_days": "课程天数",
+    "teacher_name": "就业指导姓名",
+    "teacher_email": "就业指导邮箱",
+    "class_count": "班级总人数",
+    "receives_count": "已完成测评人数",
+    "status": "测评状态",
+    "link": "测评链接",
+    "copy": "点击复制",
+    "name": "姓名",
+    "email": "邮箱",
+    "placeholder": "请输入额外添加的收件人",
+    "add": "添加",
+    "remove": "移除{item}",
+    "actions": {
+      "start": "开始测评",
+      "stop": "结束测评",
+      "send": "发送邮件",
+      "sending": "邮件发送中......",
+      "done": "邮件发送完成（可以删除左侧的记录文件，也可将文件拷出来备份）"
+    }
+  }
+}

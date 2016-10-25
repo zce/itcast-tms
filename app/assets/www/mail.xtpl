@@ -1,0 +1,59 @@
+<div style="margin:0 auto;max-width:880px;line-height:1.4;font-family:'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, 'Open Sans', sans-serif">
+  {{#each(data.result, 'info', 'version')}}
+  <h1 style="margin-top:50px;text-align: center;font-size: 2em;">评分规则：【{{ version }}】</h1>
+  <hr>
+  <h2 style="margin:10px 0;font-size: 1.5em;">考评结果汇总</h2>
+  <table>
+    <tbody>
+      <tr><td>所属校区：</td><td>{{ data.school_name }}</td></tr>
+      <tr><td>所属学院：</td><td>{{ data.academy_name }}</td></tr>
+      <tr><td>所属学科：</td><td>{{ data.subject_name }}</td></tr>
+      <tr><td>就业指导姓名：</td><td>{{ data.teacher_name }}</td></tr>
+      <tr><td>就业指导邮箱：</td><td>{{ data.teacher_email }}</td></tr>
+      <tr><td>评分班级：</td><td>{{ data.class_name }}</td></tr>
+      <tr><td>评分班主任：</td><td>{{ data.head_name }}</td></tr>
+      <tr><td>课程内容：</td><td>{{ data.course_name }}</td></tr>
+      <tr><td>上课天数：</td><td>{{ data.course_days }}</td></tr>
+      <tr><td>评分时间：</td><td>{{ data.datetime }}</td></tr>
+      <tr><td>班级总人数：</td><td>{{ data.class_count }}人</td></tr>
+      {{#if(data.class_count - data.receives_count > 0)}}
+      <tr><td>未打分人数：</td><td>{{ data.class_count - data.receives_count }}人</td></tr>
+      {{else}}
+      <tr><td>多出打分人数：</td><td>{{ -(data.class_count - data.receives_count) }}人</td></tr>
+      {{/if}}
+    </tbody>
+  </table>
+  <h3 style="margin:10px 0;font-size: 1.2em;">未打分具体原因：</h3>
+  <table>
+    <tbody>
+      {{#if(data.class_count - data.receives_count - data.leave_count > 0)}}
+      <tr><td>未登录系统：</td><td>{{ data.class_count - data.receives_count - data.leave_count }}人</td></tr>
+      {{/if}}
+      {{#each(data.reasons, 'count', 'reason')}}
+      <tr><td>{{ reason }}：</td><td>{{ count }}人</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <h3 style="margin:10px 0;font-size: 1.2em;">各项测评分数：</h3>
+  <table>
+    <tbody>
+      <tr><td>打分总人数：</td><td><strong>{{ data.receives_count }}人</strong></td></tr>
+      <tr style="color:{{#if(info.backTotal > 92)}}#5CB85C{{else}}#d9534f{{/if}}"><td>平均分：</td><td><strong>{{ info.backTotal }}</strong></td></tr>
+      <tr style="color:{{#if(info.backTotalWithoutMin > 92)}}#5CB85C{{else}}#d9534f{{/if}}"><td>去掉最低分平均分：</td><td><strong>{{ info.backTotalWithoutMin }}</strong></td></tr>
+      {{#each(info.scores, 'value', 'shortname')}}
+      <tr style="color:{{#if(value > 9)}}#5CB85C{{else}}#d9534f{{/if}}"><td>{{ shortname }}：</td><td><strong>{{ value }}</strong></td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <h3 style="margin:10px 0;font-size: 1.2em;">学员评价：</h3>
+  <ul style="padding-left:20px;line-height:1.3">
+    {{#each(data.notes)}}
+    <li style="margin:8px 0">{{ this }}</li>
+    {{/each}}
+  </ul>
+  {{/each}}
+  <br>
+  <br>
+  <hr>
+  <p>hash: {{hash}}</p>
+</div>

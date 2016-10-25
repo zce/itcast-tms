@@ -1,0 +1,19 @@
+{
+  "name": "gms",
+  "version": "5.0.14",
+  "description": "A employment guidance management system for Itcast, Inc.",
+  "updated": "2016-10-25T04:08:18.325Z",
+  "main": "main.js",
+  "dependencies": {
+    "asar-updater": "^0.3.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "log4js": "^0.6.38",
+    "xtemplate": "^4.6.0",
+    "xtpl": "^3.2.0"
+  },
+  "devDependencies": {
+    "devtron": "^1.3.0",
+    "vue-devtools": "^2.0.4"
+  }
+}

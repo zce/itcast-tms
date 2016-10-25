@@ -1,0 +1,129 @@
+{
+  "name": "English",
+  "sidebar": {
+    "actions": {
+      "title": "ACTIONS",
+      "dashboard": "Dashboard",
+      "start": "Start",
+      "update": "Update",
+      "vuex": "VUEX"
+    },
+    "records": {
+      "title": "RECORDS",
+      "revealinfinder": "Reveal {name} in the Finder",
+      "movetotrash": "Move {name} to Trash"
+    },
+    "settings": {
+      "title": "Settings"
+    },
+    "options": {
+      "title": "OPTIONS",
+      "theme": {
+        "title": "Theme",
+        "default": "Default",
+        "dark": "Dark",
+        "light": "Light"
+      },
+      "address": "IP Address",
+      "port": "Port",
+      "locales": "Language"
+    },
+    "help": {
+      "title": "HELPS",
+      "options": "Options",
+      "about": "About",
+      "back": "Back"
+    }
+  },
+  "about": {
+    "v8": "V8",
+    "env": "Env",
+    "core": "Core",
+    "data": "Data",
+    "node": "Node",
+    "chromium": "Chromium",
+    "electron": "Electron",
+    "datetime": "Datetime",
+    "btn_reveal": "Reveal Log File",
+    "btn_ok": "OK"
+  },
+  "dashboard": {
+    "intro": "Click on the left-hand menu to create and start a new evaluation",
+    "start": "Start a new evaluation",
+    "copyright": "Copyright (c) 2016 Itcast, Inc. All Rights Reserved."
+  },
+  "start": {
+    "title": "New evaluation record",
+    "school_name": {
+      "title": "School"
+    },
+    "academy_name": {
+      "title": "Academy"
+    },
+    "subject_name": {
+      "title": "Subject"
+    },
+    "class_count": {
+      "title": "Class size",
+      "placeholder": "Input class size"
+    },
+    "head_name": {
+      "title": "Head name",
+      "placeholder": "Input head name"
+    },
+    "class_name": {
+      "title": "Class name",
+      "placeholder": "分校名+品牌+学科名+班级类型+期数（时间+授课模式）"
+    },
+    "course_name": {
+      "title": "Course name",
+      "placeholder": "Input course name"
+    },
+    "course_days": {
+      "title": "Course days",
+      "placeholder": "Input course days"
+    },
+    "teacher_name": {
+      "title": "Employment guidance",
+      "placeholder": "Input teacher"
+    },
+    "teacher_email": {
+      "title": "Employment guidance email",
+      "placeholder": "Input teacher email"
+    },
+    "datetime": {
+      "title": "Datetime"
+    },
+    "submit": "Create"
+  },
+  "watch": {
+    "title": "Evaluation watching",
+    "items": "Items",
+    "data": "Data",
+    "subject_info": "Subject infos",
+    "datetime": "Datetime",
+    "head_name": "Head name",
+    "class_name": "Class name",
+    "course_name": "Course name",
+    "course_days": "Course days",
+    "teacher_name": "Employment guidance name",
+    "teacher_email": "Employment guidance email",
+    "class_count": "Class name",
+    "receives_count": "Done",
+    "status": "Status",
+    "link": "Link",
+    "copy": "Copy it",
+    "name": "Name",
+    "email": "Email",
+    "placeholder": "Input an additional recipient",
+    "add": "Add",
+    "remove": "Remove {item}",
+    "actions": {
+      "start": "Start",
+      "stop": "Stop",
+      "send": "Send",
+      "sending": "Sending......",
+      "done": "Done(Log files can be deleted on the left side, also can copy the files from backup)"
+    }
+  }
+}
