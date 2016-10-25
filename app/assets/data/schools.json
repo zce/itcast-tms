@@ -12,18 +12,20 @@
     "rules": []
   },
   "上海": {
-    "emails": [],
-    "rules": []
-  },
-  "广州": {
     "emails": [
-      { "name": "李晨", "title": "校长", "email": "lichen@itcast.cn" },
-      { "name": "黄媚", "title": "学工部主管", "email": "huangmei@itcast.cn" }
+      { "name": "高大冬", "title": "就业指导", "email": "gaodadong@itcast.cn" }
     ],
     "rules": []
   },
-  "深圳": {
+  "广州": {
     "emails": [],
+    "rules": []
+  },
+  "深圳": {
+    "emails": [
+      { "name": "黄霄庆", "title": "就业指导", "email": "huangxiaoqing@itcast.cn" },
+      { "name": "梁剑", "title": "就业指导", "email": "liangjian@itcast.cn" }
+    ],
     "rules": []
   },
   "武汉": {
@@ -35,7 +37,9 @@
     "rules": []
   },
   "西安": {
-    "emails": [],
+    "emails": [
+      { "name": "付鼎程", "title": "就业指导", "email": "fudingcheng@itcast.cn" }
+    ],
     "rules": []
   },
   "长沙": {

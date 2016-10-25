@@ -20,7 +20,19 @@
       { "name": "姜涛", "title": "组长", "email": "jt@itcast.cn" },
       { "name": "王友军", "title": "组长", "email": "wangyoujun@itcast.cn" },
       { "name": "赵庆轩", "title": "组长", "email": "zqx@itcast.cn" },
-      { "name": "庞能", "title": "助教组长", "email": "pangneng@itcast.cn" }
+      { "name": "郭亚奎", "title": "就业指导", "email": "guoyakui@itcast.cn" },
+      { "name": "康芳", "title": "就业指导", "email": "kangfang@itcast.cn" },
+      { "name": "李国玉", "title": "就业指导", "email": "liguoyu@itcast.cn" },
+      { "name": "张占宝", "title": "就业指导", "email": "zhangzhanbao@itcast.cn" },
+      { "name": "赵东阳", "title": "就业指导", "email": "zhaodongyang@itcast.cn" },
+      { "name": "曹石磊", "title": "就业指导", "email": "caoshilei@itcast.cn" },
+      { "name": "韩文叶", "title": "就业指导", "email": "hanwenye@itcast.cn" },
+      { "name": "项文涛", "title": "就业指导", "email": "xiangwentao@itcast.cn" },
+      { "name": "李晶", "title": "就业指导", "email": "lijing1@itcast.cn" },
+      { "name": "姚浩", "title": "就业指导", "email": "yaohao@itcast.cn" },
+      { "name": "范蕊", "title": "就业指导", "email": "fanrui@itcast.cn" },
+      { "name": "吕春环", "title": "就业指导", "email": "lvchunhuan@itcast.cn" },
+      { "name": "王灿", "title": "就业指导", "email": "wangcan@itcast.cn" }
     ],
     "rules": []
   },
@@ -33,7 +45,18 @@
       { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
       { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
       { "name": "金兴", "title": "组长", "email": "jinxing@itcast.cn" },
-      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" }
+      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" },
+      { "name": "董帅", "title": "就业指导", "email": "dongshuai@itcast.cn" },
+      { "name": "杜晓辉", "title": "就业指导", "email": "duxiaohui@itcast.cn" },
+      { "name": "李明轩", "title": "就业指导", "email": "limingxuan@itcast.cn" },
+      { "name": "杨云鹏", "title": "就业指导", "email": "yangyunpeng@itcast.cn" },
+      { "name": "柴永菲", "title": "就业指导", "email": "chaiyongfei@itcast.cn" },
+      { "name": "李杰", "title": "就业指导", "email": "lijie1@itcast.cn" },
+      { "name": "连琛琛", "title": "就业指导", "email": "lianchenchen@itcast.cn" },
+      { "name": "张四伟", "title": "就业指导", "email": "zhangsiwei@itcast.cn" },
+      { "name": "刘鹏", "title": "就业指导", "email": "liupeng2@itcast.cn" },
+      { "name": "冯瑞君", "title": "就业指导", "email": "feiruijun@itcast.cn" },
+      { "name": "邵立民", "title": "就业指导", "email": "shaolimin@itcast.cn" }
     ],
     "rules": []
   },
@@ -42,7 +65,8 @@
     "academy": "C/C++",
     "school": "北京-金燕龙和中腾校区",
     "emails": [
-      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" },
+      { "name": "谢亚楠", "title": "就业指导", "email": "xieyanan@itcast.cn" }
     ],
     "rules": []
   },
@@ -51,7 +75,10 @@
     "academy": "PHP",
     "school": "北京-金燕龙和中腾校区",
     "emails": [
-      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" }
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "郝飞", "title": "就业指导", "email": "haofei@itcast.cn" },
+      { "name": "王会永", "title": "就业指导", "email": "wanghuiyong@itcast.cn" },
+      { "name": "彭赛华", "title": "就业指导", "email": "pengsaihua@itcast.cn" }
     ],
     "rules": []
   },
@@ -64,7 +91,12 @@
       { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
       { "name": "陈亚坤", "title": "组长", "email": "chenyakun@itcast.cn" },
       { "name": "恩意", "title": "组长", "email": "enyi@itcast.cn" },
-      { "name": "王世秀", "title": "助教祖长", "email": "wangshixiu@itcast.cn" }
+      { "name": "刘思洋", "title": "就业指导", "email": "liusiyang@itcast.cn" },
+      { "name": "柳娜", "title": "就业指导", "email": "liuna1@itcast.cn" },
+      { "name": "菜苗苗", "title": "就业指导", "email": "chaimiaomiao@itcast.cn" },
+      { "name": "陈育梅", "title": "就业指导", "email": "cym@itcast.cn" },
+      { "name": "高雪", "title": "就业指导", "email": "gaoxue@itcast.cn" },
+      { "name": "王会元", "title": "就业指导", "email": "wanghuiyuan@itcast.cn" }
     ],
     "rules": []
   },
@@ -82,8 +114,14 @@
       { "name": "惠东鹏", "title": "组长", "email": "huidongpeng@itcast.cn" },
       { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
       { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" },
-      { "name": "曹峥", "title": "助教组长", "email": "caozheng@itcast.cn" },
-      { "name": "孙宇飞", "title": "助教副组长", "email": "haoyuexing@itcast.cn" }
+      { "name": "谢乐", "title": "就业指导", "email": "xiele@itcast.cn" },
+      { "name": "耿凯民", "title": "就业指导", "email": "gengkaimin@itcast.cn" },
+      { "name": "季慧慧", "title": "就业指导", "email": "jihuihui@itcast.cn" },
+      { "name": "李化龙", "title": "就业指导", "email": "lihualong@itcast.cn" },
+      { "name": "王芳", "title": "就业指导", "email": "wfang@itcast.cn" },
+      { "name": "魏小果", "title": "就业指导", "email": "weixiaoguo@itcast.cn" },
+      { "name": "赵华", "title": "就业指导", "email": "zhaohua@itcast.cn" },
+      { "name": "姜丽娜", "title": "就业指导", "email": "jainglina@itcast.cn" }
     ],
     "rules": []
   },
@@ -95,7 +133,10 @@
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" },
-      { "name": "高俊", "title": "助教组长", "email": "gaojun@itcast.cn" }
+      { "name": "刘天娇", "title": "就业指导", "email": "liutianjiao@itcast.cn" },
+      { "name": "王慧敏", "title": "就业指导", "email": "wanghuimin@itcast.cn" },
+      { "name": "杨方涛", "title": "就业指导", "email": "yangfangtao@itcast.cn" },
+      { "name": "王春娇", "title": "就业指导", "email": "wangchunjiao@itcast.cn" }
     ],
     "rules": []
   },
@@ -105,7 +146,7 @@
     "school": "北京-金燕龙和中腾校区",
     "emails": [
       { "name": "陈东琦", "title": "组长", "email": "chendongqi@itcast.cn" },
-      { "name": "殷想", "title": "助教组长", "email": "yinxiang@itcast.cn" }
+      { "name": "黄敬杰", "title": "就业指导", "email": "huangjingjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -124,7 +165,19 @@
       { "name": "姜涛", "title": "组长", "email": "jt@itcast.cn" },
       { "name": "王友军", "title": "组长", "email": "wangyoujun@itcast.cn" },
       { "name": "赵庆轩", "title": "组长", "email": "zqx@itcast.cn" },
-      { "name": "庞能", "title": "助教组长", "email": "pangneng@itcast.cn" }
+      { "name": "郭亚奎", "title": "就业指导", "email": "guoyakui@itcast.cn" },
+      { "name": "康芳", "title": "就业指导", "email": "kangfang@itcast.cn" },
+      { "name": "李国玉", "title": "就业指导", "email": "liguoyu@itcast.cn" },
+      { "name": "张占宝", "title": "就业指导", "email": "zhangzhanbao@itcast.cn" },
+      { "name": "赵东阳", "title": "就业指导", "email": "zhaodongyang@itcast.cn" },
+      { "name": "曹石磊", "title": "就业指导", "email": "caoshilei@itcast.cn" },
+      { "name": "韩文叶", "title": "就业指导", "email": "hanwenye@itcast.cn" },
+      { "name": "项文涛", "title": "就业指导", "email": "xiangwentao@itcast.cn" },
+      { "name": "李晶", "title": "就业指导", "email": "lijing1@itcast.cn" },
+      { "name": "姚浩", "title": "就业指导", "email": "yaohao@itcast.cn" },
+      { "name": "范蕊", "title": "就业指导", "email": "fanrui@itcast.cn" },
+      { "name": "吕春环", "title": "就业指导", "email": "lvchunhuan@itcast.cn" },
+      { "name": "王灿", "title": "就业指导", "email": "wangcan@itcast.cn" }
     ],
     "rules": []
   },
@@ -137,7 +190,18 @@
       { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
       { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
       { "name": "金兴", "title": "组长", "email": "jinxing@itcast.cn" },
-      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" }
+      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" },
+      { "name": "董帅", "title": "就业指导", "email": "dongshuai@itcast.cn" },
+      { "name": "杜晓辉", "title": "就业指导", "email": "duxiaohui@itcast.cn" },
+      { "name": "李明轩", "title": "就业指导", "email": "limingxuan@itcast.cn" },
+      { "name": "杨云鹏", "title": "就业指导", "email": "yangyunpeng@itcast.cn" },
+      { "name": "柴永菲", "title": "就业指导", "email": "chaiyongfei@itcast.cn" },
+      { "name": "李杰", "title": "就业指导", "email": "lijie1@itcast.cn" },
+      { "name": "连琛琛", "title": "就业指导", "email": "lianchenchen@itcast.cn" },
+      { "name": "张四伟", "title": "就业指导", "email": "zhangsiwei@itcast.cn" },
+      { "name": "刘鹏", "title": "就业指导", "email": "liupeng2@itcast.cn" },
+      { "name": "冯瑞君", "title": "就业指导", "email": "feiruijun@itcast.cn" },
+      { "name": "邵立民", "title": "就业指导", "email": "shaolimin@itcast.cn" }
     ],
     "rules": []
   },
@@ -146,7 +210,8 @@
     "academy": "C/C++",
     "school": "北京-软件园校区",
     "emails": [
-      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" },
+      { "name": "谢亚楠", "title": "就业指导", "email": "xieyanan@itcast.cn" }
     ],
     "rules": []
   },
@@ -155,7 +220,10 @@
     "academy": "PHP",
     "school": "北京-软件园校区",
     "emails": [
-      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" }
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "郝飞", "title": "就业指导", "email": "haofei@itcast.cn" },
+      { "name": "王会永", "title": "就业指导", "email": "wanghuiyong@itcast.cn" },
+      { "name": "彭赛华", "title": "就业指导", "email": "pengsaihua@itcast.cn" }
     ],
     "rules": []
   },
@@ -168,7 +236,12 @@
       { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
       { "name": "陈亚坤", "title": "组长", "email": "chenyakun@itcast.cn" },
       { "name": "恩意", "title": "组长", "email": "enyi@itcast.cn" },
-      { "name": "王世秀", "title": "助教祖长", "email": "wangshixiu@itcast.cn" }
+      { "name": "刘思洋", "title": "就业指导", "email": "liusiyang@itcast.cn" },
+      { "name": "柳娜", "title": "就业指导", "email": "liuna1@itcast.cn" },
+      { "name": "菜苗苗", "title": "就业指导", "email": "chaimiaomiao@itcast.cn" },
+      { "name": "陈育梅", "title": "就业指导", "email": "cym@itcast.cn" },
+      { "name": "高雪", "title": "就业指导", "email": "gaoxue@itcast.cn" },
+      { "name": "王会元", "title": "就业指导", "email": "wanghuiyuan@itcast.cn" }
     ],
     "rules": []
   },
@@ -186,8 +259,14 @@
       { "name": "惠东鹏", "title": "组长", "email": "huidongpeng@itcast.cn" },
       { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
       { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" },
-      { "name": "曹峥", "title": "助教组长", "email": "caozheng@itcast.cn" },
-      { "name": "孙宇飞", "title": "助教副组长", "email": "haoyuexing@itcast.cn" }
+      { "name": "谢乐", "title": "就业指导", "email": "xiele@itcast.cn" },
+      { "name": "耿凯民", "title": "就业指导", "email": "gengkaimin@itcast.cn" },
+      { "name": "季慧慧", "title": "就业指导", "email": "jihuihui@itcast.cn" },
+      { "name": "李化龙", "title": "就业指导", "email": "lihualong@itcast.cn" },
+      { "name": "王芳", "title": "就业指导", "email": "wfang@itcast.cn" },
+      { "name": "魏小果", "title": "就业指导", "email": "weixiaoguo@itcast.cn" },
+      { "name": "赵华", "title": "就业指导", "email": "zhaohua@itcast.cn" },
+      { "name": "姜丽娜", "title": "就业指导", "email": "jainglina@itcast.cn" }
     ],
     "rules": []
   },
@@ -199,7 +278,10 @@
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" },
-      { "name": "高俊", "title": "助教组长", "email": "gaojun@itcast.cn" }
+      { "name": "刘天娇", "title": "就业指导", "email": "liutianjiao@itcast.cn" },
+      { "name": "王慧敏", "title": "就业指导", "email": "wanghuimin@itcast.cn" },
+      { "name": "杨方涛", "title": "就业指导", "email": "yangfangtao@itcast.cn" },
+      { "name": "王春娇", "title": "就业指导", "email": "wangchunjiao@itcast.cn" }
     ],
     "rules": []
   },
@@ -209,7 +291,7 @@
     "school": "北京-软件园校区",
     "emails": [
       { "name": "陈东琦", "title": "组长", "email": "chendongqi@itcast.cn" },
-      { "name": "殷想", "title": "助教组长", "email": "yinxiang@itcast.cn" }
+      { "name": "黄敬杰", "title": "就业指导", "email": "huangjingjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -228,7 +310,19 @@
       { "name": "姜涛", "title": "组长", "email": "jt@itcast.cn" },
       { "name": "王友军", "title": "组长", "email": "wangyoujun@itcast.cn" },
       { "name": "赵庆轩", "title": "组长", "email": "zqx@itcast.cn" },
-      { "name": "庞能", "title": "助教组长", "email": "pangneng@itcast.cn" }
+      { "name": "郭亚奎", "title": "就业指导", "email": "guoyakui@itcast.cn" },
+      { "name": "康芳", "title": "就业指导", "email": "kangfang@itcast.cn" },
+      { "name": "李国玉", "title": "就业指导", "email": "liguoyu@itcast.cn" },
+      { "name": "张占宝", "title": "就业指导", "email": "zhangzhanbao@itcast.cn" },
+      { "name": "赵东阳", "title": "就业指导", "email": "zhaodongyang@itcast.cn" },
+      { "name": "曹石磊", "title": "就业指导", "email": "caoshilei@itcast.cn" },
+      { "name": "韩文叶", "title": "就业指导", "email": "hanwenye@itcast.cn" },
+      { "name": "项文涛", "title": "就业指导", "email": "xiangwentao@itcast.cn" },
+      { "name": "李晶", "title": "就业指导", "email": "lijing1@itcast.cn" },
+      { "name": "姚浩", "title": "就业指导", "email": "yaohao@itcast.cn" },
+      { "name": "范蕊", "title": "就业指导", "email": "fanrui@itcast.cn" },
+      { "name": "吕春环", "title": "就业指导", "email": "lvchunhuan@itcast.cn" },
+      { "name": "王灿", "title": "就业指导", "email": "wangcan@itcast.cn" }
     ],
     "rules": []
   },
@@ -241,7 +335,18 @@
       { "name": "张萍", "title": "教学总监助理", "email": "zhangping@itcast.cn" },
       { "name": "邱本超", "title": "教学总监助理", "email": "qiubenchao@itcast.cn" },
       { "name": "金兴", "title": "组长", "email": "jinxing@itcast.cn" },
-      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" }
+      { "name": "刘峰", "title": "组长", "email": "liuf@itcast.cn" },
+      { "name": "董帅", "title": "就业指导", "email": "dongshuai@itcast.cn" },
+      { "name": "杜晓辉", "title": "就业指导", "email": "duxiaohui@itcast.cn" },
+      { "name": "李明轩", "title": "就业指导", "email": "limingxuan@itcast.cn" },
+      { "name": "杨云鹏", "title": "就业指导", "email": "yangyunpeng@itcast.cn" },
+      { "name": "柴永菲", "title": "就业指导", "email": "chaiyongfei@itcast.cn" },
+      { "name": "李杰", "title": "就业指导", "email": "lijie1@itcast.cn" },
+      { "name": "连琛琛", "title": "就业指导", "email": "lianchenchen@itcast.cn" },
+      { "name": "张四伟", "title": "就业指导", "email": "zhangsiwei@itcast.cn" },
+      { "name": "刘鹏", "title": "就业指导", "email": "liupeng2@itcast.cn" },
+      { "name": "冯瑞君", "title": "就业指导", "email": "feiruijun@itcast.cn" },
+      { "name": "邵立民", "title": "就业指导", "email": "shaolimin@itcast.cn" }
     ],
     "rules": []
   },
@@ -250,7 +355,8 @@
     "academy": "C/C++",
     "school": "北京-修正校区",
     "emails": [
-      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" }
+      { "name": "王保明", "title": "教学总监", "email": "wbm@itcast.cn" },
+      { "name": "谢亚楠", "title": "就业指导", "email": "xieyanan@itcast.cn" }
     ],
     "rules": []
   },
@@ -259,7 +365,10 @@
     "academy": "PHP",
     "school": "北京-修正校区",
     "emails": [
-      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" }
+      { "name": "罗弟华", "title": "教学总监", "email": "ldh@itcast.cn" },
+      { "name": "郝飞", "title": "就业指导", "email": "haofei@itcast.cn" },
+      { "name": "王会永", "title": "就业指导", "email": "wanghuiyong@itcast.cn" },
+      { "name": "彭赛华", "title": "就业指导", "email": "pengsaihua@itcast.cn" }
     ],
     "rules": []
   },
@@ -272,7 +381,12 @@
       { "name": "侯亚楠", "title": "教学总监助理", "email": "houyanan@itcast.cn" },
       { "name": "陈亚坤", "title": "组长", "email": "chenyakun@itcast.cn" },
       { "name": "恩意", "title": "组长", "email": "enyi@itcast.cn" },
-      { "name": "王世秀", "title": "助教祖长", "email": "wangshixiu@itcast.cn" }
+      { "name": "刘思洋", "title": "就业指导", "email": "liusiyang@itcast.cn" },
+      { "name": "柳娜", "title": "就业指导", "email": "liuna1@itcast.cn" },
+      { "name": "菜苗苗", "title": "就业指导", "email": "chaimiaomiao@itcast.cn" },
+      { "name": "陈育梅", "title": "就业指导", "email": "cym@itcast.cn" },
+      { "name": "高雪", "title": "就业指导", "email": "gaoxue@itcast.cn" },
+      { "name": "王会元", "title": "就业指导", "email": "wanghuiyuan@itcast.cn" }
     ],
     "rules": []
   },
@@ -290,8 +404,14 @@
       { "name": "惠东鹏", "title": "组长", "email": "huidongpeng@itcast.cn" },
       { "name": "张宗正", "title": "组长", "email": "zhangzongzheng@itcast.cn" },
       { "name": "张杰", "title": "组长", "email": "zhangjie@itcast.cn" },
-      { "name": "曹峥", "title": "助教组长", "email": "caozheng@itcast.cn" },
-      { "name": "孙宇飞", "title": "助教副组长", "email": "haoyuexing@itcast.cn" }
+      { "name": "谢乐", "title": "就业指导", "email": "xiele@itcast.cn" },
+      { "name": "耿凯民", "title": "就业指导", "email": "gengkaimin@itcast.cn" },
+      { "name": "季慧慧", "title": "就业指导", "email": "jihuihui@itcast.cn" },
+      { "name": "李化龙", "title": "就业指导", "email": "lihualong@itcast.cn" },
+      { "name": "王芳", "title": "就业指导", "email": "wfang@itcast.cn" },
+      { "name": "魏小果", "title": "就业指导", "email": "weixiaoguo@itcast.cn" },
+      { "name": "赵华", "title": "就业指导", "email": "zhaohua@itcast.cn" },
+      { "name": "姜丽娜", "title": "就业指导", "email": "jainglina@itcast.cn" }
     ],
     "rules": []
   },
@@ -303,7 +423,10 @@
       { "name": "刘晓强", "title": "教学总监", "email": "liuxq@itcast.cn" },
       { "name": "朱武", "title": "组长", "email": "zhuwu@itcast.cn" },
       { "name": "汪磊", "title": "组长", "email": "wanglei3@itcast.cn" },
-      { "name": "高俊", "title": "助教组长", "email": "gaojun@itcast.cn" }
+      { "name": "刘天娇", "title": "就业指导", "email": "liutianjiao@itcast.cn" },
+      { "name": "王慧敏", "title": "就业指导", "email": "wanghuimin@itcast.cn" },
+      { "name": "杨方涛", "title": "就业指导", "email": "yangfangtao@itcast.cn" },
+      { "name": "王春娇", "title": "就业指导", "email": "wangchunjiao@itcast.cn" }
     ],
     "rules": []
   },
@@ -313,7 +436,7 @@
     "school": "北京-修正校区",
     "emails": [
       { "name": "陈东琦", "title": "组长", "email": "chendongqi@itcast.cn" },
-      { "name": "殷想", "title": "助教组长", "email": "yinxiang@itcast.cn" }
+      { "name": "黄敬杰", "title": "就业指导", "email": "huangjingjie@itcast.cn" }
     ],
     "rules": []
   },
@@ -327,7 +450,14 @@
     "emails": [
       { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
       { "name": "刘洋", "title": "教学总监", "email": "ly@itcast.cn" },
-      { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" }
+      { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" },
+      { "name": "郭帅", "title": "就业指导", "email": "guoshuai@itcast.cn" },
+      { "name": "李俊杰", "title": "就业指导", "email": "lijunjie@itcast.cn" },
+      { "name": "李霖", "title": "就业指导", "email": "lilin@itcast.cn" },
+      { "name": "刘志宏", "title": "就业指导", "email": "liuzhihong@itcast.cn" },
+      { "name": "朱守兵", "title": "就业指导", "email": "zhushoubing@itcast.cn" },
+      { "name": "邾晨峰", "title": "就业指导", "email": "zhuchenfeng@itcast.cn" },
+      { "name": "魏杰", "title": "就业指导", "email": "weijie@itcast.cn" }
     ],
     "rules": []
   },
@@ -336,7 +466,10 @@
     "academy": "Java",
     "school": "上海",
     "emails": [
-      { "name": "马伟奇", "title": "教学总监", "email": "maweiqi@itcast.cn" }
+      { "name": "马伟奇", "title": "教学总监", "email": "maweiqi@itcast.cn" },
+      { "name": "王德升", "title": "就业指导", "email": "wangdesheng@itcast.cn" },
+      { "name": "晏志超", "title": "就业指导", "email": "yanzhichao@itcast.cn" },
+      { "name": "张如宜", "title": "就业指导", "email": "zhangruyi@itcast.cn" }
     ],
     "rules": []
   },
@@ -345,7 +478,9 @@
     "academy": "PHP",
     "school": "上海",
     "emails": [
-      { "name": "孙静", "title": "教学总监", "email": "sunjing@itcast.cn" }
+      { "name": "孙静", "title": "教学总监", "email": "sunjing@itcast.cn" },
+      { "name": "冯艳艳", "title": "就业指导", "email": "fengyanyan@itcast.cn" },
+      { "name": "薛杰", "title": "就业指导", "email": "xuejie@itcast.cn" }
     ],
     "rules": []
   },
@@ -374,7 +509,9 @@
     "academy": "前端与移动开发",
     "school": "上海",
     "emails": [
-      { "name": "牛亮亮", "title": "教学总监", "email": "nll@itcast.cn" }
+      { "name": "牛亮亮", "title": "教学总监", "email": "nll@itcast.cn" },
+      { "name": "杜东阳", "title": "就业指导", "email": "dudongyang@itcast.cn" },
+      { "name": "菜威", "title": "就业指导", "email": "caiwei@itcast.cn" }
     ],
     "rules": []
   },
@@ -388,7 +525,10 @@
     "emails": [
       { "name": "崔希凡", "title": "教学总监", "email": "cxf@itcast.cn" },
       { "name": "刘天源", "title": "教学总监", "email": "liutianyuan@itcast.cn" },
-      { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" }
+      { "name": "钟太潋", "title": "组长", "email": "ztl@itcast.cn" },
+      { "name": "秦明辉", "title": "就业指导", "email": "qinminghui@itcast.cn" },
+      { "name": "李柏成", "title": "就业指导", "email": "libocheng@itcast.cn" },
+      { "name": "邓杨昆", "title": "就业指导", "email": "dengyangkun@itcast.cn" }
     ],
     "rules": []
   },
@@ -397,7 +537,9 @@
     "academy": "Java",
     "school": "广州",
     "emails": [
-      { "name": "李俊", "title": "教学组长", "email": "lijun@itcast.cn" }
+      { "name": "李俊", "title": "教学组长", "email": "lijun@itcast.cn" },
+      { "name": "谢赞伟", "title": "就业指导", "email": "xiezanwei@itcast.cn" },
+      { "name": "李显", "title": "就业指导", "email": "lixian@itcast.cn" }
     ],
     "rules": []
   },
@@ -406,7 +548,9 @@
     "academy": "PHP",
     "school": "广州",
     "emails": [
-      { "name": "马浩洋", "title": "教学总监", "email": "mhy@itcast.cn" }
+      { "name": "马浩洋", "title": "教学总监", "email": "mhy@itcast.cn" },
+      { "name": "张帅", "title": "就业指导", "email": "zhangshuai1@itcast.cn" },
+      { "name": "詹曼雪", "title": "就业指导", "email": "zhanmamxue@itcast.cn" }
     ],
     "rules": []
   },
@@ -414,7 +558,11 @@
     "name": "UI设计",
     "academy": "UI设计",
     "school": "广州",
-    "emails": [],
+    "emails": [
+      { "name": "苏东觉", "title": "就业指导", "email": "sudongjue@itcast.cn" },
+      { "name": "罗海燕", "title": "就业指导", "email": "luohaiyan@itcast.cn" },
+      { "name": "陈丹", "title": "就业指导", "email": "chendan@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -422,7 +570,11 @@
     "academy": "iOS",
     "school": "广州",
     "emails": [
-      { "name": "刘天源", "title": "教学总监", "email": "liutianyuan@itcast.cn" }
+      { "name": "刘天源", "title": "教学总监", "email": "liutianyuan@itcast.cn" },
+      { "name": "刘亚华", "title": "就业指导", "email": "liuyahua@itcast.cn" },
+      { "name": "胡旭", "title": "就业指导", "email": "huxu@itcast.cn" },
+      { "name": "黄珏", "title": "就业指导", "email": "huangjue@itcast.cn" },
+      { "name": "王楷诺", "title": "就业指导", "email": "wangkainuo@itcast.cn" }
     ],
     "rules": []
   },
@@ -431,7 +583,8 @@
     "academy": "前端与移动开发",
     "school": "广州",
     "emails": [
-      { "name": "江佳恒", "title": "组长", "email": "jiangjiaheng@itcast.cn" }
+      { "name": "江佳恒", "title": "组长", "email": "jiangjiaheng@itcast.cn" },
+      { "name": "方如偿", "title": "就业指导", "email": "fangruchang@itcast.cn" }
     ],
     "rules": []
   },
@@ -452,7 +605,11 @@
     "academy": "Java",
     "school": "深圳",
     "emails": [
-      { "name": "张泽华", "title": "教学总监", "email": "zzh@itcast.cn" }
+      { "name": "张泽华", "title": "教学总监", "email": "zzh@itcast.cn" },
+      { "name": "余琪琪", "title": "就业指导", "email": "yuqiqi@itcast.cn" },
+      { "name": "朱占阳", "title": "就业指导", "email": "zhuzhanyang@itcast.cn" },
+      { "name": "李维", "title": "就业指导", "email": "liweisz@itcast.cn" },
+      { "name": "林锐波", "title": "就业指导", "email": "linruibo@itcast.cn" }
     ],
     "rules": []
   },
@@ -477,7 +634,8 @@
     "academy": "UI设计",
     "school": "深圳",
     "emails": [
-      { "name": "高志远", "title": "教学总监", "email": "gzy@itcast.cn" }
+      { "name": "高志远", "title": "教学总监", "email": "gzy@itcast.cn" },
+      { "name": "王伟民", "title": "就业指导", "email": "wanglimin@itcast.cn" }
     ],
     "rules": []
   },
@@ -486,7 +644,10 @@
     "academy": "iOS",
     "school": "深圳",
     "emails": [
-      { "name": "王绚文", "title": "教学总监", "email": "wxw@itcast.cn" }
+      { "name": "王绚文", "title": "教学总监", "email": "wxw@itcast.cn" },
+      { "name": "王志忠", "title": "就业指导", "email": "wagzhizhong@itcast.cn" },
+      { "name": "林利群", "title": "就业指导", "email": "linliqun@itcast.cn" },
+      { "name": "王天勇", "title": "就业指导", "email": "wangtianyong@itcast.cn" }
     ],
     "rules": []
   },
@@ -495,7 +656,8 @@
     "academy": "前端与移动开发",
     "school": "深圳",
     "emails": [
-      { "name": "张扬波", "title": "教学总监", "email": "zyb@itcast.cn" }
+      { "name": "张扬波", "title": "教学总监", "email": "zyb@itcast.cn" },
+      { "name": "邱永健", "title": "就业指导", "email": "qiuyongjian@itcast.cn" }
     ],
     "rules": []
   },
@@ -507,7 +669,12 @@
     "academy": "Java",
     "school": "武汉",
     "emails": [
-      { "name": "谢子龙", "title": "组长", "email": "xiezilong@itcast.cn" }
+      { "name": "谢子龙", "title": "组长", "email": "xiezilong@itcast.cn" },
+      { "name": "刘超华", "title": "就业指导", "email": "liuchaohua@itcast.cn" },
+      { "name": "汤富华", "title": "就业指导", "email": "tangfuhua@itcast.cn" },
+      { "name": "姜志成", "title": "就业指导", "email": "jiangzhicheng@itcast.cn" },
+      { "name": "邱志伟", "title": "就业指导", "email": "qiuzhiwei@itcast.cn" },
+      { "name": "肖伟", "title": "就业指导", "email": "xiaoweiwh@itcast.cn" }
     ],
     "rules": []
   },
@@ -516,7 +683,10 @@
     "academy": "UI设计",
     "school": "武汉",
     "emails": [
-      { "name": "邓小华", "title": "组长", "email": "dengxiaohua@itcast.cn" }
+      { "name": "邓小华", "title": "组长", "email": "dengxiaohua@itcast.cn" },
+      { "name": "熊小梅", "title": "就业指导", "email": "xiongxiaomei@itcast.cn" },
+      { "name": "刘玉峰", "title": "就业指导", "email": "liuyufeng@itcast.cn" },
+      { "name": "罗杨媛", "title": "就业指导", "email": "luoyangyuan@itcast.cn" }
     ],
     "rules": []
   },
@@ -525,7 +695,9 @@
     "academy": "iOS",
     "school": "武汉",
     "emails": [
-      { "name": "黄伟", "title": "组长", "email": "huangwei@itcast.cn" }
+      { "name": "黄伟", "title": "组长", "email": "huangwei@itcast.cn" },
+      { "name": "谌桃", "title": "就业指导", "email": "chentao@itcast.cn" },
+      { "name": "彭继宗", "title": "就业指导", "email": "pengjizhong@itcast.cn" }
     ],
     "rules": []
   },
@@ -535,7 +707,9 @@
     "school": "武汉",
     "emails": [
       { "name": "李帅", "title": "组长", "email": "lishuai@itcast.cn" },
-      { "name": "王金涛", "title": "组长", "email": "wangjintao@itcast.cn" }
+      { "name": "王金涛", "title": "组长", "email": "wangjintao@itcast.cn" },
+      { "name": "王显步", "title": "就业指导", "email": "wangxianbu@itcast.cn" },
+      { "name": "李金波", "title": "就业指导", "email": "lijinbo@itcast.cn" }
     ],
     "rules": []
   },
@@ -548,7 +722,10 @@
     "school": "郑州",
     "emails": [
       { "name": "陈文", "title": "教学总监", "email": "chenwen@itcast.cn" },
-      { "name": "刘亚超", "title": "组长", "email": "lyc@itcast.cn" }
+      { "name": "刘亚超", "title": "组长", "email": "lyc@itcast.cn" },
+      { "name": "朱志江", "title": "就业指导", "email": "zhuzhijiang@itcast.cn" },
+      { "name": "马帅", "title": "就业指导", "email": "mashuai@itcast.cn" },
+      { "name": "张百振", "title": "就业指导", "email": "zhangbaizhen@itcast.cn" }
     ],
     "rules": []
   },
@@ -831,14 +1008,26 @@
     "name": "JavaEE",
     "academy": "双元课堂",
     "school": "上海",
-    "emails": [],
+    "emails": [
+      { "name": "郭帅", "title": "就业指导", "email": "guoshuai@itcast.cn" },
+      { "name": "李俊杰", "title": "就业指导", "email": "lijunjie@itcast.cn" },
+      { "name": "李霖", "title": "就业指导", "email": "lilin@itcast.cn" },
+      { "name": "刘志宏", "title": "就业指导", "email": "liuzhihong@itcast.cn" },
+      { "name": "朱守兵", "title": "就业指导", "email": "zhushoubing@itcast.cn" },
+      { "name": "邾晨峰", "title": "就业指导", "email": "zhuchenfeng@itcast.cn" },
+      { "name": "魏杰", "title": "就业指导", "email": "weijie@itcast.cn" }
+    ],
     "rules": []
   },
   {
     "name": "Android",
     "academy": "双元课堂",
     "school": "上海",
-    "emails": [],
+    "emails": [
+      { "name": "王德升", "title": "就业指导", "email": "wangdesheng@itcast.cn" },
+      { "name": "晏志超", "title": "就业指导", "email": "yanzhichao@itcast.cn" },
+      { "name": "张如宜", "title": "就业指导", "email": "zhangruyi@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -852,7 +1041,10 @@
     "name": "PHP",
     "academy": "双元课堂",
     "school": "上海",
-    "emails": [],
+    "emails": [
+      { "name": "冯艳艳", "title": "就业指导", "email": "fengyanyan@itcast.cn" },
+      { "name": "薛杰", "title": "就业指导", "email": "xuejie@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -882,7 +1074,9 @@
     "school": "上海",
     "emails": [
       { "name": "牛亮亮", "title": "主管", "email": "nll@itcast.cn" },
-      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
+      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" },
+      { "name": "杜东阳", "title": "就业指导", "email": "dudongyang@itcast.cn" },
+      { "name": "菜威", "title": "就业指导", "email": "caiwei@itcast.cn" }
     ],
     "rules": []
   },
@@ -992,7 +1186,12 @@
     "name": "Android",
     "academy": "双元课堂",
     "school": "深圳",
-    "emails": [],
+    "emails": [
+      { "name": "余琪琪", "title": "就业指导", "email": "yuqiqi@itcast.cn" },
+      { "name": "朱占阳", "title": "就业指导", "email": "zhuzhanyang@itcast.cn" },
+      { "name": "李维", "title": "就业指导", "email": "liweisz@itcast.cn" },
+      { "name": "林锐波", "title": "就业指导", "email": "linruibo@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1015,7 +1214,8 @@
     "school": "深圳",
     "emails": [
       { "name": "张泽华", "title": "主管", "email": "zzh@itcast.cn" },
-      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" },
+      { "name": "王伟民", "title": "就业指导", "email": "wanglimin@itcast.cn" }
     ],
     "rules": []
   },
@@ -1025,7 +1225,10 @@
     "school": "深圳",
     "emails": [
       { "name": "张泽华", "title": "主管", "email": "zzh@itcast.cn" },
-       { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" }
+      { "name": "许圣彬", "title": "主管", "email": "xushengbin@itcast.cn" },
+      { "name": "王志忠", "title": "就业指导", "email": "wagzhizhong@itcast.cn" },
+      { "name": "林利群", "title": "就业指导", "email": "linliqun@itcast.cn" },
+      { "name": "王天勇", "title": "就业指导", "email": "wangtianyong@itcast.cn" }
     ],
     "rules": []
   },
@@ -1033,7 +1236,9 @@
     "name": "前端与移动开发",
     "academy": "双元课堂",
     "school": "深圳",
-    "emails": [],
+    "emails": [
+      { "name": "邱永健", "title": "就业指导", "email": "qiuyongjian@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1062,7 +1267,8 @@
     "school": "武汉",
     "emails": [
       { "name": "谢子龙", "title": "主管", "email": "xiezilong@itcast.cn" },
-      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" }
+      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" },
+      { "name": "张旷达", "title": "就业指导", "email": "zhangkuangda@itcast.cn" }
     ],
     "rules": []
   },
@@ -1072,7 +1278,12 @@
     "school": "武汉",
     "emails": [
       { "name": "谢子龙", "title": "主管", "email": "xiezilong@itcast.cn" },
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "刘超华", "title": "就业指导", "email": "liuchaohua@itcast.cn" },
+      { "name": "汤富华", "title": "就业指导", "email": "tangfuhua@itcast.cn" },
+      { "name": "姜志成", "title": "就业指导", "email": "jiangzhicheng@itcast.cn" },
+      { "name": "邱志伟", "title": "就业指导", "email": "qiuzhiwei@itcast.cn" },
+      { "name": "肖伟", "title": "就业指导", "email": "xiaoweiwh@itcast.cn" }
     ],
     "rules": []
   },
@@ -1087,7 +1298,10 @@
     "name": "PHP",
     "academy": "双元课堂",
     "school": "武汉",
-    "emails": [],
+    "emails": [
+      { "name": "王显步", "title": "就业指导", "email": "wangxianbu@itcast.cn" },
+      { "name": "李金波", "title": "就业指导", "email": "lijinbo@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1095,7 +1309,10 @@
     "academy": "双元课堂",
     "school": "武汉",
     "emails": [
-      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" },
+      { "name": "熊小梅", "title": "就业指导", "email": "xiongxiaomei@itcast.cn" },
+      { "name": "刘玉峰", "title": "就业指导", "email": "liuyufeng@itcast.cn" },
+      { "name": "罗杨媛", "title": "就业指导", "email": "luoyangyuan@itcast.cn" }
     ],
     "rules": []
   },
@@ -1103,7 +1320,10 @@
     "name": "iOS",
     "academy": "双元课堂",
     "school": "武汉",
-    "emails": [],
+    "emails": [
+      { "name": "谌桃", "title": "就业指导", "email": "chentao@itcast.cn" },
+      { "name": "彭继宗", "title": "就业指导", "email": "pengjizhong@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1139,7 +1359,8 @@
     "school": "郑州",
     "emails": [
       { "name": "陈文", "title": "主管", "email": "chenwen@itcast.cn" },
-      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" }
+      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" },
+      { "name": "刘鹤", "title": "就业指导", "email": "liuhe@itcast.cn" }
     ],
     "rules": []
   },
@@ -1149,7 +1370,10 @@
     "school": "郑州",
     "emails": [
       { "name": "陈文", "title": "主管", "email": "chenwen@itcast.cn" },
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "朱志江", "title": "就业指导", "email": "zhuzhijiang@itcast.cn" },
+      { "name": "马帅", "title": "就业指导", "email": "mashuai@itcast.cn" },
+      { "name": "张百振", "title": "就业指导", "email": "zhangbaizhen@itcast.cn" }
     ],
     "rules": []
   },
@@ -1220,7 +1444,10 @@
     "school": "西安",
     "emails": [
       { "name": "刘意", "title": "主管", "email": "liuyi@itcast.cn" },
-      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" }
+      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" },
+      { "name": "董东", "title": "就业指导", "email": "dongdong@itcast.cn" },
+      { "name": "沙诗博", "title": "就业指导", "email": "ssb@itcast.cn" },
+      { "name": "李刚", "title": "就业指导", "email": "ligang@itcast.cn" }
     ],
     "rules": []
   },
@@ -1230,7 +1457,12 @@
     "school": "西安",
     "emails": [
       { "name": "刘意", "title": "主管", "email": "liuyi@itcast.cn" },
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "王超", "title": "就业指导", "email": "wc@itcast.cn" },
+      { "name": "洪平", "title": "就业指导", "email": "hongping@itcast.cn" },
+      { "name": "苗清", "title": "就业指导", "email": "miaoqing@itcast.cn" },
+      { "name": "毕腾飞", "title": "就业指导", "email": "bitengfei@itcast.cn" },
+      { "name": "陈悦飞", "title": "就业指导", "email": "chenyuefei@itcast.cn" }
     ],
     "rules": []
   },
@@ -1254,7 +1486,10 @@
     "school": "西安",
     "emails": [
       { "name": "刘意", "title": "主管", "email": "liuyi@itcast.cn" },
-      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" }
+      { "name": "徐自知", "title": "主管", "email": "xuzizhi@itcast.cn" },
+      { "name": "杨晓雪", "title": "就业指导", "email": "yangxiaoxue@itcast.cn" },
+      { "name": "郭宇峰", "title": "就业指导", "email": "guoyufeng@itcast.cn" },
+      { "name": "田智宇", "title": "就业指导", "email": "tianzhiyu@itcast.cn" }
     ],
     "rules": []
   },
@@ -1295,7 +1530,12 @@
     "name": "JavaEE",
     "academy": "双元课堂",
     "school": "长沙",
-    "emails": [],
+    "emails": [
+      { "name": "吴永发", "title": "就业指导", "email": "wuyongfa@itcast.cn" },
+      { "name": "胡焱", "title": "就业指导", "email": "huyan@itcast.cn" },
+      { "name": "刘浪", "title": "就业指导", "email": "liulang@itcast.cn" },
+      { "name": "左帅", "title": "就业指导", "email": "zuoshuai@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1343,7 +1583,9 @@
     "academy": "双元课堂",
     "school": "长沙",
     "emails": [
-      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" }
+      { "name": "陈伟", "title": "组长", "email": "chenwei@itcast.cn" },
+      { "name": "刘逸", "title": "就业指导", "email": "liuyi880124@itcast.cn" },
+      { "name": "谢天成", "title": "就业指导", "email": "xietiancheng@itcast.cn" }
     ],
     "rules": []
   },
@@ -1380,7 +1622,9 @@
     "academy": "双元课堂",
     "school": "重庆",
     "emails": [
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "王铎", "title": "就业指导", "email": "wangduo@itcast.cn" },
+      { "name": "温赫斌", "title": "就业指导", "email": "wenhebin@itcast.cn" }
     ],
     "rules": []
   },
@@ -1452,7 +1696,9 @@
     "academy": "双元课堂",
     "school": "济南",
     "emails": [
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "孟凡凯", "title": "就业指导", "email": "mengfankai@itcast.cn" },
+      { "name": "王继哲", "title": "就业指导", "email": "wangjizhe@itcast.cn" }
     ],
     "rules": []
   },
@@ -1522,7 +1768,9 @@
     "academy": "双元课堂",
     "school": "哈尔滨",
     "emails": [
-      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" }
+      { "name": "赵森羊", "title": "主管", "email": "zhaosenyang@itcast.cn" },
+      { "name": "李强", "title": "就业指导", "email": "liqiang@itcast.cn" },
+      { "name": "张志凯", "title": "就业指导", "email": "zhangzhikai@itcast.cn" }
     ],
     "rules": []
   },
@@ -1584,7 +1832,11 @@
     "name": "JavaEE",
     "academy": "双元课堂",
     "school": "杭州",
-    "emails": [],
+    "emails": [
+      { "name": "许夏荣", "title": "就业指导", "email": "xuxiarong@itcast.cn" },
+      { "name": "范钰", "title": "就业指导", "email": "fanyu@itcast.cn" },
+      { "name": "陈君", "title": "就业指导", "email": "chenjun@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1656,7 +1908,10 @@
     "name": "JavaEE",
     "academy": "双元课堂",
     "school": "南京",
-    "emails": [],
+    "emails": [
+      { "name": "李大鹏", "title": "就业指导", "email": "lidapeng@itcast.cn" },
+      { "name": "唐杰", "title": "就业指导", "email": "tangjie@itcast.cn" }
+    ],
     "rules": []
   },
   {
@@ -1727,7 +1982,9 @@
     "academy": "双元课堂",
     "school": "成都",
     "emails": [
-      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" }
+      { "name": "王建宇", "title": "主管", "email": "wangjianyu@itcast.cn" },
+      { "name": "蒲玮浩", "title": "就业指导", "email": "puweihao@itcast.cn" },
+      { "name": "刘辉", "title": "就业指导", "email": "liuhui@itcast.cn" }
     ],
     "rules": []
   },
