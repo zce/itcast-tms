@@ -3,7 +3,8 @@
     { "name": "评分", "title": "系统", "email": "pingfen@itcast.cn" },
     { "name": "李印东", "title": "主任", "email": "lyd@itcast.cn" },
     { "name": "冯佳", "title": "主任", "email": "fengjia@itcast.cn" },
-    { "name": "翁发达", "title": "主任", "email": "wengfada@itcast.cn" }
+    { "name": "翁发达", "title": "主任", "email": "wengfada@itcast.cn" },
+    { "name": "张慧敏", "title": "文员", "email": "zhanghuimin@itcast.cn" }
   ],
   "rules": ["2015", "2016"]
 }

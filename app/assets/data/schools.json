@@ -25,6 +25,7 @@
   },
   "上海": {
     "emails": [
+      { "name": "冯威", "title": "副总裁", "email": "fw@itcast.cn" },
       { "name": "王强", "title": "校长", "email": "wangqiang@itcast.cn" },
       { "name": "唐小平", "title": "学工部主管", "email": "tangxiaoping@itcast.cn" },
       { "name": "高大东", "title": "就业部主管", "email": "gaodadong@itcast.cn" }
